@@ -1356,11 +1356,19 @@ p {
     display: flex;
   }
 
+  .nav__inner {
+    height: auto !important;
+    min-height: 72px;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
   .nav__logo, .nav__logo a, .nav-logo, .site-title {
     font-size: 24px !important;
     font-weight: 700 !important;
     color: #1A1A1A !important;
     letter-spacing: -0.01em !important;
+    padding-top: 4px !important;
   }
 
   .nav__logo-role, .nav-subtitle, .site-tagline {
@@ -1368,8 +1376,12 @@ p {
     font-weight: 600 !important;
     color: #C85A2A !important;
     display: block !important;
-    margin-top: 3px !important;
-    padding-bottom: 8px !important;
+    margin-top: 6px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .nav__mobile {
+    top: auto !important;
   }
 
   .nav__mobile a {
