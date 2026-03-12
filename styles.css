@@ -957,11 +957,12 @@ p {
   }
 
   .nav__logo {
-    font-size: 1.3rem;
+    font-size: 18px;
+    font-weight: 600;
   }
 
   .nav__logo-role {
-    font-size: 0.8rem;
+    font-size: 13px;
   }
 
   /* Container */
@@ -972,15 +973,16 @@ p {
   /* Body text */
   body {
     font-size: 17px;
+    line-height: 1.75;
   }
 
   /* Typography */
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-  h3 { font-size: 1.25rem; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 26px; }
+  h3 { font-size: 20px; }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 34px;
   }
 
   .hero__sub {
