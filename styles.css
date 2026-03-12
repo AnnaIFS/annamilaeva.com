@@ -1007,22 +1007,9 @@ p {
     top: 40px;
   }
 
-  /* Footer */
-  .footer__quote {
-    font-size: 0.95rem;
-  }
-
-  .footer__bottom span {
-    font-size: 0.7rem;
-  }
-
   /* CTA */
   .cta-strip {
     padding: 44px 0;
-  }
-
-  .cta-strip p {
-    font-size: 0.92rem;
   }
 
   /* Article cards */
@@ -1361,12 +1348,6 @@ p {
   }
 
   /* --- Nav --- */
-  nav, header, .nav, .navbar, .site-header {
-    padding-top: 16px !important;
-    padding-bottom: 16px !important;
-    margin-bottom: 24px !important;
-  }
-
   .nav__links {
     display: none;
   }
@@ -1388,6 +1369,18 @@ p {
     color: #C85A2A !important;
     display: block !important;
     margin-top: 3px !important;
+  }
+
+  .nav__mobile a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Ghost buttons need adequate tap target */
+  .btn--ghost {
+    min-height: 44px;
+    padding: 12px 0 !important;
   }
 
   /* --- Footer --- */
@@ -1612,9 +1605,12 @@ p {
     padding: 56px 0;
   }
 
-  /* --- Credentials --- */
-  .credentials {
-    grid-template-columns: 1fr 1fr;
+  /* --- Credentials / Training / About grids --- */
+  .credentials,
+  .credentials-grid, .training-grid, .certifications-grid,
+  .about-grid, .training-list, .credentials-list {
+    grid-template-columns: 1fr !important;
+    columns: 1 !important;
     gap: 16px;
   }
 
