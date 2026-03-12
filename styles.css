@@ -957,16 +957,21 @@ p {
   }
 
   .nav__logo {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
   }
 
   .nav__logo-role {
-    font-size: 0.72rem;
+    font-size: 0.8rem;
   }
 
   /* Container */
   .container {
     padding: 0 20px;
+  }
+
+  /* Body text */
+  body {
+    font-size: 17px;
   }
 
   /* Typography */
@@ -1189,6 +1194,11 @@ p {
     max-width: 100%;
   }
 
+  /* Reduce gap below circle photos in content sections */
+  .circle-photo-wrapper {
+    margin-bottom: 24px !important;
+  }
+
   /* Credentials */
   .credentials {
     grid-template-columns: 1fr 1fr;
@@ -1315,11 +1325,11 @@ p {
   }
 
   .nav__logo {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
   }
 
   .nav__logo-role {
-    font-size: 0.68rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -1387,8 +1397,10 @@ p {
 
 @media (max-width: 768px) {
   .circle-photo {
-    width: 100% !important;
-    height: auto !important;
+    width: 260px !important;
+    height: 260px !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
