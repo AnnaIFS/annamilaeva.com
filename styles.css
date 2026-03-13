@@ -543,6 +543,13 @@ p {
 }
 
 /* ---- About Snippet ---- */
+.about-snippet__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: start;
+}
+
 .about-snippet__img {
   width: 100%;
   display: flex;
@@ -927,6 +934,7 @@ p {
 
   .grid-2,
   .bio-section,
+  .about-snippet__grid,
   .contact-grid,
   .service-block__inner {
     grid-template-columns: 1fr;
@@ -1509,6 +1517,7 @@ p {
   }
 
   .bio-section,
+  .about-snippet__grid,
   .contact-grid,
   .service-block__inner {
     grid-template-columns: 1fr;
