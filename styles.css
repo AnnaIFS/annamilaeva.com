@@ -548,6 +548,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: sticky;
+  top: 96px;
+  align-self: start;
 }
 
 .about-snippet__text h2 {
@@ -1535,6 +1538,7 @@ p {
 
   /* --- Images --- */
   .about-snippet__img {
+    position: static;
     aspect-ratio: 16 / 10;
     max-height: 300px;
   }
