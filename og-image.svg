@@ -1,0 +1,43 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FAF7F2"/>
+
+  <!-- Subtle top border accent -->
+  <rect x="0" y="0" width="1200" height="5" fill="#C85A2A"/>
+
+  <!-- Decorative terracotta circle (top-right) -->
+  <circle cx="1060" cy="120" r="180" fill="#C85A2A" opacity="0.06"/>
+  <circle cx="1100" cy="80" r="100" fill="#C85A2A" opacity="0.04"/>
+
+  <!-- Decorative circle (bottom-left) -->
+  <circle cx="140" cy="530" r="160" fill="#C85A2A" opacity="0.05"/>
+
+  <!-- Thin decorative line -->
+  <line x1="100" y1="340" x2="340" y2="340" stroke="#C85A2A" stroke-width="2" opacity="0.4"/>
+
+  <!-- Name -->
+  <text x="100" y="260" font-family="'Playfair Display', Georgia, serif" font-size="72" font-weight="500" fill="#1A1A1A" letter-spacing="-1">Anna Milaeva</text>
+
+  <!-- Role -->
+  <text x="104" y="310" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="24" font-weight="400" fill="#C85A2A" letter-spacing="3" text-transform="uppercase">
+    <tspan>TRANSFORMATIONAL IFS COACH</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="100" y="410" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="400" fill="#6B6B6B" font-style="italic">The real work is on the inside.</text>
+  <text x="100" y="450" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="400" fill="#6B6B6B" font-style="italic">Everything else follows.</text>
+
+  <!-- Website URL -->
+  <text x="100" y="560" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="18" font-weight="300" fill="#6B6B6B" letter-spacing="1">annamilaeva.com</text>
+
+  <!-- Small decorative dot cluster -->
+  <circle cx="1050" cy="480" r="4" fill="#C85A2A" opacity="0.3"/>
+  <circle cx="1070" cy="500" r="3" fill="#C85A2A" opacity="0.2"/>
+  <circle cx="1040" cy="510" r="5" fill="#C85A2A" opacity="0.15"/>
+</svg>
