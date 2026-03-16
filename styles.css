@@ -1126,7 +1126,7 @@ p {
   }
 
   .hero {
-    padding: 120px 0 72px;
+    padding: 132px 0 72px;
     min-height: auto;
   }
 
@@ -1140,11 +1140,11 @@ p {
   }
 
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 184px;
+    padding-top: 200px;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 168px;
+    padding-top: 184px;
   }
 }
 
@@ -1158,11 +1158,11 @@ p {
   }
 
   .hero {
-    padding: 92px 0 48px;
+    padding: 108px 0 48px;
   }
 
   .hero--compact {
-    padding: 92px 0 40px;
+    padding: 100px 0 40px;
   }
 
   .announcement-bar {
@@ -1175,11 +1175,11 @@ p {
   }
 
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 176px;
+    padding-top: 196px;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 160px;
+    padding-top: 180px;
   }
 
   .section {
@@ -1689,12 +1689,12 @@ p {
 
   /* --- Hero --- */
   .hero {
-    padding: 100px 0 56px !important;
+    padding: 112px 0 56px !important;
     min-height: auto;
   }
 
   .hero--compact {
-    padding: 100px 0 48px !important;
+    padding: 104px 0 48px !important;
   }
 
   .announcement-bar ~ .nav {
@@ -1702,11 +1702,11 @@ p {
   }
 
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 176px !important;
+    padding-top: 196px !important;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 160px !important;
+    padding-top: 180px !important;
   }
 
   .hero__content,
