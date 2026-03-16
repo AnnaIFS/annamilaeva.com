@@ -21,6 +21,39 @@ if (hamburger && mobileNav) {
   });
 }
 
+// Desktop dropdown
+const dropdown = document.querySelector('.nav__dropdown');
+const dropdownToggle = document.querySelector('.nav__dropdown-toggle');
+
+if (dropdown && dropdownToggle) {
+  dropdownToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') dropdown.classList.remove('open');
+  });
+}
+
+// Mobile dropdown
+const mobileDropdown = document.querySelector('.nav__mobile-dropdown');
+const mobileDropdownToggle = document.querySelector('.nav__mobile-dropdown-toggle');
+
+if (mobileDropdown && mobileDropdownToggle) {
+  mobileDropdownToggle.addEventListener('click', () => {
+    mobileDropdown.classList.toggle('open');
+  });
+}
+
 // Nav scroll shadow
 const nav = document.getElementById('nav');
 
