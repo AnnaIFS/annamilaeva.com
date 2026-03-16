@@ -1,9 +1,38 @@
+/* Google Fonts — must be first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
 /* ========================================
    Anna Milaeva — Personal Website Styles
    ======================================== */
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+/* Announcement Bar */
+.announcement-bar {
+  background-color: #C85A2A;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 16px;
+  line-height: 1.4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+/* Push nav down when announcement bar is present */
+.announcement-bar ~ .nav {
+  top: 36px;
+}
+
+/* Add extra top padding for page content when announcement bar is present */
+.announcement-bar ~ .nav ~ .hero {
+  padding-top: 196px;
+}
+
+.announcement-bar ~ .nav ~ .hero--compact {
+  padding-top: 176px;
+}
 
 /* ---- Reset & Base ---- */
 *, *::before, *::after {
@@ -943,6 +972,14 @@ p {
     padding: 120px 0 72px;
     min-height: auto;
   }
+
+  .announcement-bar ~ .nav ~ .hero {
+    padding-top: 156px;
+  }
+
+  .announcement-bar ~ .nav ~ .hero--compact {
+    padding-top: 140px;
+  }
 }
 
 /* Mobile */
@@ -960,6 +997,14 @@ p {
 
   .hero--compact {
     padding: 92px 0 40px;
+  }
+
+  .announcement-bar ~ .nav ~ .hero {
+    padding-top: 136px;
+  }
+
+  .announcement-bar ~ .nav ~ .hero--compact {
+    padding-top: 120px;
   }
 
   .section {
@@ -1475,6 +1520,14 @@ p {
 
   .hero--compact {
     padding: 100px 0 48px !important;
+  }
+
+  .announcement-bar ~ .nav ~ .hero {
+    padding-top: 140px !important;
+  }
+
+  .announcement-bar ~ .nav ~ .hero--compact {
+    padding-top: 128px !important;
   }
 
   .hero__content,
