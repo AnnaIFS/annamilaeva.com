@@ -1131,20 +1131,20 @@ p {
   }
 
   .announcement-bar {
-    font-size: 12px;
-    padding: 6px 12px;
+    font-size: 13px;
+    padding: 8px 16px;
   }
 
   .announcement-bar ~ .nav {
-    top: 52px;
+    top: 60px;
   }
 
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 176px;
+    padding-top: 184px;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 160px;
+    padding-top: 168px;
   }
 }
 
@@ -1166,20 +1166,20 @@ p {
   }
 
   .announcement-bar {
-    font-size: 11px;
-    padding: 6px 10px;
+    font-size: 12.5px;
+    padding: 8px 14px;
   }
 
   .announcement-bar ~ .nav {
-    top: 58px;
+    top: 68px;
   }
 
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 160px;
+    padding-top: 176px;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 144px;
+    padding-top: 160px;
   }
 
   .section {
@@ -1698,15 +1698,15 @@ p {
   }
 
   .announcement-bar ~ .nav {
-    top: 56px;
+    top: 68px;
   }
 
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 164px !important;
+    padding-top: 176px !important;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 148px !important;
+    padding-top: 160px !important;
   }
 
   .hero__content,
