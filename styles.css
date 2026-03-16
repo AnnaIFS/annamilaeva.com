@@ -973,12 +973,21 @@ p {
     min-height: auto;
   }
 
+  .announcement-bar {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .announcement-bar ~ .nav {
+    top: 52px;
+  }
+
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 156px;
+    padding-top: 176px;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 140px;
+    padding-top: 160px;
   }
 }
 
@@ -999,12 +1008,21 @@ p {
     padding: 92px 0 40px;
   }
 
+  .announcement-bar {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .announcement-bar ~ .nav {
+    top: 58px;
+  }
+
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 136px;
+    padding-top: 160px;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 120px;
+    padding-top: 144px;
   }
 
   .section {
@@ -1522,12 +1540,16 @@ p {
     padding: 100px 0 48px !important;
   }
 
+  .announcement-bar ~ .nav {
+    top: 56px;
+  }
+
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 140px !important;
+    padding-top: 164px !important;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 128px !important;
+    padding-top: 148px !important;
   }
 
   .hero__content,
