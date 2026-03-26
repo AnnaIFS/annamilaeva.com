@@ -21,15 +21,20 @@ if (hamburger && mobileNav) {
   });
 }
 
-// Desktop dropdown
+// Desktop dropdown — opens on hover, link navigates on click
 const dropdown = document.querySelector('.nav__dropdown');
 const dropdownToggle = document.querySelector('.nav__dropdown-toggle');
+const dropdownArrow = dropdown ? dropdown.querySelector('.nav__dropdown-arrow') : null;
 
 if (dropdown && dropdownToggle) {
-  dropdownToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dropdown.classList.toggle('open');
-  });
+  // Arrow click toggles dropdown without navigating
+  if (dropdownArrow) {
+    dropdownArrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
+    });
+  }
 
   // Close when clicking outside
   document.addEventListener('click', (e) => {
