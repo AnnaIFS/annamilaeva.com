@@ -101,12 +101,49 @@ document.querySelectorAll('.faq__question').forEach(btn => {
     const isOpen = item.classList.contains('open');
 
     // Close all
-    document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('open'));
+    document.querySelectorAll('.faq__item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+    });
 
     // Toggle clicked
     if (!isOpen) {
       item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
     }
+  });
+});
+
+// AJAX form submission (no redirect)
+document.querySelectorAll('.ajax-form').forEach(form => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.style.display = 'none';
+        const successEl = form.nextElementSibling;
+        if (successEl && successEl.classList.contains('form-success')) {
+          successEl.style.display = 'block';
+        }
+      } else {
+        btn.textContent = 'Something went wrong. Try again.';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = originalText; }, 3000);
+      }
+    }).catch(() => {
+      btn.textContent = 'Something went wrong. Try again.';
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = originalText; }, 3000);
+    });
   });
 });
 
