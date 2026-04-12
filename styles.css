@@ -1746,12 +1746,12 @@ p {
 
   /* --- Hero --- */
   .hero {
-    padding: 112px 0 56px !important;
+    padding: 140px 0 56px !important;
     min-height: auto;
   }
 
   .hero--compact {
-    padding: 104px 0 48px !important;
+    padding: 132px 0 48px !important;
   }
 
   .announcement-bar ~ .nav {
@@ -1759,11 +1759,11 @@ p {
   }
 
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 196px !important;
+    padding-top: 224px !important;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 180px !important;
+    padding-top: 208px !important;
   }
 
   .hero__content,
