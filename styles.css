@@ -1745,25 +1745,19 @@ p {
   }
 
   /* --- Hero --- */
+  /* padding-top is set dynamically by JS (adjustHeroPadding) to account for
+     variable nav + announcement-bar heights across device sizes */
   .hero {
-    padding: 140px 0 56px !important;
+    padding-bottom: 56px !important;
     min-height: auto;
   }
 
   .hero--compact {
-    padding: 132px 0 48px !important;
+    padding-bottom: 48px !important;
   }
 
   .announcement-bar ~ .nav {
     top: 68px;
-  }
-
-  .announcement-bar ~ .nav ~ .hero {
-    padding-top: 224px !important;
-  }
-
-  .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 208px !important;
   }
 
   .hero__content,
