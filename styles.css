@@ -1603,6 +1603,28 @@ p {
   font-size: 0.95rem;
 }
 
+/* ---- Facebook / Instagram in-app browser fix ---- */
+/* Only applies when JS detects FB/IG WebView and adds .fb-browser to <html> */
+@media (max-width: 768px) {
+  .fb-browser .announcement-bar {
+    position: relative;
+  }
+
+  .fb-browser .nav {
+    position: relative;
+  }
+
+  .fb-browser .hero,
+  .fb-browser .hero--compact {
+    padding-top: 48px !important;
+  }
+
+  .fb-browser .announcement-bar ~ .nav ~ .hero,
+  .fb-browser .announcement-bar ~ .nav ~ .hero--compact {
+    padding-top: 48px !important;
+  }
+}
+
 /* ---- Mobile Override (final, nothing should follow) ---- */
 @media (max-width: 768px) {
 

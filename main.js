@@ -2,6 +2,11 @@
    Anna Milaeva — Main JavaScript
    ======================================== */
 
+// Facebook in-app browser fix
+if (/FBAN|FBAV|Instagram/i.test(navigator.userAgent)) {
+  document.documentElement.classList.add('fb-browser');
+}
+
 // Mobile menu toggle
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');
