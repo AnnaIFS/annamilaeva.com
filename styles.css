@@ -1745,23 +1745,21 @@ p {
   }
 
   /* --- Hero --- */
-  /* padding-top is refined by JS (adjustHeroPadding) after load, but these
-     CSS values are safe fallbacks that clear the taller mobile nav */
   .hero {
-    padding: 160px 0 56px !important;
+    padding: 180px 0 56px !important;
     min-height: auto;
   }
 
   .hero--compact {
-    padding: 152px 0 48px !important;
+    padding: 172px 0 48px !important;
   }
 
   .announcement-bar ~ .nav ~ .hero {
-    padding-top: 260px !important;
+    padding-top: 280px !important;
   }
 
   .announcement-bar ~ .nav ~ .hero--compact {
-    padding-top: 244px !important;
+    padding-top: 264px !important;
   }
 
   .announcement-bar ~ .nav {

@@ -59,22 +59,6 @@ if (mobileDropdown && mobileDropdownToggle) {
   });
 }
 
-// Dynamic hero padding — measure fixed header elements so content never hides behind them
-function adjustHeroPadding() {
-  const announcementBar = document.querySelector('.announcement-bar');
-  const navEl = document.getElementById('nav');
-  const hero = document.querySelector('.hero, .hero--compact');
-  if (!navEl || !hero) return;
-
-  const barHeight = announcementBar ? announcementBar.offsetHeight : 0;
-  const navHeight = navEl.querySelector('.nav__inner').offsetHeight;
-  hero.style.paddingTop = (barHeight + navHeight + 32) + 'px';
-}
-
-adjustHeroPadding();
-window.addEventListener('resize', adjustHeroPadding);
-document.fonts.ready.then(adjustHeroPadding);
-
 // Nav scroll shadow
 const nav = document.getElementById('nav');
 
