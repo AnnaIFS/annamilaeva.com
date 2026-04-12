@@ -516,9 +516,6 @@ p {
 /* Mobile nav */
 .nav__mobile {
   display: none;
-  position: fixed;
-  top: 72px;
-  left: 0;
   width: 100%;
   background: var(--bg);
   border-bottom: 1px solid var(--divider);
@@ -1310,10 +1307,6 @@ p {
     height: 64px;
   }
 
-  .nav__mobile {
-    top: 64px;
-  }
-
 }
 
 /* ---- FINO Link ---- */
@@ -1670,10 +1663,6 @@ p {
     display: block !important;
     margin-top: 6px !important;
     padding-bottom: 4px !important;
-  }
-
-  .nav__mobile {
-    top: auto !important;
   }
 
   .nav__mobile a {
