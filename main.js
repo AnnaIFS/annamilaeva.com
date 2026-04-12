@@ -73,6 +73,7 @@ function adjustHeroPadding() {
 
 adjustHeroPadding();
 window.addEventListener('resize', adjustHeroPadding);
+document.fonts.ready.then(adjustHeroPadding);
 
 // Nav scroll shadow
 const nav = document.getElementById('nav');
