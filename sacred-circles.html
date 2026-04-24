@@ -26,7 +26,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=24">
+  <link rel="stylesheet" href="styles.css?v=25">
 </head>
 <body>
 
@@ -130,7 +130,8 @@
           <p style="font-size: 0.85rem; color: #6B6B6B; margin-bottom: 16px;">This cohort is sold out. Leave your email and I'll let you know when the next one opens.</p>
           <form class="ajax-form" id="waitlistForm" action="https://formspree.io/f/mlgpnddo" method="POST" style="display: flex; flex-direction: column; gap: 12px;">
             <input type="hidden" name="_subject" value="Sacred Circles Waitlist">
-            <input type="email" name="email" placeholder="Your email" required style="padding: 14px 18px; border: 1px solid var(--divider); border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; color: var(--text); background: var(--white); outline: none; width: 100%;">
+            <input type="text" name="name" placeholder="Your full name" required autocomplete="name" style="padding: 14px 18px; border: 1px solid var(--divider); border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; color: var(--text); background: var(--white); outline: none; width: 100%;">
+            <input type="email" name="email" placeholder="Your email" required autocomplete="email" style="padding: 14px 18px; border: 1px solid var(--divider); border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; color: var(--text); background: var(--white); outline: none; width: 100%;">
             <button type="submit" class="btn btn--outline" style="width: 100%;">Join the Waitlist</button>
           </form>
           <div class="form-success" id="waitlistFormSuccess" style="display:none;">

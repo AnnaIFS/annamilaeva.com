@@ -544,7 +544,7 @@ p {
   padding: 120px 0 80px;
   min-height: 70vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hero--compact {
