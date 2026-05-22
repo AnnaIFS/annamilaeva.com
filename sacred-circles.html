@@ -6,6 +6,9 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="canonical" href="https://annamilaeva.com/sacred-circles">
+  <link rel="alternate" hreflang="en" href="https://annamilaeva.com/sacred-circles">
+  <link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/circulos-sagrados">
+  <link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/sacred-circles">
   <title>Sacred Circles. Anna Milaeva</title>
   <meta name="description" content="A small-group coaching space for people doing deep inner work who want the changes to actually show up on a regular Tuesday.">
 
@@ -26,7 +29,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=25">
+  <link rel="stylesheet" href="styles.css?v=28">
 </head>
 <body>
 
@@ -51,6 +54,11 @@
         <a href="writing">Writing</a>
         <a href="contact">Contact</a>
       </div>
+      <div class="nav__lang" aria-label="Language">
+        <a href="/sacred-circles" class="active" lang="en">English</a>
+        <span class="nav__lang-sep">|</span>
+        <a href="/es/circulos-sagrados" lang="es" hreflang="es">Espa&ntilde;ol</a>
+      </div>
       <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -72,6 +80,11 @@
       </div>
       <a href="writing">Writing</a>
       <a href="contact">Contact</a>
+      <div class="nav__lang-mobile" aria-label="Language">
+        <a href="/sacred-circles" class="active" lang="en">English</a>
+        <span class="nav__lang-sep">|</span>
+        <a href="/es/circulos-sagrados" lang="es" hreflang="es">Espa&ntilde;ol</a>
+      </div>
     </div>
   </nav>
 
@@ -276,6 +289,7 @@
           <div class="pricing-card__price">€180</div>
           <p>7 sessions over 8 weeks. 90 minutes each. Small group. Online via Zoom.</p>
           <span class="btn" style="background: #B8A99A; color: var(--white); cursor: not-allowed; letter-spacing: 0.08em;" aria-disabled="true">Sold Out</span>
+          <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-light);">Leave your email and I'll let you know when the next cohort opens.<br><a href="#waitlist" style="color: var(--accent); text-decoration: underline; font-weight: 600;">Join the waitlist &rarr;</a></p>
         </div>
       </div>
     </div>
@@ -362,7 +376,7 @@
             <span class="faq__icon">+</span>
           </button>
           <div class="faq__answer">
-            <p>English.</p>
+            <p>Depends on the cohort. Some run in English, others in Spanish.</p>
           </div>
         </div>
       </div>
@@ -370,7 +384,7 @@
   </section>
 
   <!-- CTA Strip -->
-  <section class="cta-strip">
+  <section class="cta-strip" id="waitlist">
     <div class="container fade-in">
       <h2>Sacred Circle #11 is full.</h2>
       <p>Join the waitlist and I'll let you know when the next cohort opens.</p>
@@ -379,7 +393,6 @@
       <hr style="border: none; border-top: 1px solid var(--divider); max-width: 400px; margin: 40px auto 0;">
 
       <div style="max-width: 400px; margin: 40px auto 0; text-align: center;">
-        <p style="font-size: 0.85rem; color: #6B6B6B; margin-bottom: 16px;">This cohort is sold out. Leave your email and I'll let you know when the next one opens.</p>
         <form class="ajax-form" id="waitlistFormCta" action="https://formspree.io/f/mlgpnddo" method="POST" style="display: flex; flex-direction: column; gap: 12px;">
           <input type="hidden" name="_subject" value="Sacred Circles Waitlist">
           <input type="text" name="name" placeholder="Your full name" required autocomplete="name" style="padding: 14px 18px; border: 1px solid var(--divider); border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; color: var(--text); background: var(--white); outline: none; width: 100%;">
