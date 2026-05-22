@@ -1733,10 +1733,6 @@ p {
     display: none;
   }
 
-  .nav__lang {
-    display: none;
-  }
-
   .nav__hamburger {
     display: flex;
   }
@@ -1746,6 +1742,36 @@ p {
     min-height: 100px;
     padding-top: 16px !important;
     padding-bottom: 16px !important;
+    flex-wrap: wrap;
+  }
+
+  /* Lang toggle: visible on mobile, below the logo */
+  .nav__lang {
+    display: flex;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    padding-top: 10px;
+    margin-top: 6px;
+    border-top: 1px solid var(--divider);
+    font-size: 0.95rem;
+    gap: 14px;
+  }
+
+  .nav__hamburger {
+    order: 2;
+  }
+
+  .nav__logo {
+    order: 1;
+  }
+
+  /* Hide the drawer's lang toggle since we now show it always */
+  .nav__lang-mobile {
+    display: none;
   }
 
   .nav__logo, .nav__logo a, .nav-logo, .site-title {
