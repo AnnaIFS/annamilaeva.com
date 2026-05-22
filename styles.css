@@ -1745,7 +1745,7 @@ p {
     flex-wrap: wrap;
   }
 
-  /* Lang toggle: visible on mobile, below the logo */
+  /* Lang toggle: visible on mobile, below the logo. Hides on scroll. */
   .nav__lang {
     display: flex;
     order: 3;
@@ -1759,6 +1759,18 @@ p {
     border-top: 1px solid var(--divider);
     font-size: 0.95rem;
     gap: 14px;
+    max-height: 60px;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease, margin 0.3s ease, border-color 0.3s ease;
+  }
+
+  .nav.scrolled .nav__lang {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    margin-top: 0;
+    border-top-color: transparent;
   }
 
   /* Mobile: both languages prominently visible (not just the active one) */
