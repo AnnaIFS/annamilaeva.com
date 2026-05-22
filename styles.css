@@ -1761,6 +1761,19 @@ p {
     gap: 14px;
   }
 
+  /* Mobile: both languages prominently visible (not just the active one) */
+  .nav__lang a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--divider);
+  }
+
+  .nav__lang a.active {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+
   .nav__hamburger {
     order: 2;
   }
