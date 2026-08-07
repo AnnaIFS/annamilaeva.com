@@ -112,8 +112,11 @@
     }
     .bk-card { perspective: 1200px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
     .bk-card__inner { position: relative; width: 100%; transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.3, 1.14); transform-style: preserve-3d; }
-    .bk-card:hover .bk-card__inner, .bk-card.flipped .bk-card__inner { transform: rotateY(180deg); }
-    .bk-card:active .bk-card__inner { transition-duration: 0.6s; }
+    .bk-card.flipped .bk-card__inner { transform: rotateY(180deg); }
+    @media (hover: hover) {
+      .bk-card:hover .bk-card__inner { transform: rotateY(180deg); }
+      .bk-card:active .bk-card__inner { transition-duration: 0.6s; }
+    }
     .bk-card__face {
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
@@ -137,8 +140,22 @@
       transform: translateX(-130%);
       pointer-events: none;
     }
-    .bk-card:hover .bk-card__face::before,
     .bk-card.flipped .bk-card__face::before { animation: bkShine 0.9s ease 0.25s; }
+    @media (hover: hover) {
+      .bk-card:hover .bk-card__face::before { animation: bkShine 0.9s ease 0.25s; }
+    }
+    /* Touch devices: 3D backface rendering is unreliable, so tap crossfades
+       the dark inside face over the front instead of rotating the card */
+    @media (hover: none) {
+      .bk-card__inner, .bk-card.flipped .bk-card__inner { transform: none !important; }
+      .bk-card__back {
+        transform: none;
+        opacity: 0;
+        z-index: 3;
+        transition: opacity 0.4s ease;
+      }
+      .bk-card.flipped .bk-card__back { opacity: 1; }
+    }
     @keyframes bkShine {
       from { transform: translateX(-130%); }
       to { transform: translateX(130%); }
