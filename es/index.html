@@ -80,6 +80,9 @@
       .hm-card__back p { color: #EFE6DC !important; font-size: 16px !important; line-height: 1.6 !important; }
       .hm-inside-label { color: #E8784A !important; }
     }
+    /* Tighten the seam between the composites section and the next one */
+    .hm-tight { padding-bottom: 28px !important; }
+    .hm-tight-next { padding-top: 36px !important; }
     @media (prefers-reduced-motion: reduce) {
       .hm-card__inner { transition: none; }
       .hm-card__face::before { animation: none !important; }
@@ -230,7 +233,7 @@
   </div>
 
   <!-- C&oacute;mo se ve este trabajo -->
-  <section class="section section--sm">
+  <section class="section section--sm hm-tight">
     <div class="container">
       <div class="text-center fade-in">
         <h2>C&oacute;mo se ve este trabajo en realidad</h2>
@@ -293,7 +296,7 @@
   </section>
 
   <!-- Lo que exploramos -->
-  <section class="section">
+  <section class="section hm-tight-next">
     <div class="container">
       <div class="text-center fade-in">
         <h2>Lo que exploramos</h2>
