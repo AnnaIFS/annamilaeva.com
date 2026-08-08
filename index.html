@@ -30,6 +30,59 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css?v=31">
+  <style>
+    /* Composite cards: flip on desktop hover/click, crossfade on touch.
+       Grid stacking sizes the card to the taller face so nothing clips. */
+    .hm-card { perspective: 1200px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .hm-card__inner { display: grid; transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.3, 1.14); transform-style: preserve-3d; height: 100%; }
+    .hm-card.flipped .hm-card__inner { transform: rotateY(180deg); }
+    @media (hover: hover) {
+      .hm-card:hover .hm-card__inner { transform: rotateY(180deg); }
+    }
+    .hm-card__face {
+      grid-area: 1 / 1;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hm-card__front { background: #FFFFFF; box-shadow: 0 6px 24px rgba(61,37,24,0.09); padding: 30px 28px; text-align: left; }
+    .hm-card__back {
+      background: #3D2518;
+      transform: rotateY(180deg);
+      padding: 28px 26px;
+      text-align: left;
+      display: flex; flex-direction: column; justify-content: center;
+      box-shadow: 0 6px 24px rgba(61,37,24,0.2);
+    }
+    .hm-card__back p { color: #EFE6DC; font-size: 0.93rem; line-height: 1.65; max-width: none; }
+    .hm-inside-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: #E8784A; margin-bottom: 12px; display: block; }
+    .hm-card__face::before {
+      content: ''; position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.38) 47%, rgba(255,255,255,0.1) 53%, transparent 68%);
+      transform: translateX(-130%);
+      pointer-events: none;
+    }
+    .hm-card.flipped .hm-card__face::before { animation: hmShine 0.9s ease 0.25s; }
+    @media (hover: hover) {
+      .hm-card:hover .hm-card__face::before { animation: hmShine 0.9s ease 0.25s; }
+    }
+    @keyframes hmShine { from { transform: translateX(-130%); } to { transform: translateX(130%); } }
+    @media (hover: none) {
+      .hm-card__inner, .hm-card.flipped .hm-card__inner { transform: none !important; }
+      .hm-card__back { transform: none; opacity: 0; z-index: 3; transition: opacity 0.4s ease; }
+      .hm-card.flipped .hm-card__back { opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      .hm-card__back p { color: #EFE6DC !important; font-size: 16px !important; line-height: 1.6 !important; }
+      .hm-inside-label { color: #E8784A !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hm-card__inner { transition: none; }
+      .hm-card__face::before { animation: none !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -180,28 +233,60 @@
       <div class="text-center fade-in">
         <h2>What this work actually looks like</h2>
         <hr class="line-accent line-accent--center">
-        <p style="max-width: 560px; margin: 20px auto 0; color: var(--text-light);">Four made-up people. Very real parts.</p>
+        <p style="max-width: 560px; margin: 20px auto 0; color: var(--text-light);">Four made-up people. Very real parts. Tap a card for the meeting inside.</p>
       </div>
       <div class="grid-2 fade-in" style="margin-top: 48px; gap: 28px; align-items: stretch;">
-        <div class="card" style="text-align: left;">
-          <h3 style="margin-bottom: 12px;">The founder after the exit</h3>
-          <p>He sold the company he spent a decade building. Everyone congratulated him. He felt nothing. Inside we met the part that had been running him like an operations manual since his twenties, and asked what it was afraid would happen if he rested. It had a very long answer. The next chapter didn't start with a business plan. It started there.</p>
+        <div class="hm-card">
+          <div class="hm-card__inner">
+            <div class="hm-card__face hm-card__front">
+              <h3 style="margin-bottom: 12px;">The founder after the exit</h3>
+              <p>He sold the company he spent a decade building. Everyone congratulated him. He felt nothing.</p>
+            </div>
+            <div class="hm-card__face hm-card__back">
+              <span class="hm-inside-label">The meeting inside</span>
+              <p>We met the part that had been running him like an operations manual since his twenties, and asked what it was afraid would happen if he rested. It had a very long answer. The next chapter didn't start with a business plan. It started there.</p>
+            </div>
+          </div>
         </div>
-        <div class="card" style="text-align: left;">
-          <h3 style="margin-bottom: 12px;">The lawyer who can't stop</h3>
-          <p>Just this case. Just this quarter. She had been saying it for six years. Under the exhaustion we found a part convinced that being needed is the only safe way to be loved, and a younger one still waiting for its first day off. She still works hard. The difference is that now somebody's actually driving.</p>
+        <div class="hm-card">
+          <div class="hm-card__inner">
+            <div class="hm-card__face hm-card__front">
+              <h3 style="margin-bottom: 12px;">The lawyer who can't stop</h3>
+              <p>Just this case. Just this quarter. She had been saying it for six years.</p>
+            </div>
+            <div class="hm-card__face hm-card__back">
+              <span class="hm-inside-label">The meeting inside</span>
+              <p>Under the exhaustion we found a part convinced that being needed is the only safe way to be loved, and a younger one still waiting for its first day off. She still works hard. The difference is that now somebody's actually driving.</p>
+            </div>
+          </div>
         </div>
-        <div class="card" style="text-align: left;">
-          <h3 style="margin-bottom: 12px;">The one everyone leans on</h3>
-          <p>Beloved. Reliable. Quietly running on empty. Her relationships flowed one direction: outward. We met the part that decided, very early, that having needs makes you a burden. It took some convincing. She didn't become less generous. She became reachable, and someone finally got to hold <em>her</em>.</p>
+        <div class="hm-card">
+          <div class="hm-card__inner">
+            <div class="hm-card__face hm-card__front">
+              <h3 style="margin-bottom: 12px;">The one everyone leans on</h3>
+              <p>Beloved. Reliable. Quietly running on empty. Her relationships flowed one direction: outward.</p>
+            </div>
+            <div class="hm-card__face hm-card__back">
+              <span class="hm-inside-label">The meeting inside</span>
+              <p>We met the part that decided, very early, that having needs makes you a burden. It took some convincing. She didn't become less generous. She became reachable, and someone finally got to hold <em>her</em>.</p>
+            </div>
+          </div>
         </div>
-        <div class="card" style="text-align: left;">
-          <h3 style="margin-bottom: 12px;">The couple deciding</h3>
-          <p>They love each other and fight about money, which means they don't fight about money. One has a part that panics when spending feels loose. The other has a part that rebels when anything feels controlled. The parts had been negotiating for years. Nobody had introduced them. Once we did, the marriage question got easier to ask, and safer to answer honestly.</p>
+        <div class="hm-card">
+          <div class="hm-card__inner">
+            <div class="hm-card__face hm-card__front">
+              <h3 style="margin-bottom: 12px;">The couple deciding</h3>
+              <p>They love each other and fight about money. Which means they don't fight about money.</p>
+            </div>
+            <div class="hm-card__face hm-card__back">
+              <span class="hm-inside-label">The meeting inside</span>
+              <p>One has a part that panics when spending feels loose. The other has a part that rebels when anything feels controlled. The parts had been negotiating for years. Nobody had introduced them. Once we did, the marriage question got easier to ask, and safer to answer honestly.</p>
+            </div>
+          </div>
         </div>
       </div>
       <p class="fade-in" style="text-align: center; margin-top: 36px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 0.95rem; color: var(--text-light); font-style: italic;">These four are composites. I made the people up. The parts, however, are entirely real, and they book sessions every week.</p>
-      <p class="fade-in" style="text-align: center; margin-top: 14px;"><a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 600;">If one of them showed up while you were reading, that's worth a conversation &rarr;</a></p>
+      <p class="fade-in" style="text-align: center; margin-top: 14px; max-width: 680px; margin-left: auto; margin-right: auto;"><a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 600;">If one of them showed up while you were reading, that's worth a conversation &rarr;</a></p>
     </div>
   </section>
 
@@ -361,5 +446,10 @@
   </footer>
 
   <script src="main.js?v=6"></script>
+  <script>
+    document.querySelectorAll('.hm-card').forEach(function (card) {
+      card.addEventListener('click', function () { card.classList.toggle('flipped'); });
+    });
+  </script>
 </body>
 </html>

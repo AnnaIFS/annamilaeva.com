@@ -32,6 +32,59 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/styles.css?v=31">
+  <style>
+    /* Composite cards: flip on desktop hover/click, crossfade on touch.
+       Grid stacking sizes the card to the taller face so nothing clips. */
+    .hm-card { perspective: 1200px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .hm-card__inner { display: grid; transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.3, 1.14); transform-style: preserve-3d; height: 100%; }
+    .hm-card.flipped .hm-card__inner { transform: rotateY(180deg); }
+    @media (hover: hover) {
+      .hm-card:hover .hm-card__inner { transform: rotateY(180deg); }
+    }
+    .hm-card__face {
+      grid-area: 1 / 1;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hm-card__front { background: #FFFFFF; box-shadow: 0 6px 24px rgba(61,37,24,0.09); padding: 30px 28px; text-align: left; }
+    .hm-card__back {
+      background: #3D2518;
+      transform: rotateY(180deg);
+      padding: 28px 26px;
+      text-align: left;
+      display: flex; flex-direction: column; justify-content: center;
+      box-shadow: 0 6px 24px rgba(61,37,24,0.2);
+    }
+    .hm-card__back p { color: #EFE6DC; font-size: 0.93rem; line-height: 1.65; max-width: none; }
+    .hm-inside-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: #E8784A; margin-bottom: 12px; display: block; }
+    .hm-card__face::before {
+      content: ''; position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.38) 47%, rgba(255,255,255,0.1) 53%, transparent 68%);
+      transform: translateX(-130%);
+      pointer-events: none;
+    }
+    .hm-card.flipped .hm-card__face::before { animation: hmShine 0.9s ease 0.25s; }
+    @media (hover: hover) {
+      .hm-card:hover .hm-card__face::before { animation: hmShine 0.9s ease 0.25s; }
+    }
+    @keyframes hmShine { from { transform: translateX(-130%); } to { transform: translateX(130%); } }
+    @media (hover: none) {
+      .hm-card__inner, .hm-card.flipped .hm-card__inner { transform: none !important; }
+      .hm-card__back { transform: none; opacity: 0; z-index: 3; transition: opacity 0.4s ease; }
+      .hm-card.flipped .hm-card__back { opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      .hm-card__back p { color: #EFE6DC !important; font-size: 16px !important; line-height: 1.6 !important; }
+      .hm-inside-label { color: #E8784A !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hm-card__inner { transition: none; }
+      .hm-card__face::before { animation: none !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -182,28 +235,60 @@
       <div class="text-center fade-in">
         <h2>C&oacute;mo se ve este trabajo en realidad</h2>
         <hr class="line-accent line-accent--center">
-        <p style="max-width: 560px; margin: 20px auto 0; color: var(--text-light);">Cuatro personas inventadas. Partes muy reales.</p>
+        <p style="max-width: 560px; margin: 20px auto 0; color: var(--text-light);">Cuatro personas inventadas. Partes muy reales. Toca una tarjeta para ver la reuni&oacute;n de adentro.</p>
       </div>
       <div class="grid-2 fade-in" style="margin-top: 48px; gap: 28px; align-items: stretch;">
-        <div class="card" style="text-align: left;">
-          <h3 style="margin-bottom: 12px;">El fundador despu&eacute;s de vender</h3>
-          <p>Vendi&oacute; la empresa que construy&oacute; durante una d&eacute;cada. Todos lo felicitaron. &Eacute;l no sinti&oacute; nada. Adentro conocimos a la parte que lo ven&iacute;a manejando como un manual de operaciones desde los veinte, y le preguntamos qu&eacute; tem&iacute;a que pasara si descansaba. Ten&iacute;a una respuesta muy larga. El siguiente cap&iacute;tulo no empez&oacute; con un plan de negocios. Empez&oacute; ah&iacute;.</p>
+        <div class="hm-card">
+          <div class="hm-card__inner">
+            <div class="hm-card__face hm-card__front">
+              <h3 style="margin-bottom: 12px;">El fundador despu&eacute;s de vender</h3>
+              <p>Vendi&oacute; la empresa que construy&oacute; durante una d&eacute;cada. Todos lo felicitaron. &Eacute;l no sinti&oacute; nada.</p>
+            </div>
+            <div class="hm-card__face hm-card__back">
+              <span class="hm-inside-label">La reuni&oacute;n de adentro</span>
+              <p>Conocimos a la parte que lo ven&iacute;a manejando como un manual de operaciones desde los veinte, y le preguntamos qu&eacute; tem&iacute;a que pasara si descansaba. Ten&iacute;a una respuesta muy larga. El siguiente cap&iacute;tulo no empez&oacute; con un plan de negocios. Empez&oacute; ah&iacute;.</p>
+            </div>
+          </div>
         </div>
-        <div class="card" style="text-align: left;">
-          <h3 style="margin-bottom: 12px;">La abogada que no puede parar</h3>
-          <p>Solo este caso. Solo este trimestre. Llevaba seis a&ntilde;os dici&eacute;ndolo. Debajo del agotamiento encontramos una parte convencida de que ser necesitada es la &uacute;nica forma segura de ser querida, y otra m&aacute;s joven que sigue esperando su primer d&iacute;a libre. Sigue trabajando duro. La diferencia es que ahora hay alguien al volante.</p>
+        <div class="hm-card">
+          <div class="hm-card__inner">
+            <div class="hm-card__face hm-card__front">
+              <h3 style="margin-bottom: 12px;">La abogada que no puede parar</h3>
+              <p>Solo este caso. Solo este trimestre. Llevaba seis a&ntilde;os dici&eacute;ndolo.</p>
+            </div>
+            <div class="hm-card__face hm-card__back">
+              <span class="hm-inside-label">La reuni&oacute;n de adentro</span>
+              <p>Debajo del agotamiento encontramos una parte convencida de que ser necesitada es la &uacute;nica forma segura de ser querida, y otra m&aacute;s joven que sigue esperando su primer d&iacute;a libre. Sigue trabajando duro. La diferencia es que ahora hay alguien al volante.</p>
+            </div>
+          </div>
         </div>
-        <div class="card" style="text-align: left;">
-          <h3 style="margin-bottom: 12px;">La persona en la que todos se apoyan</h3>
-          <p>Querida. Confiable. Y silenciosamente agotada. Sus relaciones flu&iacute;an en una sola direcci&oacute;n: hacia afuera. Conocimos a la parte que decidi&oacute;, muy temprano, que tener necesidades te convierte en una carga. Cost&oacute; convencerla. No se volvi&oacute; menos generosa. Se volvi&oacute; alcanzable, y alguien por fin pudo sostenerla a <em>ella</em>.</p>
+        <div class="hm-card">
+          <div class="hm-card__inner">
+            <div class="hm-card__face hm-card__front">
+              <h3 style="margin-bottom: 12px;">La persona en la que todos se apoyan</h3>
+              <p>Querida. Confiable. Y silenciosamente agotada. Sus relaciones flu&iacute;an en una sola direcci&oacute;n: hacia afuera.</p>
+            </div>
+            <div class="hm-card__face hm-card__back">
+              <span class="hm-inside-label">La reuni&oacute;n de adentro</span>
+              <p>Conocimos a la parte que decidi&oacute;, muy temprano, que tener necesidades te convierte en una carga. Cost&oacute; convencerla. No se volvi&oacute; menos generosa. Se volvi&oacute; alcanzable, y alguien por fin pudo sostenerla a <em>ella</em>.</p>
+            </div>
+          </div>
         </div>
-        <div class="card" style="text-align: left;">
-          <h3 style="margin-bottom: 12px;">La pareja que est&aacute; decidiendo</h3>
-          <p>Se aman y pelean por dinero, lo que significa que no pelean por dinero. Uno tiene una parte que entra en p&aacute;nico cuando el gasto se siente suelto. La otra tiene una parte que se rebela cuando algo se siente controlado. Las partes llevaban a&ntilde;os negociando. Nadie las hab&iacute;a presentado. Cuando lo hicimos, la pregunta del matrimonio se volvi&oacute; m&aacute;s f&aacute;cil de hacer, y m&aacute;s segura de responder con honestidad.</p>
+        <div class="hm-card">
+          <div class="hm-card__inner">
+            <div class="hm-card__face hm-card__front">
+              <h3 style="margin-bottom: 12px;">La pareja que est&aacute; decidiendo</h3>
+              <p>Se aman y pelean por dinero. Lo que significa que no pelean por dinero.</p>
+            </div>
+            <div class="hm-card__face hm-card__back">
+              <span class="hm-inside-label">La reuni&oacute;n de adentro</span>
+              <p>Uno tiene una parte que entra en p&aacute;nico cuando el gasto se siente suelto. La otra tiene una parte que se rebela cuando algo se siente controlado. Las partes llevaban a&ntilde;os negociando. Nadie las hab&iacute;a presentado. Cuando lo hicimos, la pregunta del matrimonio se volvi&oacute; m&aacute;s f&aacute;cil de hacer, y m&aacute;s segura de responder con honestidad.</p>
+            </div>
+          </div>
         </div>
       </div>
       <p class="fade-in" style="text-align: center; margin-top: 36px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 0.95rem; color: var(--text-light); font-style: italic;">Estos cuatro son composiciones. A las personas las invent&eacute;. Las partes, en cambio, son completamente reales, y reservan sesiones todas las semanas.</p>
-      <p class="fade-in" style="text-align: center; margin-top: 14px;"><a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 600;">Si alguna apareci&oacute; mientras le&iacute;as, vale una conversaci&oacute;n &rarr;</a></p>
+      <p class="fade-in" style="text-align: center; margin-top: 14px; max-width: 680px; margin-left: auto; margin-right: auto;"><a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 600;">Si alguna apareci&oacute; mientras le&iacute;as, vale una conversaci&oacute;n &rarr;</a></p>
     </div>
   </section>
 
@@ -363,5 +448,10 @@
   </footer>
 
   <script src="/main.js?v=6"></script>
+  <script>
+    document.querySelectorAll('.hm-card').forEach(function (card) {
+      card.addEventListener('click', function () { card.classList.toggle('flipped'); });
+    });
+  </script>
 </body>
 </html>
