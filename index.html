@@ -29,7 +29,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=31">
+  <link rel="stylesheet" href="styles.css?v=32">
   <style>
     /* Composite cards: flip on desktop hover/click, crossfade on touch.
        Grid stacking sizes the card to the taller face so nothing clips. */
@@ -159,10 +159,23 @@
             <a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Book a Free Intro Call</a>
             <a href="about" class="btn btn--outline">Learn how I work</a>
           </div>
-          <p style="margin-top: 20px; font-size: 0.95rem; color: var(--text-light);">
-            <strong style="color: var(--text);">New:</strong> my first novel, <a href="book" style="color: var(--accent); text-decoration: none; font-weight: 600;"><em>Already In A Meeting</em>, is here. Meet the cast &rarr;</a><br>
-            The Self-Journal, in <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 600;">English &rarr;</a> and <a href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 600;">Espa&ntilde;ol &rarr;</a>
-          </p>
+          <div class="hero__shelf">
+            <a href="book" class="shelf-card">
+              <span class="shelf-card__tag">New &middot; The novel</span>
+              <span class="shelf-card__title"><em>Already In A Meeting</em></span>
+              <span class="shelf-card__text">Five colleagues, one company, and the meetings nobody sees: the ones inside each of them.</span>
+              <span class="shelf-card__link">Meet the cast &rarr;</span>
+            </a>
+            <div class="shelf-card">
+              <span class="shelf-card__tag">The workbook</span>
+              <span class="shelf-card__title">The Self-Journal</span>
+              <span class="shelf-card__text">Eight weeks of prompts for getting to know your parts and working with them.</span>
+              <span class="shelf-card__links">
+                <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer">English &rarr;</a>
+                <a href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer">Espa&ntilde;ol &rarr;</a>
+              </span>
+            </div>
+          </div>
         </div>
         <div style="display: flex; justify-content: center;">
           <img src="anna-hero.jpg?v=20260502" alt="Anna Milaeva IFS Coach" class="circle-photo" style="width: 400px; height: 400px; max-width: 100%; border-radius: 50%; object-fit: cover;">
