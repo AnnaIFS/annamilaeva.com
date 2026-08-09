@@ -38,6 +38,27 @@
     .quality {
       border: 1px solid #E3D5C6; border-radius: 100px; padding: 10px 22px;
       font-family: var(--font-heading); font-size: 1rem; color: #3D2518; background: #FFFFFF;
+      transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* One terracotta wave down the row when it comes into view */
+    @keyframes qualityGlow {
+      0%   { border-color: #E3D5C6; color: #3D2518; box-shadow: none; }
+      30%  { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 5px rgba(200,90,42,0.13); }
+      55%  { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 5px rgba(200,90,42,0.13); }
+      100% { border-color: #E3D5C6; color: #3D2518; box-shadow: none; }
+    }
+    .qualities.visible .quality { animation: qualityGlow 1.6s ease both; }
+    .qualities.visible .quality:nth-child(1) { animation-delay: 0.10s; }
+    .qualities.visible .quality:nth-child(2) { animation-delay: 0.24s; }
+    .qualities.visible .quality:nth-child(3) { animation-delay: 0.38s; }
+    .qualities.visible .quality:nth-child(4) { animation-delay: 0.52s; }
+    .qualities.visible .quality:nth-child(5) { animation-delay: 0.66s; }
+    .qualities.visible .quality:nth-child(6) { animation-delay: 0.80s; }
+    .qualities.visible .quality:nth-child(7) { animation-delay: 0.94s; }
+    .qualities.visible .quality:nth-child(8) { animation-delay: 1.08s; }
+    .quality:hover { border-color: var(--accent); color: var(--accent); }
+    @media (prefers-reduced-motion: reduce) {
+      .qualities.visible .quality { animation: none; }
     }
 
     /* Sample week */
@@ -225,7 +246,7 @@
       <div class="text-center fade-in">
         <h2>How the eight weeks move</h2>
         <hr class="line-accent line-accent--center">
-        <p style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">The route is specific, and I keep the detail for the people walking it. Here is the shape.</p>
+        <p style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">Here is the shape of the eight weeks. The detail we go through together.</p>
       </div>
 
       <div class="grid-3" style="margin-top: 48px;">
@@ -261,19 +282,13 @@
         <span class="quality">Creativity</span>
         <span class="quality">Connectedness</span>
       </div>
-      <p class="fade-in" style="text-align: center; max-width: 620px; margin: 24px auto 0; color: var(--text-light); font-size: 0.95rem;">The order is deliberate and it is not the order they are listed in here. I will walk you through it on our call.</p>
 
       <div class="taster fade-in">
-        <span class="taster__label">A taste of one week</span>
-        <h3 class="taster__title">The week of Curiosity</h3>
-        <p>Curiosity is the gateway. Before anything can change, something in you has to become genuinely interested in what is going on in there, rather than trying to fix it or shut it up. So one week belongs entirely to that, and it changes how you meet everything after it.</p>
-        <div class="route__lines">
-          <div class="route__line"><span class="route__label">Session</span><span class="route__text">Meeting the parts running your week, without an agenda for any of them.</span></div>
-          <div class="route__line"><span class="route__label">Breath</span><span class="route__text">A practice taught live, in session, and yours to keep.</span></div>
-          <div class="route__line"><span class="route__label">Daily</span><span class="route__text">Ten minutes in the morning. A page at night. One sentence to carry: I am being curious.</span></div>
-        </div>
-        <p style="margin: 20px 0 0; font-size: 0.95rem; color: #6B6B6B;">The other seven weeks are built the same way, each around its own quality, its own breath practice, and its own questions.</p>
-      </div>
+        <span class="taster__label">How it actually runs</span>
+        <h3 class="taster__title">An adventure, not a tour</h3>
+        <p>I have never run the same eight weeks twice. The qualities are the terrain. Where we go inside each one depends on you, on what you brought, and on what turns up that week.</p>
+        <p>Some weeks are steady. Some crack open and we stay there. I follow what is alive in you rather than a script, which is why this is not a course and why I take few people at a time.</p>
+        <p style="margin-bottom: 0;">What holds it together stays the same every week. A session, a breath practice taught live, a page to write on, and someone who knows the terrain walking it with you.</p>
       </div>
     </div>
   </section>
@@ -327,7 +342,7 @@
         </div>
         <div class="included__item">
           <span class="included__mark">&#9670;</span>
-          <span class="included__text"><strong>Eight breath practices, taught live.</strong> Not a link to a recording. I teach each one in session, we do it together, and it is yours for the rest of your life.</span>
+          <span class="included__text"><strong>Eight breath practices, taught live.</strong> Not a link to a recording. I teach each one in session, we do it together, and you keep it.</span>
         </div>
         <div class="included__item">
           <span class="included__mark">&#9670;</span>
@@ -347,7 +362,7 @@
         </div>
         <div class="included__item">
           <span class="included__mark">&#9670;</span>
-          <span class="included__text"><strong>A letter from you, six months later.</strong> You write it in week eight. I hold it and send it back when you have forgotten you wrote it.</span>
+          <span class="included__text"><strong>A letter from you, six months later.</strong> You write it in week eight. I hold it and send it back to you six months on.</span>
         </div>
       </div>
 
@@ -521,8 +536,8 @@
   <!-- CTA Strip -->
   <section class="cta-strip">
     <div class="container fade-in">
-      <h2 style="margin-bottom: 20px;">Eight weeks from now is coming either way.</h2>
-      <p style="margin-bottom: 32px;">The only question is whether anything is different when it gets here.</p>
+      <h2 style="margin-bottom: 20px;">Eight weeks, one quality at a time.</h2>
+      <p style="margin-bottom: 32px;">If you want to talk it through before you decide, that is what the call is for.</p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
         <a href="https://app.paperbell.com/checkout/packages/88572" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Start the Quest</a>
         <a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Book a free intro call</a>
