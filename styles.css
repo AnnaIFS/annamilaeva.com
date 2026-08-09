@@ -993,6 +993,13 @@ p {
   gap: 32px;
 }
 
+/* A lone card on the last row sits in the middle column instead of the left */
+@media (min-width: 969px) {
+  .credentials > .credential:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
 .credential {
   padding: 28px 24px;
   border: 1px solid var(--divider);
