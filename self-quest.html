@@ -97,6 +97,11 @@
     .fit-col li { position: relative; padding-left: 26px; margin-bottom: 12px; color: #4A4A4A; line-height: 1.6; }
     .fit-col li::before { content: '\2014'; position: absolute; left: 0; color: var(--accent); }
 
+    .hero__tagline {
+      font-family: var(--font-heading); font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+      color: #3D2518; margin: 0 auto 4px; max-width: 640px;
+    }
+
     /* Statement block */
     .statement {
       max-width: 620px; margin: 44px auto 0; text-align: center;
@@ -197,8 +202,9 @@
   <section class="hero hero--compact" style="background: radial-gradient(ellipse at 60% 40%, #F0E8DE 0%, #FAF7F2 65%);">
     <div class="container">
       <div class="hero__content hero__content--center fade-in">
-        <span style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 16px;">The Self-Quest Program</span>
-        <h1>Eight weeks. All in.</h1>
+        <span style="display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent); margin-bottom: 18px;">An eight-week IFS program</span>
+        <h1 style="margin-bottom: 10px;">Self-Quest</h1>
+        <p class="hero__tagline">Eight weeks. All in.</p>
         <hr class="line-accent line-accent--center" style="width: 60px; height: 3px;">
         <p class="hero__sub">Eight weeks of focused inner work. One quality of Self-leadership each week, an IFS session every week, and a daily practice that keeps it alive between them.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
