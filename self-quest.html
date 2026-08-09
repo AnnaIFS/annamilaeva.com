@@ -97,6 +97,19 @@
     .fit-col li { position: relative; padding-left: 26px; margin-bottom: 12px; color: #4A4A4A; line-height: 1.6; }
     .fit-col li::before { content: '\2014'; position: absolute; left: 0; color: var(--accent); }
 
+    /* Statement block */
+    .statement {
+      max-width: 620px; margin: 44px auto 0; text-align: center;
+      background: #FFFFFF; border: 1px solid var(--divider); border-radius: 14px;
+      padding: 38px 40px; box-shadow: 0 10px 36px rgba(61,37,24,0.06);
+    }
+    .statement__mark { display: block; color: var(--accent); font-size: 1rem; margin-bottom: 16px; letter-spacing: 6px; }
+    .statement p {
+      font-family: var(--font-heading); font-size: 1.28rem; line-height: 1.6;
+      color: #3D2518; margin: 0;
+    }
+    .statement strong { color: var(--accent); font-weight: 400; }
+
     /* Price panel */
     .quest-price {
       max-width: 640px; margin: 0 auto; background: #FFFFFF;
@@ -112,6 +125,8 @@
       .quest-price { padding: 32px 22px; }
       .taster { padding: 28px 22px; }
       .quality { padding: 8px 18px; font-size: 0.95rem; }
+      .statement { padding: 28px 22px; }
+      .statement p { font-size: 1.12rem; }
     }
   </style>
 </head>
@@ -235,7 +250,7 @@
           <p style="margin-bottom: 14px;">What needs to transform to create that?</p>
           <p style="margin-bottom: 0;">Who would you like to become through this process?</p>
         </div>
-        <p style="margin-top: 24px; text-align: center; color: var(--text-light); font-size: 0.95rem;">Your answers become the intention we hold for the eight weeks. Everything else is built around it.</p>
+        <p style="margin: 24px auto 0; text-align: center; color: var(--text-light); font-size: 0.95rem;">Your answers become the intention we hold for the eight weeks. Everything else is built around it.</p>
       </div>
     </div>
   </section>
@@ -400,8 +415,13 @@
           <li>You are willing to give it fifteen minutes a day, and more on the mornings when something opens.</li>
         </ul>
       </div>
-      <p class="fade-in" style="max-width: 640px; margin: 32px auto 0; text-align: center;">It will not fix your situation while you watch. You do the work and I walk it with you. That is the whole point.</p>
-      <p class="fade-in" style="text-align: center; margin-top: 20px;"><a href="coaching" style="color: var(--accent); text-decoration: none; font-weight: 600;">If eight weeks is more than you want right now, start with single sessions &rarr;</a></p>
+      <div class="statement fade-in">
+        <span class="statement__mark">&#9670; &#9670; &#9670;</span>
+        <p>It will not fix your situation while you watch. You do the work, and I walk it with you. <strong>That is the whole point.</strong></p>
+      </div>
+      <div class="fade-in" style="text-align: center; margin-top: 28px;">
+        <a href="coaching" class="btn btn--ghost" style="font-size: 0.85rem; padding: 10px 22px;">Start with single sessions</a>
+      </div>
     </div>
   </section>
 
@@ -411,7 +431,6 @@
       <div class="text-center fade-in">
         <h2>Two people who walked it</h2>
         <hr class="line-accent line-accent--center">
-        <p style="max-width: 560px; margin: 20px auto 0; color: var(--text-light);">Anonymous, and in my words.</p>
       </div>
       <div class="grid-2 fade-in" style="margin-top: 44px; gap: 28px; align-items: start;">
         <div class="card" style="text-align: left;">
@@ -552,7 +571,7 @@
   <section class="cta-strip">
     <div class="container fade-in">
       <h2 style="margin-bottom: 20px;">Eight weeks, one quality at a time.</h2>
-      <p style="margin-bottom: 32px;">If you want to talk it through before you decide, that is what the call is for.</p>
+      <p style="margin: 0 auto 32px;">If you want to talk it through before you decide, that is what the call is for.</p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
         <a href="https://app.paperbell.com/checkout/packages/88572" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Start the Quest</a>
         <a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Book a free intro call</a>
