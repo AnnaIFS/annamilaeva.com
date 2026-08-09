@@ -43,19 +43,20 @@
     /* One terracotta wave down the row when it comes into view */
     @keyframes qualityGlow {
       0%   { border-color: #E3D5C6; color: #3D2518; box-shadow: none; }
-      30%  { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 5px rgba(200,90,42,0.13); }
-      55%  { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 5px rgba(200,90,42,0.13); }
+      7%   { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 5px rgba(200,90,42,0.13); }
+      16%  { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 5px rgba(200,90,42,0.13); }
+      26%  { border-color: #E3D5C6; color: #3D2518; box-shadow: none; }
       100% { border-color: #E3D5C6; color: #3D2518; box-shadow: none; }
     }
-    .qualities.visible .quality { animation: qualityGlow 1.6s ease both; }
-    .qualities.visible .quality:nth-child(1) { animation-delay: 0.10s; }
-    .qualities.visible .quality:nth-child(2) { animation-delay: 0.24s; }
-    .qualities.visible .quality:nth-child(3) { animation-delay: 0.38s; }
-    .qualities.visible .quality:nth-child(4) { animation-delay: 0.52s; }
-    .qualities.visible .quality:nth-child(5) { animation-delay: 0.66s; }
-    .qualities.visible .quality:nth-child(6) { animation-delay: 0.80s; }
-    .qualities.visible .quality:nth-child(7) { animation-delay: 0.94s; }
-    .qualities.visible .quality:nth-child(8) { animation-delay: 1.08s; }
+    .qualities.visible .quality { animation: qualityGlow 7s ease-in-out infinite; }
+    .qualities.visible .quality:nth-child(1) { animation-delay: 0.0s; }
+    .qualities.visible .quality:nth-child(2) { animation-delay: 0.35s; }
+    .qualities.visible .quality:nth-child(3) { animation-delay: 0.70s; }
+    .qualities.visible .quality:nth-child(4) { animation-delay: 1.05s; }
+    .qualities.visible .quality:nth-child(5) { animation-delay: 1.40s; }
+    .qualities.visible .quality:nth-child(6) { animation-delay: 1.75s; }
+    .qualities.visible .quality:nth-child(7) { animation-delay: 2.10s; }
+    .qualities.visible .quality:nth-child(8) { animation-delay: 2.45s; }
     .quality:hover { border-color: var(--accent); color: var(--accent); }
     @media (prefers-reduced-motion: reduce) {
       .qualities.visible .quality { animation: none; }
@@ -211,6 +212,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Wave Divider -->
+  <div class="wave-divider wave-divider--flip" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 48h1440V24C1280 0 1120 48 960 36 800 24 640 0 480 12 320 24 160 48 0 36V48z" fill="#FFFFFF"/>
+    </svg>
+  </div>
 
   <!-- Before we begin -->
   <section class="section section--sm">
