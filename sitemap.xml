@@ -63,6 +63,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/coaching"/>
   </url>
   <url>
+    <loc>https://annamilaeva.com/self-quest</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/self-quest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/self-quest"/>
+  </url>
+  <url>
     <loc>https://annamilaeva.com/es/coaching</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>0.8</priority>

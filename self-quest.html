@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="canonical" href="https://annamilaeva.com/self-quest">
+  <link rel="alternate" hreflang="en" href="https://annamilaeva.com/self-quest">
+  <link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/self-quest">
+  <title>Self-Quest. An 8-Week IFS Program. Anna Milaeva</title>
+  <meta name="description" content="Eight weeks, eight qualities of Self-leadership. IFS coaching, a daily practice, and a different breath practice every week. A structured, intensive dive with room for one thing to actually change.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://annamilaeva.com/self-quest">
+  <meta property="og:title" content="Self-Quest. An 8-Week IFS Program">
+  <meta property="og:description" content="Eight weeks, eight qualities of Self-leadership. IFS coaching, a daily practice, and a different breath practice every week.">
+  <meta property="og:image" content="https://annamilaeva.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Self-Quest. An 8-Week IFS Program">
+  <meta name="twitter:description" content="Eight weeks, eight qualities of Self-leadership. IFS coaching, a daily practice, and a different breath practice every week.">
+  <meta name="twitter:image" content="https://annamilaeva.com/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=34">
+  <style>
+    /* The route: eight weeks on a single connected line */
+    .route { max-width: 780px; margin: 48px auto 0; }
+    .route__stop { position: relative; padding: 0 0 36px 76px; }
+    .route__stop:last-child { padding-bottom: 0; }
+    .route__stop::before {
+      content: '';
+      position: absolute; left: 23px; top: 46px; bottom: -2px;
+      width: 2px; background: linear-gradient(#E3D5C6, #E3D5C6);
+    }
+    .route__stop:last-child::before { display: none; }
+    .route__marker {
+      position: absolute; left: 0; top: 0;
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 2px solid var(--accent); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-heading); font-size: 1.05rem; background: #FFFFFF;
+    }
+    .route__quality {
+      display: block; font-size: 0.74rem; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+    }
+    .route__title { font-family: var(--font-heading); font-size: 1.35rem; color: #1A1A1A; margin: 0 0 10px; line-height: 1.3; }
+    .route__body { margin: 0 0 16px; }
+    .route__lines { border-top: 1px solid var(--divider); padding-top: 14px; }
+    .route__line { display: flex; gap: 12px; margin-bottom: 8px; font-size: 0.95rem; line-height: 1.6; }
+    .route__line:last-child { margin-bottom: 0; }
+    .route__label {
+      flex: 0 0 92px; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+      color: #8A7A6B; padding-top: 4px;
+    }
+    .route__text { color: #4A4A4A; }
+
+    /* Included list */
+    .included { max-width: 720px; margin: 40px auto 0; }
+    .included__item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--divider); text-align: left; }
+    .included__item:last-child { border-bottom: none; }
+    .included__mark { color: var(--accent); font-size: 1.1rem; line-height: 1.5; }
+    .included__text { color: #4A4A4A; line-height: 1.65; }
+    .included__text strong { color: #1A1A1A; font-weight: 600; }
+
+    /* Fit columns */
+    .fit-col h3 { font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 14px; color: #1A1A1A; }
+    .fit-col ul { list-style: none; padding: 0; margin: 0; }
+    .fit-col li { position: relative; padding-left: 26px; margin-bottom: 12px; color: #4A4A4A; line-height: 1.6; }
+    .fit-col li::before { content: '\2014'; position: absolute; left: 0; color: var(--accent); }
+
+    /* Price panel */
+    .quest-price {
+      max-width: 640px; margin: 0 auto; background: #FFFFFF;
+      border: 1px solid var(--divider); border-radius: 12px; padding: 40px 36px;
+      box-shadow: 0 10px 40px rgba(61,37,24,0.07);
+    }
+    .quest-price__amount { font-family: var(--font-heading); font-size: 3rem; color: #1A1A1A; line-height: 1; }
+    .quest-price__note { color: #6B6B6B; font-size: 0.95rem; margin-top: 10px; }
+    .market-note { max-width: 640px; margin: 28px auto 0; font-size: 0.95rem; color: #6B6B6B; line-height: 1.7; }
+
+    @media (max-width: 600px) {
+      .route__stop { padding-left: 60px; }
+      .route__marker { width: 40px; height: 40px; font-size: 0.95rem; }
+      .route__stop::before { left: 19px; top: 40px; }
+      .route__line { flex-direction: column; gap: 2px; }
+      .route__label { flex: none; padding-top: 0; }
+      .quest-price { padding: 32px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="/" class="nav__logo">Anna Milaeva <span class="nav__logo-role">Transformational IFS Coach</span></a>
+      <div class="nav__links">
+        <a href="about">About</a>
+        <div class="nav__dropdown">
+          <a href="work-with-me" class="nav__dropdown-toggle active">Work With Me <span class="nav__dropdown-arrow"></span></a>
+          <div class="nav__dropdown-menu">
+            <a href="coaching">1:1 Coaching</a>
+            <a href="self-quest">Self-Quest Program</a>
+            <a href="ai">AI Integration</a>
+            <a href="sacred-circles">Sacred Circles</a>
+            <a href="couples">Couples</a>
+            <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer">Team Work</a>
+          </div>
+        </div>
+        <a href="book">The Book</a>
+        <a href="writing">Writing</a>
+        <a href="contact">Contact</a>
+      </div>
+      <div class="nav__lang" aria-label="Language">
+        <a href="/self-quest" class="active" lang="en">English</a>
+        <span class="nav__lang-sep">|</span>
+        <a href="/es/coaching" lang="es" hreflang="es">Espa&ntilde;ol</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileNav">
+      <a href="about">About</a>
+      <div class="nav__mobile-dropdown">
+        <a href="work-with-me" class="nav__mobile-dropdown-link">Work With Me</a>
+        <button class="nav__mobile-dropdown-toggle" aria-label="Toggle services menu"><span class="nav__mobile-dropdown-arrow"></span></button>
+        <div class="nav__mobile-dropdown-menu">
+          <a href="coaching">1:1 Coaching</a>
+          <a href="self-quest">Self-Quest Program</a>
+          <a href="ai">AI Integration</a>
+          <a href="sacred-circles">Sacred Circles</a>
+          <a href="couples">Couples</a>
+          <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer">Team Work</a>
+        </div>
+      </div>
+      <a href="book">The Book</a>
+      <a href="writing">Writing</a>
+      <a href="contact">Contact</a>
+      <div class="nav__lang-mobile" aria-label="Language">
+        <a href="/self-quest" class="active" lang="en">English</a>
+        <span class="nav__lang-sep">|</span>
+        <a href="/es/coaching" lang="es" hreflang="es">Espa&ntilde;ol</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <!-- Hero -->
+  <section class="hero hero--compact" style="background: radial-gradient(ellipse at 60% 40%, #F0E8DE 0%, #FAF7F2 65%);">
+    <div class="container">
+      <div class="hero__content hero__content--center fade-in">
+        <span style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 16px;">The Self-Quest Program</span>
+        <h1>Eight weeks. All in.</h1>
+        <hr class="line-accent line-accent--center" style="width: 60px; height: 3px;">
+        <p class="hero__sub">A structured dive into your inner system. One quality of Self-leadership each week, a weekly IFS session, and a daily practice that keeps the work alive between them.</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
+          <a href="#the-route" class="btn btn--primary">See the eight weeks</a>
+          <a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Talk to me first</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave Divider -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 48h1440V24C1280 0 1120 48 960 36 800 24 640 0 480 12 320 24 160 48 0 36V48z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+
+  <!-- What this is -->
+  <section class="section section--sm" style="background: #fff;">
+    <div class="container">
+      <div style="max-width: 720px; margin: 0 auto; text-align: center;" class="fade-in">
+        <h2>This is not a course.</h2>
+        <hr class="line-accent line-accent--center">
+        <p style="margin-top: 20px;">There are no modules to fall behind on and no videos waiting for you in a portal. It is a coaching relationship with a structure built around it. Eight weeks, a clear route, and both of us fully in it.</p>
+        <p>Most coaching happens in the hour. This is built around the other 167. Each week you get a session, a practice for the mornings, a page to write on, and a breath practice you learn properly and keep for life. By week eight, the work is not something you go to. It is something you do.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before we begin -->
+  <section class="section section--sm">
+    <div class="container">
+      <div style="max-width: 720px; margin: 0 auto;" class="fade-in">
+        <div class="text-center">
+          <h2>It starts before the first session</h2>
+          <hr class="line-accent line-accent--center">
+          <p style="max-width: 560px; margin: 20px auto 0; color: var(--text-light);">When you book, you get your journal and four questions. Nothing to submit. Just let them sit with you for a few days.</p>
+        </div>
+        <div style="background: #FFFFFF; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 28px 32px; margin-top: 32px; box-shadow: 0 6px 24px rgba(61,37,24,0.06);">
+          <p style="margin-bottom: 14px;">What are you wanting most right now for your life?</p>
+          <p style="margin-bottom: 14px;">What do you want to feel more of?</p>
+          <p style="margin-bottom: 14px;">What needs to transform to create that?</p>
+          <p style="margin-bottom: 0;">Who would you like to become through this process?</p>
+        </div>
+        <p style="margin-top: 24px; text-align: center; color: var(--text-light); font-size: 0.95rem;">Your answers become the intention we hold for the eight weeks. Everything else is built around it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave Divider -->
+  <div class="wave-divider wave-divider--flip" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 48h1440V24C1280 0 1120 48 960 36 800 24 640 0 480 12 320 24 160 48 0 36V48z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+
+  <!-- The route -->
+  <section class="section" id="the-route" style="background: #fff;">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2>The route</h2>
+        <hr class="line-accent line-accent--center">
+        <p style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">IFS describes eight qualities that show up when Self is leading. Calm, curiosity, compassion, clarity, courage, confidence, creativity, connectedness. We take one a week, in this order, because each one makes the next one possible.</p>
+      </div>
+
+      <div class="route fade-in">
+        <div class="route__stop">
+          <div class="route__marker">01</div>
+          <span class="route__quality">Calm</span>
+          <h3 class="route__title">Landing before we look</h3>
+          <p class="route__body">Nothing useful happens in a system that feels unsafe. We start by finding out what your body does under pressure, and giving you a way to change that in ninety seconds. We also set your intention for the eight weeks, in your words, written down.</p>
+          <div class="route__lines">
+            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Your stress signature, your intention, and how the eight weeks will run.</span></div>
+            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Long exhale practice. The one you will still be using in ten years.</span></div>
+            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">Ten minutes in the morning. One page at night.</span></div>
+          </div>
+        </div>
+
+        <div class="route__stop">
+          <div class="route__marker">02</div>
+          <span class="route__quality">Curiosity</span>
+          <h3 class="route__title">Meeting who is actually running the day</h3>
+          <p class="route__body">The one who pushes. The one who shuts down. The one who manages everyone else's mood before breakfast. This week you learn the difference between being a part and being with it, which is the whole skill this program is built on.</p>
+          <div class="route__lines">
+            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Finding your main protectors and what each one is for.</span></div>
+            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Alternate nostril, to steady the mind before you go looking.</span></div>
+            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">Catching the moment a part takes the wheel, and writing down what it was protecting.</span></div>
+          </div>
+        </div>
+
+        <div class="route__stop">
+          <div class="route__marker">03</div>
+          <span class="route__quality">Compassion</span>
+          <h3 class="route__title">Turning toward the part you like least</h3>
+          <p class="route__body">Usually the critic. Sometimes the one who eats at midnight, or the one who checks email on holiday. We find out what it has been protecting and how long it has been doing it alone. People often expect this week to be the hardest. It tends to be the one where the fighting stops.</p>
+          <div class="route__lines">
+            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Meeting the harshest voice with something other than argument.</span></div>
+            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Heart-centred breathing, hand on chest, exhale longer than the inhale.</span></div>
+            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">A letter to that part. Unsent, unedited.</span></div>
+          </div>
+        </div>
+
+        <div class="route__stop">
+          <div class="route__marker">04</div>
+          <span class="route__quality">Clarity</span>
+          <h3 class="route__title">The map</h3>
+          <p class="route__body">By now you have met enough of your system to see it whole. Who is polarized with whom. Which parts team up under stress. The pattern you have been calling "how I am" for twenty years. Most people have never seen it drawn. It changes what feels possible.</p>
+          <div class="route__lines">
+            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Laying out your system, including the two parts pulling in opposite directions.</span></div>
+            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">A clearing breath for a cluttered head.</span></div>
+            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">Drawing your map. No artistic skill involved or required.</span></div>
+          </div>
+        </div>
+
+        <div class="route__stop">
+          <div class="route__marker">05</div>
+          <span class="route__quality">Courage</span>
+          <h3 class="route__title">The thing you have been circling</h3>
+          <p class="route__body">There is usually one. A conversation, a grief, a decision, a year you skip over when you tell your story. We go toward it at your pace and with your protectors' agreement. Nothing is forced and nothing is dragged out of you. This is the week the four weeks before it were building.</p>
+          <div class="route__lines">
+            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Approaching what has been avoided, with permission and pacing.</span></div>
+            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">A longer connected breathwork round, fully guided.</span></div>
+            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">What I have not been saying, and to whom.</span></div>
+          </div>
+        </div>
+
+        <div class="route__stop">
+          <div class="route__marker">06</div>
+          <span class="route__quality">Confidence</span>
+          <h3 class="route__title">New agreements</h3>
+          <p class="route__body">Protectors do not stand down because you asked nicely. They step back when they trust that someone competent is holding the thing they were holding. That someone is you. This week we make those agreements explicit, one part at a time, and you start collecting evidence that they hold.</p>
+          <div class="route__lines">
+            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Renegotiating roles with the parts that have been overworking.</span></div>
+            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Grounding, steady rhythm, for the days that try to take the wheel back.</span></div>
+            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">An evidence log. Every moment you led, however small.</span></div>
+          </div>
+        </div>
+
+        <div class="route__stop">
+          <div class="route__marker">07</div>
+          <span class="route__quality">Creativity</span>
+          <h3 class="route__title">New moves in old situations</h3>
+          <p class="route__body">Insight that never changes a Tuesday is entertainment. So we take something real and coming up. The meeting, the conversation with your mother, the message that has been sitting in drafts. We rehearse it. Then you go and do it, and we look at what happened.</p>
+          <div class="route__lines">
+            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Rehearsing a real situation from your actual week.</span></div>
+            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Free breathing with sound. Most people laugh in this one.</span></div>
+            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">What would I do here if I trusted myself?</span></div>
+          </div>
+        </div>
+
+        <div class="route__stop">
+          <div class="route__marker">08</div>
+          <span class="route__quality">Connectedness</span>
+          <h3 class="route__title">Carrying it home</h3>
+          <p class="route__body">The last week is about what happens when I am no longer in your calendar. We build the practice that outlives the program, cut down to what you will actually keep doing. Then we look at where this lands: your relationships, your work, and how you speak to yourself on a bad day.</p>
+          <div class="route__lines">
+            <div class="route__line"><span class="route__label">Session</span><span class="route__text">What you are taking, and the shortest practice that keeps it alive.</span></div>
+            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">A long integration round to close the eight weeks.</span></div>
+            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">A letter to yourself in six months. I hold it and send it back to you then.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What a week looks like -->
+  <section class="section section--sm">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2>What a week actually costs you</h2>
+        <hr class="line-accent line-accent--center">
+        <p style="max-width: 560px; margin: 20px auto 0; color: var(--text-light);">In time, I mean. This is designed for people with jobs.</p>
+      </div>
+      <div class="grid-3" style="margin-top: 44px;">
+        <div class="card fade-in">
+          <span class="card__icon">60</span>
+          <h3>Minutes, once a week</h3>
+          <p>Our session, on Zoom, at a time we fix at the start so it holds the whole eight weeks.</p>
+        </div>
+        <div class="card fade-in">
+          <span class="card__icon">15</span>
+          <h3>Minutes, most mornings</h3>
+          <p>Breath practice and the day's page. Short enough to survive a real week, specific enough to work.</p>
+        </div>
+        <div class="card fade-in">
+          <span class="card__icon">&#8734;</span>
+          <h3>Messages, as needed</h3>
+          <p>When something lands mid-week, you write to me. You are not holding it alone until next Tuesday.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave Divider -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 48h1440V24C1280 0 1120 48 960 36 800 24 640 0 480 12 320 24 160 48 0 36V48z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+
+  <!-- What's included -->
+  <section class="section" style="background: #fff;">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2>What you get</h2>
+        <hr class="line-accent line-accent--center">
+      </div>
+      <div class="included fade-in">
+        <div class="included__item">
+          <span class="included__mark">&#9670;</span>
+          <span class="included__text"><strong>Eight 60-minute 1:1 IFS sessions.</strong> One a week, on Zoom, in English or Spanish.</span>
+        </div>
+        <div class="included__item">
+          <span class="included__mark">&#9670;</span>
+          <span class="included__text"><strong>Eight breath practices, taught live.</strong> Not a link to a recording. I teach each one in session, we do it together, and it is yours for the rest of your life.</span>
+        </div>
+        <div class="included__item">
+          <span class="included__mark">&#9670;</span>
+          <span class="included__text"><strong>The Self Journal.</strong> Your printed companion for the eight weeks, with the prompts that go with each quality.</span>
+        </div>
+        <div class="included__item">
+          <span class="included__mark">&#9670;</span>
+          <span class="included__text"><strong>A daily practice, about fifteen minutes.</strong> Journaling, breath, and meditation, matched to the week you are in rather than handed out all at once.</span>
+        </div>
+        <div class="included__item">
+          <span class="included__mark">&#9670;</span>
+          <span class="included__text"><strong>Support between sessions.</strong> Write to me when something opens up. That is when most of it happens.</span>
+        </div>
+        <div class="included__item">
+          <span class="included__mark">&#9670;</span>
+          <span class="included__text"><strong>Resources chosen for you.</strong> A reading, a practice, a piece of music. Whatever fits the week you are actually having, not a standard bundle.</span>
+        </div>
+        <div class="included__item">
+          <span class="included__mark">&#9670;</span>
+          <span class="included__text"><strong>A letter from you, six months later.</strong> You write it in week eight. I hold it and send it back when you have forgotten you wrote it.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fit -->
+  <section class="section section--sm">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2>Whether this is your eight weeks</h2>
+        <hr class="line-accent line-accent--center">
+      </div>
+      <div class="grid-2" style="margin-top: 44px; gap: 48px;">
+        <div class="fit-col fade-in">
+          <h3>This is for you if</h3>
+          <ul>
+            <li>You have done some inner work and want it to hold up in your daily life, not just in the room.</li>
+            <li>Something is asking for a decision. A relationship, a role, a way of living that has run out.</li>
+            <li>You know the pattern by name and still cannot get out from under it.</li>
+            <li>You want structure. Open-ended is not helping you.</li>
+            <li>You are willing to give fifteen minutes a day for eight weeks.</li>
+          </ul>
+        </div>
+        <div class="fit-col fade-in">
+          <h3>This is not for you if</h3>
+          <ul>
+            <li>You are in crisis right now. That deserves a licensed therapist, and I will help you find one.</li>
+            <li>You want to talk things through without changing anything yet. The four-session package is a better fit.</li>
+            <li>The next eight weeks are already full. This works when you have the room for it.</li>
+            <li>You are looking for advice. I will not be telling you what to do.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fade-in" style="text-align: center; margin-top: 36px;"><a href="coaching" style="color: var(--accent); text-decoration: none; font-weight: 600;">Not sure yet? Start with single sessions &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="background: #fff;">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2>From people who did the work</h2>
+        <hr class="line-accent line-accent--center">
+      </div>
+      <div class="grid-2 fade-in" style="margin-top: 44px; gap: 28px; align-items: start;">
+        <div class="card" style="text-align: left;">
+          <p style="font-family: var(--font-heading); font-style: italic; font-size: 1.05rem; line-height: 1.7; color: var(--text);">"The IFS approach was something completely new to me. Anna guided me with love, patience, and grace through the process of getting to know my own parts. I wasn't aware of how many parts are fighting inside of my internal family. I can't always befriend them in the moment, but now being aware of them is a huge help in my daily life. Especially calming them down. I trusted Anna from the very beginning and the process was as hard as it was beautiful. Combined with the breathwork Anna introduced me to, I now feel more confident in myself. I trust myself more, and I came through a recent breakup with much less pain than in the past."</p>
+          <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-light);"><strong style="color: var(--text);">Olga</strong>, Entrepreneur, Germany</p>
+        </div>
+        <div class="card" style="text-align: left;">
+          <p style="font-family: var(--font-heading); font-style: italic; font-size: 1.05rem; line-height: 1.7; color: var(--text);">"Anna intuitively asks the right questions that nudge you to see and accept all your parts, and yourself as a whole. Working with her has been essential during a time of draining, repetitive life cycles that felt like I could no longer pull through. From our first session she created a safe and grounding environment. Her ability to listen with curiosity and without judgment makes her a great parts detector. She allows my process to unfold organically while trusting my instincts, even when I don't trust myself. She has equipped me with tools that gave me so much clarity, followed by so many aha moments."</p>
+          <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-light);"><strong style="color: var(--text);">Yailen</strong>, Sr. Analytics Lead, Miami</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 class="fade-in">The investment</h2>
+      <hr class="line-accent line-accent--center">
+      <div class="quest-price fade-in" style="margin-top: 44px;">
+        <div class="quest-price__amount">$1,250</div>
+        <p class="quest-price__note">Eight weeks, everything above included. Payment plans available. Prices in USD, euro pricing on request.</p>
+        <a href="https://app.paperbell.com/checkout/packages/88572" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-top: 24px;">Start the Quest</a>
+        <p style="margin-top: 16px; font-size: 0.9rem;"><a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 600;">Or book a free call first &rarr;</a></p>
+      </div>
+      <p class="market-note fade-in">For context: comparable eight to twelve week one-to-one coaching containers generally run between $1,500 and $3,000, and private IFS sessions on their own are commonly $150 to $250 an hour in the US. This is priced to be reachable for the people it is built for, and it is the deepest work I offer.</p>
+      <p style="max-width: 560px; margin: 24px auto 0; border-left: 3px solid var(--accent); padding: 12px 18px; background: #FAF7F3; color: #4A4A4A; font-size: 1rem; line-height: 1.6; border-radius: 0 6px 6px 0; text-align: left;" class="fade-in">If cost is the only thing in the way, say so. I keep a limited number of sliding scale spots and we will figure something out.</p>
+      <div class="fade-in" style="background: #F5F0EA; border-radius: 8px; padding: 32px; max-width: 700px; margin: 32px auto 0; text-align: left;">
+        <span style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 12px;">Worth knowing</span>
+        <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: #1A1A1A; margin-bottom: 12px;">Your employer may cover this.</h3>
+        <p style="color: #6B6B6B; font-size: 0.95rem; line-height: 1.7;">Many companies have learning and development budgets that go unused every year. An eight-week coaching program usually qualifies under leadership development or personal effectiveness. I provide invoices and session documentation. It is worth one email to your manager.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--sm" style="background: #fff;">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2>Questions people ask</h2>
+        <hr class="line-accent line-accent--center">
+      </div>
+      <div class="faq fade-in" style="margin-top: 40px;">
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Do I need to know IFS already?</span>
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>No. Week one teaches you everything you need. People arrive having read all the books and people arrive having never heard the word "parts." Both do well.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Is this therapy?</span>
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>No. I trained in IFS Therapy through Level 3 at the IFS Institute and I work as a coach, not a therapist. This is coaching and self-exploration, and it is not a substitute for treatment. If you are in active crisis, start with a licensed therapist and I am glad to help you find one.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>What if I miss a week?</span>
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>We move it. Life does what it does, and eight weeks can stretch to ten without losing anything. The order of the work matters more than the calendar.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>What if I don't do the daily practice?</span>
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>Missing days is part of it, not a failure, and there is usually a part worth meeting behind the missing. That said, the people who get the most out of these eight weeks are the ones who show up for the fifteen minutes. That is the honest answer.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Is the breathwork intense?</span>
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>It builds. The early weeks are gentle and regulating. The longer connected round in week five can bring a lot up, which is why it comes after four weeks of preparation and never before. Everything is guided and adjustable. Tell me about pregnancy, cardiovascular conditions, epilepsy, glaucoma, or recent surgery and we adapt the practice.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Can I do this while I'm in therapy?</span>
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>Yes, and it often works well alongside. Let your therapist know what you are doing. If it is useful, I am happy to coordinate.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>English or Spanish?</span>
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>Either. The sessions, the journal, and the practices all exist in both. Sessions are online, so where you are does not matter.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>When can I start?</span>
+            <span class="faq__icon">+</span>
+          </button>
+          <div class="faq__answer">
+            <p>There are no cohorts, so we start when you are ready. I take a limited number of Self-Quest clients at a time, since this asks a lot of me too.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="container fade-in">
+      <h2 style="margin-bottom: 20px;">Eight weeks from now is coming either way.</h2>
+      <p style="margin-bottom: 32px;">The only question is whether anything is different when it gets here.</p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+        <a href="https://app.paperbell.com/checkout/packages/88572" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Start the Quest</a>
+        <a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Book a free intro call</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__quote-block">
+        <hr class="footer__quote-line">
+        <p class="footer__quote">"The goal is simple. Help your Self lead."</p>
+      </div>
+      <div class="footer__main">
+        <div class="footer__brand">
+          <span class="footer__brand-name">Anna Milaeva</span>
+          <span class="footer__brand-role">Transformational IFS Coach</span>
+          <span class="footer__brand-url">annamilaeva.com</span>
+        </div>
+        <div class="footer__nav">
+          <a href="about">About</a>
+          <a href="work-with-me">Work With Me</a>
+          <a href="book">The Book</a>
+          <a href="writing">Writing</a>
+          <a href="contact">Contact</a>
+        </div>
+        <div class="footer__social">
+          <a href="https://www.linkedin.com/in/anna-milaeva/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg></a>
+          <a href="https://www.instagram.com/anna_milaeva_ifs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/></svg></a>
+          <a href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="17" text-anchor="middle" fill="white" font-family="Georgia, serif" font-size="14" font-weight="700">S</text></svg></a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Anna Milaeva. All rights reserved.</span>
+        <span>Coaching services are not therapy and are not intended to diagnose, treat, cure, or prevent any disease or mental health condition. If you are experiencing a mental health crisis, please contact a licensed professional.</span>
+        <span style="font-weight:bold;color:#e87a2e;">Website created by <a href="https://fino.website/studio/" target="_blank" rel="noopener noreferrer" style="color:#e87a2e;font-weight:bold;">FINO Studio</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js?v=6"></script>
+</body>
+</html>
