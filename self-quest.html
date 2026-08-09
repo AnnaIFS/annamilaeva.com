@@ -30,29 +30,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css?v=34">
   <style>
-    /* The route: eight weeks on a single connected line */
-    .route { max-width: 780px; margin: 48px auto 0; }
-    .route__stop { position: relative; padding: 0 0 36px 76px; }
-    .route__stop:last-child { padding-bottom: 0; }
-    .route__stop::before {
-      content: '';
-      position: absolute; left: 23px; top: 46px; bottom: -2px;
-      width: 2px; background: linear-gradient(#E3D5C6, #E3D5C6);
+    /* The eight qualities, named but not sequenced */
+    .qualities {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+      max-width: 720px; margin: 36px auto 0;
     }
-    .route__stop:last-child::before { display: none; }
-    .route__marker {
-      position: absolute; left: 0; top: 0;
-      width: 48px; height: 48px; border-radius: 50%;
-      border: 2px solid var(--accent); color: var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-heading); font-size: 1.05rem; background: #FFFFFF;
+    .quality {
+      border: 1px solid #E3D5C6; border-radius: 100px; padding: 10px 22px;
+      font-family: var(--font-heading); font-size: 1rem; color: #3D2518; background: #FFFFFF;
     }
-    .route__quality {
-      display: block; font-size: 0.74rem; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+
+    /* Sample week */
+    .taster {
+      max-width: 700px; margin: 56px auto 0; background: #FAF7F2;
+      border: 1px solid var(--divider); border-radius: 12px; padding: 36px 34px;
+      text-align: left;
     }
-    .route__title { font-family: var(--font-heading); font-size: 1.35rem; color: #1A1A1A; margin: 0 0 10px; line-height: 1.3; }
-    .route__body { margin: 0 0 16px; }
+    .taster__label {
+      display: block; font-size: 0.72rem; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+    .taster__title { font-family: var(--font-heading); font-size: 1.4rem; color: #1A1A1A; margin: 0 0 14px; }
+    .taster p { margin-bottom: 20px; }
     .route__lines { border-top: 1px solid var(--divider); padding-top: 14px; }
     .route__line { display: flex; gap: 12px; margin-bottom: 8px; font-size: 0.95rem; line-height: 1.6; }
     .route__line:last-child { margin-bottom: 0; }
@@ -87,12 +86,11 @@
     .market-note { max-width: 640px; margin: 28px auto 0; font-size: 0.95rem; color: #6B6B6B; line-height: 1.7; }
 
     @media (max-width: 600px) {
-      .route__stop { padding-left: 60px; }
-      .route__marker { width: 40px; height: 40px; font-size: 0.95rem; }
-      .route__stop::before { left: 19px; top: 40px; }
       .route__line { flex-direction: column; gap: 2px; }
       .route__label { flex: none; padding-top: 0; }
       .quest-price { padding: 32px 22px; }
+      .taster { padding: 28px 22px; }
+      .quality { padding: 8px 18px; font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -168,7 +166,7 @@
         <hr class="line-accent line-accent--center" style="width: 60px; height: 3px;">
         <p class="hero__sub">A structured dive into your inner system. One quality of Self-leadership each week, a weekly IFS session, and a daily practice that keeps the work alive between them.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
-          <a href="#the-route" class="btn btn--primary">See the eight weeks</a>
+          <a href="#the-route" class="btn btn--primary">How it works</a>
           <a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Talk to me first</a>
         </div>
       </div>
@@ -188,9 +186,9 @@
       <div style="max-width: 720px; margin: 0 auto; text-align: center;" class="fade-in">
         <h2>This is not a course.</h2>
         <hr class="line-accent line-accent--center">
-        <p style="margin-top: 20px;">There are no modules to fall behind on and no videos waiting for you in a portal. It is a coaching relationship with a structure built around it. Eight weeks, a clear route, and both of us fully in it.</p>
-        <hr style="border: none; border-top: 1px solid var(--divider); width: 80px; margin: 34px auto;">
-        <p>A week has 168 hours. Most coaching happens in one of them. Self-Quest is built around the other 167. Each week you get a session, a practice for the mornings, a page to write on, and a breath practice you learn properly and keep for life. By week eight, you do not need me in the room for it. You can do it on your own, in the middle of a bad morning.</p>
+        <p style="margin-top: 20px;">There are no modules to fall behind on and no videos waiting in a portal. It is a coaching relationship with a structure built around it. Eight weeks, a clear route, and both of us fully in it.</p>
+        <p>A week has 168 hours. Most coaching happens in one of them. Self-Quest is built around the other 167.</p>
+        <p>By week eight, you do not need me in the room for it. You can do it on your own, in the middle of a bad morning.</p>
       </div>
     </div>
   </section>
@@ -222,111 +220,60 @@
     </svg>
   </div>
 
-  <!-- The route -->
+  <!-- How it moves -->
   <section class="section" id="the-route" style="background: #fff;">
     <div class="container">
       <div class="text-center fade-in">
-        <h2>The route</h2>
+        <h2>How the eight weeks move</h2>
         <hr class="line-accent line-accent--center">
-        <p style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">IFS describes eight qualities that show up when Self is leading. Calm, curiosity, compassion, clarity, courage, confidence, creativity, connectedness. We take one a week, in this order, because each one makes the next one possible.</p>
+        <p style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">The route is specific, and I keep the detail for the people walking it. Here is the shape.</p>
       </div>
 
-      <div class="route fade-in">
-        <div class="route__stop">
-          <div class="route__marker">01</div>
-          <span class="route__quality">Calm</span>
-          <h3 class="route__title">Landing before we look</h3>
-          <p class="route__body">Nothing useful happens in a system that feels unsafe. We start by finding out what your body does under pressure, and giving you a way to change that in ninety seconds. We also set your intention for the eight weeks, in your words, written down.</p>
-          <div class="route__lines">
-            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Your stress signature, your intention, and how the eight weeks will run.</span></div>
-            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Long exhale practice. The one you will still be using in ten years.</span></div>
-            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">Ten minutes in the morning. One page at night.</span></div>
-          </div>
+      <div class="grid-3" style="margin-top: 48px;">
+        <div class="card fade-in" style="text-align: left;">
+          <span class="card__icon">I</span>
+          <h3>Landing</h3>
+          <p>Nothing useful happens in a system that does not feel safe. We start by steadying yours, we write down what you actually came for, and you meet the parts running your day. By the end of these weeks you can tell the difference between being a part and being with it.</p>
         </div>
+        <div class="card fade-in" style="text-align: left;">
+          <span class="card__icon">II</span>
+          <h3>Going in</h3>
+          <p>The middle weeks are the deep ones. We turn toward the parts that have been managing you, see the whole system instead of one loud piece of it, and go toward the thing you have been circling for years. At your pace. Nothing is forced.</p>
+        </div>
+        <div class="card fade-in" style="text-align: left;">
+          <span class="card__icon">III</span>
+          <h3>Carrying it home</h3>
+          <p>New agreements with the parts that have been overworking, rehearsed in real situations from your actual week. Then we cut the practice down to what you will still be doing in March, and you leave with it.</p>
+        </div>
+      </div>
 
-        <div class="route__stop">
-          <div class="route__marker">02</div>
-          <span class="route__quality">Curiosity</span>
-          <h3 class="route__title">Meeting who is actually running the day</h3>
-          <p class="route__body">The one who pushes. The one who shuts down. The one who manages everyone else's mood before breakfast. This week you learn the difference between being a part and being with it, which is the whole skill this program is built on.</p>
-          <div class="route__lines">
-            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Finding your main protectors and what each one is for.</span></div>
-            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Alternate nostril, to steady the mind before you go looking.</span></div>
-            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">Catching the moment a part takes the wheel, and writing down what it was protecting.</span></div>
-          </div>
-        </div>
+      <div class="text-center fade-in" style="margin-top: 72px;">
+        <h2>Eight qualities, one a week</h2>
+        <hr class="line-accent line-accent--center">
+        <p style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">IFS describes eight qualities that show up when Self is leading your system. Each week of the quest belongs to one of them, with a session, a practice, and a breath technique built around it.</p>
+      </div>
+      <div class="qualities fade-in">
+        <span class="quality">Calm</span>
+        <span class="quality">Curiosity</span>
+        <span class="quality">Compassion</span>
+        <span class="quality">Clarity</span>
+        <span class="quality">Courage</span>
+        <span class="quality">Confidence</span>
+        <span class="quality">Creativity</span>
+        <span class="quality">Connectedness</span>
+      </div>
+      <p class="fade-in" style="text-align: center; max-width: 620px; margin: 24px auto 0; color: var(--text-light); font-size: 0.95rem;">The order is deliberate and it is not the order they are listed in here. I will walk you through it on our call.</p>
 
-        <div class="route__stop">
-          <div class="route__marker">03</div>
-          <span class="route__quality">Compassion</span>
-          <h3 class="route__title">Turning toward the part you like least</h3>
-          <p class="route__body">Usually the critic. Sometimes the one who eats at midnight, or the one who checks email on holiday. We find out what it has been protecting and how long it has been doing it alone. People often expect this week to be the hardest. It tends to be the one where the fighting stops.</p>
-          <div class="route__lines">
-            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Meeting the harshest voice with something other than argument.</span></div>
-            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Heart-centred breathing, hand on chest, exhale longer than the inhale.</span></div>
-            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">A letter to that part. Unsent, unedited.</span></div>
-          </div>
+      <div class="taster fade-in">
+        <span class="taster__label">A taste of one week</span>
+        <h3 class="taster__title">The week of Calm</h3>
+        <p>Nothing gets looked at until your system is steady enough to look. So one week is given entirely to that. We find out what your body actually does under pressure, and you learn a breath practice that changes it in ninety seconds, standing in a corridor, with nobody noticing.</p>
+        <div class="route__lines">
+          <div class="route__line"><span class="route__label">Session</span><span class="route__text">Your stress signature, and what it has been protecting.</span></div>
+          <div class="route__line"><span class="route__label">Breath</span><span class="route__text">A long exhale practice. The one you will still be using in ten years.</span></div>
+          <div class="route__line"><span class="route__label">Daily</span><span class="route__text">Ten minutes in the morning. One page at night.</span></div>
         </div>
-
-        <div class="route__stop">
-          <div class="route__marker">04</div>
-          <span class="route__quality">Clarity</span>
-          <h3 class="route__title">The map</h3>
-          <p class="route__body">By now you have met enough of your system to see it whole. Who is polarized with whom. Which parts team up under stress. The pattern you have been calling "how I am" for twenty years. Most people have never seen it drawn. It changes what feels possible.</p>
-          <div class="route__lines">
-            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Laying out your system, including the two parts pulling in opposite directions.</span></div>
-            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">A clearing breath for a cluttered head.</span></div>
-            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">Drawing your map. No artistic skill involved or required.</span></div>
-          </div>
-        </div>
-
-        <div class="route__stop">
-          <div class="route__marker">05</div>
-          <span class="route__quality">Courage</span>
-          <h3 class="route__title">The thing you have been circling</h3>
-          <p class="route__body">There is usually one. A conversation, a grief, a decision, a year you skip over when you tell your story. We go toward it at your pace and with your protectors' agreement. Nothing is forced and nothing is dragged out of you. This is the week the four weeks before it were building.</p>
-          <div class="route__lines">
-            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Approaching what has been avoided, with permission and pacing.</span></div>
-            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">A longer connected breathwork round, fully guided.</span></div>
-            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">What I have not been saying, and to whom.</span></div>
-          </div>
-        </div>
-
-        <div class="route__stop">
-          <div class="route__marker">06</div>
-          <span class="route__quality">Confidence</span>
-          <h3 class="route__title">New agreements</h3>
-          <p class="route__body">Protectors do not stand down because you asked nicely. They step back when they trust that someone competent is holding the thing they were holding. That someone is you. This week we make those agreements explicit, one part at a time, and you start collecting evidence that they hold.</p>
-          <div class="route__lines">
-            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Renegotiating roles with the parts that have been overworking.</span></div>
-            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Grounding, steady rhythm, for the days that try to take the wheel back.</span></div>
-            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">An evidence log. Every moment you led, however small.</span></div>
-          </div>
-        </div>
-
-        <div class="route__stop">
-          <div class="route__marker">07</div>
-          <span class="route__quality">Creativity</span>
-          <h3 class="route__title">New moves in old situations</h3>
-          <p class="route__body">Insight that never changes a Tuesday is entertainment. So we take something real and coming up. The meeting, the conversation with your mother, the message that has been sitting in drafts. We rehearse it. Then you go and do it, and we look at what happened.</p>
-          <div class="route__lines">
-            <div class="route__line"><span class="route__label">Session</span><span class="route__text">Rehearsing a real situation from your actual week.</span></div>
-            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">Free breathing with sound. Most people laugh in this one.</span></div>
-            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">What would I do here if I trusted myself?</span></div>
-          </div>
-        </div>
-
-        <div class="route__stop">
-          <div class="route__marker">08</div>
-          <span class="route__quality">Connectedness</span>
-          <h3 class="route__title">Carrying it home</h3>
-          <p class="route__body">The last week is about what happens when I am no longer in your calendar. We build the practice that outlives the program, cut down to what you will actually keep doing. Then we look at where this lands: your relationships, your work, and how you speak to yourself on a bad day.</p>
-          <div class="route__lines">
-            <div class="route__line"><span class="route__label">Session</span><span class="route__text">What you are taking, and the shortest practice that keeps it alive.</span></div>
-            <div class="route__line"><span class="route__label">Breath</span><span class="route__text">A long integration round to close the eight weeks.</span></div>
-            <div class="route__line"><span class="route__label">Daily</span><span class="route__text">A letter to yourself in six months. I hold it and send it back to you then.</span></div>
-          </div>
-        </div>
+        <p style="margin: 20px 0 0; font-size: 0.95rem; color: #6B6B6B;">The other seven weeks are built the same way, each one around its own quality, its own breath practice, and its own questions.</p>
       </div>
     </div>
   </section>
