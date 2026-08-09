@@ -848,6 +848,17 @@ p {
   align-items: start;
 }
 
+/* On desktop the CTA sits centered against the whole text block, not up by the heading */
+@media (min-width: 969px) {
+  .service-block__inner {
+    align-items: center;
+  }
+
+  .service-block__inner > div:last-child {
+    text-align: center;
+  }
+}
+
 .service-block__label {
   font-size: 0.8rem;
   font-weight: 600;
