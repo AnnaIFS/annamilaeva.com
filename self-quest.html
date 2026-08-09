@@ -124,6 +124,18 @@
     .quest-price__amount { font-family: var(--font-heading); font-size: 3rem; color: #1A1A1A; line-height: 1; }
     .quest-price__note { color: #6B6B6B; font-size: 0.95rem; margin-top: 10px; }
 
+    /* The global mobile stylesheet forces p sizing with !important, so match it */
+    @media (max-width: 768px) {
+      .hero__tagline { font-size: 21px !important; line-height: 1.35 !important; }
+      .statement { padding: 30px 24px; }
+      .statement p { font-size: 19px !important; line-height: 1.6 !important; color: #3D2518 !important; }
+      .statement strong { color: var(--accent) !important; }
+      .included__text { font-size: 17px; line-height: 1.8; }
+      .quest-price__note { font-size: 16px !important; line-height: 1.6 !important; }
+      .q-box { padding: 24px 20px !important; }
+      .taster__title { font-size: 22px; }
+    }
+
     @media (max-width: 600px) {
       .route__line { flex-direction: column; gap: 2px; }
       .route__label { flex: none; padding-top: 0; }
@@ -251,7 +263,7 @@
           <p style="max-width: 560px; margin: 20px auto 0; color: var(--text-light);">When you book, you get your journal and four questions. Nothing to submit. Just let them sit with you for a few days.</p>
         </div>
         <img src="quest-start.png" alt="" aria-hidden="true" loading="lazy" style="display: block; width: 260px; max-width: 70%; height: auto; margin: 28px auto 4px;">
-        <div style="background: #FFFFFF; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 28px 32px; margin-top: 20px; box-shadow: 0 6px 24px rgba(61,37,24,0.06);">
+        <div class="q-box" style="background: #FFFFFF; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 28px 32px; margin-top: 20px; box-shadow: 0 6px 24px rgba(61,37,24,0.06);">
           <p style="margin-bottom: 14px;">What are you wanting most right now for your life?</p>
           <p style="margin-bottom: 14px;">What do you want to feel more of?</p>
           <p style="margin-bottom: 14px;">What needs to transform to create that?</p>
