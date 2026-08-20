@@ -29,7 +29,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=35">
+  <link rel="stylesheet" href="styles.css?v=38">
   <style>
     /* Composite cards: flip on desktop hover/click, crossfade on touch.
        Grid stacking sizes the card to the taller face so nothing clips. */
@@ -151,9 +151,9 @@
   <main id="main">
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero hero--home">
     <div class="container">
-      <div class="grid-2 fade-in" style="align-items: center;">
+      <div class="grid-2 fade-in hero__grid">
         <div class="hero__content">
           <h1>The real work is on the inside. Everything else follows.</h1>
           <p class="hero__sub">I work with professionals, leaders, and people in transition using Internal Family Systems (IFS) coaching. Online, in English and Spanish.</p>
@@ -161,26 +161,48 @@
             <a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Book a Free Intro Call</a>
             <a href="about" class="btn btn--outline">Learn how I work</a>
           </div>
-          <div class="hero__shelf">
-            <a href="book" class="shelf-card">
-              <span class="shelf-card__tag">New &middot; The novel</span>
-              <span class="shelf-card__title"><em>Already In A Meeting</em></span>
-              <span class="shelf-card__text">Five colleagues, one company, and the meetings nobody sees: the ones inside each of them.</span>
-              <span class="shelf-card__link">Meet the cast &rarr;</span>
-            </a>
-            <div class="shelf-card">
-              <span class="shelf-card__tag">The workbook</span>
-              <span class="shelf-card__title">The Self-Journal</span>
-              <span class="shelf-card__text">Eight weeks of prompts for getting to know your parts and working with them.</span>
-              <span class="shelf-card__links">
-                <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer">English &rarr;</a>
-                <a href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer">Espa&ntilde;ol &rarr;</a>
-              </span>
-            </div>
-          </div>
         </div>
-        <div style="display: flex; justify-content: center;">
-          <img src="anna-hero.jpg?v=20260502" alt="Anna Milaeva IFS Coach" class="circle-photo" style="width: 400px; height: 400px; max-width: 100%; border-radius: 50%; object-fit: cover;">
+        <div class="hero__media">
+          <img src="anna-hero.jpg?v=20260502" alt="Anna Milaeva IFS Coach" class="circle-photo hero__photo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voices: short client quotes, first thing after the fold -->
+  <section class="voices">
+    <div class="container fade-in">
+      <div class="voices__grid">
+        <blockquote class="voice">
+          <p class="voice__quote">Thank you, Anna. You are such an asset to me and my team. I cannot tell you how much we appreciate your work.</p>
+          <cite class="voice__who">Client</cite>
+        </blockquote>
+        <blockquote class="voice">
+          <p class="voice__quote">Anna was instrumental during my work and life transition. I received more than I could ever expect. Thank you for the support and the patience in the times when I could not decide which direction to go, and for the clarity and the steadiness.</p>
+          <cite class="voice__who">Client</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shelf: novel + workbook -->
+  <section class="shelf-band">
+    <div class="container fade-in">
+      <div class="hero__shelf">
+        <a href="book" class="shelf-card">
+          <span class="shelf-card__tag">New &middot; The novel</span>
+          <span class="shelf-card__title"><em>Already In A Meeting</em></span>
+          <span class="shelf-card__text">Five colleagues, one company, and the meetings nobody sees: the ones inside each of them.</span>
+          <span class="shelf-card__link">Meet the cast &rarr;</span>
+        </a>
+        <div class="shelf-card">
+          <span class="shelf-card__tag">The workbook</span>
+          <span class="shelf-card__title">The Self-Journal</span>
+          <span class="shelf-card__text">Eight weeks of prompts for getting to know your parts and working with them.</span>
+          <span class="shelf-card__links">
+            <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer">English &rarr;</a>
+            <a href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer">Espa&ntilde;ol &rarr;</a>
+          </span>
         </div>
       </div>
     </div>

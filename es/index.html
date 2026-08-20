@@ -31,7 +31,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/styles.css?v=35">
+  <link rel="stylesheet" href="/styles.css?v=38">
   <style>
     /* Composite cards: flip on desktop hover/click, crossfade on touch.
        Grid stacking sizes the card to the taller face so nothing clips. */
@@ -151,9 +151,9 @@
   <main id="main">
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero hero--home">
     <div class="container">
-      <div class="grid-2 fade-in" style="align-items: center;">
+      <div class="grid-2 fade-in hero__grid">
         <div class="hero__content">
           <h1>El trabajo de verdad sucede adentro. Lo dem&aacute;s llega despu&eacute;s.</h1>
           <p class="hero__sub">Acompa&ntilde;o a profesionales, l&iacute;deres y personas en transici&oacute;n con coaching basado en IFS (Sistemas de Familia Interna). En l&iacute;nea, en ingl&eacute;s y espa&ntilde;ol.</p>
@@ -161,28 +161,50 @@
             <a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Reservar una llamada gratuita</a>
             <a href="/es/sobre-mi" class="btn btn--outline">Conoce c&oacute;mo trabajo</a>
           </div>
-          <div class="hero__shelf">
-            <div class="shelf-card">
-              <span class="shelf-card__tag">Nuevo &middot; La novela, solo en ingl&eacute;s</span>
-              <span class="shelf-card__title"><em>Already In A Meeting</em></span>
-              <span class="shelf-card__text">Cinco colegas, una empresa y las reuniones que nadie ve: las de adentro. Publicada &uacute;nicamente en ingl&eacute;s, todav&iacute;a no hay edici&oacute;n en espa&ntilde;ol.</span>
-              <span class="shelf-card__links">
-                <a href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" hreflang="en">Verla en Amazon &rarr;</a>
-              </span>
-            </div>
-            <div class="shelf-card">
-              <span class="shelf-card__tag">El cuaderno de trabajo</span>
-              <span class="shelf-card__title">El Diario de tus Partes</span>
-              <span class="shelf-card__text">Ocho semanas de ejercicios para conocer a tus partes y trabajar con ellas.</span>
-              <span class="shelf-card__links">
-                <a href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer">Espa&ntilde;ol &rarr;</a>
-                <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer">Ingl&eacute;s &rarr;</a>
-              </span>
-            </div>
-          </div>
         </div>
-        <div style="display: flex; justify-content: center;">
-          <img src="/anna-hero.jpg?v=20260502" alt="Anna Milaeva, Coach de IFS" class="circle-photo" style="width: 400px; height: 400px; max-width: 100%; border-radius: 50%; object-fit: cover;">
+        <div class="hero__media">
+          <img src="/anna-hero.jpg?v=20260502" alt="Anna Milaeva, Coach de IFS" class="circle-photo hero__photo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voces: citas breves de clientes, justo despu&eacute;s del hero -->
+  <section class="voices">
+    <div class="container fade-in">
+      <div class="voices__grid">
+        <blockquote class="voice">
+          <p class="voice__quote">Gracias, Anna. Eres un gran apoyo para m&iacute; y para mi equipo. No puedo expresar cu&aacute;nto valoramos tu trabajo.</p>
+          <cite class="voice__who">Cliente</cite>
+        </blockquote>
+        <blockquote class="voice">
+          <p class="voice__quote">Anna fue clave durante mi transici&oacute;n laboral y personal. Recib&iacute; m&aacute;s de lo que esperaba. Gracias por el apoyo y la paciencia en los momentos en que no sab&iacute;a qu&eacute; hacer ni hacia d&oacute;nde ir, y por la claridad y la calma.</p>
+          <cite class="voice__who">Cliente</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Estante: novela + cuaderno -->
+  <section class="shelf-band">
+    <div class="container fade-in">
+      <div class="hero__shelf">
+        <div class="shelf-card">
+          <span class="shelf-card__tag">Nuevo &middot; La novela, solo en ingl&eacute;s</span>
+          <span class="shelf-card__title"><em>Already In A Meeting</em></span>
+          <span class="shelf-card__text">Cinco colegas, una empresa y las reuniones que nadie ve: las de adentro. Publicada &uacute;nicamente en ingl&eacute;s, todav&iacute;a no hay edici&oacute;n en espa&ntilde;ol.</span>
+          <span class="shelf-card__links">
+            <a href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" hreflang="en">Verla en Amazon &rarr;</a>
+          </span>
+        </div>
+        <div class="shelf-card">
+          <span class="shelf-card__tag">El cuaderno de trabajo</span>
+          <span class="shelf-card__title">El Diario de tus Partes</span>
+          <span class="shelf-card__text">Ocho semanas de ejercicios para conocer a tus partes y trabajar con ellas.</span>
+          <span class="shelf-card__links">
+            <a href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer">Espa&ntilde;ol &rarr;</a>
+            <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer">Ingl&eacute;s &rarr;</a>
+          </span>
         </div>
       </div>
     </div>
