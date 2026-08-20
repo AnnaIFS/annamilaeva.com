@@ -1,0 +1,34 @@
+# This repository is public and is published straight to annamilaeva.com.
+# Anything committed here is world-readable and stays in history, so keep
+# working material, client documents, and credentials out of it.
+
+# Credentials and config
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*credentials*
+*secret*
+
+# Documents that might carry client or personal material
+*.pdf
+*.doc
+*.docx
+*.odt
+*.rtf
+*.xls
+*.xlsx
+*.csv
+*.zip
+
+# Local tooling and editor noise
+.claude/
+node_modules/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
