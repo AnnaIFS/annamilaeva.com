@@ -81,19 +81,29 @@ if (nav) {
 const fadeEls = document.querySelectorAll('.fade-in');
 
 if (fadeEls.length > 0 && 'IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
+  const reveal = (entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
-  }, {
+  };
+
+  // A block taller than the screen can never show 15% of itself at once, so on a
+  // phone it would sit at opacity 0 forever. Those get a threshold they can reach.
+  const partial = new IntersectionObserver(reveal, {
     threshold: 0.15,
     rootMargin: '0px 0px -40px 0px'
   });
+  const tall = new IntersectionObserver(reveal, {
+    threshold: 0,
+    rootMargin: '0px 0px -40px 0px'
+  });
 
-  fadeEls.forEach(el => observer.observe(el));
+  fadeEls.forEach(el => {
+    (el.offsetHeight > window.innerHeight * 0.5 ? tall : partial).observe(el);
+  });
 } else {
   // Fallback: show everything immediately
   fadeEls.forEach(el => el.classList.add('visible'));
