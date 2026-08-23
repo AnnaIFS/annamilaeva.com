@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://annamilaeva.com/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/"/>
@@ -11,7 +11,7 @@
   </url>
   <url>
     <loc>https://annamilaeva.com/es/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/"/>
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://annamilaeva.com/book</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -40,7 +40,7 @@
   </url>
   <url>
     <loc>https://annamilaeva.com/work-with-me</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/work-with-me"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/trabaja-conmigo"/>
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://annamilaeva.com/es/trabaja-conmigo</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/work-with-me"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/trabaja-conmigo"/>
@@ -56,7 +56,7 @@
   </url>
   <url>
     <loc>https://annamilaeva.com/coaching</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/coaching"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/coaching"/>
@@ -80,27 +80,27 @@
   </url>
   <url>
     <loc>https://annamilaeva.com/es/coaching</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/coaching"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/coaching"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/coaching"/>
   </url>
   <url>
-    <loc>https://annamilaeva.com/ai</loc>
-    <lastmod>2026-05-22</lastmod>
+    <loc>https://annamilaeva.com/ai-clarity</loc>
+    <lastmod>2026-08-23</lastmod>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/ai"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/ia"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/ai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/ai-clarity"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/claridad-ia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/ai-clarity"/>
   </url>
   <url>
-    <loc>https://annamilaeva.com/es/ia</loc>
-    <lastmod>2026-05-22</lastmod>
+    <loc>https://annamilaeva.com/es/claridad-ia</loc>
+    <lastmod>2026-08-23</lastmod>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/ai"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/ia"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/ai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annamilaeva.com/ai-clarity"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/claridad-ia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/ai-clarity"/>
   </url>
   <url>
     <loc>https://annamilaeva.com/couples</loc>
