@@ -32,6 +32,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/styles.css?v=44">
+  <style>
+    /* Two circles, one mark. On the outer card the ring breathes and sends a
+       ring outward; on the inner card the core does, half a cycle later, so
+       the two icons take turns rather than pulsing at each other. */
+    .layer-mark { display: block; overflow: visible; }
+    .layer-mark circle { transform-box: fill-box; transform-origin: center; }
+    .layer-mark__pulse { animation: layerPulse 3.4s ease-in-out infinite; }
+    .layer-mark__echo { animation: layerEcho 3.4s ease-in-out infinite; }
+    .layer-mark--inner .layer-mark__pulse,
+    .layer-mark--inner .layer-mark__echo { animation-delay: 1.7s; }
+
+    @keyframes layerPulse {
+      0%, 50%, 100% { transform: scale(1); }
+      22% { transform: scale(1.1); }
+    }
+
+    @keyframes layerEcho {
+      0% { transform: scale(1); opacity: 0.45; }
+      45%, 100% { transform: scale(1.34); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .layer-mark__pulse, .layer-mark__echo { animation: none; }
+      .layer-mark__echo { opacity: 0; }
+    }
+  </style>
 </head>
 <body>
 
@@ -160,13 +186,10 @@
       <div class="grid-2 fade-in" style="margin-top: 48px; gap: 32px;">
         <div class="card" style="text-align: left;">
           <div style="margin-bottom: 20px;">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="18" cy="18" r="7" stroke="#C85A2A" stroke-width="2"/>
-              <circle cx="30" cy="30" r="7" stroke="#C85A2A" stroke-width="2"/>
-              <path d="M23 13L35 25" stroke="#C85A2A" stroke-width="2"/>
-              <path d="M13 23L25 35" stroke="#C85A2A" stroke-width="2"/>
-              <circle cx="18" cy="18" r="2" stroke="#C85A2A" stroke-width="1.5"/>
-              <circle cx="30" cy="30" r="2" stroke="#C85A2A" stroke-width="1.5"/>
+            <svg class="layer-mark layer-mark--outer" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle class="layer-mark__echo" cx="24" cy="24" r="17" stroke="#C85A2A" stroke-width="1.5"/>
+              <circle class="layer-mark__pulse" cx="24" cy="24" r="17" stroke="#C85A2A" stroke-width="2"/>
+              <circle cx="24" cy="24" r="6" stroke="#C85A2A" stroke-width="2" opacity="0.4"/>
             </svg>
           </div>
           <h3>La capa exterior</h3>
@@ -174,14 +197,10 @@
         </div>
         <div class="card" style="text-align: left;">
           <div style="margin-bottom: 20px;">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="24" cy="28" rx="10" ry="14" stroke="#C85A2A" stroke-width="2"/>
-              <circle cx="24" cy="12" r="6" stroke="#C85A2A" stroke-width="2"/>
-              <line x1="24" y1="22" x2="24" y2="32" stroke="#C85A2A" stroke-width="1.5"/>
-              <line x1="24" y1="26" x2="19" y2="22" stroke="#C85A2A" stroke-width="1.5"/>
-              <line x1="24" y1="26" x2="29" y2="22" stroke="#C85A2A" stroke-width="1.5"/>
-              <line x1="24" y1="30" x2="20" y2="34" stroke="#C85A2A" stroke-width="1.5"/>
-              <line x1="24" y1="30" x2="28" y2="34" stroke="#C85A2A" stroke-width="1.5"/>
+            <svg class="layer-mark layer-mark--inner" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="17" stroke="#C85A2A" stroke-width="2" opacity="0.4"/>
+              <circle class="layer-mark__echo" cx="24" cy="24" r="6" stroke="#C85A2A" stroke-width="1.5"/>
+              <circle class="layer-mark__pulse" cx="24" cy="24" r="6" fill="#C85A2A"/>
             </svg>
           </div>
           <h3>La capa interior</h3>
@@ -258,20 +277,22 @@
         <div class="pricing-card pricing-card--featured">
           <h3>Sesi&oacute;n de Claridad con IA</h3>
           <div class="pricing-card__price">$135</div>
-          <p>90 minutos. Mapeamos tu trabajo, tu resistencia y tus objetivos. Sales con una imagen clara y un plan simple. Aqu&iacute; es donde empezamos. Si sigues con el programa dentro de un mes, los $135 se descuentan del precio del programa.</p>
+          <p>90 minutos. Mapeamos tu trabajo, tu resistencia y tus objetivos. Sales con una imagen clara y un plan simple. Aqu&iacute; es donde empezamos.</p>
           <a href="https://app.paperbell.com/checkout/packages/209380" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Reservar</a>
         </div>
         <div class="pricing-card">
           <h3>Programa de Claridad con IA</h3>
           <div class="pricing-card__price">$750</div>
-          <p>Cuatro semanas. Revisamos tus herramientas, tus archivos y c&oacute;mo fluye tu trabajo de verdad. Despu&eacute;s construimos tu sistema juntos: una sesi&oacute;n por semana, m&aacute;s el trabajo que hago entre sesiones. Terminas con un sistema simple que manejas por tu cuenta, y h&aacute;bitos que se sostienen.</p>
-          <p>El precio incluye el trabajo que hago entre sesiones. Est&aacute;s comprando un sistema que funciona, y las sesiones son c&oacute;mo lo construimos.</p>
-          <p>Qu&eacute; incluye: una revisi&oacute;n completa de tus herramientas y suscripciones actuales, un sistema construido contigo en las sesiones, flujos de trabajo para tus tareas recurrentes reales, y apoyo por correo entre sesiones.</p>
-          <p>&iquest;Ya hiciste una Sesi&oacute;n de Claridad? Entonces son $615, dentro del mes siguiente a tu sesi&oacute;n.</p>
+          <p>Cuatro semanas. Revisamos tus herramientas, tus archivos y c&oacute;mo fluye tu trabajo de verdad. Despu&eacute;s construimos tu sistema juntos: una sesi&oacute;n por semana, m&aacute;s el trabajo que hago entre sesiones.</p>
           <a href="https://app.paperbell.com/checkout/packages/209381" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Reservar</a>
         </div>
       </div>
-      <p style="text-align: center; color: #6B6B6B; font-size: 1.05rem; margin-top: 16px;">Precios en USD. Tambi&eacute;n disponibles en euros, solo pregunta.</p>
+      <div class="fade-in" style="max-width: 680px; margin: 44px auto 0; text-align: left;">
+        <div class="service-block__label">El Programa de Claridad con IA</div>
+        <p>El precio incluye el trabajo que hago entre sesiones. Est&aacute;s comprando un sistema que funciona, y las sesiones son c&oacute;mo lo construimos.</p>
+        <p>Qu&eacute; incluye: una revisi&oacute;n completa de tus herramientas y suscripciones actuales, un sistema construido contigo en las sesiones, flujos de trabajo para tus tareas recurrentes reales, y apoyo por correo entre sesiones.</p>
+      </div>
+      <p style="text-align: center; color: #6B6B6B; font-size: 1.05rem; margin-top: 32px;">Precios en USD. Tambi&eacute;n disponibles en euros, solo pregunta.</p>
     </div>
   </section>
 
