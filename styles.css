@@ -631,7 +631,7 @@ p {
 }
 
 .hero--home .hero__sub {
-  margin-bottom: 32px;
+  margin-bottom: 14px;
 }
 
 .hero__media {
@@ -834,15 +834,15 @@ p {
 
 .hero__shelf {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-  align-items: stretch;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 .shelf-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
+  gap: 24px;
   padding: 24px 26px 22px;
   background: var(--white);
   border: 1px solid var(--divider);
@@ -880,6 +880,7 @@ p {
 }
 
 .shelf-card__text {
+  max-width: 62ch;
   font-size: 0.88rem;
   line-height: 1.65;
   color: var(--text-light);
@@ -909,6 +910,67 @@ p {
 .shelf-card:hover .shelf-card__link,
 .shelf-card__links a:hover {
   text-decoration: underline;
+}
+
+/* Cover thumbnail inside the novel card */
+.shelf-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+}
+
+.shelf-card__cover {
+  display: block;
+  flex-shrink: 0;
+}
+
+.shelf-card__cover img {
+  display: block;
+  width: 78px;
+  height: auto;
+  border: 1px solid var(--divider);
+  border-radius: 3px;
+  box-shadow: 0 8px 22px rgba(61, 37, 24, 0.22);
+}
+
+.shelf-card__note {
+  font-size: 0.8rem;
+}
+
+/* One button, one text link under it */
+.shelf-card__cta .btn {
+  padding: 11px 24px;
+  font-size: 0.86rem;
+}
+
+.shelf-card__cta {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.shelf-card__undercta {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.shelf-card__undercta:hover {
+  text-decoration: underline;
+}
+
+/* ---- Hero credential strip ---- */
+.hero__creds {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  max-width: 560px;
+  margin: 0 0 26px;
 }
 
 
@@ -2332,6 +2394,38 @@ p {
     margin-bottom: 18px;
   }
 
+  /* Nothing outranks the intro call on a phone screen: the credential strip
+     drops below the buttons, so the CTA keeps its place above the fold. */
+  .hero--home .hero__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Flex stops margins collapsing, so the spacing lives in the bottom margins only */
+  .hero--home .hero__content > * {
+    margin-top: 0 !important;
+  }
+
+  .hero--home .hero__creds {
+    order: 1;
+    margin: 22px 0 0 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #5A5A5A !important;
+  }
+
+  .shelf-card__cover img {
+    width: 72px;
+  }
+
+  .shelf-card__note {
+    font-size: 14px !important;
+  }
+
+  .shelf-card__undercta {
+    font-size: 16px !important;
+  }
+
   .hero--home .hero__sub {
     margin-bottom: 26px;
   }
@@ -2369,7 +2463,13 @@ p {
   }
 
   .shelf-card {
+    flex-direction: column;
+    gap: 0;
     padding: 22px 22px 20px;
+  }
+
+  .shelf-card__cover {
+    margin-bottom: 14px;
   }
 
   .shelf-card__tag {

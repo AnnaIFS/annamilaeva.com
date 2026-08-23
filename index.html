@@ -9,6 +9,7 @@
   <link rel="alternate" hreflang="en" href="https://annamilaeva.com/">
   <link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/">
   <link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/">
+  <meta name="google-site-verification" content="96313lZ1hTI4pdyopminC65dl23F8numUEIrklX0-gs">
   <title>Anna Milaeva, IFS Coach &amp; Operations Leader</title>
   <meta name="description" content="IFS coaching and inner and outer operations support for professionals, leaders, and teams. The real work is on the inside. Everything else follows.">
 
@@ -29,7 +30,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=43">
+  <link rel="stylesheet" href="styles.css?v=44">
   <style>
     /* Composite cards: flip on desktop hover/click, crossfade on touch.
        Grid stacking sizes the card to the taller face so nothing clips. */
@@ -37,7 +38,11 @@
     .hm-card__inner { display: grid; transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.3, 1.14); transform-style: preserve-3d; height: 100%; }
     .hm-card.flipped .hm-card__inner { transform: rotateY(180deg); }
     @media (hover: hover) {
-      .hm-card:hover .hm-card__inner { transform: rotateY(180deg); }
+      /* Hover turns the card just enough to say "this rotates". The click does the rest. */
+      .hm-card:hover .hm-card__inner { transform: rotateY(-9deg) translateY(-5px); }
+      .hm-card.flipped:hover .hm-card__inner { transform: rotateY(171deg) translateY(-5px); }
+      .hm-card:hover .hm-card__hint { background: #C85A2A; color: #FFFFFF; transform: rotate(90deg); }
+      .hm-card:hover .hm-card__front { box-shadow: 0 14px 38px rgba(61,37,24,0.16); }
     }
     .hm-card__face {
       grid-area: 1 / 1;
@@ -47,7 +52,18 @@
       overflow: hidden;
       position: relative;
     }
-    .hm-card__front { background: #FFFFFF; box-shadow: 0 6px 24px rgba(61,37,24,0.09); padding: 30px 28px; text-align: left; }
+    .hm-card__front { background: #FFFFFF; box-shadow: 0 6px 24px rgba(61,37,24,0.09); padding: 30px 28px; text-align: left; transition: box-shadow 0.3s ease; }
+    .hm-card__front h3 { padding-right: 44px; }
+    .hm-card__hint {
+      position: absolute; top: 24px; right: 24px; z-index: 3;
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(200,90,42,0.12); color: #C85A2A;
+      font-size: 17px; line-height: 1;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.5s ease;
+    }
+    .hm-card:focus-visible { outline: 2px solid #C85A2A; outline-offset: 4px; border-radius: 12px; }
+    .hm-card:focus-visible .hm-card__hint { background: #C85A2A; color: #FFFFFF; }
     .hm-card__back {
       background: #3D2518;
       transform: rotateY(180deg);
@@ -83,6 +99,9 @@
     .hm-tight-next { padding-top: 36px !important; }
     @media (prefers-reduced-motion: reduce) {
       .hm-card__inner { transition: none; }
+      .hm-card:hover .hm-card__inner { transform: none; }
+      .hm-card.flipped .hm-card__inner, .hm-card.flipped:hover .hm-card__inner { transform: rotateY(180deg); }
+      .hm-card__hint { transition: none; }
       .hm-card__face::before { animation: none !important; }
     }
   </style>
@@ -156,8 +175,8 @@
       <div class="grid-2 fade-in hero__grid">
         <div class="hero__content">
           <h1>The real work is on the inside. Everything else follows.</h1>
-          <p class="hero__sub" style="margin-bottom: 14px;">I work with professionals, leaders, and people in transition using Internal Family Systems (IFS) coaching. Online, in English and Spanish.</p>
-          <p class="hero__creds" style="font-size: 0.85rem; line-height: 1.6; color: var(--text-light); max-width: 560px; margin: 0 0 26px;">IFS Institute, trained through Level 3, the Institute's highest practitioner level. Clients in 15+ countries. Author of <em>Already In A Meeting</em>.</p>
+          <p class="hero__sub">I work with professionals, leaders, and people in transition using Internal Family Systems (IFS) coaching. Online, in English and Spanish.</p>
+          <p class="hero__creds">Trained at the IFS Institute, all three levels, its highest, and brought into coaching. Over a decade in startup operations. Clients from more than fifteen countries. Author of <em>Already In A Meeting</em>.</p>
           <div class="hero__buttons" style="display: flex; gap: 16px; flex-wrap: wrap;">
             <a href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Book a Free Intro Call</a>
             <a href="about" class="btn btn--outline">Learn how I work</a>
@@ -191,22 +210,32 @@
     <div class="container fade-in">
       <div class="hero__shelf">
         <div class="shelf-card">
-          <span class="shelf-card__tag">New &middot; My first novel</span>
-          <span class="shelf-card__title"><em>Already In A Meeting</em></span>
-          <span class="shelf-card__text">Five people, one company in trouble, and the meetings nobody sees: the ones running inside each of them. A story about the parts of us that never stop working.</span>
-          <span class="shelf-card__text" style="font-size: 0.8rem;">In English. Paperback and Kindle, and free on Kindle Unlimited.</span>
-          <span class="shelf-card__links">
-            <a href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Get it on Amazon &rarr;</a>
-            <a href="book">Meet the cast &rarr;</a>
+          <span class="shelf-card__cover">
+            <a href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer"><img src="book-cover.jpg?v=1" alt="Cover of Already In A Meeting, a novel by Anna Milaeva"></a>
+          </span>
+          <span class="shelf-card__body">
+            <span class="shelf-card__tag">New &middot; My first novel</span>
+            <span class="shelf-card__title"><em>Already In A Meeting</em></span>
+            <span class="shelf-card__text">Five people, one company in trouble, and the meetings nobody sees: the ones running inside each of them. A story about the parts of us that never stop working.</span>
+            <span class="shelf-card__text shelf-card__note">In English. Paperback and Kindle, and free on Kindle Unlimited.</span>
+            <span class="shelf-card__cta">
+              <a href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Get it on Amazon</a>
+              <a href="book" class="shelf-card__undercta">Meet the cast &rarr;</a>
+            </span>
           </span>
         </div>
         <div class="shelf-card">
-          <span class="shelf-card__tag">The workbook</span>
-          <span class="shelf-card__title">The Self-Journal</span>
-          <span class="shelf-card__text">Eight weeks. Eight qualities of Self-leadership from IFS. Space to write by hand, draw your parts in the margins, make it yours.</span>
-          <span class="shelf-card__links">
-            <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer">English &rarr;</a>
-            <a href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer">Espa&ntilde;ol &rarr;</a>
+          <span class="shelf-card__cover">
+            <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer"><img src="self-journal-cover.jpg?v=1" alt="Cover of The Self Journal by Anna Milaeva"></a>
+          </span>
+          <span class="shelf-card__body">
+            <span class="shelf-card__tag">The workbook</span>
+            <span class="shelf-card__title">The Self-Journal</span>
+            <span class="shelf-card__text">Eight weeks. Eight qualities of Self-leadership from IFS. Space to write by hand, draw your parts in the margins, make it yours.</span>
+            <span class="shelf-card__cta">
+              <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Get it on Amazon</a>
+              <a href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer" class="shelf-card__undercta">Tambi&eacute;n en espa&ntilde;ol &rarr;</a>
+            </span>
           </span>
         </div>
       </div>
@@ -261,9 +290,10 @@
         <p style="max-width: 560px; margin: 20px auto 0; color: var(--text-light);">Four made-up people. Very real parts. Tap a card for the meeting inside.</p>
       </div>
       <div class="grid-2 fade-in" style="margin-top: 48px; gap: 28px; align-items: stretch;">
-        <div class="hm-card">
+        <div class="hm-card" role="button" tabindex="0" aria-expanded="false">
           <div class="hm-card__inner">
             <div class="hm-card__face hm-card__front">
+              <span class="hm-card__hint" aria-hidden="true">&#8635;</span>
               <h3 style="margin-bottom: 12px;">The founder after the exit</h3>
               <p>He sold the company he spent a decade building. Everyone congratulated him. He felt nothing.</p>
             </div>
@@ -273,9 +303,10 @@
             </div>
           </div>
         </div>
-        <div class="hm-card">
+        <div class="hm-card" role="button" tabindex="0" aria-expanded="false">
           <div class="hm-card__inner">
             <div class="hm-card__face hm-card__front">
+              <span class="hm-card__hint" aria-hidden="true">&#8635;</span>
               <h3 style="margin-bottom: 12px;">The lawyer who can't stop</h3>
               <p>Just this case. Just this quarter. She had been saying it for six years.</p>
             </div>
@@ -285,9 +316,10 @@
             </div>
           </div>
         </div>
-        <div class="hm-card">
+        <div class="hm-card" role="button" tabindex="0" aria-expanded="false">
           <div class="hm-card__inner">
             <div class="hm-card__face hm-card__front">
+              <span class="hm-card__hint" aria-hidden="true">&#8635;</span>
               <h3 style="margin-bottom: 12px;">The one everyone leans on</h3>
               <p>Beloved. Reliable. Running on empty where nobody sees it. Her relationships flowed one direction: outward.</p>
             </div>
@@ -297,9 +329,10 @@
             </div>
           </div>
         </div>
-        <div class="hm-card">
+        <div class="hm-card" role="button" tabindex="0" aria-expanded="false">
           <div class="hm-card__inner">
             <div class="hm-card__face hm-card__front">
+              <span class="hm-card__hint" aria-hidden="true">&#8635;</span>
               <h3 style="margin-bottom: 12px;">The couple deciding whether to stay</h3>
               <p>They love each other, they fight about money, and lately they feel like strangers. Which means it was never about the money.</p>
             </div>
@@ -346,7 +379,7 @@
         <div class="card fade-in">
           <span class="card__icon">05</span>
           <h3>Organizational Programs</h3>
-          <p>Through <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer" class="fino-link">FINO</a>, I bring Self-leadership into teams and organizations. A shared language that spreads, sticks, and changes how teams handle pressure, conflict, and each other.</p>
+          <p>Through <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer" class="fino-link">FINO</a>, I work with the two operating systems every team runs: the visible one made of processes, tools, and meetings, and the one running inside the people. Change is where those two meet.</p>
         </div>
       </div>
     </div>
@@ -388,13 +421,13 @@
           </div>
           <div class="card" style="text-align: left;">
             <p style="font-family: var(--font-heading); font-style: italic; font-size: 1.05rem; line-height: 1.7; color: var(--text);">"Thank you, Anna. You are such an asset to me and my team. I cannot tell you how much we appreciate your work."</p>
-            <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-light);"><strong style="color: var(--text);">Client</strong></p>
+            <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-light);"><strong style="color: var(--text);">Corporate Client</strong>, USA</p>
           </div>
         </div>
         <div style="display: flex; flex-direction: column; gap: 28px;">
           <div class="card" style="text-align: left;">
             <p style="font-family: var(--font-heading); font-style: italic; font-size: 1.05rem; line-height: 1.7; color: var(--text);">"Anna was instrumental during my work and life transition. I received more than I could ever expect. Thank you for the support and the patience in the times when I could not decide which direction to go, and for the clarity and the steadiness."</p>
-            <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-light);"><strong style="color: var(--text);">Client</strong></p>
+            <p style="margin-top: 16px; font-size: 0.85rem; color: var(--text-light);"><strong style="color: var(--text);">Client</strong>, USA</p>
           </div>
           <div class="card" style="text-align: left;">
             <p style="font-family: var(--font-heading); font-style: italic; font-size: 1.05rem; line-height: 1.7; color: var(--text);">"Through skillful direction and the ability to foresee the next step, Anna has guided me to a truly transformational experience that can be called life-changing. Gratitude and awe describe the feeling when I think of my work with her."</p>
@@ -458,7 +491,13 @@
   <script src="main.js?v=7"></script>
   <script>
     document.querySelectorAll('.hm-card').forEach(function (card) {
-      card.addEventListener('click', function () { card.classList.toggle('flipped'); });
+      function toggle() {
+        card.setAttribute('aria-expanded', card.classList.toggle('flipped') ? 'true' : 'false');
+      }
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
     });
   </script>
 </body>
