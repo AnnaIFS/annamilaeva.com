@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="canonical" href="https://annamilaeva.com/start-here">
+  <link rel="alternate" hreflang="en" href="https://annamilaeva.com/start-here">
+  <link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/start-here">
+  <title>Start Here | Anna Milaeva, IFS Coach</title>
+  <meta name="description" content="Explore IFS coaching with Anna Milaeva, book a free intro call, read her Substack, and discover Already In A Meeting.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://annamilaeva.com/start-here">
+  <meta property="og:title" content="Start Here | Anna Milaeva, IFS Coach">
+  <meta property="og:description" content="The real work is on the inside. Everything else follows. Book a free intro call, read the newsletter, or meet the cast of the novel.">
+  <meta property="og:image" content="https://annamilaeva.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Start Here | Anna Milaeva, IFS Coach">
+  <meta name="twitter:description" content="The real work is on the inside. Everything else follows. Book a free intro call, read the newsletter, or meet the cast of the novel.">
+  <meta name="twitter:image" content="https://annamilaeva.com/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=44">
+  <style>
+    /* ========================================================================
+       Start Here, the Instagram bio landing page.
+       One column, one dominant action, no site menu. Styles are namespaced
+       .sh- and live here so styles.css (and its cache version) stays untouched.
+       ======================================================================== */
+
+    .sh-wrap { max-width: 560px; margin: 0 auto; padding: 0 22px; }
+
+    /* ---- Top bar: name and place, not a menu ---- */
+    .sh-bar { border-bottom: 1px solid var(--divider); background: var(--bg); }
+    .sh-bar__inner {
+      max-width: 560px; margin: 0 auto; padding: 18px 22px;
+      display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+    }
+    .sh-bar__logo {
+      font-family: var(--font-heading); font-size: 1.12rem; font-weight: 600;
+      color: var(--text); text-decoration: none;
+    }
+    .sh-bar__logo:hover { color: var(--accent); }
+    .sh-bar__tag {
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-light); white-space: nowrap;
+    }
+
+    /* ---- Hero ---- */
+    .sh-hero { text-align: center; padding: 44px 0 8px; }
+    .sh-hero__photo {
+      width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+      display: block; margin: 0 auto 28px;
+    }
+    .sh-hero h1 {
+      font-size: clamp(1.75rem, 6.2vw, 2.2rem); line-height: 1.22;
+      margin: 0 0 18px; text-wrap: balance;
+    }
+    .sh-hero__sub {
+      font-size: 1rem; line-height: 1.75; color: var(--text-light);
+      max-width: 420px; margin: 0 auto 20px;
+    }
+    .sh-hero__creds {
+      font-size: 0.82rem; line-height: 1.7; color: var(--text-light);
+      max-width: 400px; margin: 0 auto 30px;
+    }
+    .sh-hero__note {
+      font-size: 0.8rem; color: var(--text-light); margin: 14px auto 0; text-align: center;
+    }
+
+    /* ---- The one dominant action ---- */
+    .sh-cta {
+      display: block; width: 100%; box-sizing: border-box;
+      min-height: 44px; padding: 18px 24px;
+      background: var(--accent); color: var(--white);
+      font-family: var(--font-body); font-size: 0.92rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; text-align: center;
+      text-decoration: none; border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(200, 90, 42, 0.18);
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .sh-cta:hover {
+      background: var(--accent-hover); transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(200, 90, 42, 0.26);
+    }
+    .sh-cta:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+
+    /* ---- Sections ---- */
+    .sh-block { padding: 38px 0 4px; }
+    .sh-block h2 {
+      font-size: 1.32rem; margin: 0 0 18px; color: var(--text);
+    }
+
+    /* ---- Cards: the whole card is the tap target ---- */
+    .sh-card {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--white); border-radius: 12px;
+      padding: 22px 22px 20px; margin-bottom: 14px;
+      text-decoration: none; color: inherit;
+      box-shadow: 0 4px 18px rgba(61, 37, 24, 0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .sh-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(61, 37, 24, 0.13); }
+    .sh-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .sh-card--offer { background: #F5EDE3; box-shadow: none; }
+    .sh-card--offer:hover { box-shadow: 0 8px 22px rgba(61, 37, 24, 0.10); }
+
+    .sh-card__thumb {
+      width: 62px; height: auto; border-radius: 4px; flex-shrink: 0;
+      box-shadow: 0 3px 10px rgba(61, 37, 24, 0.18);
+    }
+    .sh-card__body { display: block; flex: 1; min-width: 0; }
+    .sh-card__title {
+      display: block; font-family: var(--font-heading);
+      font-size: 1.08rem; font-weight: 600; color: var(--text); margin-bottom: 7px;
+    }
+    .sh-card__text {
+      display: block; font-size: 0.89rem; line-height: 1.65;
+      color: var(--text-light); margin-bottom: 13px;
+    }
+    .sh-card__link {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent);
+    }
+    .sh-card__link .sh-arrow {
+      display: inline-block; margin-left: 5px;
+      transition: transform 0.25s ease;
+    }
+    .sh-card:hover .sh-arrow { transform: translateX(4px); }
+
+    /* Small status note, e.g. a circle that is full but taking names */
+    .sh-flag {
+      display: inline-block; margin-left: 9px; vertical-align: 1px;
+      font-size: 0.64rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #8A5A10;
+      background: rgba(232, 160, 32, 0.18); border-radius: 20px; padding: 3px 9px;
+    }
+
+    /* ---- Second, quieter ask for anyone who read the whole page ---- */
+    .sh-again { text-align: center; padding: 30px 0 4px; }
+    .sh-again__line { font-size: 0.92rem; color: var(--text-light); margin: 0 auto 16px; }
+    .sh-cta--quiet {
+      background: transparent; color: var(--accent);
+      border: 1.5px solid var(--accent); box-shadow: none;
+    }
+    .sh-cta--quiet:hover { background: var(--accent); color: var(--white); }
+
+    /* ---- Teams route out ---- */
+    .sh-fino {
+      text-align: center; font-size: 0.85rem; color: var(--text-light);
+      margin: 0 auto; padding: 40px 0 64px; border-top: 1px solid var(--divider);
+      margin-top: 38px;
+    }
+    .sh-fino a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .sh-fino a:hover { text-decoration: underline; }
+
+    /* ---- Mobile: styles.css forces p/li to 18px #1A1A1A with !important,
+           so every small line on this page has to say so louder. ---- */
+    @media (max-width: 768px) {
+      .sh-hero { padding-top: 34px; }
+      .sh-hero h1 { font-size: 32px !important; line-height: 1.22 !important; margin-top: 0 !important; }
+      .sh-block h2 { font-size: 21px !important; }
+      .sh-hero__sub { font-size: 16px !important; line-height: 1.7 !important; color: #6B6B6B !important; }
+      .sh-hero__creds { font-size: 13.5px !important; line-height: 1.65 !important; color: #6B6B6B !important; }
+      .sh-hero__note,
+      .sh-again__line { font-size: 13.5px !important; line-height: 1.6 !important; color: #6B6B6B !important; }
+      .sh-fino { font-size: 14px !important; line-height: 1.7 !important; color: #6B6B6B !important; }
+      .sh-card__title { font-size: 17px !important; }
+      .sh-card__text { font-size: 14.5px !important; line-height: 1.6 !important; color: #6B6B6B !important; }
+      .sh-card__link { font-size: 11.5px !important; }
+    }
+
+    /* Narrow phones: keep the button label on one line. */
+    @media (max-width: 359px) {
+      .sh-cta { font-size: 0.84rem; letter-spacing: 0.05em; padding: 17px 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sh-cta, .sh-card, .sh-arrow { transition: none !important; }
+      .sh-cta:hover, .sh-card:hover { transform: none; }
+    }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://annamilaeva.com/#anna","name":"Anna Milaeva","url":"https://annamilaeva.com/about","image":"https://annamilaeva.com/anna-about.jpg","jobTitle":"Transformational IFS Coach","description":"IFS coach trained through all three levels at the IFS Institute and a certified Deep Transformational Coach, working with professionals, leaders and people in transition.","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"Spanish"},{"@type":"Language","name":"Russian"}],"alumniOf":[{"@type":"Organization","name":"IFS Institute","url":"https://ifs-institute.com/"},{"@type":"CollegeOrUniversity","name":"Florida International University"}],"knowsAbout":["Internal Family Systems","IFS coaching","burnout","leadership","operations","career transition"],"sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]},{"@type":"ProfessionalService","@id":"https://annamilaeva.com/#practice","name":"Anna Milaeva","url":"https://annamilaeva.com/","image":"https://annamilaeva.com/og-image.png","description":"IFS coaching for professionals, leaders and people in transition. Online, in English and Spanish.","founder":{"@id":"https://annamilaeva.com/#anna"},"provider":{"@id":"https://annamilaeva.com/#anna"},"areaServed":{"@type":"Place","name":"Worldwide, online"},"availableLanguage":["en","es"],"priceRange":"$105-$2550","currenciesAccepted":"USD","sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]}]}</script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Name and place. Deliberately not the site menu: this page has one job. -->
+  <header class="sh-bar">
+    <div class="sh-bar__inner">
+      <a href="/" class="sh-bar__logo">Anna Milaeva</a>
+      <span class="sh-bar__tag">Start here</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="sh-wrap">
+
+      <!-- Hero -->
+      <section class="sh-hero">
+        <img src="anna-hero.jpg?v=20260502" alt="Anna Milaeva" class="sh-hero__photo" width="150" height="150">
+        <h1>The real work is on the inside. Everything else follows.</h1>
+        <p class="sh-hero__sub">IFS coaching for professionals and leaders, people in transition, and couples.</p>
+        <p class="sh-hero__creds">Trained at the IFS Institute, all three levels, its highest, and brought into coaching. Over a decade in startup operations.</p>
+        <a class="sh-cta" href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" data-event="start_here_intro_call">Book a free intro call</a>
+        <p class="sh-hero__note">30 minutes. No obligation.</p>
+      </section>
+
+      <!-- Lower-commitment routes -->
+      <section class="sh-block">
+        <h2>Start where you are</h2>
+
+        <a class="sh-card" href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer" data-event="start_here_substack">
+          <span class="sh-card__body">
+            <span class="sh-card__title">Want to read first?</span>
+            <span class="sh-card__text">IFS, burnout, grief, money and meaning. New pieces every week or two, free to read.</span>
+            <span class="sh-card__link">Read on Substack <span class="sh-arrow">&rarr;</span></span>
+          </span>
+        </a>
+
+        <a class="sh-card" href="book" data-event="start_here_book">
+          <img src="book-cover.jpg?v=1" alt="" class="sh-card__thumb" width="62" height="93">
+          <span class="sh-card__body">
+            <span class="sh-card__title">Already In A Meeting</span>
+            <span class="sh-card__text">A warm satirical novel about the parts of us that never stop working.</span>
+            <span class="sh-card__link">Meet the cast <span class="sh-arrow">&rarr;</span></span>
+          </span>
+        </a>
+      </section>
+
+      <!-- The offers -->
+      <section class="sh-block">
+        <h2>Work with Anna</h2>
+
+        <a class="sh-card sh-card--offer" href="coaching" data-event="start_here_coaching">
+          <span class="sh-card__body">
+            <span class="sh-card__title">1:1 IFS Coaching</span>
+            <span class="sh-card__text">We go inside. Together we explore the parts of you that are protecting, pushing, shutting down or driving too hard.</span>
+            <span class="sh-card__link">Explore 1:1 coaching <span class="sh-arrow">&rarr;</span></span>
+          </span>
+        </a>
+
+        <a class="sh-card sh-card--offer" href="couples" data-event="start_here_couples">
+          <span class="sh-card__body">
+            <span class="sh-card__title">Couples Coaching</span>
+            <span class="sh-card__text">Two people, two sets of parts, one relationship.</span>
+            <span class="sh-card__link">Explore couples coaching <span class="sh-arrow">&rarr;</span></span>
+          </span>
+        </a>
+
+        <!-- Sacred Circles: keep this card only while a cohort or its waitlist is
+             open. The cohort is full right now, so the card says so. -->
+        <a class="sh-card sh-card--offer" href="sacred-circles" data-event="start_here_circles">
+          <span class="sh-card__body">
+            <span class="sh-card__title">Sacred Circles <span class="sh-flag">Waitlist open</span></span>
+            <span class="sh-card__text">A small-group space for deeper inner work.</span>
+            <span class="sh-card__link">View the current circle <span class="sh-arrow">&rarr;</span></span>
+          </span>
+        </a>
+      </section>
+
+      <!-- Anyone still reading has read every offer and not picked one -->
+      <div class="sh-again">
+        <p class="sh-again__line">Not sure which one fits? That's what the call is for.</p>
+        <a class="sh-cta sh-cta--quiet" href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer" data-event="start_here_intro_call_footer">Book a free intro call</a>
+      </div>
+
+      <p class="sh-fino">Looking for work with teams and organisations? <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer" data-event="start_here_fino">Visit FINO &rarr;</a></p>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <span class="footer__brand-name">Anna Milaeva</span>
+          <span class="footer__brand-role">Transformational IFS Coach</span>
+          <span class="footer__brand-url">annamilaeva.com</span>
+        </div>
+        <div class="footer__nav">
+          <a href="about">About</a>
+          <a href="work-with-me">Work With Me</a>
+          <a href="book">The Book</a>
+          <a href="writing">Writing</a>
+          <a href="contact">Contact</a>
+        </div>
+        <div class="footer__social">
+          <a href="https://www.linkedin.com/in/anna-milaeva/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg></a>
+          <a href="https://www.instagram.com/anna_milaeva_ifs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/></svg></a>
+          <a href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="17" text-anchor="middle" fill="white" font-family="Georgia, serif" font-size="14" font-weight="700">S</text></svg></a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Anna Milaeva. All rights reserved. <a href="/privacy" class="footer__legal-link">Privacy</a></span>
+        <span>Coaching services are not therapy and are not intended to diagnose, treat, cure, or prevent any disease or mental health condition. If you are experiencing a mental health crisis, please contact a licensed professional.</span>
+        <span style="font-weight:bold;color:#e87a2e;">Website created by <a href="https://fino.website/studio/" target="_blank" rel="noopener noreferrer" style="color:#e87a2e;font-weight:bold;">FINO Studio</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js?v=7"></script>
+</body>
+</html>
