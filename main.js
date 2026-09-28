@@ -162,3 +162,26 @@ document.querySelectorAll('.ajax-form').forEach(form => {
   });
 });
 
+
+// In-page links scroll by hand and never write the hash into the address bar.
+// Clicking "See Current Cohort" used to leave #current-cohort in the URL, so a
+// copied link dropped the next reader halfway down the page with the hero
+// skipped. The ids stay in the markup, so links already shared still land.
+// The skip link keeps its default behaviour, which moves keyboard focus.
+document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const id = link.getAttribute('href').slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    e.preventDefault();
+
+    // Clear the fixed nav, which otherwise covers the heading we scrolled to.
+    const navBar = document.getElementById('nav');
+    const clearance = (navBar ? navBar.offsetHeight : 0) + 24;
+    const top = target.getBoundingClientRect().top + window.scrollY - clearance;
+
+    window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+  });
+});
