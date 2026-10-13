@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="canonical" href="https://annamilaeva.com/es/libro">
+  <link rel="alternate" hreflang="en" href="https://annamilaeva.com/book">
+  <link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/libro">
+  <link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/book">
+  <title>La reuni&oacute;n ya empez&oacute;. La novela. Anna Milaeva</title>
+  <meta name="description" content="La reuni&oacute;n ya empez&oacute;, una novela de Anna Milaeva. Cinco personas, una empresa en problemas, y las reuniones que ocurren dentro de cada una.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="book">
+  <meta property="og:url" content="https://annamilaeva.com/es/libro">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="La reuni&oacute;n ya empez&oacute;. La novela.">
+  <meta property="og:description" content="Cinco personas, una empresa en problemas, y las reuniones que nadie ve: las que ocurren dentro de cada una. Una novela de Anna Milaeva, ya en Amazon.">
+  <meta property="og:image" content="https://annamilaeva.com/book-cover-es.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="La reuni&oacute;n ya empez&oacute;. La novela.">
+  <meta name="twitter:description" content="Cinco personas, una empresa en problemas, y las reuniones que nadie ve: las que ocurren dentro de cada una. Una novela de Anna Milaeva, ya en Amazon.">
+  <meta name="twitter:image" content="https://annamilaeva.com/book-cover-es.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "La reunión ya empezó",
+    "alternateName": "Una historia sobre esas partes nuestras que nunca dejan de trabajar",
+    "author": {"@type": "Person", "name": "Anna Milaeva", "url": "https://annamilaeva.com/es/sobre-mi"},
+    "translator": {"@type": "Person", "name": "Anna Milaeva"},
+    "genre": "Fiction",
+    "inLanguage": "es",
+    "image": "https://annamilaeva.com/book-cover-es.jpg",
+    "url": "https://annamilaeva.com/es/libro",
+    "translationOfWork": {"@id": "https://annamilaeva.com/book#novel"},
+    "sameAs": "https://www.amazon.com/dp/B0HJ323PN7/"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap">
+  <link rel="stylesheet" href="/styles.css?v=45">
+
+  <style>
+    /* ---- Page-specific styles for /book (prefix bk-) ---- */
+
+    /* Calendar invite card */
+    .bk-invite {
+      background: #FFFFFF;
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(61, 37, 24, 0.14);
+      overflow: hidden;
+      text-align: left;
+      max-width: 520px;
+      width: 100%;
+    }
+    .bk-invite__bar {
+      background: #3D2518;
+      color: #FAF7F2;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .bk-invite__dots { display: flex; gap: 5px; }
+    .bk-invite__dots span { width: 9px; height: 9px; border-radius: 50%; background: #C85A2A; opacity: 0.85; display: block; }
+    .bk-invite__dots span:nth-child(2) { background: #E8A020; }
+    .bk-invite__dots span:nth-child(3) { background: #FAF7F2; opacity: 0.5; }
+    .bk-invite__body { padding: 26px 28px 28px; }
+    .bk-invite__title { font-family: var(--font-heading); font-size: 1.7rem; color: var(--text); margin-bottom: 18px; line-height: 1.25; }
+    .bk-invite__row { display: flex; gap: 12px; padding: 7px 0; font-size: 0.95rem; color: var(--text); border-bottom: 1px solid #F2ECE4; }
+    .bk-invite__row:last-of-type { border-bottom: none; }
+    .bk-invite__key { min-width: 92px; color: var(--text-light); font-weight: 500; }
+    .bk-invite__rsvp { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+    .bk-invite__rsvp .btn { padding: 10px 22px; font-size: 0.9rem; }
+    .bk-invite__organizer { display: flex; align-items: center; gap: 8px; }
+    .bk-invite__avatar { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; }
+
+    /* Toast */
+    .bk-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 32px;
+      transform: translateX(-50%) translateY(20px);
+      background: #3D2518;
+      color: #FAF7F2;
+      font-size: 0.95rem;
+      padding: 14px 24px;
+      border-radius: 8px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 999;
+      max-width: 90vw;
+      text-align: center;
+    }
+    .bk-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Cast flip cards. The front face is static so it sets the card height and
+       nothing gets clipped; the back face overlays it. */
+    .bk-cast { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 24px; margin-top: 48px; }
+    /* Desktop: 3 cards on top, 2 centered underneath */
+    @media (min-width: 900px) {
+      .bk-cast { grid-template-columns: repeat(6, 1fr); }
+      .bk-card { grid-column: span 2; }
+      .bk-card:nth-child(4) { grid-column: 2 / span 2; }
+      .bk-card:nth-child(5) { grid-column: 4 / span 2; }
+    }
+    .bk-card { perspective: 1200px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .bk-card__inner { position: relative; width: 100%; transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.3, 1.14); transform-style: preserve-3d; }
+    .bk-card.flipped .bk-card__inner { transform: rotateY(180deg); }
+    @media (hover: hover) {
+      .bk-card:hover .bk-card__inner { transform: rotateY(180deg); }
+      .bk-card:active .bk-card__inner { transition-duration: 0.6s; }
+    }
+    .bk-card__face {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    .bk-card__front { position: relative; background: #FFFFFF; box-shadow: 0 6px 24px rgba(61,37,24,0.09); }
+    .bk-card__back {
+      position: absolute; inset: 0;
+      background: #3D2518; color: #FAF7F2;
+      transform: rotateY(180deg);
+      padding: 26px 22px;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(61,37,24,0.2);
+    }
+    /* Shine: a soft gloss sweeps across the card as it turns */
+    .bk-card__face::before {
+      content: ''; position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.38) 47%, rgba(255,255,255,0.1) 53%, transparent 68%);
+      transform: translateX(-130%);
+      pointer-events: none;
+    }
+    .bk-card.flipped .bk-card__face::before { animation: bkShine 0.9s ease 0.25s; }
+    @media (hover: hover) {
+      .bk-card:hover .bk-card__face::before { animation: bkShine 0.9s ease 0.25s; }
+    }
+    /* Touch devices: 3D backface rendering is unreliable, so tap crossfades
+       the dark inside face over the front instead of rotating the card */
+    @media (hover: none) {
+      .bk-card__inner, .bk-card.flipped .bk-card__inner { transform: none !important; }
+      .bk-card__back {
+        transform: none;
+        opacity: 0;
+        z-index: 3;
+        transition: opacity 0.4s ease;
+      }
+      .bk-card.flipped .bk-card__back { opacity: 1; }
+    }
+    @keyframes bkShine {
+      from { transform: translateX(-130%); }
+      to { transform: translateX(130%); }
+    }
+    .bk-card__back p { color: #EFE6DC; font-size: 0.92rem; line-height: 1.65; }
+    .bk-card__back .bk-inside-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: #E8784A; margin-bottom: 12px; display: block; }
+    .bk-card__info { padding: 16px 18px 20px; }
+    .bk-card__name { font-family: var(--font-heading); font-size: 1.25rem; color: var(--text); }
+    .bk-card__role { font-size: 0.8rem; color: var(--text-light); margin: 2px 0 10px; }
+    .bk-card__line {
+      position: relative; display: inline-block;
+      font-family: var(--font-heading); font-style: italic; font-size: 0.95rem;
+      color: var(--accent); line-height: 1.5;
+      background: #FAF7F2; border-radius: 12px; padding: 10px 14px;
+    }
+    .bk-card__line::after {
+      content: ''; position: absolute; bottom: -8px; left: 50%; margin-left: -8px;
+      border: 8px solid transparent; border-top-color: #FAF7F2; border-bottom: 0;
+    }
+
+    /* Author strip: photo + speech bubble */
+    .bk-author { display: flex; align-items: center; justify-content: center; gap: 30px; max-width: 720px; margin: 0 auto; }
+    .bk-author__photo {
+      width: 140px; height: 140px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+      background: #FFFFFF;
+      border: 1px solid var(--divider);
+      box-shadow: 0 8px 28px rgba(61,37,24,0.15);
+    }
+    .bk-author__bubble {
+      position: relative; background: #FAF7F2; border: 1px solid var(--divider);
+      border-radius: 16px; padding: 24px 28px 20px; text-align: left;
+    }
+    .bk-author__bubble::before {
+      content: ''; position: absolute; left: -11px; top: 50%; margin-top: -10px;
+      border: 10px solid transparent; border-right-color: #FAF7F2; border-left: 0;
+    }
+    .bk-author__bubble p { font-family: var(--font-heading); font-style: italic; font-size: 1.05rem; line-height: 1.7; color: var(--text); }
+    .bk-author__attr { display: block; margin-top: 12px; font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+    @media (max-width: 768px) {
+      .bk-author { flex-direction: column; gap: 18px; text-align: center; }
+      .bk-author__photo { width: 110px; height: 110px; }
+      .bk-author__bubble { text-align: center; }
+      .bk-author__bubble::before {
+        left: 50%; top: -11px; margin-top: 0; margin-left: -10px;
+        border: 10px solid transparent; border-bottom-color: #FAF7F2; border-top: 0;
+      }
+    }
+
+    /* Attendance note under the cast */
+    .bk-attendance {
+      max-width: 560px;
+      margin: 48px auto 0;
+      background: #FAF7F2;
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      padding: 30px 36px 26px;
+    }
+    .bk-attendance__pair { display: flex; justify-content: center; gap: 14px; margin-bottom: 16px; }
+    .bk-attendance__animal {
+      width: 64px; height: 64px; border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid #E3D5C2;
+    }
+    .bk-attendance__line { font-family: var(--font-heading); font-style: italic; font-size: 1.05rem; line-height: 1.6; color: var(--text); }
+    .bk-attendance__note { font-size: 0.82rem; letter-spacing: 0.5px; color: var(--text-light); }
+    @media (max-width: 768px) {
+      .bk-attendance { padding: 24px 22px 22px; }
+    }
+
+    /* Placeholder art block (swapped for character art later) */
+    .bk-art {
+      aspect-ratio: 4 / 4.4;
+      background: linear-gradient(160deg, #F5EDE2 0%, #EFE3D3 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 6px;
+      border-bottom: 3px solid var(--accent);
+    }
+    .bk-art__img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .bk-art__initial { font-family: var(--font-heading); font-size: 4.2rem; color: #C85A2A; opacity: 0.55; line-height: 1; }
+    .bk-art__note { font-size: 0.72rem; font-style: italic; color: var(--text-light); text-align: center; padding: 0 14px; }
+
+    /* Quote band */
+    .bk-quote { background: #3D2518; padding: 72px 0; text-align: center; }
+    .bk-quote blockquote { font-family: var(--font-heading); font-style: italic; font-size: 1.7rem; line-height: 1.5; color: #FAF7F2; max-width: 760px; margin: 0 auto; }
+    .bk-quote cite { display: block; margin-top: 18px; font-style: normal; font-family: var(--font-body); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: #E8784A; }
+
+    /* Which one are you */
+    .bk-picker { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 36px; }
+    .bk-picker button {
+      font-family: var(--font-body); font-size: 0.92rem;
+      padding: 12px 20px; border-radius: 30px;
+      border: 1.5px solid var(--divider); background: #FFFFFF; color: var(--text);
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .bk-picker button:hover { border-color: var(--accent); color: var(--accent); }
+    .bk-picker button.active { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+    .bk-reveal {
+      max-width: 680px; margin: 36px auto 0;
+      background: #FFFFFF; border-radius: 12px;
+      padding: 36px 40px;
+      box-shadow: 0 6px 24px rgba(61,37,24,0.08);
+      display: none; text-align: left;
+    }
+    .bk-reveal.show { display: block; animation: bkFade 0.4s ease; }
+    .bk-reveal h3 { font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 14px; }
+    .bk-reveal .bk-practice {
+      margin-top: 20px; padding: 18px 22px;
+      background: #FAF7F2; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+    }
+    .bk-reveal .bk-practice strong { display: block; margin-bottom: 6px; font-family: var(--font-heading); font-weight: 600; font-size: 1.02rem; }
+    @keyframes bkFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* Review ask with stars */
+    .bk-review {
+      max-width: 520px;
+      margin: 32px auto 0;
+      background: #FAF7F2;
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      padding: 26px 32px 24px;
+    }
+    .bk-review__stars { font-size: 1.5rem; color: var(--gold); letter-spacing: 7px; line-height: 1; }
+    .bk-review__stars span { display: inline-block; opacity: 0; transform: scale(0.3) rotate(-20deg); }
+    .bk-review.bk-in .bk-review__stars span { animation: bkStar 0.45s cubic-bezier(0.3, 0.7, 0.3, 1.4) forwards; }
+    .bk-review.bk-in .bk-review__stars span:nth-child(2) { animation-delay: 0.1s; }
+    .bk-review.bk-in .bk-review__stars span:nth-child(3) { animation-delay: 0.2s; }
+    .bk-review.bk-in .bk-review__stars span:nth-child(4) { animation-delay: 0.3s; }
+    .bk-review.bk-in .bk-review__stars span:nth-child(5) { animation-delay: 0.4s; }
+    @keyframes bkStar { to { opacity: 1; transform: none; } }
+    .bk-review p { margin: 12px 0 0; font-size: 0.92rem; line-height: 1.7; color: var(--text-light); }
+    @media (max-width: 768px) {
+      .bk-review { padding: 22px 20px 20px; }
+    }
+
+    /* Llama pre-footer */
+    .bk-llama {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 44px 20px 60px;
+    }
+    .bk-llama__art {
+      width: 110px; height: 110px; margin-bottom: 16px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid #E3D5C2;
+    }
+    .bk-llama__quote { font-family: var(--font-heading); font-style: italic; font-size: 1.2rem; color: var(--text); }
+    .bk-llama__attr { margin-top: 6px; font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+
+    /* Cover column: centered stack, gentle float, tilt that straightens on hover */
+    .bk-cover-col {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+    }
+    .bk-cover-wrap { display: block; animation: bkFloat 6s ease-in-out infinite; }
+    .bk-cover {
+      max-width: 360px; width: 100%; height: auto; border-radius: 14px;
+      transition: transform 0.5s ease;
+    }
+    .bk-cover-wrap:hover .bk-cover { transform: scale(1.03); }
+    .bk-cover-note { max-width: 280px; margin: 14px auto 0; font-size: 0.88rem; color: var(--text-light); line-height: 1.6; }
+    @keyframes bkFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    /* Entrances: invite pops in on load, cast cards rise with a slight settle, quote scales in */
+    .bk-invite { animation: bkPop 0.7s cubic-bezier(0.2, 0.7, 0.3, 1.12) both; }
+    @keyframes bkPop {
+      from { opacity: 0; transform: translateY(26px) scale(0.97) rotate(-1deg); }
+      to { opacity: 1; transform: none; }
+    }
+    .bk-card { opacity: 0; transform: translateY(26px) rotate(-1.5deg); transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1.12); }
+    .bk-card.bk-in { opacity: 1; transform: none; }
+    .bk-quote blockquote { opacity: 0; transform: scale(0.96); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .bk-quote blockquote.bk-in { opacity: 1; transform: scale(1); }
+    .bk-invite__dots span:nth-child(1) { animation: bkBlink 2.4s ease-in-out infinite; }
+    @keyframes bkBlink { 0%, 100% { opacity: 0.85; } 50% { opacity: 0.35; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bk-invite, .bk-cover-wrap, .bk-invite__dots span:nth-child(1) { animation: none; }
+      .bk-card, .bk-quote blockquote { opacity: 1; transform: none; transition: none; }
+      .bk-cover { transform: none; }
+      .bk-card__face::before { animation: none !important; }
+      .bk-review__stars span { opacity: 1; transform: none; animation: none !important; }
+    }
+
+    @media (max-width: 768px) {
+      .bk-invite__title { font-size: 1.4rem; }
+      .bk-invite__body { padding: 20px 20px 24px; }
+      .bk-reveal { padding: 26px 22px; }
+      .bk-quote blockquote { font-size: 1.3rem; }
+      .bk-cover { transform: none; }
+      /* styles.css forces all p to #1A1A1A !important on mobile; the dark card backs need cream text back */
+      .bk-card__back p { color: #EFE6DC !important; font-size: 16px !important; line-height: 1.65 !important; }
+      .bk-card__back .bk-inside-label { color: #E8784A !important; }
+    }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://annamilaeva.com/#anna","name":"Anna Milaeva","url":"https://annamilaeva.com/about","image":"https://annamilaeva.com/anna-about.jpg","jobTitle":"Transformational IFS Coach","description":"IFS coach trained through all three levels at the IFS Institute and a certified Deep Transformational Coach, working with professionals, leaders and people in transition.","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"Spanish"},{"@type":"Language","name":"Russian"}],"alumniOf":[{"@type":"Organization","name":"IFS Institute","url":"https://ifs-institute.com/"},{"@type":"CollegeOrUniversity","name":"Florida International University"}],"knowsAbout":["Internal Family Systems","IFS coaching","burnout","leadership","operations","career transition"],"sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]},{"@type":"ProfessionalService","@id":"https://annamilaeva.com/#practice","name":"Anna Milaeva","url":"https://annamilaeva.com/","image":"https://annamilaeva.com/og-image.png","description":"IFS coaching for professionals, leaders and people in transition. Online, in English and Spanish.","founder":{"@id":"https://annamilaeva.com/#anna"},"provider":{"@id":"https://annamilaeva.com/#anna"},"areaServed":{"@type":"Place","name":"Worldwide, online"},"availableLanguage":["en","es"],"priceRange":"$105-$2550","currenciesAccepted":"USD","sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]}]}</script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="/es/" class="nav__logo">Anna Milaeva <span class="nav__logo-role">Coach Transformacional de IFS</span></a>
+      <div class="nav__links">
+        <a href="/es/sobre-mi">Sobre M&iacute;</a>
+        <div class="nav__dropdown">
+          <a href="/es/trabaja-conmigo" class="nav__dropdown-toggle">Trabaja Conmigo <span class="nav__dropdown-arrow"></span></a>
+          <div class="nav__dropdown-menu">
+            <a href="/es/coaching">Coaching 1:1</a>
+            <a href="/es/self-quest">Programa Self-Quest</a>
+            <a href="/es/claridad-ia">Claridad con IA</a>
+            <a href="/es/circulos-sagrados">C&iacute;rculos Sagrados</a>
+            <a href="/es/parejas">Parejas</a>
+            <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer">Trabajo en Equipo</a>
+          </div>
+        </div>
+        <a href="/es/libro" class="active">El Libro</a>
+        <a href="/es/reflexiones">Reflexiones</a>
+        <a href="/es/contacto">Contacto</a>
+      </div>
+      <div class="nav__lang" aria-label="Idioma">
+        <a href="/book" lang="en" hreflang="en">English</a>
+        <span class="nav__lang-sep">|</span>
+        <a href="/es/libro" class="active" lang="es">Espa&ntilde;ol</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Abrir men&uacute;">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileNav">
+      <a href="/es/sobre-mi">Sobre M&iacute;</a>
+      <div class="nav__mobile-dropdown">
+        <a href="/es/trabaja-conmigo" class="nav__mobile-dropdown-link">Trabaja Conmigo</a>
+        <button class="nav__mobile-dropdown-toggle" aria-label="Abrir men&uacute; de servicios"><span class="nav__mobile-dropdown-arrow"></span></button>
+        <div class="nav__mobile-dropdown-menu">
+          <a href="/es/coaching">Coaching 1:1</a>
+          <a href="/es/self-quest">Programa Self-Quest</a>
+          <a href="/es/claridad-ia">Claridad con IA</a>
+          <a href="/es/circulos-sagrados">C&iacute;rculos Sagrados</a>
+          <a href="/es/parejas">Parejas</a>
+          <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer">Trabajo en Equipo</a>
+        </div>
+      </div>
+      <a href="/es/libro" class="active">El Libro</a>
+      <a href="/es/reflexiones">Reflexiones</a>
+      <a href="/es/contacto">Contacto</a>
+      <div class="nav__lang-mobile" aria-label="Idioma">
+        <a href="/book" lang="en" hreflang="en">English</a>
+        <span class="nav__lang-sep">|</span>
+        <a href="/es/libro" class="active" lang="es">Espa&ntilde;ol</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <!-- Hero: la invitaci&oacute;n de calendario -->
+  <section class="hero hero--compact" style="background: radial-gradient(ellipse at 60% 40%, #F0E8DE 0%, #FAF7F2 65%);">
+    <div class="container">
+      <div class="grid-2 fade-in" style="align-items: center; gap: 48px;">
+        <div style="display: flex; justify-content: center;">
+          <div class="bk-invite">
+            <div class="bk-invite__bar">
+              <span class="bk-invite__dots"><span></span><span></span><span></span></span>
+              Invitaci&oacute;n de calendario
+            </div>
+            <div class="bk-invite__body">
+              <h1 class="bk-invite__title">Tienes una invitaci&oacute;n: La reuni&oacute;n ya empez&oacute;</h1>
+              <div class="bk-invite__row"><span class="bk-invite__key">Qu&eacute;</span><span>Una novela sobre esas partes nuestras que nunca dejan de trabajar.</span></div>
+              <div class="bk-invite__row"><span class="bk-invite__key">Cu&aacute;ndo</span><span>Ahora. Empez&oacute; sin ti.</span></div>
+              <div class="bk-invite__row"><span class="bk-invite__key">D&oacute;nde</span><span>Adentro. Est&aacute;s m&aacute;s cerca de lo que crees.</span></div>
+              <div class="bk-invite__row"><span class="bk-invite__key">Organiza</span><span class="bk-invite__organizer"><img src="/anna-author.jpg" alt="Anna Milaeva, autora de La reuni&oacute;n ya empez&oacute;" class="bk-invite__avatar">Anna Milaeva</span></div>
+              <div class="bk-invite__row"><span class="bk-invite__key">Invitados</span><span>Kate, Daniel, Priya, Tom, Marta, un burro, una llama, y todas tus partes.</span></div>
+              <div class="bk-invite__rsvp">
+                <button class="btn btn--primary" data-rsvp="accept">Aceptar</button>
+                <button class="btn btn--outline" data-rsvp="maybe">Quiz&aacute;s</button>
+                <button class="btn btn--outline" data-rsvp="decline">Rechazar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bk-cover-col">
+          <a href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="bk-cover-wrap">
+            <img src="/book-cover-es.jpg" width="938" height="1500" alt="La reuni&oacute;n ya empez&oacute;, una novela de Anna Milaeva" class="bk-cover">
+          </a>
+          <div style="margin-top: 26px;">
+            <a href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Cons&iacute;guela en Amazon</a>
+          </div>
+          <p class="bk-cover-note">Una novela corta y divertida, con trabajo de partes de verdad por debajo. En espa&ntilde;ol. Tapa blanda y Kindle, y gratis en Kindle Unlimited.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cita -->
+  <section class="bk-quote">
+    <div class="container fade-in">
+      <blockquote>"Todo el mundo ya est&aacute; en una reuni&oacute;n. No hablo de la del calendario. Hablo de la otra."</blockquote>
+      <cite>La reuni&oacute;n ya empez&oacute;</cite>
+    </div>
+  </section>
+
+  <!-- Unas palabras de la organizadora -->
+  <section class="section section--sm" style="background: #fff;">
+    <div class="container">
+      <div class="bk-author fade-in">
+        <img src="/anna-comic.jpg" alt="Anna Milaeva, autora de La reuni&oacute;n ya empez&oacute;, retrato ilustrado" class="bk-author__photo">
+        <div class="bk-author__bubble">
+          <p>"Dirig&iacute; operaciones durante m&aacute;s de una d&eacute;cada. Estuve en estas reuniones. Tambi&eacute;n estuve en las otras, las que corr&iacute;an por dentro. Esta historia es lo que pas&oacute; cuando por fin fui a las dos."</p>
+          <span class="bk-author__attr">Anna, la organizadora. Todas sus partes aprobaron este mensaje.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qui&eacute;n est&aacute; en la reuni&oacute;n -->
+  <section class="section" style="background: #fff; padding-top: 0;">
+    <div class="container text-center">
+      <h2 class="fade-in">Qui&eacute;n est&aacute; en la reuni&oacute;n</h2>
+      <hr class="line-accent line-accent--center">
+      <p class="fade-in" style="max-width: 640px; margin: 20px auto 0; color: var(--text-light);">Cinco personas en Arco, una startup de bienestar que pivot&oacute; cuatro veces en ocho meses. Todas trabajan. Todas act&uacute;an. Y cada una est&aacute; en un tipo distinto de reuni&oacute;n. Toca una tarjeta para ver la de adentro.</p>
+
+      <div class="bk-cast fade-in">
+
+        <div class="bk-card" data-flip>
+          <div class="bk-card__inner">
+            <div class="bk-card__face bk-card__front">
+              <div class="bk-art">
+                <img src="/cast-kate.jpg" loading="lazy" alt="Kate, Chief of Staff, con dos caf&eacute;s en la mano, uno para otra persona" class="bk-art__img">
+              </div>
+              <div class="bk-card__info">
+                <div class="bk-card__name">Kate</div>
+                <div class="bk-card__role">Chief of Staff</div>
+                <p class="bk-card__line">"Sin problema. Lo tengo listo para las 10."</p>
+              </div>
+            </div>
+            <div class="bk-card__face bk-card__back">
+              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
+              <p><em>"Necesito dejar de estar tan disponible."</em></p>
+              <p style="margin-top: 12px;">Una parte de ella aprendi&oacute; temprano que ser &uacute;til es lo mismo que estar a salvo. No se ha tomado un solo d&iacute;a libre.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bk-card" data-flip>
+          <div class="bk-card__inner">
+            <div class="bk-card__face bk-card__front">
+              <div class="bk-art">
+                <img src="/cast-daniel.jpg" loading="lazy" alt="Daniel, fundador y CEO, en medio de un discurso de visi&oacute;n, con una mano en alto y el tel&eacute;fono en la otra" class="bk-art__img">
+              </div>
+              <div class="bk-card__info">
+                <div class="bk-card__name">Daniel</div>
+                <div class="bk-card__role">Fundador y CEO</div>
+                <p class="bk-card__line">"Esta es nuestra prioridad m&aacute;s importante en este momento."</p>
+              </div>
+            </div>
+            <div class="bk-card__face bk-card__back">
+              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
+              <p>Las palabras <em>en este momento</em> cargan con todo.</p>
+              <p style="margin-top: 12px;">Una parte de &eacute;l convierte cada sentimiento en un plan antes de que el sentimiento llegue a aterrizar. Cuatro giros en ocho meses. Cada uno completamente sincero.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bk-card" data-flip>
+          <div class="bk-card__inner">
+            <div class="bk-card__face bk-card__front">
+              <div class="bk-art">
+                <img src="/cast-priya.jpg" loading="lazy" alt="Priya, directora de marketing, con tres carpetas, una por cada versi&oacute;n de la presentaci&oacute;n" class="bk-art__img">
+              </div>
+              <div class="bk-card__info">
+                <div class="bk-card__name">Priya</div>
+                <div class="bk-card__role">Directora de Marketing</div>
+                <p class="bk-card__line">"Tres versiones de cada presentaci&oacute;n. Por si acaso."</p>
+              </div>
+            </div>
+            <div class="bk-card__face bk-card__back">
+              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
+              <p>La versi&oacute;n A es la que &eacute;l dijo que quer&iacute;a. La versi&oacute;n B es la que quiere de verdad. La versi&oacute;n C es la que ella cree, y nadie la pidi&oacute;.</p>
+              <p style="margin-top: 12px;">Tener raz&oacute;n en privado es mejor que no tenerla en absoluto.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bk-card" data-flip>
+          <div class="bk-card__inner">
+            <div class="bk-card__face bk-card__front">
+              <div class="bk-art">
+                <img src="/cast-tom.jpg" loading="lazy" alt="Tom, jefe de ingenier&iacute;a, sosteniendo una taza de t&eacute; con las dos manos" class="bk-art__img">
+              </div>
+              <div class="bk-card__info">
+                <div class="bk-card__name">Tom</div>
+                <div class="bk-card__role">Jefe de Ingenier&iacute;a</div>
+                <p class="bk-card__line">"Bien."</p>
+              </div>
+            </div>
+            <div class="bk-card__face bk-card__back">
+              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
+              <p>Significa por lo menos seis cosas distintas.</p>
+              <p style="margin-top: 12px;">Toda una vida interior, completa, actualizada sin parar, casi nunca transmitida. Cuando algo importa, hace t&eacute; en lugar de decirlo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bk-card" data-flip>
+          <div class="bk-card__inner">
+            <div class="bk-card__face bk-card__front">
+              <div class="bk-art">
+                <img src="/cast-marta.jpg" loading="lazy" alt="Marta, abogada, respondiendo un mensaje m&aacute;s" class="bk-art__img">
+              </div>
+              <div class="bk-card__info">
+                <div class="bk-card__name">Marta</div>
+                <div class="bk-card__role">Abogada, y pareja de Tom</div>
+                <p class="bk-card__line">"Solo esta semana. Solo hasta el cierre."</p>
+              </div>
+            </div>
+            <div class="bk-card__face bk-card__back">
+              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
+              <p>Factura su vida en bloques de seis minutos.</p>
+              <p style="margin-top: 12px;">Una parte de ella quiso apoyo con tantas ganas, durante tanto tiempo, que se olvid&oacute; de c&oacute;mo aceptarlo. Rechazar&iacute;a la palabra agotamiento como quien rechaza una invitaci&oacute;n a una reuni&oacute;n.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bk-attendance fade-in">
+        <div class="bk-attendance__pair">
+          <img src="/donkey-circle.jpg" loading="lazy" alt="El burro, que nunca ha perdido una negociaci&oacute;n" class="bk-attendance__animal">
+          <img src="/llama-circle.jpg" loading="lazy" alt="La llama, que ya vio todo esto antes" class="bk-attendance__animal">
+        </div>
+        <p class="bk-attendance__line">Tambi&eacute;n asisten: un burro con una confianza absoluta, y una llama que ya vio todo esto antes.</p>
+        <hr class="line-accent line-accent--center" style="width: 40px; height: 2px; margin: 16px auto;">
+        <p class="bk-attendance__note">Ninguna parte fue exiliada durante la escritura de esta novela. Varias por fin fueron escuchadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave Divider -->
+  <div class="wave-divider wave-divider--flip" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 48h1440V24C1280 0 1120 48 960 36 800 24 640 0 480 12 320 24 160 48 0 36V48z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+
+  <!-- La historia -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center fade-in">
+        <h2>Y entonces la empresa organiza un retiro</h2>
+        <hr class="line-accent line-accent--center">
+      </div>
+      <div class="fade-in" style="max-width: 680px; margin: 32px auto 0; text-align: center;">
+        <p style="line-height: 1.9;">Arco vende bienestar. Arco se olvid&oacute; de estar bien. As&iacute; que el CEO hace lo que hacen los CEO despu&eacute;s de una experiencia espiritual sin integrar: reserva tres d&iacute;as en una granja. Ejercicios de confianza. Un ba&ntilde;o de sonido. Tarjetas de valores plastificadas. Un fuego. Dos animales con opiniones firmes.</p>
+        <p style="line-height: 1.9; margin-top: 16px; font-family: var(--font-heading); font-style: italic; font-size: 1.1rem;">"Parejas y acompa&ntilde;antes bienvenidos. Traigan calzado c&oacute;modo."</p>
+        <p style="line-height: 1.9; margin-top: 16px;">Lo que pasa ah&iacute; es divertido, y despu&eacute;s deja de serlo en voz baja, y despu&eacute;s es algo mejor que las dos cosas. Nadie vuelve arreglado. Nunca se trat&oacute; de eso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- &iquest;Cu&aacute;l eres t&uacute;? -->
+  <section class="section" style="background: #fff;">
+    <div class="container text-center">
+      <h2 class="fade-in">&iquest;Cu&aacute;l eres t&uacute;?</h2>
+      <hr class="line-accent line-accent--center">
+      <p class="fade-in" style="max-width: 600px; margin: 20px auto 0; color: var(--text-light);">No hay respuesta incorrecta. Todas tus partes son bienvenidas aqu&iacute;. Incluso la que lee en diagonal.</p>
+
+      <div class="bk-picker fade-in">
+        <button data-who="kate">La que sostiene todo</button>
+        <button data-who="daniel">El que tiene el plan nuevo</button>
+        <button data-who="priya">La que tiene tres versiones</button>
+        <button data-who="tom">El que dice bien</button>
+        <button data-who="marta">La que no puede parar</button>
+      </div>
+
+      <div class="bk-reveal" id="bkReveal">
+        <h3 id="bkRevealTitle"></h3>
+        <p id="bkRevealBody" style="line-height: 1.8;"></p>
+        <div class="bk-practice">
+          <strong id="bkRevealPractice"></strong>
+          <span id="bkRevealPracticeBody"></span>
+        </div>
+      </div>
+
+      <p class="fade-in" style="margin-top: 36px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 0.95rem; color: var(--text-light);">El libro deja quince puertas peque&ntilde;as como esta, una cada pocos cap&iacute;tulos. Leerlas es opcional. Notar lo que te mueven, lamentablemente no.</p>
+    </div>
+  </section>
+
+  <!-- Puente: de la ficci&oacute;n al trabajo real -->
+  <section class="book-announcement">
+    <div class="container fade-in" style="text-align: center;">
+      <span class="book-announcement__label">Por qu&eacute; la escrib&iacute;</span>
+      <h2 class="book-announcement__headline">La historia es ficci&oacute;n. Las reuniones son reales.</h2>
+      <p class="book-announcement__body">Pas&eacute; m&aacute;s de una d&eacute;cada en operaciones, en las salas donde las cosas se romp&iacute;an. Hoy llevo el trabajo con partes, el m&eacute;todo que hay detr&aacute;s de esta historia, a la vida de profesionales y adentro de las empresas. En casi toda sala hay una regla no dicha que proh&iacute;be hablar de lo que est&aacute; pasando de verdad dentro de las personas que est&aacute;n ah&iacute;. Escrib&iacute; una novela porque las historias se saltan esa regla. Si te viste en alguno de estos cinco, esa es la puerta. El trabajo detr&aacute;s de la puerta es lo que hago.</p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+        <a href="/es/coaching" class="btn btn--primary">Trabaja conmigo 1:1</a>
+        <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="color: #FAF7F2; border-color: #FAF7F2;">Ll&eacute;valo a tu equipo</a>
+      </div>
+      <p class="book-announcement__note">Tambi&eacute;n est&aacute; <a href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer" style="color: #E8784A;">El Diario de tus Partes</a>, un acompa&ntilde;ante de ocho semanas para conocer tus propias partes. Kate ya lo tendr&iacute;a completo. Tom dir&iacute;a que est&aacute; bien.</p>
+      <p class="book-announcement__note" style="font-size: 0.9rem; max-width: 560px; margin-left: auto; margin-right: auto;">Anna Milaeva se form&oacute; en Sistemas de Familia Interna en el IFS Institute, Niveles 1, 2 y 3, y en Coaching de Transformaci&oacute;n Profunda. Ha acompa&ntilde;ado a clientes en m&aacute;s de 15 pa&iacute;ses. Dirigi&oacute; operaciones el tiempo suficiente para tener opiniones sobre las invitaciones de calendario. Esta es su primera novela. <a href="/es/sobre-mi" style="color: #E8784A;">M&aacute;s sobre Anna &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- Compra -->
+  <section class="cta-strip">
+    <div class="container fade-in">
+      <h2>Mejor si&eacute;ntate</h2>
+      <p>Un par de tardes de lectura. Algo para llevarte al trabajo ma&ntilde;ana que nadie m&aacute;s tiene por qu&eacute; saber.</p>
+      <a href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Cons&iacute;guela en Amazon</a>
+      <div class="bk-review">
+        <div class="bk-review__stars" aria-hidden="true"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+        <p>Si te hace re&iacute;r, o te hace mirar tu propio martes de otra manera, una rese&ntilde;a corta en Amazon ayuda a que otras personas la encuentren. M&aacute;s de lo que te imaginas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- La llama se despide -->
+  <div class="bk-llama">
+    <img src="/llama-circle.jpg" loading="lazy" alt="La llama" class="bk-llama__art">
+    <p class="bk-llama__quote">"Indigno de comentario."</p>
+    <p class="bk-llama__attr">La Llama, lectora temprana</p>
+  </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__quote-block">
+        <hr class="footer__quote-line">
+        <p class="footer__quote">"Cada parte de ti tiene una raz&oacute;n para estar ah&iacute;. Nada necesita ser eliminado. Todo tiene un regalo que ofrecer."</p>
+      </div>
+      <div class="footer__follow">
+        <p class="footer__follow-title">Ven a leer lo que estoy viviendo.</p>
+        <p class="footer__follow-text">IFS, agotamiento, duelo, dinero, sentido. Textos nuevos cada una o dos semanas, gratis.</p>
+        <a class="footer__follow-link" href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer" hreflang="en">S&iacute;gueme en Substack &rarr;</a>
+        <p class="footer__follow-note">Los textos est&aacute;n en ingl&eacute;s, y tu navegador puede traducirlos.</p>
+      </div>
+      <div class="footer__main">
+        <div class="footer__brand">
+          <span class="footer__brand-name">Anna Milaeva</span>
+          <span class="footer__brand-role">Coach Transformacional de IFS</span>
+          <span class="footer__brand-url">annamilaeva.com</span>
+        </div>
+        <div class="footer__nav">
+          <a href="/es/sobre-mi">Sobre M&iacute;</a>
+          <a href="/es/trabaja-conmigo">Trabaja Conmigo</a>
+          <a href="/es/libro">El Libro</a>
+          <a href="/es/reflexiones">Reflexiones</a>
+          <a href="/es/contacto">Contacto</a>
+        </div>
+        <div class="footer__social">
+          <a href="https://www.linkedin.com/in/anna-milaeva/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg></a>
+          <a href="https://www.instagram.com/anna_milaeva_ifs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/></svg></a>
+          <a href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="17" text-anchor="middle" fill="white" font-family="Georgia, serif" font-size="14" font-weight="700">S</text></svg></a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Anna Milaeva. Todos los derechos reservados. <a href="/es/privacidad" class="footer__legal-link">Privacidad</a></span>
+        <span>Los servicios de coaching no son terapia y no tienen como objetivo diagnosticar, tratar, curar ni prevenir ninguna enfermedad o trastorno de salud mental. Si est&aacute;s atravesando una crisis de salud mental, contacta a un profesional titulado.</span>
+        <span style="font-weight:bold;color:#e87a2e;">Sitio creado por <a href="https://fino.website/studio/" target="_blank" rel="noopener noreferrer" style="color:#e87a2e;font-weight:bold;">FINO Studio</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bk-toast" id="bkToast" role="status" aria-live="polite"></div>
+
+  <script src="/main.js?v=8"></script>
+  <script>
+    (function () {
+      // Botones de la invitación
+      var toast = document.getElementById('bkToast');
+      var toastTimer;
+      var rsvpLines = {
+        accept: "Perfecto. Los demás ya están aquí.",
+        maybe: "Eso es lo que diría Tom.",
+        decline: "La reunión ya está en curso. Mejor siéntate."
+      };
+      document.querySelectorAll('[data-rsvp]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          toast.textContent = rsvpLines[btn.getAttribute('data-rsvp')];
+          toast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3000);
+          setTimeout(function () {
+            document.querySelector('.bk-author').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 700);
+        });
+      });
+
+      // Tarjetas que giran (toque en pantallas táctiles)
+      document.querySelectorAll('[data-flip]').forEach(function (card) {
+        card.addEventListener('click', function () {
+          card.classList.toggle('flipped');
+        });
+      });
+
+      // Entradas escalonadas de las tarjetas y la cita
+      var inTargets = document.querySelectorAll('.bk-card, .bk-quote blockquote, .bk-review');
+      if ('IntersectionObserver' in window) {
+        var cards = Array.prototype.slice.call(document.querySelectorAll('.bk-card'));
+        var inObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              var idx = cards.indexOf(el);
+              if (idx > -1) { el.style.transitionDelay = (idx % 5) * 90 + 'ms'; }
+              el.classList.add('bk-in');
+              inObs.unobserve(el);
+            }
+          });
+        }, { threshold: 0.15 });
+        inTargets.forEach(function (el) { inObs.observe(el); });
+      } else {
+        inTargets.forEach(function (el) { el.classList.add('bk-in'); });
+      }
+
+      // ¿Cuál eres tú?
+      var who = {
+        kate: {
+          title: "La que sostiene todo",
+          body: "Respondes antes de terminar de leer. Haces el café, la agenda y el rescate. La gente dice que esto se caería sin ti, y una parte de ti necesita que eso siga siendo verdad. Más abajo hay una pregunta más callada: ¿quién te sostiene a ti?",
+          practice: "Una puerta del libro: La brecha",
+          practiceBody: "Busca el último sí que te costó algo. No la acción. El medio segundo justo antes, donde algo más casi llegó a votar."
+        },
+        daniel: {
+          title: "El que tiene el plan nuevo",
+          body: "Tu entusiasmo es real. La velocidad también. Una parte de ti convierte cada sentimiento incómodo en un plan antes de que el sentimiento llegue a aterrizar, y los planes son genuinamente buenos, lo que lo hace muy difícil de ver. El sentimiento espera. Es paciente en eso.",
+          practice: "Una puerta del libro: El giro",
+          practiceBody: "Piensa en tu último gran cambio de rumbo. Quédate con una sola pregunta, más tiempo del que resulte cómodo: ¿era claridad o era alivio?"
+        },
+        priya: {
+          title: "La que tiene tres versiones",
+          body: "Estás preparada para todas las versiones de la sala. La versión A, la versión B, y la que crees de verdad, que se queda en una carpeta. Tener razón en privado se siente más seguro que averiguarlo. Los planes de respaldo son excelentes. También son muy buenas paredes.",
+          practice: "Una puerta del libro: Sin respaldo",
+          practiceBody: "Haz una cosa esta semana sin la red de seguridad. Manda la versión de verdad. La incomodidad es el dato."
+        },
+        tom: {
+          title: "El que dice bien",
+          body: "Tienes toda una vida interior corriendo en paralelo a la de afuera, completa, actualizada sin parar, casi nunca transmitida. Cuando algo importa de verdad, haces té. Quienes te quieren distinguen entre tus silencios. Eso no es lo mismo que escucharte.",
+          practice: "Una puerta del libro: Quién te sostiene",
+          practiceBody: "Escribe dos nombres. ¿En quién confías para que te sostenga cuando resbalas? ¿Y a quién sostienes tú? Si alguna de las dos líneas queda en blanco, empieza por ahí."
+        },
+        marta: {
+          title: "La que no puede parar",
+          body: "Solo esta semana. Solo este mes. Solo hasta el cierre. Llevas diciéndolo el tiempo suficiente como para que se haya vuelto una forma de vida con excelentes registros de facturación. Una parte de ti quiso apoyo con tantas ganas, durante tanto tiempo, que en silencio dejó de poder aceptarlo.",
+          practice: "Una puerta del libro: Cuando resbalas",
+          practiceBody: "Pídele a una persona que te lo diga, con cariño, cuando lo vea: te veo resbalando. Y después déjala."
+        }
+      };
+      var reveal = document.getElementById('bkReveal');
+      document.querySelectorAll('[data-who]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('[data-who]').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var d = who[btn.getAttribute('data-who')];
+          document.getElementById('bkRevealTitle').textContent = d.title;
+          document.getElementById('bkRevealBody').textContent = d.body;
+          document.getElementById('bkRevealPractice').textContent = d.practice;
+          document.getElementById('bkRevealPracticeBody').textContent = d.practiceBody;
+          reveal.classList.remove('show');
+          void reveal.offsetWidth;
+          reveal.classList.add('show');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
