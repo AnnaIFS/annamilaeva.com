@@ -745,6 +745,44 @@
       .bk-result__name { font-size: 1.45rem; }
     }
 
+    /* Quiz statements and the three-step scale */
+    .bk-q .bk-q__text { text-align: center; font-size: 1.45rem; min-height: 3.6em; display: flex; align-items: center; justify-content: center; }
+    .bk-q__scale { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .bk-q__scale button {
+      padding: 14px 8px; border-radius: 10px; cursor: pointer;
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--text);
+      border: 1.5px solid var(--divider); background: #FAF7F2;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .bk-q__scale button:hover, .bk-q__scale button:focus-visible { border-color: var(--accent); background: #FFFFFF; }
+    .bk-q__scale button:active { transform: scale(0.97); }
+    .bk-q__scale button.picked { border-color: var(--accent); background: var(--accent); color: #FFFFFF; }
+
+    /* Result: the mix of all five */
+    .bk-mix { margin-bottom: 30px; }
+    .bk-mix[hidden], .bk-r-empty[hidden] { display: none; }
+    .bk-mix__chair { margin-top: 6px; font-family: var(--font-heading); font-size: 1.45rem; line-height: 1.3; color: var(--text); }
+    .bk-mix__chair strong { color: var(--accent); font-weight: 500; }
+    .bk-mix__chair [hidden] { display: none; }
+    .bk-mix__bars { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+    .bk-bar { display: grid; grid-template-columns: 44px 1fr 46px; align-items: center; gap: 12px; }
+    .bk-bar img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(61,37,24,0.15); }
+    .bk-bar__label { font-size: 0.92rem; line-height: 1.3; color: var(--text); }
+    .bk-bar__label small { margin-left: 6px; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); }
+    .bk-bar__track { height: 10px; margin-top: 6px; border-radius: 10px; background: #F2ECE4; overflow: hidden; }
+    .bk-bar__fill { width: 0; height: 100%; border-radius: 10px; background: #E8A47F; transition: width 0.9s cubic-bezier(0.2, 0.7, 0.3, 1); }
+    .bk-bar.is-chair .bk-bar__fill { background: var(--accent); }
+    .bk-bar.is-chair .bk-bar__label { font-weight: 600; }
+    .bk-bar__pct { text-align: right; font-size: 0.9rem; font-variant-numeric: tabular-nums; color: var(--text-light); }
+    .bk-mix__hint { margin-top: 14px; font-size: 0.88rem; color: var(--text-light); }
+    .bk-r-empty { margin-bottom: 20px; }
+    @media (max-width: 768px) {
+      .bk-q .bk-q__text { font-size: 1.2rem !important; line-height: 1.45 !important; }
+      .bk-q__scale button { font-size: 0.88rem; padding: 13px 4px; }
+      .bk-mix__chair { font-size: 1.25rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .bk-bar__fill { transition: none; } }
+
     /* Fifteen doors */
     .bk-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 780px; margin: 40px auto 0; }
     @media (min-width: 700px) { .bk-doors { grid-template-columns: repeat(5, 1fr); gap: 14px; } }
@@ -1184,9 +1222,7 @@
         <hr class="line-accent line-accent--center">
       </div>
       <div class="fade-in" style="max-width: 680px; margin: 32px auto 0; text-align: center;">
-        <p style="line-height: 1.9;">Arco sells wellness. Arco has forgotten to be well. So the CEO does what CEOs do after an unintegrated spiritual experience: he books three days at a farm. Trust exercises. A sound bath. Laminated values cards. A fire. Two animals with strong opinions.</p>
-        <p style="line-height: 1.9; margin-top: 16px; font-family: var(--font-heading); font-style: italic; font-size: 1.1rem;">"Partners and plus ones welcome. Bring comfortable shoes."</p>
-        <p style="line-height: 1.9; margin-top: 16px;">What happens there is funny, and then it isn't, and then something better than both. Nobody comes back fixed. That was never the point.</p>
+        <p style="line-height: 1.9;">Arco sells wellness. Arco has forgotten to be well. So the CEO books three days at a farm, with trust exercises, a sound bath, a fire and two animals with strong opinions. What happens there is funny, and then it isn't, and then something better than both.</p>
       </div>
       <div class="text-center">
       <button type="button" class="bk-next" data-goto="episodes">Next on the agenda: watch them in action <span aria-hidden="true">&darr;</span></button>
@@ -1286,81 +1322,104 @@
       <span class="bk-step fade-in"><span>4</span>Your turn</span>
       <h2 class="fade-in">Which one are you?</h2>
       <hr class="line-accent line-accent--center">
-      <p class="fade-in" style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">We each have a few inner voices that run the show at work. One says yes before you have finished reading the email. Another makes three backup plans, just in case.</p>
-      <p class="fade-in" style="max-width: 620px; margin: 10px auto 0; color: var(--text-light);">Six quick questions to find out which one is running yours. Pick the first answer that feels true. Nobody is taking minutes.</p>
+      <p class="fade-in" style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">We all have a few inner voices that run the show, in different amounts. Ten quick statements: tap how much each one sounds like you, and see who is in your meeting.</p>
 
       <p class="bk-sent" id="bkSent" hidden>A friend sent you this. They got <strong data-slot="name"></strong>. Which one are you?</p>
 
       <div class="bk-quiz fade-in" id="bkQuiz">
         <div class="bk-quiz__steps" id="bkQuizSteps">
           <div class="bk-quiz__progress">
-            <span>Question <span data-slot="step">1</span> of 6</span>
-            <span class="bk-quiz__dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></span>
+            <span>Statement <span data-slot="step">1</span> of 10</span>
+            <span class="bk-quiz__dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
           </div>
 
-          <div class="bk-q show">
-            <p class="bk-q__text">8:47 pm. A message from work: &ldquo;Quick question.&rdquo; You...</p>
-            <div class="bk-q__opts">
-              <button type="button" data-part="tom">Read it. Close the laptop. Think about it all night.</button>
-              <button type="button" data-part="kate">Answer it before you have finished reading it.</button>
-              <button type="button" data-part="marta">Answer it from the bath. You are technically still working.</button>
-              <button type="button" data-part="daniel">Reply with a bigger idea than the one they asked about.</button>
-              <button type="button" data-part="priya">Draft three replies. Send the safest one.</button>
+          <div class="bk-q show" data-part="kate">
+            <p class="bk-q__text">I say yes before I've really thought about whether I want to.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
             </div>
           </div>
 
-          <div class="bk-q">
-            <p class="bk-q__text">The meeting is ending and nothing has been decided. You...</p>
-            <div class="bk-q__opts">
-              <button type="button" data-part="priya">Already have the follow-up deck. Version B.</button>
-              <button type="button" data-part="marta">Leave for the next meeting, which is also running late.</button>
-              <button type="button" data-part="kate">Take the action items. All of them.</button>
-              <button type="button" data-part="tom">Say &ldquo;fine.&rdquo; Mean four different things.</button>
-              <button type="button" data-part="daniel">Announce a new direction. It is very exciting.</button>
+          <div class="bk-q" data-part="priya">
+            <p class="bk-q__text">I rehearse conversations in my head that never actually happen.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
             </div>
           </div>
 
-          <div class="bk-q">
-            <p class="bk-q__text">Someone asks how you are. The true answer is tired. You say...</p>
-            <div class="bk-q__opts">
-              <button type="button" data-part="kate">&ldquo;Good! How are you?&rdquo; You really want to know.</button>
-              <button type="button" data-part="tom">&ldquo;Fine.&rdquo;</button>
-              <button type="button" data-part="daniel">&ldquo;Honestly? Never better. Big things coming.&rdquo;</button>
-              <button type="button" data-part="priya">&ldquo;Busy, but it's under control.&rdquo; It is. Mostly.</button>
-              <button type="button" data-part="marta">&ldquo;Just this week. Then it calms down.&rdquo;</button>
+          <div class="bk-q" data-part="tom">
+            <p class="bk-q__text">I say &ldquo;fine&rdquo; when it isn't, quite.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
             </div>
           </div>
 
-          <div class="bk-q">
-            <p class="bk-q__text">Your idea of a day off...</p>
-            <div class="bk-q__opts">
-              <button type="button" data-part="daniel">A long walk where you redesign the company.</button>
-              <button type="button" data-part="priya">A clean inbox and a plan for Monday.</button>
-              <button type="button" data-part="tom">Something with your hands. No questions.</button>
-              <button type="button" data-part="marta">It is in the calendar. It has been moved twice.</button>
-              <button type="button" data-part="kate">Catching up on what everyone else needs.</button>
+          <div class="bk-q" data-part="daniel">
+            <p class="bk-q__text">When something feels uncomfortable, I'd rather start something new than sit with it.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
             </div>
           </div>
 
-          <div class="bk-q" data-tiebreak>
-            <p class="bk-q__text">The sentence you would never say out loud at work...</p>
-            <div class="bk-q__opts">
-              <button type="button" data-part="marta">&ldquo;I'm not okay.&rdquo;</button>
-              <button type="button" data-part="daniel">&ldquo;I don't know what we're doing.&rdquo;</button>
-              <button type="button" data-part="tom">&ldquo;This matters to me.&rdquo;</button>
-              <button type="button" data-part="kate">&ldquo;I can't take this on.&rdquo;</button>
-              <button type="button" data-part="priya">&ldquo;Here is what I actually think.&rdquo;</button>
+          <div class="bk-q" data-part="marta">
+            <p class="bk-q__text">I tell myself I'll rest once this busy stretch is over.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
             </div>
           </div>
 
-          <div class="bk-q">
-            <p class="bk-q__text">When something goes wrong, a part of you...</p>
-            <div class="bk-q__opts">
-              <button type="button" data-part="priya">Saw it coming. Has a folder for it.</button>
-              <button type="button" data-part="kate">Fixes it before anyone notices it broke.</button>
-              <button type="button" data-part="daniel">Starts something new before the old thing has finished hurting.</button>
-              <button type="button" data-part="marta">Works harder. Then harder than that.</button>
-              <button type="button" data-part="tom">Goes very still. Makes tea.</button>
+          <div class="bk-q" data-part="priya">
+            <p class="bk-q__text">I prepare more than anyone asked me to, just in case.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="kate">
+            <p class="bk-q__text">I notice what everyone else needs before I notice what I need.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="marta">
+            <p class="bk-q__text">I check messages in moments I meant to switch off.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="daniel">
+            <p class="bk-q__text">I get excited about new ideas and lose interest before they're finished.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="tom">
+            <p class="bk-q__text">When something really matters to me, I keep it to myself.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Not me</button>
+              <button type="button" data-score="1">Sometimes</button>
+              <button type="button" data-score="2">So me</button>
             </div>
           </div>
 
@@ -1374,11 +1433,23 @@
 
         <div class="bk-result" id="bkResult" aria-live="polite">
 
-          <div class="bk-r" data-part="kate" data-name="&ldquo;the one who holds it together&rdquo;" data-share-text="Apparently I am &ldquo;the one who holds it together.&rdquo; Which one are you?" hidden>
+          <div class="bk-mix" id="bkMix">
+            <span class="bk-result__label">Who's in your meeting today</span>
+            <div class="bk-mix__chair"><span data-slot="single">Chaired by</span><span data-slot="co" hidden>Co-chaired by</span> <strong data-slot="names" data-and=" and "></strong></div>
+            <div class="bk-mix__bars" id="bkBars"></div>
+            <div class="bk-mix__hint">Everyone has all five. The mix changes with the day, and with who is in the room.</div>
+          </div>
+
+          <div class="bk-r-empty" id="bkEmpty" hidden>
+            <div class="bk-result__name">A very calm meeting</div>
+            <p class="bk-result__body">None of these sounded like you today. Either you are on holiday, or a part of you is very good at quizzes :) Try it again on a busy Tuesday, or open one of the doors below.</p>
+          </div>
+
+          <div class="bk-r" data-part="kate" data-char="Kate" data-name="&ldquo;the one who holds it together&rdquo;" data-share-text="My inner meeting is chaired by &ldquo;the one who holds it together.&rdquo; Who is chairing yours?" hidden>
             <div class="bk-result__head">
               <img src="cast-kate.jpg" alt="Kate" class="bk-result__img">
               <div>
-                <span class="bk-result__label">What's running your meetings</span>
+                <span class="bk-result__label">Your chair, up close</span>
                 <div class="bk-result__name">The one who holds it together</div>
                 <div class="bk-result__title">In the book, this is Kate, the Chief of Staff.</div>
               </div>
@@ -1388,11 +1459,11 @@
             <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep01-kate"><span class="bk-watch__icon"></span>See this one in action, 0:42</button><a href="/book/kate" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="kate">More about this pattern &rarr;</a></div>
           </div>
 
-          <div class="bk-r" data-part="daniel" data-name="&ldquo;the one with the new plan&rdquo;" data-share-text="Apparently I am &ldquo;the one with the new plan.&rdquo; Which one are you?" hidden>
+          <div class="bk-r" data-part="daniel" data-char="Daniel" data-name="&ldquo;the one with the new plan&rdquo;" data-share-text="My inner meeting is chaired by &ldquo;the one with the new plan.&rdquo; Who is chairing yours?" hidden>
             <div class="bk-result__head">
               <img src="cast-daniel.jpg" alt="Daniel" class="bk-result__img">
               <div>
-                <span class="bk-result__label">What's running your meetings</span>
+                <span class="bk-result__label">Your chair, up close</span>
                 <div class="bk-result__name">The one with the new plan</div>
                 <div class="bk-result__title">In the book, this is Daniel, the founder.</div>
               </div>
@@ -1402,11 +1473,11 @@
             <div class="bk-result__actions"><a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="bk-watch"><span class="bk-watch__icon"></span>Meet this one in the book</a><a href="/book/daniel" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="daniel">More about this pattern &rarr;</a></div>
           </div>
 
-          <div class="bk-r" data-part="priya" data-name="&ldquo;the one with three versions&rdquo;" data-share-text="Apparently I am &ldquo;the one with three versions.&rdquo; Which one are you?" hidden>
+          <div class="bk-r" data-part="priya" data-char="Priya" data-name="&ldquo;the one with three versions&rdquo;" data-share-text="My inner meeting is chaired by &ldquo;the one with three versions.&rdquo; Who is chairing yours?" hidden>
             <div class="bk-result__head">
               <img src="cast-priya.jpg" alt="Priya" class="bk-result__img">
               <div>
-                <span class="bk-result__label">What's running your meetings</span>
+                <span class="bk-result__label">Your chair, up close</span>
                 <div class="bk-result__name">The one with three versions</div>
                 <div class="bk-result__title">In the book, this is Priya, the Head of Marketing.</div>
               </div>
@@ -1417,11 +1488,11 @@
             <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep02-priya"><span class="bk-watch__icon"></span>See this one in action, 0:31</button><a href="/book/priya" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="priya">More about this pattern &rarr;</a></div>
           </div>
 
-          <div class="bk-r" data-part="tom" data-name="&ldquo;the one who says fine&rdquo;" data-share-text="Apparently I am &ldquo;the one who says fine.&rdquo; Which one are you?" hidden>
+          <div class="bk-r" data-part="tom" data-char="Tom" data-name="&ldquo;the one who says fine&rdquo;" data-share-text="My inner meeting is chaired by &ldquo;the one who says fine.&rdquo; Who is chairing yours?" hidden>
             <div class="bk-result__head">
               <img src="cast-tom.jpg" alt="Tom" class="bk-result__img">
               <div>
-                <span class="bk-result__label">What's running your meetings</span>
+                <span class="bk-result__label">Your chair, up close</span>
                 <div class="bk-result__name">The one who says fine</div>
                 <div class="bk-result__title">In the book, this is Tom, the engineering lead.</div>
               </div>
@@ -1431,11 +1502,11 @@
             <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep03-tom-marta"><span class="bk-watch__icon"></span>See this one in action, 0:55</button><a href="/book/tom" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="tom">More about this pattern &rarr;</a></div>
           </div>
 
-          <div class="bk-r" data-part="marta" data-name="&ldquo;the one who can't stop&rdquo;" data-share-text="Apparently I am &ldquo;the one who can't stop.&rdquo; Which one are you?" hidden>
+          <div class="bk-r" data-part="marta" data-char="Marta" data-name="&ldquo;the one who can't stop&rdquo;" data-share-text="My inner meeting is chaired by &ldquo;the one who can't stop.&rdquo; Who is chairing yours?" hidden>
             <div class="bk-result__head">
               <img src="cast-marta.jpg" alt="Marta" class="bk-result__img">
               <div>
-                <span class="bk-result__label">What's running your meetings</span>
+                <span class="bk-result__label">Your chair, up close</span>
                 <div class="bk-result__name">The one who can't stop</div>
                 <div class="bk-result__title">In the book, this is Marta, the lawyer.</div>
               </div>
@@ -1446,7 +1517,6 @@
             <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep03-tom-marta"><span class="bk-watch__icon"></span>See this one in action, 0:55</button><a href="/book/marta" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="marta">More about this pattern &rarr;</a></div>
           </div>
 
-          <div class="bk-result__second" id="bkSecond" hidden>A close second: <strong data-slot="name"></strong></div>
           <div class="bk-result__note">These parts of us take turns. Take it again next month and a different one may be in charge.</div>
 
           <div class="bk-result__actions">
@@ -1592,12 +1662,11 @@
       <span class="book-announcement__label">7 &middot; Why I wrote it</span>
       <h2 class="book-announcement__headline">The story is fiction. The meetings are real.</h2>
       <div class="bk-why__organizer">&ldquo;I ran operations for over a decade. I was in these meetings. I was also in the other ones, the ones running inside me. This story is what happened when I finally attended both.&rdquo;</div>
-      <p class="book-announcement__body">I spent over a decade in operations, in the rooms where things were breaking. Now I bring parts work, the method behind this story, into the lives of professionals and inside companies. Most rooms have an unspoken rule against talking about what is actually happening inside the people in them. I wrote a novel because stories get past that rule. If you saw yourself in any of these five, that is the door. The work behind the door is what I do.</p>
+      <p class="book-announcement__body">Now I bring parts work, the method behind this story, into the lives of professionals and inside companies. Most rooms have an unspoken rule against talking about what is actually happening inside the people in them. I wrote a novel because stories get past that rule. If you saw yourself in any of these five, that is the door. The work behind the door is what I do.</p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
         <a href="coaching" class="btn btn--primary">Work with me 1:1</a>
         <a data-umami-event="teams-page" href="/book/teams" class="btn btn--outline" style="color: #FAF7F2; border-color: #FAF7F2;">Bring it to your team</a>
       </div>
-      <p class="book-announcement__note">There is also <a data-umami-event="amazon-click" data-umami-event-product="self-journal" href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer" style="color: #E8784A;">the Self-Journal</a>, an 8-week companion for meeting your own parts. Kate would already have it filled in. Tom would say it's fine.</p>
       <p class="book-announcement__note" style="font-size: 0.9rem; max-width: 560px; margin-left: auto; margin-right: auto;">Anna Milaeva trained in IFS Therapy through Level 3 at the IFS Institute and works as a Certified Deep Transformational Coach, working with clients in more than 15 countries. She ran operations long enough to have opinions about calendar invites. This is her first novel. <a href="about" style="color: #E8784A;">More about Anna &rarr;</a></p>
       <div class="bk-why__note">
         <div class="bk-why__note-text">&ldquo;Thanks for being the novelist you are. Thanks for not hiding anymore.&rdquo;</div>
@@ -1839,7 +1908,7 @@
         });
       });
 
-      // Quiz: six questions, each answer is a vote for one part
+      // Quiz: ten statements, each scored Not me (0), Sometimes (1) or So me (2) for one part
       var steps = document.getElementById('bkQuizSteps');
       var qs = Array.prototype.slice.call(steps.querySelectorAll('.bk-q'));
       var dots = steps.querySelectorAll('.bk-quiz__dots span');
@@ -1857,42 +1926,74 @@
         dots.forEach(function (d, n) { d.classList.toggle('done', n < i); });
         stepSlot.textContent = i + 1;
         back.hidden = i === 0;
-        qs[i].querySelectorAll('[data-part]').forEach(function (b) {
-          b.classList.toggle('picked', b.getAttribute('data-part') === answers[i]);
+        qs[i].querySelectorAll('[data-score]').forEach(function (b) {
+          b.classList.toggle('picked', Number(b.getAttribute('data-score')) === answers[i]);
         });
       }
       qs.forEach(function (q, n) {
-        q.querySelectorAll('[data-part]').forEach(function (btn) {
+        q.querySelectorAll('[data-score]').forEach(function (btn) {
           btn.addEventListener('click', function () {
             if (n !== current) { return; }
-            if (n === 0 && !answers[0]) { track('quiz-start'); }
-            answers[n] = btn.getAttribute('data-part');
-            q.querySelectorAll('[data-part]').forEach(function (b) { b.classList.toggle('picked', b === btn); });
+            if (n === 0 && answers[0] === undefined) { track('quiz-start'); }
+            answers[n] = Number(btn.getAttribute('data-score'));
+            q.querySelectorAll('[data-score]').forEach(function (b) { b.classList.toggle('picked', b === btn); });
             setTimeout(function () {
               if (n < qs.length - 1) { showQ(n + 1); } else { finish(); }
-            }, 280);
+            }, 260);
           });
         });
       });
       back.addEventListener('click', function () { if (current > 0) { showQ(current - 1); } });
 
-      function nameOf(part) {
-        return result.querySelector('.bk-r[data-part="' + part + '"]').getAttribute('data-name');
+      function card(part) { return result.querySelector('.bk-r[data-part="' + part + '"]'); }
+      function nameOf(part) { return card(part).getAttribute('data-name'); }
+
+      // One row per part: face, pattern, character, and a bar for its share of the meeting
+      function drawBars(ranked, score, total, chairs) {
+        var bars = document.getElementById('bkBars');
+        bars.innerHTML = '';
+        ranked.forEach(function (part) {
+          var pct = Math.round(score[part] / total * 100);
+          var row = document.createElement('div');
+          row.className = 'bk-bar' + (chairs.indexOf(part) > -1 ? ' is-chair' : '');
+          var img = document.createElement('img');
+          img.src = 'cast-' + part + '.jpg';
+          img.alt = '';
+          var mid = document.createElement('div');
+          var label = document.createElement('div');
+          label.className = 'bk-bar__label';
+          label.textContent = card(part).querySelector('.bk-result__name').textContent;
+          var who = document.createElement('small');
+          who.textContent = card(part).getAttribute('data-char');
+          label.appendChild(who);
+          var track = document.createElement('div');
+          track.className = 'bk-bar__track';
+          var fill = document.createElement('div');
+          fill.className = 'bk-bar__fill';
+          track.appendChild(fill);
+          mid.appendChild(label);
+          mid.appendChild(track);
+          var pctEl = document.createElement('div');
+          pctEl.className = 'bk-bar__pct';
+          pctEl.textContent = pct + '%';
+          row.appendChild(img);
+          row.appendChild(mid);
+          row.appendChild(pctEl);
+          bars.appendChild(row);
+          setTimeout(function () { fill.style.width = pct + '%'; }, 80);
+        });
       }
+
       function finish() {
         var score = {};
         parts.forEach(function (p) { score[p] = 0; });
-        answers.forEach(function (a) { if (a) { score[a] += 1; } });
-        // Ties go to the answer to "the sentence you would never say"
-        var tie = answers[qs.findIndex(function (q) { return q.hasAttribute('data-tiebreak'); })];
+        qs.forEach(function (q, n) { score[q.getAttribute('data-part')] += answers[n] || 0; });
+        var total = parts.reduce(function (sum, p) { return sum + score[p]; }, 0);
         var ranked = parts.slice().sort(function (a, b) {
-          if (score[b] !== score[a]) { return score[b] - score[a]; }
-          if (a === tie) { return -1; }
-          if (b === tie) { return 1; }
-          return parts.indexOf(a) - parts.indexOf(b);
+          return score[b] !== score[a] ? score[b] - score[a] : parts.indexOf(a) - parts.indexOf(b);
         });
-        var primary = ranked[0];
-        var second = score[ranked[1]] > 0 ? ranked[1] : null;
+        var top = score[ranked[0]];
+        var chairs = top > 0 ? ranked.filter(function (p) { return score[p] === top; }) : [];
 
         // A short pause while the "committee" deliberates, then the reveal
         var deliberate = document.getElementById('bkDeliberate');
@@ -1902,13 +2003,22 @@
         updateLive();
         setTimeout(function () {
           deliberate.hidden = true;
-          result.querySelectorAll('.bk-r').forEach(function (r) { r.hidden = r.getAttribute('data-part') !== primary; });
-          var sec = document.getElementById('bkSecond');
-          sec.hidden = !second;
-          if (second) { sec.querySelector('[data-slot="name"]').textContent = nameOf(second); }
-          result.setAttribute('data-part', primary);
+          var empty = !chairs.length;
+          document.getElementById('bkEmpty').hidden = !empty;
+          document.getElementById('bkMix').hidden = empty;
+          document.getElementById('bkShare').hidden = empty;
+          result.querySelectorAll('.bk-r').forEach(function (r) { r.hidden = empty || r.getAttribute('data-part') !== chairs[0]; });
+          if (!empty) {
+            var mix = document.getElementById('bkMix');
+            var namesEl = mix.querySelector('[data-slot="names"]');
+            mix.querySelector('[data-slot="single"]').hidden = chairs.length > 1;
+            mix.querySelector('[data-slot="co"]').hidden = chairs.length < 2;
+            namesEl.textContent = chairs.slice(0, 2).map(nameOf).join(namesEl.getAttribute('data-and'));
+            drawBars(ranked, score, total, chairs);
+          }
+          result.setAttribute('data-part', chairs[0] || '');
           result.classList.add('show');
-          track('quiz-complete', { result: primary });
+          track('quiz-complete', { result: chairs[0] || 'none', mix: ranked.map(function (p) { return p + ':' + score[p]; }).join(' ') });
           scrollToEl(document.getElementById('bkQuiz'));
         }, calm ? 0 : 1400);
       }
