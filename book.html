@@ -486,6 +486,7 @@
     footer.footer { padding-bottom: 70px; }
 
     /* The organizer's words inside "Why I wrote it" */
+    .bk-why__creds { font-size: 0.85rem !important; margin-top: 22px; }
     .bk-why__organizer { max-width: 620px; margin: 0 auto 22px; font-family: var(--font-heading); font-style: italic; font-size: 1.12rem; line-height: 1.6; color: #EFE6DC; }
 
     /* What readers are saying: a strip right under the hero */
@@ -791,6 +792,17 @@
       .bk-mix__chair { font-size: 1.25rem; }
     }
     @media (prefers-reduced-motion: reduce) { .bk-bar__fill { transition: none; } }
+
+    /* A practice: when to use it, the steps, and why it helps */
+    .bk-practice { margin-top: 6px; text-align: left; }
+    .bk-practice__meta { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-bottom: 10px; font-size: 0.82rem; color: var(--text-light); }
+    .bk-practice__meta span:first-child { font-weight: 600; color: var(--accent); }
+    .bk-practice__meta span + span::before { content: '\00B7'; margin-right: 10px; color: var(--divider); }
+    .bk-practice__steps { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .bk-practice__steps li { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
+    .bk-practice__why { margin-top: 10px; font-size: 0.9rem; line-height: 1.55; color: var(--text-light); }
+    .bk-practice__why strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 968px) { .bk-practice__steps li { font-size: 16px !important; line-height: 1.6 !important; } }
 
     /* Fifteen doors */
     .bk-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 780px; margin: 40px auto 0; }
@@ -1464,7 +1476,7 @@
               </div>
             </div>
             <p class="bk-result__body">You answer before you finish reading. You make the coffee, the agenda, and the save. People say the place would fall apart without you, and a part of you needs that to stay true. Somewhere underneath there is a quieter question: who is holding you?</p>
-            <div class="bk-doorbox"><strong>A door from the book: The Gap</strong>Find the last yes that cost you something. Not the action. The half second just before it, where something else almost got a vote.</div>
+            <div class="bk-doorbox"><strong>A door from the book: The Gap</strong><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutes</span><span>After a day when you said yes and wished you hadn't.</span></div><ol class="bk-practice__steps"><li>Think of the last time you did something you didn't want to do without saying so. Something small. A yes that cost you something.</li><li>Notice what happened inside before you responded. What was there first, before the action.</li><li>Write one sentence about it. Just one. Nobody needs to see it.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> The part that says yes moves fast. Seeing the half second before it is how you get a choice back.</div></div></div>
             <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep01-kate"><span class="bk-watch__icon"></span>See this one in action, 0:42</button><a href="/book/kate" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="kate">More about this pattern &rarr;</a></div>
           </div>
 
@@ -1478,7 +1490,7 @@
               </div>
             </div>
             <p class="bk-result__body">Your enthusiasm is real. So is the speed. A part of you converts every uncomfortable feeling into a plan before the feeling has time to land, and the plans are good, which makes it very hard to catch. The feeling waits. It is patient that way.</p>
-            <div class="bk-doorbox"><strong>A door from the book: The Pivot</strong>Think of your last big change of direction. Sit with one question, longer than is comfortable: was it clarity, or was it relief?</div>
+            <div class="bk-doorbox"><strong>A door from the book: The Pivot</strong><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutes</span><span>When you feel the pull to change direction again.</span></div><ol class="bk-practice__steps"><li>Think of something you have changed direction on more than once. A project, a plan, a way you approach something.</li><li>What was the feeling just before you pivoted? Where did it live in your body?</li><li>Ask: was it clarity, or was it relief? You don't have to answer out loud. Just notice the difference.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> From the inside, relief can feel exactly like clarity. Telling them apart is the whole skill.</div></div></div>
             <div class="bk-result__actions"><a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="bk-watch"><span class="bk-watch__icon"></span>Meet this one in the book</a><a href="/book/daniel" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="daniel">More about this pattern &rarr;</a></div>
           </div>
 
@@ -1492,7 +1504,7 @@
               </div>
             </div>
             <p class="bk-result__body">You are prepared for every version of the room. Version A, version B, and the one you actually believe, which stays in a folder. Being right in private feels safer than finding out. The backup plans are excellent. They are also very good walls.</p>
-            <div class="bk-doorbox"><strong>A door from the book: Without the Backup</strong>Do one thing this week without the safety net. Send the real version. The discomfort is the data.</div>
+            <div class="bk-doorbox"><strong>A door from the book: Without the Backup</strong><div class="bk-practice"><div class="bk-practice__meta"><span>One small thing, this week</span><span>When you catch yourself building a safety net.</span></div><ol class="bk-practice__steps"><li>Try one thing without your usual backup. Send the email without three drafts. Make the suggestion without checking first what your boss will think.</li><li>Notice what happens inside while you do it. The part that wanted the safety net will have feelings. Listen to them. You do not have to obey them.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> The discomfort is the data.</div></div></div>
             <div class="bk-result__reader">&ldquo;I realized I had a pull to make a second batch of sauce, just in case, for the boss to be happy. I was laughing so much because I realized I'm being such a Priya.&rdquo;<span>Isabella, Spain</span></div>
             <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep02-priya"><span class="bk-watch__icon"></span>See this one in action, 0:31</button><a href="/book/priya" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="priya">More about this pattern &rarr;</a></div>
           </div>
@@ -1507,7 +1519,7 @@
               </div>
             </div>
             <p class="bk-result__body">You have an entire inner life running parallel to your outer one, fully formed, continuously updated, rarely transmitted. When something really matters, you make tea. The people who love you can tell the difference between your silences. That is not the same as hearing you.</p>
-            <div class="bk-doorbox"><strong>A door from the book: Who Catches You</strong>Write down two names. Who catches you when you slip? And who are you catching? If either line is blank, start there.</div>
+            <div class="bk-doorbox"><strong>A door from the book: Who Catches You</strong><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutes</span><span>When you notice you are carrying something alone.</span></div><ol class="bk-practice__steps"><li>Ask yourself two questions: who in your life can you trust to catch you when you slip? And who can you catch?</li><li>Write one name for each. Just one.</li><li>If you cannot think of a name for either, that is also the practice. Sit with what it is telling you.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> A part that keeps everything inside has its reasons. One name gives it somewhere to put things down.</div></div></div>
             <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep03-tom-marta"><span class="bk-watch__icon"></span>See this one in action, 0:55</button><a href="/book/tom" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="tom">More about this pattern &rarr;</a></div>
           </div>
 
@@ -1521,7 +1533,7 @@
               </div>
             </div>
             <p class="bk-result__body">Just this week. Just this month. Just until close. You have been saying it long enough that it has become a way of life with excellent billing records. A part of you wanted support so badly, for so long, that it stopped being able to accept any.</p>
-            <div class="bk-doorbox"><strong>A door from the book: When You Slip</strong>Ask one person to say to you, kindly, when they see it: I see you slipping. Then let them.</div>
+            <div class="bk-doorbox"><strong>A door from the book: When You Slip</strong><div class="bk-practice"><div class="bk-practice__meta"><span>Today</span><span>When an old habit starts creeping back.</span></div><ol class="bk-practice__steps"><li>Ask yourself where you might be slipping right now. An old pattern returning, slowly. You probably already know.</li><li>Think of one person you would trust to tell you when they see it.</li><li>Ask them. Tell them what you are noticing, and that you would rather hear it from them than catch it three months too late.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> Slipping is part of the work. Being seen early is what makes it easy to come back.</div></div></div>
             <div class="bk-result__reader">&ldquo;I've definitely slipped in some regards. But it's funny how you can go right back.&rdquo;<span>Kelly, Miami</span></div>
             <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep03-tom-marta"><span class="bk-watch__icon"></span>See this one in action, 0:55</button><a href="/book/marta" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="marta">More about this pattern &rarr;</a></div>
           </div>
@@ -1591,21 +1603,21 @@
       </div>
 
       <div id="bkDoorTexts" hidden>
-        <div data-door="1"><h3>The Gap</h3><div class="bk-door-panel__ch">From the book</div>Find the last yes that cost you something. Not the action. The half second just before it, where something else almost got a vote.</div>
-        <div data-door="2"><h3>The Pivot</h3><div class="bk-door-panel__ch">From the book</div>Think of your last big change of direction. Sit with one question, longer than is comfortable: was it clarity, or was it relief?</div>
+        <div data-door="1"><h3>The Gap</h3><div class="bk-door-panel__ch">From the book</div><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutes</span><span>After a day when you said yes and wished you hadn't.</span></div><ol class="bk-practice__steps"><li>Think of the last time you did something you didn't want to do without saying so. Something small. A yes that cost you something.</li><li>Notice what happened inside before you responded. What was there first, before the action.</li><li>Write one sentence about it. Just one. Nobody needs to see it.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> The part that says yes moves fast. Seeing the half second before it is how you get a choice back.</div></div></div>
+        <div data-door="2"><h3>The Pivot</h3><div class="bk-door-panel__ch">From the book</div><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutes</span><span>When you feel the pull to change direction again.</span></div><ol class="bk-practice__steps"><li>Think of something you have changed direction on more than once. A project, a plan, a way you approach something.</li><li>What was the feeling just before you pivoted? Where did it live in your body?</li><li>Ask: was it clarity, or was it relief? You don't have to answer out loud. Just notice the difference.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> From the inside, relief can feel exactly like clarity. Telling them apart is the whole skill.</div></div></div>
         <div data-door="3"><h3>The Three Versions</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
         <div data-door="4"><h3>The Undone Thing</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
         <div data-door="5"><h3>The First Naming</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
         <div data-door="6"><h3>The Meeting Behind the Meeting</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
         <div data-door="7"><h3>The Useful Thing</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
         <div data-door="8"><h3>The Closed Laptop</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
-        <div data-door="9"><h3>Without the Backup</h3><div class="bk-door-panel__ch">From the book</div>Do one thing this week without the safety net. Send the real version. The discomfort is the data.</div>
+        <div data-door="9"><h3>Without the Backup</h3><div class="bk-door-panel__ch">From the book</div><div class="bk-practice"><div class="bk-practice__meta"><span>One small thing, this week</span><span>When you catch yourself building a safety net.</span></div><ol class="bk-practice__steps"><li>Try one thing without your usual backup. Send the email without three drafts. Make the suggestion without checking first what your boss will think.</li><li>Notice what happens inside while you do it. The part that wanted the safety net will have feelings. Listen to them. You do not have to obey them.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> The discomfort is the data.</div></div></div>
         <div data-door="10"><h3>The Advice You Gave</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
         <div data-door="11"><h3>The Commentator</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
-        <div data-door="12"><h3>Who Catches You</h3><div class="bk-door-panel__ch">From the book</div>Write down two names. Who catches you when you slip? And who are you catching? If either line is blank, start there.</div>
+        <div data-door="12"><h3>Who Catches You</h3><div class="bk-door-panel__ch">From the book</div><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutes</span><span>When you notice you are carrying something alone.</span></div><ol class="bk-practice__steps"><li>Ask yourself two questions: who in your life can you trust to catch you when you slip? And who can you catch?</li><li>Write one name for each. Just one.</li><li>If you cannot think of a name for either, that is also the practice. Sit with what it is telling you.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> A part that keeps everything inside has its reasons. One name gives it somewhere to put things down.</div></div></div>
         <div data-door="13"><h3>What You're Bringing Home</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
         <div data-door="14"><h3>The Unbelievable Space</h3><div class="bk-door-panel__ch">From the book</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
-        <div data-door="15"><h3>When You Slip</h3><div class="bk-door-panel__ch">From the book</div>Ask one person to say to you, kindly, when they see it: I see you slipping. Then let them.</div>
+        <div data-door="15"><h3>When You Slip</h3><div class="bk-door-panel__ch">From the book</div><div class="bk-practice"><div class="bk-practice__meta"><span>Today</span><span>When an old habit starts creeping back.</span></div><ol class="bk-practice__steps"><li>Ask yourself where you might be slipping right now. An old pattern returning, slowly. You probably already know.</li><li>Think of one person you would trust to tell you when they see it.</li><li>Ask them. Tell them what you are noticing, and that you would rather hear it from them than catch it three months too late.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> Slipping is part of the work. Being seen early is what makes it easy to come back.</div></div></div>
       </div>
 
       <div class="bk-door-panel" id="bkDoorPanel" aria-live="polite"></div>
@@ -1627,7 +1639,6 @@
         </form>
       </div>
 
-      <p class="fade-in" style="margin-top: 36px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 0.95rem; color: var(--text-light);">Reading them is optional. Noticing what they bring up is not, sorry.</p>
       <button type="button" class="bk-next" data-goto="notes">Next on the agenda: what readers felt <span aria-hidden="true">&darr;</span></button>
     </div>
   </section>
@@ -1677,16 +1688,12 @@
       <span class="book-announcement__label">7 &middot; Why I wrote it</span>
       <h2 class="book-announcement__headline">The story is fiction. The meetings are real.</h2>
       <div class="bk-why__organizer">&ldquo;I ran operations for over a decade. I was in these meetings. I was also in the other ones, the ones running inside me. This story is what happened when I finally attended both.&rdquo;</div>
-      <p class="book-announcement__body">Now I bring parts work, the method behind this story, into the lives of professionals and inside companies. Most rooms have an unspoken rule against talking about what is actually happening inside the people in them. I wrote a novel because stories get past that rule. If you saw yourself in any of these five, that is the door. The work behind the door is what I do.</p>
+      <p class="book-announcement__body">Now I bring parts work, the method behind this story, to professionals and to teams.</p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
         <a href="coaching" class="btn btn--primary">Work with me 1:1</a>
         <a data-umami-event="teams-page" href="/book/teams" class="btn btn--outline" style="color: #FAF7F2; border-color: #FAF7F2;">Bring it to your team</a>
       </div>
-      <p class="book-announcement__note" style="font-size: 0.9rem; max-width: 560px; margin-left: auto; margin-right: auto;">Anna Milaeva trained in IFS Therapy through Level 3 at the IFS Institute and works as a Certified Deep Transformational Coach, working with clients in more than 15 countries. She ran operations long enough to have opinions about calendar invites. This is her first novel. <a href="about" style="color: #E8784A;">More about Anna &rarr;</a></p>
-      <div class="bk-why__note">
-        <div class="bk-why__note-text">&ldquo;Thanks for being the novelist you are. Thanks for not hiding anymore.&rdquo;</div>
-        <div class="bk-why__note-who">Roeland, Belgium</div>
-      </div>
+      <p class="book-announcement__note bk-why__creds">IFS Level 3 trained &middot; Certified Deep Transformational Coach &middot; Clients in 15+ countries &middot; <a href="about" style="color: #E8784A;">More about Anna &rarr;</a></p>
       <button type="button" class="bk-next bk-next--dark" data-goto="get">Next on the agenda: take the meeting <span aria-hidden="true">&darr;</span></button>
     </div>
   </section>
@@ -1697,12 +1704,11 @@
       <span class="bk-step"><span>8</span>Get the book</span>
       <h2>Take the meeting</h2>
       <p>A couple of evenings of reading. Something to take to work tomorrow that nobody else has to know about.</p>
-      <div class="bk-hero-note" style="max-width: 420px; margin: 0 auto 28px;">&ldquo;One of the few books I've actually read to the end lately.&rdquo;<span>Sasha, Moldova</span></div>
       <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get it on Amazon</a>
       <p style="margin: 18px auto 0; font-size: 0.92rem;"><a href="/es/libro" lang="es" hreflang="es" style="color: var(--accent);">&iquest;En espa&ntilde;ol? <em>La reuni&oacute;n ya empez&oacute;</em> &rarr;</a></p>
       <div class="bk-review">
         <div class="bk-review__stars" aria-hidden="true"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
-        <p>If it makes you laugh, or makes you look at your own Tuesday differently, a short review on Amazon helps other readers find it. More than you would think.</p>
+        <p>Read it already? A short review on Amazon helps the next reader find it.</p>
       </div>
     </div>
   </section>

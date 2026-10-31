@@ -210,3 +210,14 @@
   .bp-other, .bp-teamcard { transition: none; }
   .bp-other:hover, .bp-teamcard:hover { transform: none; }
 }
+
+/* A practice: when to use it, the steps, and why it helps */
+.bk-practice { margin-top: 6px; text-align: left; }
+.bk-practice__meta { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-bottom: 10px; font-size: 0.82rem; color: var(--text-light); }
+.bk-practice__meta span:first-child { font-weight: 600; color: var(--accent); }
+.bk-practice__meta span + span::before { content: '\00B7'; margin-right: 10px; color: var(--divider); }
+.bk-practice__steps { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.bk-practice__steps li { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
+.bk-practice__why { margin-top: 10px; font-size: 0.9rem; line-height: 1.55; color: var(--text-light); }
+.bk-practice__why strong { color: var(--text); font-weight: 600; }
+@media (max-width: 968px) { .bk-practice__steps li { font-size: 16px !important; line-height: 1.6 !important; } }
