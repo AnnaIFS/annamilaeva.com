@@ -193,4 +193,34 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/privacidad"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/privacy"/>
   </url>
+  <url>
+    <loc>https://annamilaeva.com/book/teams</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://annamilaeva.com/book/kate</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://annamilaeva.com/book/daniel</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://annamilaeva.com/book/priya</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://annamilaeva.com/book/tom</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://annamilaeva.com/book/marta</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>

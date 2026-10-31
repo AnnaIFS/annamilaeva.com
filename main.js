@@ -2,6 +2,23 @@
    Anna Milaeva — Main JavaScript
    ======================================== */
 
+// Clean addresses: links carry utm_ tags so analytics knows where a visit came
+// from. Once the visit is counted, drop the tags from the address bar so people
+// only see (and copy) the clean page address. main.js runs before the deferred
+// Umami script wraps history.replaceState, so keeping the original here stops
+// the clean-up from counting as a second page view.
+const nativeReplaceState = history.replaceState.bind(history);
+if (/[?&]utm_[a-z]+=/i.test(window.location.search)) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      [...params.keys()].forEach(key => { if (key.toLowerCase().startsWith('utm_')) params.delete(key); });
+      const query = params.toString();
+      nativeReplaceState(history.state, '', window.location.pathname + (query ? '?' + query : '') + window.location.hash);
+    }, 1500);
+  });
+}
+
 // Facebook in-app browser fix
 if (/FBAN|FBAV|Instagram/i.test(navigator.userAgent)) {
   document.documentElement.classList.add('fb-browser');

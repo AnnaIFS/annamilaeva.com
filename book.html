@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/libro">
   <link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/book">
   <title>Already In A Meeting. The Novel. Anna Milaeva</title>
-  <meta name="description" content="Already In A Meeting, a novel by Anna Milaeva. Five people, one company in trouble, and the meetings running inside each of them.">
+  <meta name="description" content="Already In A Meeting, a novel by Anna Milaeva. Five people, one company in trouble, and the meetings running inside each of them. Watch the episodes and find out which part is chairing your meetings.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="book">
@@ -36,7 +36,19 @@
     "inLanguage": "en",
     "image": "https://annamilaeva.com/book-cover.jpg",
     "url": "https://annamilaeva.com/book",
-    "sameAs": "https://www.amazon.com/dp/B0HD3GVY6Z/"
+    "sameAs": "https://www.amazon.com/dp/B0HD3GVY6Z/",
+    "workTranslation": {"@type": "Book", "name": "La reunión ya empezó", "inLanguage": "es", "url": "https://annamilaeva.com/es/libro", "sameAs": "https://www.amazon.com/dp/B0HJ323PN7/"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {"@type": "VideoObject", "name": "So now, they get a voice. Already In A Meeting, the series", "description": "Anna Milaeva introduces the animated episodes made from her novel Already In A Meeting.", "thumbnailUrl": "https://annamilaeva.com/videos/ep00-anna-intro.jpg", "contentUrl": "https://annamilaeva.com/videos/ep00-anna-intro.mp4", "uploadDate": "2026-10-31", "duration": "PT30S"},
+      {"@type": "VideoObject", "name": "Kate: Thirteen Minutes Early. Already In A Meeting, episode 1", "description": "Kate, Chief of Staff, arrives early, makes the coffee, and says yes before she sits down. An animated episode from the novel Already In A Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep01-kate.jpg", "contentUrl": "https://annamilaeva.com/videos/ep01-kate.mp4", "uploadDate": "2026-10-31", "duration": "PT42S"},
+      {"@type": "VideoObject", "name": "Priya: Version C. Already In A Meeting, episode 2", "description": "Priya, Head of Marketing, brings three versions of every deck. Version C is the one she believes. An animated episode from the novel Already In A Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep02-priya.jpg", "contentUrl": "https://annamilaeva.com/videos/ep02-priya.mp4", "uploadDate": "2026-10-31", "duration": "PT31S"},
+      {"@type": "VideoObject", "name": "Tom and Marta: The Homework. Already In A Meeting, episode 3", "description": "Their couples therapist gave Tom and Marta homework: one intentional moment of connection per week. It was Sunday. They had not done the homework. An animated episode from the novel Already In A Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep03-tom-marta.jpg", "contentUrl": "https://annamilaeva.com/videos/ep03-tom-marta.mp4", "uploadDate": "2026-10-31", "duration": "PT55S"}
+    ]
   }
   </script>
 
@@ -246,32 +258,356 @@
     .bk-quote blockquote { font-family: var(--font-heading); font-style: italic; font-size: 1.7rem; line-height: 1.5; color: #FAF7F2; max-width: 760px; margin: 0 auto; }
     .bk-quote cite { display: block; margin-top: 18px; font-style: normal; font-family: var(--font-body); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: #E8784A; }
 
-    /* Which one are you */
-    .bk-picker { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 36px; }
-    .bk-picker button {
-      font-family: var(--font-body); font-size: 0.92rem;
-      padding: 12px 20px; border-radius: 30px;
-      border: 1.5px solid var(--divider); background: #FFFFFF; color: var(--text);
-      cursor: pointer; transition: all 0.2s ease;
+    @keyframes bkFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* Watch pill: on cast cards, the organizer note and quiz results */
+    .bk-watch {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.3px;
+      color: var(--accent); background: #FFFFFF;
+      border: 1.5px solid var(--accent); border-radius: 30px;
+      padding: 7px 15px 7px 8px; cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
     }
-    .bk-picker button:hover { border-color: var(--accent); color: var(--accent); }
-    .bk-picker button.active { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
-    .bk-reveal {
-      max-width: 680px; margin: 36px auto 0;
-      background: #FFFFFF; border-radius: 12px;
-      padding: 36px 40px;
+    .bk-watch__icon {
+      width: 20px; height: 20px; border-radius: 50%; background: var(--accent);
+      display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .bk-watch__icon::after {
+      content: ''; margin-left: 2px;
+      border-left: 7px solid #FFFFFF; border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent;
+    }
+    .bk-watch:hover { background: var(--accent); color: #FFFFFF; }
+    .bk-watch:hover .bk-watch__icon { background: #FFFFFF; }
+    .bk-watch:hover .bk-watch__icon::after { border-left-color: var(--accent); }
+    .bk-watch--off { color: var(--text-light); border-color: var(--divider); }
+    .bk-watch--off .bk-watch__icon { background: var(--divider); }
+    .bk-watch--off:hover { background: #FAF7F2; color: var(--text-light); }
+    .bk-watch--off:hover .bk-watch__icon { background: var(--divider); }
+    .bk-watch--off:hover .bk-watch__icon::after { border-left-color: #FFFFFF; }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+
+    /* Play badge on the cast art */
+    .bk-art { position: relative; }
+    .bk-art__play {
+      position: absolute; left: 12px; bottom: 12px; z-index: 1;
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+      color: #FAF7F2; background: rgba(61,37,24,0.86); border: 0; border-radius: 30px;
+      padding: 6px 13px 6px 6px; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .bk-art__play:hover { background: var(--accent); transform: scale(1.04); }
+    .bk-art__play-icon {
+      width: 22px; height: 22px; border-radius: 50%; background: #FAF7F2;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .bk-art__play-icon::after {
+      content: ''; margin-left: 2px;
+      border-left: 8px solid var(--accent); border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+    }
+    .bk-art__play--off { padding: 6px 13px; background: rgba(250,247,242,0.92); color: var(--accent); border: 1.5px dashed var(--accent); box-shadow: none; }
+    .bk-art__play--off:hover { background: #FAF7F2; transform: none; }
+
+    .bk-result__more { font-size: 0.9rem; color: var(--accent); margin-left: 4px; }
+    .bk-patterns { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 10px; max-width: 760px; margin: 36px auto 0; font-size: 0.9rem; }
+    .bk-patterns span { color: var(--text-light); }
+    .bk-patterns a { color: var(--accent); background: #FAF7F2; border: 1px solid var(--divider); border-radius: 30px; padding: 6px 14px; text-decoration: none; transition: border-color 0.2s ease; }
+    .bk-patterns a:hover { border-color: var(--accent); }
+
+    /* One reader line under the cover */
+    .bk-hero-note {
+      max-width: 300px; margin: 18px auto 0;
+      font-family: var(--font-heading); font-style: italic; font-size: 0.98rem; line-height: 1.5; color: var(--text);
+    }
+    .bk-hero-note span { display: block; margin-top: 4px; font-family: var(--font-body); font-style: normal; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+
+    /* Reader notes: sticky notes left on the meeting room wall */
+    .bk-notes { display: grid; grid-template-columns: 1fr; gap: 26px; max-width: 980px; margin: 48px auto 0; }
+    @media (min-width: 700px) { .bk-notes { grid-template-columns: repeat(2, 1fr); gap: 34px; } }
+    /* Each note drops onto the wall at its own slight angle */
+    .bk-note {
+      --tilt: -1.4deg;
+      position: relative; text-align: left;
+      background: #FFF3C4; padding: 30px 26px 22px;
+      box-shadow: 0 10px 24px rgba(61,37,24,0.12), 0 2px 4px rgba(61,37,24,0.06);
+      opacity: 0; transform: translateY(-34px) rotate(calc(var(--tilt) * 5)) scale(1.04);
+      transition: opacity 0.45s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.3, 1.25);
+    }
+    .bk-note:nth-child(2) { --tilt: 1.2deg; background: #FBE1D3; }
+    .bk-note:nth-child(3) { --tilt: 0.8deg; background: #E4EEDD; }
+    .bk-note:nth-child(4) { --tilt: -1deg; background: #F1E6D8; }
+    .bk-note:nth-child(5) { --tilt: 1.1deg; background: #E6ECF3; }
+    .bk-note:nth-child(6) { --tilt: -0.7deg; background: #FFF3C4; }
+    .bk-note.bk-in { opacity: 1; transform: rotate(var(--tilt)); }
+    .bk-note.bk-in:hover { transform: rotate(0deg) translateY(-4px); transition-duration: 0.3s; }
+
+    /* The pause before a quiz result */
+    .bk-deliberate { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 48px 0; color: var(--text-light); font-size: 0.95rem; }
+    .bk-deliberate[hidden] { display: none; }
+    .bk-deliberate__dots { display: flex; gap: 8px; }
+    .bk-deliberate__dots span { width: 11px; height: 11px; border-radius: 50%; background: var(--accent); animation: bkDots 1s ease-in-out infinite; }
+    .bk-deliberate__dots span:nth-child(2) { animation-delay: 0.15s; }
+    .bk-deliberate__dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes bkDots { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(-9px); opacity: 1; } }
+    .bk-note::before {
+      content: ''; position: absolute; top: -11px; left: 50%; margin-left: -42px;
+      width: 84px; height: 22px; background: rgba(255,255,255,0.55);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08); transform: rotate(-3deg);
+    }
+    .bk-note__text { font-family: var(--font-heading); font-size: 1.08rem; line-height: 1.6; color: var(--text); }
+    .bk-note__who { margin-top: 14px; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: #6B4A35; }
+    .bk-note__who em { text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
+
+    /* Why I wrote it: the real photo */
+    .bk-why__photo {
+      width: 128px; height: 128px; border-radius: 50%; object-fit: cover; object-position: center 20%;
+      border: 3px solid rgba(250,247,242,0.85); margin: 0 auto 22px; display: block;
+    }
+    .bk-why__note { max-width: 520px; margin: 34px auto 0; padding-top: 24px; border-top: 1px solid rgba(250,247,242,0.18); }
+    .bk-why__note-text { font-family: var(--font-heading); font-style: italic; font-size: 1.08rem; line-height: 1.6; color: #FAF7F2; }
+    .bk-why__note-who { margin-top: 8px; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: #E8784A; }
+
+    /* A reader line inside a quiz result */
+    .bk-result__reader { margin-top: 16px; padding: 14px 18px; background: #FFF3C4; transform: rotate(-0.6deg); font-size: 0.92rem; line-height: 1.6; }
+    .bk-result__reader span { display: block; margin-top: 6px; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: #6B4A35; }
+
+    /* Episodes: the day's calendar */
+    /* Phones and tablets: a row you swipe, like reels. Desktop: all five in a line. */
+    .bk-eps {
+      display: flex; gap: 14px; margin: 44px -24px 0; padding: 4px 24px 18px;
+      overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    }
+    .bk-eps::-webkit-scrollbar { display: none; }
+    .bk-eps > .bk-ep { flex: 0 0 62%; max-width: 260px; scroll-snap-align: center; }
+    @media (min-width: 900px) {
+      .bk-eps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin: 44px 0 0; padding: 4px 0 18px; overflow: visible; }
+      .bk-eps > .bk-ep { max-width: none; }
+    }
+    .bk-ep__title, .bk-ep__who { display: block; }
+    .bk-ep__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .bk-ep {
+      display: flex; flex-direction: column; text-align: left;
+      background: #FFFFFF; border: 0; border-radius: 12px; overflow: hidden; padding: 0;
+      font: inherit; color: inherit; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(61,37,24,0.09);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bk-ep { opacity: 0; transform: translateY(26px); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1.12), box-shadow 0.3s ease; }
+    .bk-ep.bk-in { opacity: 1; transform: none; }
+    .bk-ep.bk-in:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(61,37,24,0.16); }
+    .bk-ep__media { position: relative; aspect-ratio: 9 / 16; overflow: hidden; background: #EFE3D3; }
+    .bk-ep__media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .bk-ep__play {
+      position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px;
+      border-radius: 50%; background: rgba(250,247,242,0.92); box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      display: flex; align-items: center; justify-content: center; transition: transform 0.25s ease;
+    }
+    .bk-ep__play::after {
+      content: ''; margin-left: 5px;
+      border-left: 17px solid var(--accent); border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+    }
+    .bk-ep:hover .bk-ep__play { transform: scale(1.08); }
+    .bk-ep__slot {
+      position: absolute; top: 12px; left: 12px;
+      background: #3D2518; color: #FAF7F2; border-radius: 6px;
+      font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 10px;
+    }
+    .bk-ep__len {
+      position: absolute; bottom: 12px; right: 12px;
+      background: rgba(0,0,0,0.55); color: #FFFFFF; border-radius: 4px;
+      font-size: 0.75rem; padding: 3px 8px; font-variant-numeric: tabular-nums;
+    }
+    .bk-ep__info { padding: 14px 16px 18px; }
+    .bk-ep__title { font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.3; color: var(--text); }
+    .bk-ep__who { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
+    .bk-ep--off { cursor: default; }
+    .bk-ep--off:hover { transform: none; box-shadow: 0 6px 24px rgba(61,37,24,0.09); }
+    .bk-ep--off .bk-ep__media img { filter: grayscale(0.85); opacity: 0.5; }
+    .bk-ep__stamp {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg);
+      border: 2.5px solid var(--accent); border-radius: 6px; background: rgba(250,247,242,0.88);
+      color: var(--accent); font-weight: 600; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase;
+      padding: 8px 14px; white-space: nowrap;
+    }
+    .bk-eps-note { margin-top: 32px; font-size: 0.92rem; color: var(--text-light); }
+    .bk-eps-note a { color: var(--accent); }
+
+    /* Video player */
+    .bk-player {
+      border: 0; padding: 0; background: transparent; overflow: visible;
+      margin: auto; /* the global reset strips the dialog's centring margin */
+      width: min(400px, 92vw, calc(76vh * 9 / 16));
+      max-width: none;
+    }
+    .bk-player::backdrop { background: rgba(26,16,10,0.84); }
+    .bk-player__frame { position: relative; aspect-ratio: 9 / 16; background: #000000; border-radius: 14px; overflow: hidden; }
+    .bk-player__frame video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000000; }
+    .bk-player__close {
+      position: absolute; top: 10px; right: 10px; z-index: 2;
+      width: 38px; height: 38px; border-radius: 50%; border: 0;
+      background: rgba(0,0,0,0.55); color: #FFFFFF; font-size: 1.4rem; line-height: 1; cursor: pointer;
+    }
+    .bk-player__meta { text-align: center; margin-top: 14px; }
+    .bk-player__title { font-family: var(--font-heading); font-size: 1.1rem; color: #FAF7F2; }
+    .bk-player__cta {
+      margin-top: 8px; padding: 2px 0; cursor: pointer;
+      font-family: var(--font-body); font-size: 0.92rem; color: #E8784A;
+      background: none; border: 0; border-bottom: 1px solid #E8784A;
+    }
+
+    /* Quiz */
+    .bk-quiz {
+      max-width: 680px; margin: 40px auto 0; text-align: left;
+      background: #FFFFFF; border-radius: 14px; padding: 34px 38px 36px;
       box-shadow: 0 6px 24px rgba(61,37,24,0.08);
-      display: none; text-align: left;
     }
-    .bk-reveal.show { display: block; animation: bkFade 0.4s ease; }
-    .bk-reveal h3 { font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 14px; }
-    .bk-reveal .bk-practice {
+    .bk-sent {
+      max-width: 680px; margin: 28px auto 0;
+      background: #FAF7F2; border: 1px dashed var(--accent); border-radius: 10px;
+      padding: 14px 20px; font-size: 0.95rem;
+    }
+    .bk-quiz__progress {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light);
+      margin-bottom: 18px;
+    }
+    .bk-quiz__dots { display: flex; gap: 6px; }
+    .bk-quiz__dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--divider); transition: background 0.3s ease; }
+    .bk-quiz__dots span.done { background: var(--accent); }
+    .bk-q { display: none; }
+    .bk-q.show { display: block; animation: bkFade 0.4s ease; }
+    .bk-q__text { font-family: var(--font-heading); font-size: 1.35rem; line-height: 1.4; color: var(--text); margin-bottom: 22px; }
+    .bk-q__opts { display: flex; flex-direction: column; gap: 10px; }
+    .bk-q__opts button {
+      text-align: left; font-family: var(--font-body); font-size: 0.95rem; line-height: 1.5;
+      padding: 14px 18px; border-radius: 10px; cursor: pointer;
+      border: 1.5px solid var(--divider); background: #FAF7F2; color: var(--text);
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .bk-q__opts button:hover, .bk-q__opts button:focus-visible { border-color: var(--accent); background: #FFFFFF; }
+    .bk-q__opts button.picked { border-color: var(--accent); background: var(--accent); color: #FFFFFF; }
+    .bk-quiz__back {
+      margin-top: 16px; padding: 4px 0; cursor: pointer;
+      background: none; border: 0; font-family: var(--font-body); font-size: 0.85rem; color: var(--text-light);
+    }
+    .bk-quiz__back:hover { color: var(--accent); }
+    .bk-result { display: none; }
+    .bk-result.show { display: block; animation: bkFade 0.5s ease; }
+    .bk-r[hidden] { display: none; }
+    .bk-result__head { display: flex; gap: 20px; align-items: center; }
+    .bk-result__img {
+      width: 96px; height: 96px; border-radius: 50%; flex-shrink: 0;
+      object-fit: cover; object-position: center top;
+      border: 3px solid #FFFFFF; box-shadow: 0 4px 16px rgba(61,37,24,0.18);
+    }
+    .bk-result__label { display: block; font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); }
+    .bk-result__name { font-family: var(--font-heading); font-size: 1.7rem; line-height: 1.2; color: var(--text); margin-top: 4px; }
+    .bk-result__title { font-size: 0.95rem; color: var(--text-light); margin-top: 2px; }
+    .bk-result__body { margin-top: 20px; line-height: 1.8; }
+    .bk-result__second { margin-top: 14px; font-size: 0.95rem; color: var(--text); }
+    .bk-result__second strong { color: var(--accent); }
+    .bk-doorbox {
       margin-top: 20px; padding: 18px 22px;
       background: #FAF7F2; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0;
       font-size: 0.95rem;
     }
-    .bk-reveal .bk-practice strong { display: block; margin-bottom: 6px; font-family: var(--font-heading); font-weight: 600; font-size: 1.02rem; }
-    @keyframes bkFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .bk-doorbox strong { display: block; margin-bottom: 6px; font-family: var(--font-heading); font-weight: 600; font-size: 1.02rem; }
+    .bk-result__actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 24px; }
+    .bk-result__actions .btn { padding: 11px 20px; font-size: 0.88rem; }
+    .bk-result__note { font-size: 0.88rem; color: var(--text-light); margin-top: 18px; }
+    .bk-signup { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--divider); }
+    .bk-signup__title { font-family: var(--font-heading); font-size: 1.2rem; color: var(--text); }
+    .bk-signup__text { font-size: 0.92rem; color: var(--text-light); margin-top: 6px; }
+    .bk-brevo { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .bk-brevo input[type="text"], .bk-brevo input[type="email"] {
+      flex: 1 1 180px; min-width: 0;
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--text);
+      padding: 13px 16px; border: 1.5px solid var(--divider); border-radius: 8px; background: #FAF7F2;
+    }
+    .bk-brevo input:focus { outline: none; border-color: var(--accent); background: #FFFFFF; }
+    .bk-brevo .btn { padding: 13px 24px; font-size: 0.92rem; }
+    .bk-brevo .bk-brevo__trap { position: absolute; left: -5000px; width: 1px; height: 1px; opacity: 0; }
+    .bk-brevo__msg { flex-basis: 100%; font-size: 0.9rem; color: var(--accent); min-height: 1px; }
+    .bk-brevo.is-sent input, .bk-brevo.is-sent .btn { display: none; }
+    .bk-signup--doors {
+      max-width: 680px; margin: 40px auto 0; padding: 26px 30px 24px; text-align: left;
+      background: #FFFFFF; border: 1px dashed var(--accent); border-radius: 12px;
+    }
+    @media (max-width: 768px) { .bk-signup--doors { padding: 22px 20px; } }
+    .bk-result__team { margin-top: 18px; font-size: 0.92rem; }
+    .bk-result__team a { color: var(--accent); }
+    @media (max-width: 768px) {
+      .bk-quiz { padding: 26px 20px 28px; }
+      .bk-q__text { font-size: 1.2rem; }
+      .bk-result__head { gap: 14px; }
+      .bk-result__img { width: 76px; height: 76px; }
+      .bk-result__name { font-size: 1.45rem; }
+    }
+
+    /* Fifteen doors */
+    .bk-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 780px; margin: 40px auto 0; }
+    @media (min-width: 700px) { .bk-doors { grid-template-columns: repeat(5, 1fr); gap: 14px; } }
+    .bk-door {
+      position: relative; aspect-ratio: 3 / 4.2;
+      display: flex; flex-direction: column; justify-content: flex-end; text-align: left;
+      padding: 12px 11px; cursor: pointer; font: inherit; color: var(--text);
+      border: 1.5px solid #E3D5C2; border-radius: 10px 10px 3px 3px;
+      background: linear-gradient(170deg, #FFFFFF 0%, #F5EDE2 100%);
+      transform-origin: left center;
+      transition: transform 0.45s cubic-bezier(0.3, 0.7, 0.3, 1.1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .bk-door::after {
+      content: ''; position: absolute; right: 11px; top: 50%;
+      width: 7px; height: 7px; border-radius: 50%; background: var(--gold);
+    }
+    .bk-door:hover { box-shadow: 0 8px 22px rgba(61,37,24,0.12); }
+    .bk-door__num { position: absolute; top: 9px; left: 11px; font-family: var(--font-heading); font-size: 1.35rem; color: #C85A2A; opacity: 0.55; }
+    .bk-door__name { font-family: var(--font-heading); font-size: 0.9rem; line-height: 1.25; }
+    .bk-door__tag { font-size: 0.64rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); margin-top: 5px; }
+    .bk-door--ajar { border-color: var(--accent); }
+    .bk-door--ajar .bk-door__tag { color: var(--accent); font-weight: 600; }
+    .bk-door.is-active { transform: perspective(700px) rotateY(-20deg); box-shadow: 10px 10px 26px rgba(61,37,24,0.18); }
+    .bk-door-panel {
+      display: none; max-width: 680px; margin: 26px auto 0; text-align: left;
+      background: #FFFFFF; border-radius: 12px; padding: 26px 30px;
+      box-shadow: 0 6px 24px rgba(61,37,24,0.08);
+    }
+    .bk-door-panel.show { display: block; animation: bkFade 0.4s ease; }
+    .bk-door-panel h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 4px; }
+    .bk-door-panel .bk-door-panel__ch { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); margin-bottom: 14px; }
+    .bk-door-panel a { color: var(--accent); }
+    @media (max-width: 768px) {
+      .bk-door { padding: 10px 9px; }
+      .bk-door__name { font-size: 0.82rem; }
+      .bk-door-panel { padding: 22px 20px; }
+    }
+
+    /* Meeting in progress pill */
+    .bk-live {
+      position: fixed; left: 16px; bottom: 16px; z-index: 900;
+      display: flex; align-items: center; gap: 9px;
+      background: #3D2518; color: #FAF7F2; border: 0; border-radius: 30px;
+      font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.4px;
+      padding: 9px 16px 9px 13px; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      opacity: 0; transform: translateY(12px); pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .bk-live.show { opacity: 1; transform: none; pointer-events: auto; }
+    .bk-live__dot { width: 8px; height: 8px; border-radius: 50%; background: #E8784A; animation: bkBlink 1.6s ease-in-out infinite; }
+    .bk-live__time { font-variant-numeric: tabular-nums; opacity: 0.75; }
+    .bk-live__go { color: #E8784A; }
+    @media (max-width: 600px) {
+      .bk-ep__slot { font-size: 0.6rem; letter-spacing: 1px; padding: 5px 8px; top: 10px; left: 10px; white-space: nowrap; }
+      .bk-ep__info { padding: 12px 12px 14px; }
+      .bk-ep__title { font-size: 1rem; }
+      .bk-live { left: 12px; bottom: 12px; font-size: 0.72rem; padding: 7px 13px 7px 11px; gap: 7px; }
+    }
 
     /* Review ask with stars */
     .bk-review {
@@ -345,6 +681,11 @@
       .bk-cover { transform: none; }
       .bk-card__face::before { animation: none !important; }
       .bk-review__stars span { opacity: 1; transform: none; animation: none !important; }
+      .bk-ep, .bk-ep:hover, .bk-ep.bk-in:hover, .bk-door, .bk-door.is-active { opacity: 1; transform: none; transition: none; }
+      .bk-note, .bk-note.bk-in, .bk-note.bk-in:hover { opacity: 1; transform: rotate(var(--tilt)); transition: none; }
+      .bk-deliberate__dots span { animation: none; opacity: 1; }
+      .bk-live__dot { animation: none; }
+      .bk-q.show, .bk-result.show, .bk-door-panel.show { animation: none; }
     }
 
     @media (max-width: 768px) {
@@ -359,6 +700,8 @@
     }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://annamilaeva.com/#anna","name":"Anna Milaeva","url":"https://annamilaeva.com/about","image":"https://annamilaeva.com/anna-about.jpg","jobTitle":"Transformational IFS Coach","description":"IFS coach trained through all three levels at the IFS Institute and a certified Deep Transformational Coach, working with professionals, leaders and people in transition.","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"Spanish"},{"@type":"Language","name":"Russian"}],"alumniOf":[{"@type":"Organization","name":"IFS Institute","url":"https://ifs-institute.com/"},{"@type":"CollegeOrUniversity","name":"Florida International University"}],"knowsAbout":["Internal Family Systems","IFS coaching","burnout","leadership","operations","career transition"],"sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]},{"@type":"ProfessionalService","@id":"https://annamilaeva.com/#practice","name":"Anna Milaeva","url":"https://annamilaeva.com/","image":"https://annamilaeva.com/og-image.png","description":"IFS coaching for professionals, leaders and people in transition. Online, in English and Spanish.","founder":{"@id":"https://annamilaeva.com/#anna"},"provider":{"@id":"https://annamilaeva.com/#anna"},"areaServed":{"@type":"Place","name":"Worldwide, online"},"availableLanguage":["en","es"],"priceRange":"$105-$2550","currenciesAccepted":"USD","sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]}]}</script>
+  <!-- Analytics: Umami, no cookies. The website ID comes from cloud.umami.is -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="d81dd3f9-1d51-4c90-a8b2-aab224a36bac" data-domains="annamilaeva.com"></script>
 </head>
 <body>
 
@@ -378,7 +721,7 @@
             <a href="ai-clarity">AI Clarity</a>
             <a href="sacred-circles">Sacred Circles</a>
             <a href="couples">Couples</a>
-            <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer">Team Work</a>
+            <a data-umami-event="fino-click" href="https://www.fino.website" target="_blank" rel="noopener noreferrer">Team Work</a>
           </div>
         </div>
         <a href="book" class="active">The Book</a>
@@ -407,7 +750,7 @@
           <a href="ai-clarity">AI Clarity</a>
           <a href="sacred-circles">Sacred Circles</a>
           <a href="couples">Couples</a>
-          <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer">Team Work</a>
+          <a data-umami-event="fino-click" href="https://www.fino.website" target="_blank" rel="noopener noreferrer">Team Work</a>
         </div>
       </div>
       <a href="book" class="active">The Book</a>
@@ -438,7 +781,7 @@
               <div class="bk-invite__row"><span class="bk-invite__key">What</span><span>A novel about the parts of us that never stop working.</span></div>
               <div class="bk-invite__row"><span class="bk-invite__key">When</span><span>Now. It started without you.</span></div>
               <div class="bk-invite__row"><span class="bk-invite__key">Where</span><span>Inside. You're closer than you think.</span></div>
-              <div class="bk-invite__row"><span class="bk-invite__key">Organizer</span><span class="bk-invite__organizer"><img src="anna-author.jpg" alt="Anna Milaeva, author of Already In A Meeting" class="bk-invite__avatar">Anna Milaeva</span></div>
+              <div class="bk-invite__row"><span class="bk-invite__key">Organizer</span><span class="bk-invite__organizer"><img src="anna-character.jpg" alt="Anna Milaeva, author of Already In A Meeting" class="bk-invite__avatar">Anna Milaeva</span></div>
               <div class="bk-invite__row"><span class="bk-invite__key">Guests</span><span>Kate, Daniel, Priya, Tom, Marta, a donkey, a llama, and every part of you.</span></div>
               <div class="bk-invite__rsvp">
                 <button class="btn btn--primary" data-rsvp="accept">Accept</button>
@@ -449,13 +792,15 @@
           </div>
         </div>
         <div class="bk-cover-col">
-          <a href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="bk-cover-wrap">
+          <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="bk-cover-wrap">
             <img src="book-mock.jpg" alt="Already In A Meeting, a novel by Anna Milaeva, paperback edition" class="bk-cover">
           </a>
           <div style="margin-top: 26px;">
-            <a href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get it on Amazon</a>
+            <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get it on Amazon</a>
           </div>
-          <p class="bk-cover-note">A short, funny novel with real parts work underneath. In English. Paperback and Kindle, and free on Kindle Unlimited.</p>
+          <p class="bk-cover-note">A short, funny novel with real parts work underneath. Paperback and Kindle, and free on Kindle Unlimited.</p>
+          <div class="bk-hero-note">&ldquo;Recognizable, fast paced, and too hard to put down or slow down to let it all settle.&rdquo;<span>Roeland, Belgium</span></div>
+          <p class="bk-cover-note" style="margin-top: 6px;"><a href="/es/libro" lang="es" hreflang="es" style="color: var(--accent);">Tambi&eacute;n en espa&ntilde;ol: <em>La reuni&oacute;n ya empez&oacute;</em></a></p>
         </div>
       </div>
     </div>
@@ -473,7 +818,7 @@
   <section class="section section--sm" style="background: #fff;">
     <div class="container">
       <div class="bk-author fade-in">
-        <img src="anna-comic.jpg?v=2" alt="Anna Milaeva, author of Already In A Meeting, illustrated portrait" class="bk-author__photo">
+        <img src="anna-character.jpg" alt="Anna Milaeva, author of Already In A Meeting, as she appears in the animated episodes" class="bk-author__photo">
         <div class="bk-author__bubble">
           <p>"I ran operations for over a decade. I was in these meetings. I was also in the other ones, the ones running inside me. This story is what happened when I finally attended both."</p>
           <span class="bk-author__attr">Anna, the organizer. All of her parts approved this message.</span>
@@ -482,8 +827,85 @@
     </div>
   </section>
 
+  <!-- Episodes: the day's calendar -->
+  <section class="section bk-eps-section" id="episodes">
+    <div class="container text-center">
+      <h2 class="fade-in">On the calendar today</h2>
+      <hr class="line-accent line-accent--center">
+      <p class="fade-in" style="max-width: 600px; margin: 20px auto 0; color: var(--text-light);">Short animated episodes from the book, under a minute each. Tap one and turn the sound on. Their parts have things to say.</p>
+
+      <div class="bk-eps fade-in">
+        <button type="button" class="bk-ep" data-video="ep00-anna-intro">
+          <span class="bk-ep__media">
+            <video class="bk-ep__preview" muted loop playsinline preload="none" poster="videos/ep00-anna-intro.jpg" data-src="videos/ep00-anna-intro-preview.mp4" aria-hidden="true"></video>
+            <span class="bk-ep__slot">Before the meeting</span>
+            <span class="bk-ep__play" aria-hidden="true"></span>
+            <span class="bk-ep__len">0:30</span>
+          </span>
+          <span class="bk-ep__info">
+            <span class="bk-ep__title">So Now, They Get a Voice</span>
+            <span class="bk-ep__who">Anna, the organizer</span>
+          </span>
+          <span class="visually-hidden">Watch the series introduction</span>
+        </button>
+        <button type="button" class="bk-ep" data-video="ep01-kate">
+          <span class="bk-ep__media">
+            <video class="bk-ep__preview" muted loop playsinline preload="none" poster="videos/ep01-kate.jpg" data-src="videos/ep01-kate-preview.mp4" aria-hidden="true"></video>
+            <span class="bk-ep__slot">8:47 am</span>
+            <span class="bk-ep__play" aria-hidden="true"></span>
+            <span class="bk-ep__len">0:42</span>
+          </span>
+          <span class="bk-ep__info">
+            <span class="bk-ep__title">Thirteen Minutes Early</span>
+            <span class="bk-ep__who">Kate, episode 1</span>
+          </span>
+          <span class="visually-hidden">Watch Kate's episode</span>
+        </button>
+        <button type="button" class="bk-ep" data-video="ep02-priya">
+          <span class="bk-ep__media">
+            <video class="bk-ep__preview" muted loop playsinline preload="none" poster="videos/ep02-priya.jpg" data-src="videos/ep02-priya-preview.mp4" aria-hidden="true"></video>
+            <span class="bk-ep__slot">Deck review</span>
+            <span class="bk-ep__play" aria-hidden="true"></span>
+            <span class="bk-ep__len">0:31</span>
+          </span>
+          <span class="bk-ep__info">
+            <span class="bk-ep__title">Version C</span>
+            <span class="bk-ep__who">Priya, episode 2</span>
+          </span>
+          <span class="visually-hidden">Watch Priya's episode</span>
+        </button>
+        <button type="button" class="bk-ep" data-video="ep03-tom-marta">
+          <span class="bk-ep__media">
+            <video class="bk-ep__preview" muted loop playsinline preload="none" poster="videos/ep03-tom-marta.jpg" data-src="videos/ep03-tom-marta-preview.mp4" aria-hidden="true"></video>
+            <span class="bk-ep__slot">Sunday evening</span>
+            <span class="bk-ep__play" aria-hidden="true"></span>
+            <span class="bk-ep__len">0:55</span>
+          </span>
+          <span class="bk-ep__info">
+            <span class="bk-ep__title">The Homework</span>
+            <span class="bk-ep__who">Tom and Marta, episode 3</span>
+          </span>
+          <span class="visually-hidden">Watch Tom and Marta's episode</span>
+        </button>
+        <button type="button" class="bk-ep bk-ep--off" data-toast="Daniel's episode has been moved. It is still the most important priority.">
+          <span class="bk-ep__media">
+            <img src="cast-daniel.jpg" loading="lazy" alt="Daniel, Founder and CEO, mid vision speech">
+            <span class="bk-ep__slot">TBC</span>
+            <span class="bk-ep__stamp">Rescheduled</span>
+          </span>
+          <span class="bk-ep__info">
+            <span class="bk-ep__title">The Most Important Priority</span>
+            <span class="bk-ep__who">Daniel, coming up</span>
+          </span>
+        </button>
+      </div>
+
+      <p class="bk-eps-note fade-in">New episodes land on Instagram first. <a href="https://www.instagram.com/anna_milaeva_ifs/" target="_blank" rel="noopener noreferrer">Follow @anna_milaeva_ifs</a></p>
+    </div>
+  </section>
+
   <!-- Cast -->
-  <section class="section" style="background: #fff; padding-top: 0;">
+  <section class="section" style="background: #fff;">
     <div class="container text-center">
       <h2 class="fade-in">Who's in the meeting</h2>
       <hr class="line-accent line-accent--center">
@@ -496,6 +918,7 @@
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
                 <img src="cast-kate.jpg" loading="lazy" alt="Kate, Chief of Staff, holding two coffees, one of them for someone else" class="bk-art__img">
+                <button type="button" class="bk-art__play" data-video="ep01-kate"><span class="bk-art__play-icon"></span>Her episode, 0:42</button>
               </div>
               <div class="bk-card__info">
                 <div class="bk-card__name">Kate</div>
@@ -516,6 +939,7 @@
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
                 <img src="cast-daniel.jpg" loading="lazy" alt="Daniel, Founder and CEO, mid vision speech with one hand raised and a phone in the other" class="bk-art__img">
+                <button type="button" class="bk-art__play bk-art__play--off" data-toast="Daniel's episode has been moved. It is still the most important priority.">Episode rescheduled</button>
               </div>
               <div class="bk-card__info">
                 <div class="bk-card__name">Daniel</div>
@@ -536,6 +960,7 @@
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
                 <img src="cast-priya.jpg" loading="lazy" alt="Priya, Head of Marketing, holding three folders, one for each version of the deck" class="bk-art__img">
+                <button type="button" class="bk-art__play" data-video="ep02-priya"><span class="bk-art__play-icon"></span>Her episode, 0:31</button>
               </div>
               <div class="bk-card__info">
                 <div class="bk-card__name">Priya</div>
@@ -556,6 +981,7 @@
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
                 <img src="cast-tom.jpg" loading="lazy" alt="Tom, Engineering Lead, holding a mug of tea in both hands" class="bk-art__img">
+                <button type="button" class="bk-art__play" data-video="ep03-tom-marta"><span class="bk-art__play-icon"></span>His episode, 0:55</button>
               </div>
               <div class="bk-card__info">
                 <div class="bk-card__name">Tom</div>
@@ -576,6 +1002,7 @@
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
                 <img src="cast-marta.jpg" loading="lazy" alt="Marta, lawyer, answering one more message" class="bk-art__img">
+                <button type="button" class="bk-art__play" data-video="ep03-tom-marta"><span class="bk-art__play-icon"></span>Her episode, 0:55</button>
               </div>
               <div class="bk-card__info">
                 <div class="bk-card__name">Marta</div>
@@ -591,6 +1018,15 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="bk-patterns fade-in">
+        <span>Read about each pattern:</span>
+        <a href="/book/kate">People pleasing at work</a>
+        <a href="/book/daniel">The founder with the new plan</a>
+        <a href="/book/priya">Over-preparing</a>
+        <a href="/book/tom">Saying fine</a>
+        <a href="/book/marta">Burnout that never stops</a>
       </div>
 
       <div class="bk-attendance fade-in">
@@ -622,51 +1058,327 @@
       <div class="fade-in" style="max-width: 680px; margin: 32px auto 0; text-align: center;">
         <p style="line-height: 1.9;">Arco sells wellness. Arco has forgotten to be well. So the CEO does what CEOs do after an unintegrated spiritual experience: he books three days at a farm. Trust exercises. A sound bath. Laminated values cards. A fire. Two animals with strong opinions.</p>
         <p style="line-height: 1.9; margin-top: 16px; font-family: var(--font-heading); font-style: italic; font-size: 1.1rem;">"Partners and plus ones welcome. Bring comfortable shoes."</p>
-        <p style="line-height: 1.9; margin-top: 16px;">What happens there is funny, and then quietly not, and then something better than both. Nobody comes back fixed. That was never the point.</p>
+        <p style="line-height: 1.9; margin-top: 16px;">What happens there is funny, and then it isn't, and then something better than both. Nobody comes back fixed. That was never the point.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reader notes -->
+  <section class="section" id="notes" style="padding-top: 20px;">
+    <div class="container text-center">
+      <h2 class="fade-in">Notes left after the meeting</h2>
+      <hr class="line-accent line-accent--center">
+      <p class="fade-in" style="max-width: 600px; margin: 20px auto 0; color: var(--text-light);">From readers, in their own words.</p>
+
+      <div class="bk-notes fade-in">
+        <div class="bk-note">
+          <p class="bk-note__text">I was working in my catering company the other day and realized I had a pull to make a second batch of sauce, just in case, for the boss to be happy. I was laughing so much because I realized I'm being such a Priya.</p>
+          <div class="bk-note__who">Isabella, Spain</div>
+        </div>
+        <div class="bk-note">
+          <p class="bk-note__text">Woke up jetlagged and got drawn into your novel. My rational part immediately kicking in with: this is powerful s&amp;*_t, more people should feel like how I feel while reading her book. How am I going to organize that ;)</p>
+          <div class="bk-note__who">Roeland, Belgium</div>
+        </div>
+        <div class="bk-note">
+          <p class="bk-note__text">I am reading it and laughing and crying because it's so freaking real. I am an engineer and everything related to AI is super real. I will gift this book to my engineer friends.</p>
+          <div class="bk-note__who">An engineer, Lithuania</div>
+        </div>
+        <div class="bk-note">
+          <p class="bk-note__text">One of the few books I've actually read to the end lately. I really enjoyed it, the humour, the turns of phrase, the whole style. Very unique &#10084;&#65039; And the questions to ask myself. Where would we be without them.</p>
+          <div class="bk-note__who">Sasha, Moldova <em>(translated from Russian)</em></div>
+        </div>
+        <div class="bk-note">
+          <p class="bk-note__text">It made me curious, and it also made me stop, feel, think, and be honest with myself. Some moments stayed with me long after I turned the page. The characters feel real and easy to care about.</p>
+          <div class="bk-note__who">Sophi, Croatia</div>
+        </div>
+        <div class="bk-note">
+          <p class="bk-note__text">I realized I still have the part &#128514; The one who tried to start writing a review before finishing the book. It wrote itself in five minutes after I finished, when, maybe for the first time ever, I went into my pool. Full in. Hair and all. I've definitely slipped in some regards. But it's funny how you can go right back.</p>
+          <div class="bk-note__who">Kelly, lawyer</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Which one are you -->
-  <section class="section" style="background: #fff;">
+  <section class="section" id="quiz" style="background: #fff;">
     <div class="container text-center">
       <h2 class="fade-in">Which one are you?</h2>
       <hr class="line-accent line-accent--center">
-      <p class="fade-in" style="max-width: 600px; margin: 20px auto 0; color: var(--text-light);">There is no wrong answer. All of your parts are welcome here. Even the one that skims.</p>
+      <p class="fade-in" style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">We each have a few inner voices that run the show at work. One says yes before you have finished reading the email. Another makes three backup plans, just in case.</p>
+      <p class="fade-in" style="max-width: 620px; margin: 10px auto 0; color: var(--text-light);">Six quick questions to find out which one is running yours. Pick the first answer that feels true. Nobody is taking minutes.</p>
 
-      <div class="bk-picker fade-in">
-        <button data-who="kate">The one who holds it together</button>
-        <button data-who="daniel">The one with the new plan</button>
-        <button data-who="priya">The one with three versions</button>
-        <button data-who="tom">The one who says fine</button>
-        <button data-who="marta">The one who can't stop</button>
-      </div>
+      <p class="bk-sent" id="bkSent" hidden>A friend sent you this. They got <strong data-slot="name"></strong>. Which one are you?</p>
 
-      <div class="bk-reveal" id="bkReveal">
-        <h3 id="bkRevealTitle"></h3>
-        <p id="bkRevealBody" style="line-height: 1.8;"></p>
-        <div class="bk-practice">
-          <strong id="bkRevealPractice"></strong>
-          <span id="bkRevealPracticeBody"></span>
+      <div class="bk-quiz fade-in" id="bkQuiz">
+        <div class="bk-quiz__steps" id="bkQuizSteps">
+          <div class="bk-quiz__progress">
+            <span>Question <span data-slot="step">1</span> of 6</span>
+            <span class="bk-quiz__dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></span>
+          </div>
+
+          <div class="bk-q show">
+            <p class="bk-q__text">8:47 pm. A message from work: &ldquo;Quick question.&rdquo; You...</p>
+            <div class="bk-q__opts">
+              <button type="button" data-part="tom">Read it. Close the laptop. Think about it all night.</button>
+              <button type="button" data-part="kate">Answer it before you have finished reading it.</button>
+              <button type="button" data-part="marta">Answer it from the bath. You are technically still working.</button>
+              <button type="button" data-part="daniel">Reply with a bigger idea than the one they asked about.</button>
+              <button type="button" data-part="priya">Draft three replies. Send the safest one.</button>
+            </div>
+          </div>
+
+          <div class="bk-q">
+            <p class="bk-q__text">The meeting is ending and nothing has been decided. You...</p>
+            <div class="bk-q__opts">
+              <button type="button" data-part="priya">Already have the follow-up deck. Version B.</button>
+              <button type="button" data-part="marta">Leave for the next meeting, which is also running late.</button>
+              <button type="button" data-part="kate">Take the action items. All of them.</button>
+              <button type="button" data-part="tom">Say &ldquo;fine.&rdquo; Mean four different things.</button>
+              <button type="button" data-part="daniel">Announce a new direction. It is very exciting.</button>
+            </div>
+          </div>
+
+          <div class="bk-q">
+            <p class="bk-q__text">Someone asks how you are. The true answer is tired. You say...</p>
+            <div class="bk-q__opts">
+              <button type="button" data-part="kate">&ldquo;Good! How are you?&rdquo; You really want to know.</button>
+              <button type="button" data-part="tom">&ldquo;Fine.&rdquo;</button>
+              <button type="button" data-part="daniel">&ldquo;Honestly? Never better. Big things coming.&rdquo;</button>
+              <button type="button" data-part="priya">&ldquo;Busy, but it's under control.&rdquo; It is. Mostly.</button>
+              <button type="button" data-part="marta">&ldquo;Just this week. Then it calms down.&rdquo;</button>
+            </div>
+          </div>
+
+          <div class="bk-q">
+            <p class="bk-q__text">Your idea of a day off...</p>
+            <div class="bk-q__opts">
+              <button type="button" data-part="daniel">A long walk where you redesign the company.</button>
+              <button type="button" data-part="priya">A clean inbox and a plan for Monday.</button>
+              <button type="button" data-part="tom">Something with your hands. No questions.</button>
+              <button type="button" data-part="marta">It is in the calendar. It has been moved twice.</button>
+              <button type="button" data-part="kate">Catching up on what everyone else needs.</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-tiebreak>
+            <p class="bk-q__text">The sentence you would never say out loud at work...</p>
+            <div class="bk-q__opts">
+              <button type="button" data-part="marta">&ldquo;I'm not okay.&rdquo;</button>
+              <button type="button" data-part="daniel">&ldquo;I don't know what we're doing.&rdquo;</button>
+              <button type="button" data-part="tom">&ldquo;This matters to me.&rdquo;</button>
+              <button type="button" data-part="kate">&ldquo;I can't take this on.&rdquo;</button>
+              <button type="button" data-part="priya">&ldquo;Here is what I actually think.&rdquo;</button>
+            </div>
+          </div>
+
+          <div class="bk-q">
+            <p class="bk-q__text">When something goes wrong, a part of you...</p>
+            <div class="bk-q__opts">
+              <button type="button" data-part="priya">Saw it coming. Has a folder for it.</button>
+              <button type="button" data-part="kate">Fixes it before anyone notices it broke.</button>
+              <button type="button" data-part="daniel">Starts something new before the old thing has finished hurting.</button>
+              <button type="button" data-part="marta">Works harder. Then harder than that.</button>
+              <button type="button" data-part="tom">Goes very still. Makes tea.</button>
+            </div>
+          </div>
+
+          <button type="button" class="bk-quiz__back" id="bkQuizBack" hidden>&larr; Back one item</button>
+        </div>
+
+        <div class="bk-deliberate" id="bkDeliberate" hidden aria-live="polite">
+          <span class="bk-deliberate__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>Your inner committee is comparing notes</span>
+        </div>
+
+        <div class="bk-result" id="bkResult" aria-live="polite">
+
+          <div class="bk-r" data-part="kate" data-name="&ldquo;the one who holds it together&rdquo;" data-share-text="Apparently I am &ldquo;the one who holds it together.&rdquo; Which one are you?" hidden>
+            <div class="bk-result__head">
+              <img src="cast-kate.jpg" alt="Kate" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">What's running your meetings</span>
+                <div class="bk-result__name">The one who holds it together</div>
+                <div class="bk-result__title">In the book, this is Kate, the Chief of Staff.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">You answer before you finish reading. You make the coffee, the agenda, and the save. People say the place would fall apart without you, and a part of you needs that to stay true. Somewhere underneath there is a quieter question: who is holding you?</p>
+            <div class="bk-doorbox"><strong>A door from the book: The Gap</strong>Find the last yes that cost you something. Not the action. The half second just before it, where something else almost got a vote.</div>
+            <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep01-kate"><span class="bk-watch__icon"></span>See this one in action, 0:42</button><a href="/book/kate" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="kate">More about this pattern &rarr;</a></div>
+          </div>
+
+          <div class="bk-r" data-part="daniel" data-name="&ldquo;the one with the new plan&rdquo;" data-share-text="Apparently I am &ldquo;the one with the new plan.&rdquo; Which one are you?" hidden>
+            <div class="bk-result__head">
+              <img src="cast-daniel.jpg" alt="Daniel" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">What's running your meetings</span>
+                <div class="bk-result__name">The one with the new plan</div>
+                <div class="bk-result__title">In the book, this is Daniel, the founder.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">Your enthusiasm is real. So is the speed. A part of you converts every uncomfortable feeling into a plan before the feeling has time to land, and the plans are good, which makes it very hard to catch. The feeling waits. It is patient that way.</p>
+            <div class="bk-doorbox"><strong>A door from the book: The Pivot</strong>Think of your last big change of direction. Sit with one question, longer than is comfortable: was it clarity, or was it relief?</div>
+            <div class="bk-result__actions"><a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="bk-watch"><span class="bk-watch__icon"></span>Meet this one in the book</a><a href="/book/daniel" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="daniel">More about this pattern &rarr;</a></div>
+          </div>
+
+          <div class="bk-r" data-part="priya" data-name="&ldquo;the one with three versions&rdquo;" data-share-text="Apparently I am &ldquo;the one with three versions.&rdquo; Which one are you?" hidden>
+            <div class="bk-result__head">
+              <img src="cast-priya.jpg" alt="Priya" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">What's running your meetings</span>
+                <div class="bk-result__name">The one with three versions</div>
+                <div class="bk-result__title">In the book, this is Priya, the Head of Marketing.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">You are prepared for every version of the room. Version A, version B, and the one you actually believe, which stays in a folder. Being right in private feels safer than finding out. The backup plans are excellent. They are also very good walls.</p>
+            <div class="bk-doorbox"><strong>A door from the book: Without the Backup</strong>Do one thing this week without the safety net. Send the real version. The discomfort is the data.</div>
+            <div class="bk-result__reader">&ldquo;I realized I had a pull to make a second batch of sauce, just in case, for the boss to be happy. I was laughing so much because I realized I'm being such a Priya.&rdquo;<span>Isabella, Spain</span></div>
+            <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep02-priya"><span class="bk-watch__icon"></span>See this one in action, 0:31</button><a href="/book/priya" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="priya">More about this pattern &rarr;</a></div>
+          </div>
+
+          <div class="bk-r" data-part="tom" data-name="&ldquo;the one who says fine&rdquo;" data-share-text="Apparently I am &ldquo;the one who says fine.&rdquo; Which one are you?" hidden>
+            <div class="bk-result__head">
+              <img src="cast-tom.jpg" alt="Tom" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">What's running your meetings</span>
+                <div class="bk-result__name">The one who says fine</div>
+                <div class="bk-result__title">In the book, this is Tom, the engineering lead.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">You have an entire inner life running parallel to your outer one, fully formed, continuously updated, rarely transmitted. When something really matters, you make tea. The people who love you can tell the difference between your silences. That is not the same as hearing you.</p>
+            <div class="bk-doorbox"><strong>A door from the book: Who Catches You</strong>Write down two names. Who catches you when you slip? And who are you catching? If either line is blank, start there.</div>
+            <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep03-tom-marta"><span class="bk-watch__icon"></span>See this one in action, 0:55</button><a href="/book/tom" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="tom">More about this pattern &rarr;</a></div>
+          </div>
+
+          <div class="bk-r" data-part="marta" data-name="&ldquo;the one who can't stop&rdquo;" data-share-text="Apparently I am &ldquo;the one who can't stop.&rdquo; Which one are you?" hidden>
+            <div class="bk-result__head">
+              <img src="cast-marta.jpg" alt="Marta" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">What's running your meetings</span>
+                <div class="bk-result__name">The one who can't stop</div>
+                <div class="bk-result__title">In the book, this is Marta, the lawyer.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">Just this week. Just this month. Just until close. You have been saying it long enough that it has become a way of life with excellent billing records. A part of you wanted support so badly, for so long, that it stopped being able to accept any.</p>
+            <div class="bk-doorbox"><strong>A door from the book: When You Slip</strong>Ask one person to say to you, kindly, when they see it: I see you slipping. Then let them.</div>
+            <div class="bk-result__reader">&ldquo;I've definitely slipped in some regards. But it's funny how you can go right back.&rdquo;<span>Kelly, lawyer</span></div>
+            <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep03-tom-marta"><span class="bk-watch__icon"></span>See this one in action, 0:55</button><a href="/book/marta" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="marta">More about this pattern &rarr;</a></div>
+          </div>
+
+          <div class="bk-result__second" id="bkSecond" hidden>A close second: <strong data-slot="name"></strong></div>
+          <div class="bk-result__note">These parts of us take turns. Take it again next month and a different one may be in charge.</div>
+
+          <div class="bk-result__actions">
+            <button type="button" class="btn btn--primary" id="bkShare" data-copied="Link copied. Send it to someone who says fine a lot.">Share your result</button>
+            <button type="button" class="btn btn--outline" id="bkRetake">Take it again</button>
+          </div>
+
+          <div class="bk-signup">
+            <div class="bk-signup__title">Get your result by email</div>
+            <div class="bk-signup__text">Your pattern, the practice, and what to try the next time this part takes over at work. Then a few short notes from me over the next two weeks. Leave whenever a part of you wants to.</div>
+            <form class="bk-brevo" data-source="book-quiz" novalidate>
+              <input type="hidden" name="QUIZ_RESULT" value="">
+              <input type="hidden" name="SIGNUP_SOURCE" value="book-quiz">
+              <input type="hidden" name="locale" value="en">
+              <input type="text" name="email_address_check" value="" class="bk-brevo__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <label class="visually-hidden" for="bkQuizName">First name</label>
+              <input type="text" id="bkQuizName" name="FIRSTNAME" placeholder="First name" autocomplete="given-name" required>
+              <label class="visually-hidden" for="bkQuizEmail">Email</label>
+              <input type="email" id="bkQuizEmail" name="EMAIL" placeholder="Email" autocomplete="email" required>
+              <button type="submit" class="btn btn--primary">Send it to me</button>
+              <div class="bk-brevo__msg" data-ok="Almost there. Check your inbox and confirm, then your result is on its way." data-bad="Add your first name and an email that looks right, then one more try." data-fail="Something went wrong on my side. Please try again in a minute." aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div class="bk-result__team">Want to talk this one through with someone? <a data-umami-event="book-call" data-umami-event-from="quiz-result" href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer">Book a free 30-minute intro call &rarr;</a></div>
+          <div class="bk-result__team" style="margin-top: 8px;">Curious who chairs your team's meetings? <a data-umami-event="teams-page" href="/book/teams">Bring it to your team &rarr;</a></div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <p class="fade-in" style="margin-top: 36px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 0.95rem; color: var(--text-light);">The book leaves fifteen small doors like this one open, one after every few chapters. Reading them is optional. Noticing what they bring up is not, sorry.</p>
+  <!-- Fifteen doors -->
+  <section class="section" id="doors">
+    <div class="container text-center">
+      <h2 class="fade-in">Fifteen doors</h2>
+      <hr class="line-accent line-accent--center">
+      <p class="fade-in" style="max-width: 600px; margin: 20px auto 0; color: var(--text-light);">The book leaves a small door open every few chapters, a practice with a blank page after it. Five are open here. The rest are in the book.</p>
+
+      <div class="bk-doors fade-in" id="bkDoors">
+        <button type="button" class="bk-door bk-door--ajar" data-door="1"><span class="bk-door__num">1</span><span class="bk-door__name">The Gap</span><span class="bk-door__tag">Open here</span></button>
+        <button type="button" class="bk-door bk-door--ajar" data-door="2"><span class="bk-door__num">2</span><span class="bk-door__name">The Pivot</span><span class="bk-door__tag">Open here</span></button>
+        <button type="button" class="bk-door" data-door="3"><span class="bk-door__num">3</span><span class="bk-door__name">The Three Versions</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door" data-door="4"><span class="bk-door__num">4</span><span class="bk-door__name">The Undone Thing</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door" data-door="5"><span class="bk-door__num">5</span><span class="bk-door__name">The First Naming</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door" data-door="6"><span class="bk-door__num">6</span><span class="bk-door__name">The Meeting Behind the Meeting</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door" data-door="7"><span class="bk-door__num">7</span><span class="bk-door__name">The Useful Thing</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door" data-door="8"><span class="bk-door__num">8</span><span class="bk-door__name">The Closed Laptop</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door bk-door--ajar" data-door="9"><span class="bk-door__num">9</span><span class="bk-door__name">Without the Backup</span><span class="bk-door__tag">Open here</span></button>
+        <button type="button" class="bk-door" data-door="10"><span class="bk-door__num">10</span><span class="bk-door__name">The Advice You Gave</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door" data-door="11"><span class="bk-door__num">11</span><span class="bk-door__name">The Commentator</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door bk-door--ajar" data-door="12"><span class="bk-door__num">12</span><span class="bk-door__name">Who Catches You</span><span class="bk-door__tag">Open here</span></button>
+        <button type="button" class="bk-door" data-door="13"><span class="bk-door__num">13</span><span class="bk-door__name">What You're Bringing Home</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door" data-door="14"><span class="bk-door__num">14</span><span class="bk-door__name">The Unbelievable Space</span><span class="bk-door__tag">In the book</span></button>
+        <button type="button" class="bk-door bk-door--ajar" data-door="15"><span class="bk-door__num">15</span><span class="bk-door__name">When You Slip</span><span class="bk-door__tag">Open here</span></button>
+      </div>
+
+      <div id="bkDoorTexts" hidden>
+        <div data-door="1"><h3>The Gap</h3><div class="bk-door-panel__ch">Chapter 1, Already Hired for Something Else</div>Find the last yes that cost you something. Not the action. The half second just before it, where something else almost got a vote.</div>
+        <div data-door="2"><h3>The Pivot</h3><div class="bk-door-panel__ch">Chapter 2, The Best Version</div>Think of your last big change of direction. Sit with one question, longer than is comfortable: was it clarity, or was it relief?</div>
+        <div data-door="3"><h3>The Three Versions</h3><div class="bk-door-panel__ch">Chapter 3, Three Versions</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="4"><h3>The Undone Thing</h3><div class="bk-door-panel__ch">Chapter 4, The Homework</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="5"><h3>The First Naming</h3><div class="bk-door-panel__ch">Chapter 5, The Invitation</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="6"><h3>The Meeting Behind the Meeting</h3><div class="bk-door-panel__ch">Chapter 6, The Most Important Priority</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="7"><h3>The Useful Thing</h3><div class="bk-door-panel__ch">Chapter 7, Exciting Times</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="8"><h3>The Closed Laptop</h3><div class="bk-door-panel__ch">Chapter 9, Billable</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="9"><h3>Without the Backup</h3><div class="bk-door-panel__ch">Chapter 14, Version C</div>Do one thing this week without the safety net. Send the real version. The discomfort is the data.</div>
+        <div data-door="10"><h3>The Advice You Gave</h3><div class="bk-door-panel__ch">Chapter 15, Standup</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="11"><h3>The Commentator</h3><div class="bk-door-panel__ch">Chapter 19, The Work</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="12"><h3>Who Catches You</h3><div class="bk-door-panel__ch">Chapter 20, The Fire</div>Write down two names. Who catches you when you slip? And who are you catching? If either line is blank, start there.</div>
+        <div data-door="13"><h3>What You're Bringing Home</h3><div class="bk-door-panel__ch">Chapter 24, The Last Morning</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="14"><h3>The Unbelievable Space</h3><div class="bk-door-panel__ch">Chapter 25, The Week After</div>This door is in the book. <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer">Open it there &rarr;</a></div>
+        <div data-door="15"><h3>When You Slip</h3><div class="bk-door-panel__ch">Chapter 26, Three Months Later</div>Ask one person to say to you, kindly, when they see it: I see you slipping. Then let them.</div>
+      </div>
+
+      <div class="bk-door-panel" id="bkDoorPanel" aria-live="polite"></div>
+
+      <div class="bk-signup bk-signup--doors fade-in">
+        <div class="bk-signup__title">Get the first door by email</div>
+        <div class="bk-signup__text">The Gap, the practice that opens the book, plus a few short notes from me over the next two weeks. Small enough to try on a workday.</div>
+        <form class="bk-brevo" data-source="book-doors" novalidate>
+          <input type="hidden" name="QUIZ_RESULT" value="">
+          <input type="hidden" name="SIGNUP_SOURCE" value="book-doors">
+          <input type="hidden" name="locale" value="en">
+          <input type="text" name="email_address_check" value="" class="bk-brevo__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="visually-hidden" for="bkDoorsName">First name</label>
+          <input type="text" id="bkDoorsName" name="FIRSTNAME" placeholder="First name" autocomplete="given-name" required>
+          <label class="visually-hidden" for="bkDoorsEmail">Email</label>
+          <input type="email" id="bkDoorsEmail" name="EMAIL" placeholder="Email" autocomplete="email" required>
+          <button type="submit" class="btn btn--primary">Send it to me</button>
+          <div class="bk-brevo__msg" data-ok="Almost there. Check your inbox and confirm, then the door is on its way." data-bad="Add your first name and an email that looks right, then one more try." data-fail="Something went wrong on my side. Please try again in a minute." aria-live="polite"></div>
+        </form>
+      </div>
+
+      <p class="fade-in" style="margin-top: 36px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 0.95rem; color: var(--text-light);">Reading them is optional. Noticing what they bring up is not, sorry.</p>
     </div>
   </section>
 
   <!-- Bridge: fiction to the real work -->
   <section class="book-announcement">
     <div class="container fade-in" style="text-align: center;">
+      <img src="anna-about.jpg" alt="Anna Milaeva, author of Already In A Meeting" class="bk-why__photo" loading="lazy">
       <span class="book-announcement__label">Why I wrote it</span>
       <h2 class="book-announcement__headline">The story is fiction. The meetings are real.</h2>
       <p class="book-announcement__body">I spent over a decade in operations, in the rooms where things were breaking. Now I bring parts work, the method behind this story, into the lives of professionals and inside companies. Most rooms have an unspoken rule against talking about what is actually happening inside the people in them. I wrote a novel because stories get past that rule. If you saw yourself in any of these five, that is the door. The work behind the door is what I do.</p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
         <a href="coaching" class="btn btn--primary">Work with me 1:1</a>
-        <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="color: #FAF7F2; border-color: #FAF7F2;">Bring it to your team</a>
+        <a data-umami-event="teams-page" href="/book/teams" class="btn btn--outline" style="color: #FAF7F2; border-color: #FAF7F2;">Bring it to your team</a>
       </div>
-      <p class="book-announcement__note">There is also <a href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer" style="color: #E8784A;">the Self-Journal</a>, an 8-week companion for meeting your own parts. Kate would already have it filled in. Tom would say it's fine.</p>
+      <p class="book-announcement__note">There is also <a data-umami-event="amazon-click" data-umami-event-product="self-journal" href="https://www.amazon.com/Self-Journal-Weeks-Self-leadership-Exploration/dp/B0GXYMVK87/" target="_blank" rel="noopener noreferrer" style="color: #E8784A;">the Self-Journal</a>, an 8-week companion for meeting your own parts. Kate would already have it filled in. Tom would say it's fine.</p>
       <p class="book-announcement__note" style="font-size: 0.9rem; max-width: 560px; margin-left: auto; margin-right: auto;">Anna Milaeva trained in IFS Therapy through Level 3 at the IFS Institute and works as a Certified Deep Transformational Coach, working with clients in more than 15 countries. She ran operations long enough to have opinions about calendar invites. This is her first novel. <a href="about" style="color: #E8784A;">More about Anna &rarr;</a></p>
+      <div class="bk-why__note">
+        <div class="bk-why__note-text">&ldquo;Thanks for being the novelist you are. Thanks for not hiding anymore.&rdquo;</div>
+        <div class="bk-why__note-who">Roeland, Belgium</div>
+      </div>
     </div>
   </section>
 
@@ -675,7 +1387,9 @@
     <div class="container fade-in">
       <h2>Take the meeting</h2>
       <p>A couple of evenings of reading. Something to take to work tomorrow that nobody else has to know about.</p>
-      <a href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get it on Amazon</a>
+      <div class="bk-hero-note" style="max-width: 420px; margin: 0 auto 28px;">&ldquo;One of the few books I've actually read to the end lately.&rdquo;<span>Sasha, Moldova</span></div>
+      <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get it on Amazon</a>
+      <p style="margin: 18px auto 0; font-size: 0.92rem;"><a href="/es/libro" lang="es" hreflang="es" style="color: var(--accent);">&iquest;En espa&ntilde;ol? <em>La reuni&oacute;n ya empez&oacute;</em> &rarr;</a></p>
       <div class="bk-review">
         <div class="bk-review__stars" aria-hidden="true"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
         <p>If it makes you laugh, or makes you look at your own Tuesday differently, a short review on Amazon helps other readers find it. More than you would think.</p>
@@ -702,7 +1416,7 @@
       <div class="footer__follow">
         <p class="footer__follow-title">Come read what I'm living.</p>
         <p class="footer__follow-text">IFS, burnout, grief, money, meaning. New pieces every week or two, free to read.</p>
-        <a class="footer__follow-link" href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer">Follow on Substack &rarr;</a>
+        <a data-umami-event="substack-click" class="footer__follow-link" href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer">Follow on Substack &rarr;</a>
       </div>
       <div class="footer__main">
         <div class="footer__brand">
@@ -720,20 +1434,46 @@
         <div class="footer__social">
           <a href="https://www.linkedin.com/in/anna-milaeva/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg></a>
           <a href="https://www.instagram.com/anna_milaeva_ifs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/></svg></a>
-          <a href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="17" text-anchor="middle" fill="white" font-family="Georgia, serif" font-size="14" font-weight="700">S</text></svg></a>
+          <a data-umami-event="substack-click" href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer" aria-label="Substack"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="17" text-anchor="middle" fill="white" font-family="Georgia, serif" font-size="14" font-weight="700">S</text></svg></a>
         </div>
       </div>
       <div class="footer__bottom">
         <span>&copy; 2026 Anna Milaeva. All rights reserved. <a href="/privacy" class="footer__legal-link">Privacy</a></span>
         <span>Coaching services are not therapy and are not intended to diagnose, treat, cure, or prevent any disease or mental health condition. If you are experiencing a mental health crisis, please contact a licensed professional.</span>
-        <span style="font-weight:bold;color:#e87a2e;">Website created by <a href="https://fino.website/studio/" target="_blank" rel="noopener noreferrer" style="color:#e87a2e;font-weight:bold;">FINO Studio</a></span>
+        <span style="font-weight:bold;color:#e87a2e;">Website created by <a data-umami-event="fino-click" href="https://fino.website/studio/" target="_blank" rel="noopener noreferrer" style="color:#e87a2e;font-weight:bold;">FINO Studio</a></span>
       </div>
     </div>
   </footer>
 
   <div class="bk-toast" id="bkToast" role="status" aria-live="polite"></div>
 
-  <script src="main.js?v=8"></script>
+  <!-- Episode titles, read by the player -->
+  <ul id="bkVideoList" hidden>
+    <li data-ep="ep00-anna-intro">So now, they get a voice</li>
+    <li data-ep="ep01-kate">Kate. Thirteen Minutes Early</li>
+    <li data-ep="ep02-priya">Priya. Version C</li>
+    <li data-ep="ep03-tom-marta">Tom and Marta. The Homework</li>
+  </ul>
+
+  <dialog class="bk-player" id="bkPlayer" aria-label="Episode player">
+    <div class="bk-player__frame">
+      <button type="button" class="bk-player__close" id="bkPlayerClose" aria-label="Close">&times;</button>
+      <video controls playsinline preload="none"></video>
+    </div>
+    <div class="bk-player__meta">
+      <div class="bk-player__title" id="bkPlayerTitle"></div>
+      <button type="button" class="bk-player__cta" id="bkPlayerQuiz">Which part is chairing your meeting? Take the quiz</button>
+    </div>
+  </dialog>
+
+  <button type="button" class="bk-live" id="bkLive" aria-label="Meeting in progress. Go to the quiz">
+    <span class="bk-live__dot"></span>
+    <span>Meeting in progress</span>
+    <span class="bk-live__time" id="bkLiveTime">00:00</span>
+    <span class="bk-live__go">Which one are you? &rarr;</span>
+  </button>
+
+  <script src="main.js?v=9"></script>
   <script>
     (function () {
       // RSVP buttons
@@ -746,10 +1486,7 @@
       };
       document.querySelectorAll('[data-rsvp]').forEach(function (btn) {
         btn.addEventListener('click', function () {
-          toast.textContent = rsvpLines[btn.getAttribute('data-rsvp')];
-          toast.classList.add('show');
-          clearTimeout(toastTimer);
-          toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3000);
+          showToast(rsvpLines[btn.getAttribute('data-rsvp')]);
           setTimeout(function () {
             document.querySelector('.bk-author').scrollIntoView({ behavior: 'smooth', block: 'center' });
           }, 700);
@@ -764,15 +1501,19 @@
       });
 
       // Staggered entrances for cast cards and the quote band
-      var inTargets = document.querySelectorAll('.bk-card, .bk-quote blockquote, .bk-review');
+      var inTargets = document.querySelectorAll('.bk-card, .bk-quote blockquote, .bk-review, .bk-ep, .bk-note');
       if ('IntersectionObserver' in window) {
-        var cards = Array.prototype.slice.call(document.querySelectorAll('.bk-card'));
         var inObs = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               var el = entry.target;
-              var idx = cards.indexOf(el);
-              if (idx > -1) { el.style.transitionDelay = (idx % 5) * 90 + 'ms'; }
+              // Cards, tiles and notes arrive one after another
+              if (el.matches('.bk-card, .bk-ep, .bk-note')) {
+                var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+                el.style.transitionDelay = (idx % 5) * (el.matches('.bk-note') ? 140 : 90) + 'ms';
+                // Clear the delay once it has arrived, so hover reacts at once
+                setTimeout(function () { el.style.transitionDelay = ''; }, 1400);
+              }
               el.classList.add('bk-in');
               inObs.unobserve(el);
             }
@@ -783,54 +1524,283 @@
         inTargets.forEach(function (el) { el.classList.add('bk-in'); });
       }
 
-      // Which one are you
-      var who = {
-        kate: {
-          title: "The one who holds it together",
-          body: "You answer before you finish reading. You make the coffee, the agenda, and the save. People say the place would fall apart without you, and a part of you needs that to stay true. Somewhere underneath there is a quieter question: who is holding you?",
-          practice: "A door from the book: The Gap",
-          practiceBody: "Find the last yes that cost you something. Not the action. The half second just before it, where something else almost got a vote."
-        },
-        daniel: {
-          title: "The one with the new plan",
-          body: "Your enthusiasm is real. So is the speed. A part of you converts every uncomfortable feeling into a plan before the feeling has time to land, and the plans are genuinely good, which makes it very hard to catch. The feeling waits. It is patient that way.",
-          practice: "A door from the book: The Pivot",
-          practiceBody: "Think of your last big change of direction. Sit with one question, longer than is comfortable: was it clarity, or was it relief?"
-        },
-        priya: {
-          title: "The one with three versions",
-          body: "You are prepared for every version of the room. Version A, version B, and the one you actually believe, which stays in a folder. Being right in private feels safer than finding out. The backup plans are excellent. They are also very good walls.",
-          practice: "A door from the book: Without the Backup",
-          practiceBody: "Do one thing this week without the safety net. Send the real version. The discomfort is the data."
-        },
-        tom: {
-          title: "The one who says fine",
-          body: "You have an entire inner life running parallel to your outer one, fully formed, continuously updated, rarely transmitted. When something really matters, you make tea. The people who love you can tell the difference between your silences. That is not the same as hearing you.",
-          practice: "A door from the book: Who Catches You",
-          practiceBody: "Write down two names. Who catches you when you slip? And who are you catching? If either line is blank, start there."
-        },
-        marta: {
-          title: "The one who can't stop",
-          body: "Just this week. Just this month. Just until close. You have been saying it long enough that it has become a way of life with excellent billing records. A part of you wanted support so badly, for so long, that it quietly stopped being able to accept any.",
-          practice: "A door from the book: When You Slip",
-          practiceBody: "Ask one person to say to you, kindly, when they see it: I see you slipping. Then let them."
-        }
-      };
-      var reveal = document.getElementById('bkReveal');
-      document.querySelectorAll('[data-who]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          document.querySelectorAll('[data-who]').forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          var d = who[btn.getAttribute('data-who')];
-          document.getElementById('bkRevealTitle').textContent = d.title;
-          document.getElementById('bkRevealBody').textContent = d.body;
-          document.getElementById('bkRevealPractice').textContent = d.practice;
-          document.getElementById('bkRevealPracticeBody').textContent = d.practiceBody;
-          reveal.classList.remove('show');
-          void reveal.offsetWidth;
-          reveal.classList.add('show');
+      // Scroll to an element, clearing the fixed nav
+      function scrollToEl(el) {
+        var navBar = document.getElementById('nav');
+        var top = el.getBoundingClientRect().top + window.scrollY - ((navBar ? navBar.offsetHeight : 0) + 24);
+        window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+      }
+      function showToast(text) {
+        toast.textContent = text;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3200);
+      }
+      // Analytics events (Umami). Does nothing until the Umami script is live.
+      function track(name, data) {
+        if (window.umami && typeof window.umami.track === 'function') { window.umami.track(name, data); }
+      }
+      var quizSection = document.getElementById('quiz');
+
+      // Episode player. Titles come from #bkVideoList so all copy stays in the HTML.
+      var player = document.getElementById('bkPlayer');
+      var video = player.querySelector('video');
+      var titles = {};
+      document.querySelectorAll('#bkVideoList [data-ep]').forEach(function (li) {
+        titles[li.getAttribute('data-ep')] = li.textContent;
+      });
+      function openVideo(id) {
+        var src = 'videos/' + id + '.mp4';
+        if (typeof player.showModal !== 'function') { window.open(src, '_blank'); return; }
+        video.poster = 'videos/' + id + '.jpg';
+        video.src = src;
+        document.getElementById('bkPlayerTitle').textContent = titles[id] || '';
+        player.showModal();
+        track('episode-play', { episode: id });
+        var playing = video.play();
+        if (playing && playing.catch) { playing.catch(function () {}); }
+      }
+      player.addEventListener('close', function () {
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+      });
+      player.addEventListener('click', function (e) { if (e.target === player) { player.close(); } });
+      document.getElementById('bkPlayerClose').addEventListener('click', function () { player.close(); });
+      document.getElementById('bkPlayerQuiz').addEventListener('click', function () {
+        player.close();
+        scrollToEl(quizSection);
+      });
+      // Calendar tiles play a silent six-second loop while they are on screen.
+      // Skipped for reduced motion and data saver; the cover image shows instead.
+      var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var saving = navigator.connection && navigator.connection.saveData;
+      var previews = document.querySelectorAll('.bk-ep__preview');
+      if (!calm && !saving && 'IntersectionObserver' in window) {
+        var previewObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var v = entry.target;
+            if (entry.isIntersecting) {
+              if (!v.getAttribute('src')) { v.src = v.getAttribute('data-src'); }
+              var p = v.play();
+              if (p && p.catch) { p.catch(function () {}); }
+            } else {
+              v.pause();
+            }
+          });
+        }, { threshold: 0.4 });
+        previews.forEach(function (v) { previewObs.observe(v); });
+      }
+
+      // Buttons inside the flip cards must not flip the card
+      document.querySelectorAll('[data-video]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          openVideo(btn.getAttribute('data-video'));
         });
       });
+      document.querySelectorAll('[data-toast]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          showToast(btn.getAttribute('data-toast'));
+        });
+      });
+
+      // Quiz: six questions, each answer is a vote for one part
+      var steps = document.getElementById('bkQuizSteps');
+      var qs = Array.prototype.slice.call(steps.querySelectorAll('.bk-q'));
+      var dots = steps.querySelectorAll('.bk-quiz__dots span');
+      var stepSlot = steps.querySelector('[data-slot="step"]');
+      var back = document.getElementById('bkQuizBack');
+      var result = document.getElementById('bkResult');
+      var parts = ['kate', 'daniel', 'priya', 'tom', 'marta'];
+      var answers = [];
+      var current = 0;
+      var quizDone = false;
+
+      function showQ(i) {
+        current = i;
+        qs.forEach(function (q, n) { q.classList.toggle('show', n === i); });
+        dots.forEach(function (d, n) { d.classList.toggle('done', n < i); });
+        stepSlot.textContent = i + 1;
+        back.hidden = i === 0;
+        qs[i].querySelectorAll('[data-part]').forEach(function (b) {
+          b.classList.toggle('picked', b.getAttribute('data-part') === answers[i]);
+        });
+      }
+      qs.forEach(function (q, n) {
+        q.querySelectorAll('[data-part]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            if (n !== current) { return; }
+            if (n === 0 && !answers[0]) { track('quiz-start'); }
+            answers[n] = btn.getAttribute('data-part');
+            q.querySelectorAll('[data-part]').forEach(function (b) { b.classList.toggle('picked', b === btn); });
+            setTimeout(function () {
+              if (n < qs.length - 1) { showQ(n + 1); } else { finish(); }
+            }, 280);
+          });
+        });
+      });
+      back.addEventListener('click', function () { if (current > 0) { showQ(current - 1); } });
+
+      function nameOf(part) {
+        return result.querySelector('.bk-r[data-part="' + part + '"]').getAttribute('data-name');
+      }
+      function finish() {
+        var score = {};
+        parts.forEach(function (p) { score[p] = 0; });
+        answers.forEach(function (a) { if (a) { score[a] += 1; } });
+        // Ties go to the answer to "the sentence you would never say"
+        var tie = answers[qs.findIndex(function (q) { return q.hasAttribute('data-tiebreak'); })];
+        var ranked = parts.slice().sort(function (a, b) {
+          if (score[b] !== score[a]) { return score[b] - score[a]; }
+          if (a === tie) { return -1; }
+          if (b === tie) { return 1; }
+          return parts.indexOf(a) - parts.indexOf(b);
+        });
+        var primary = ranked[0];
+        var second = score[ranked[1]] > 0 ? ranked[1] : null;
+
+        // A short pause while the "committee" deliberates, then the reveal
+        var deliberate = document.getElementById('bkDeliberate');
+        steps.hidden = true;
+        deliberate.hidden = false;
+        quizDone = true;
+        updateLive();
+        setTimeout(function () {
+          deliberate.hidden = true;
+          result.querySelectorAll('.bk-r').forEach(function (r) { r.hidden = r.getAttribute('data-part') !== primary; });
+          var sec = document.getElementById('bkSecond');
+          sec.hidden = !second;
+          if (second) { sec.querySelector('[data-slot="name"]').textContent = nameOf(second); }
+          result.setAttribute('data-part', primary);
+          result.classList.add('show');
+          track('quiz-complete', { result: primary });
+          scrollToEl(document.getElementById('bkQuiz'));
+        }, calm ? 0 : 1400);
+      }
+      document.getElementById('bkRetake').addEventListener('click', function () {
+        answers = [];
+        result.classList.remove('show');
+        steps.hidden = false;
+        showQ(0);
+        scrollToEl(document.getElementById('bkQuiz'));
+      });
+
+      // Share: the link carries the result so a friend lands on the quiz with it
+      var shareBtn = document.getElementById('bkShare');
+      shareBtn.addEventListener('click', function () {
+        var part = result.getAttribute('data-part');
+        var text = result.querySelector('.bk-r[data-part="' + part + '"]').getAttribute('data-share-text');
+        var url = 'https://annamilaeva.com/book/' + part + '?utm_source=quiz-share';
+        track('quiz-share', { result: part });
+        if (navigator.share) {
+          navigator.share({ title: document.title, text: text, url: url }).catch(function () {});
+          return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text + ' ' + url).then(function () {
+            showToast(shareBtn.getAttribute('data-copied'));
+          }, function () { window.prompt('', url); });
+        } else {
+          window.prompt('', url);
+        }
+      });
+
+      var sentPart = new URLSearchParams(window.location.search).get('part');
+      if (sentPart && parts.indexOf(sentPart) > -1) {
+        var sent = document.getElementById('bkSent');
+        sent.querySelector('[data-slot="name"]').textContent = nameOf(sentPart);
+        sent.hidden = false;
+        track('quiz-link-visit', { from: sentPart });
+        setTimeout(function () { scrollToEl(quizSection); }, 600);
+      }
+
+      // Mailing list: each form posts to the Brevo sign-up form.
+      // Paste the form's action URL from Brevo (it ends in sibforms.com/serve/...).
+      var BREVO_FORM_URL = 'https://dcaf4032.sibforms.com/serve/MUIFALbWwG25PtaOHafrnR3riv55863VfbgRNj2HN6rfpHhA4RoyfAsUlFBeXNnsdVpJded274JB9x0h-NcSeRkhOlhIEOnJL-zZK01OlIU1h4ez_cWcFfp-lFqVs-ZxX7r1_AmRqWGmjmwMwZBWupcLBjZTBE-qgugKnS1uBoXYd59o5gsFptPQr7cOPRY3P2JY6yEG3Sxtr6QZsA';
+      document.querySelectorAll('.bk-brevo').forEach(function (form) {
+        var msg = form.querySelector('.bk-brevo__msg');
+        var btn = form.querySelector('button[type="submit"]');
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var email = form.querySelector('[name="EMAIL"]');
+          var first = form.querySelector('[name="FIRSTNAME"]');
+          if (!first.value.trim()) {
+            msg.textContent = msg.getAttribute('data-bad');
+            first.focus();
+            return;
+          }
+          if (!email.value || !email.checkValidity()) {
+            msg.textContent = msg.getAttribute('data-bad');
+            email.focus();
+            return;
+          }
+          if (form.querySelector('[name="email_address_check"]').value) { return; }
+          var resultField = form.querySelector('[name="QUIZ_RESULT"]');
+          resultField.value = result.getAttribute('data-part') || '';
+          if (BREVO_FORM_URL.indexOf('https://') !== 0) {
+            msg.textContent = msg.getAttribute('data-fail');
+            return;
+          }
+          btn.disabled = true;
+          fetch(BREVO_FORM_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: new URLSearchParams(new FormData(form))
+          }).then(function () {
+            form.classList.add('is-sent');
+            msg.textContent = msg.getAttribute('data-ok');
+            track('signup', { source: form.getAttribute('data-source'), result: resultField.value });
+          }).catch(function () {
+            btn.disabled = false;
+            msg.textContent = msg.getAttribute('data-fail');
+          });
+        });
+      });
+
+      // Fifteen doors: the door swings open and its text shows underneath
+      var doorPanel = document.getElementById('bkDoorPanel');
+      var doorTexts = document.getElementById('bkDoorTexts');
+      var doors = document.querySelectorAll('#bkDoors .bk-door');
+      doors.forEach(function (door) {
+        door.addEventListener('click', function () {
+          var wasOpen = door.classList.contains('is-active');
+          doors.forEach(function (d) { d.classList.remove('is-active'); });
+          if (wasOpen) { doorPanel.classList.remove('show'); return; }
+          door.classList.add('is-active');
+          track('door-open', { door: door.getAttribute('data-door') });
+          doorPanel.innerHTML = doorTexts.querySelector('[data-door="' + door.getAttribute('data-door') + '"]').innerHTML;
+          doorPanel.classList.remove('show');
+          void doorPanel.offsetWidth;
+          doorPanel.classList.add('show');
+          doorPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+      });
+
+      // Meeting in progress: a running clock that invites people to the quiz
+      var live = document.getElementById('bkLive');
+      var liveTime = document.getElementById('bkLiveTime');
+      var started = Date.now();
+      var heroGone = false;
+      var quizVisible = false;
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      function updateLive() { live.classList.toggle('show', heroGone && !quizVisible && !quizDone); }
+      setInterval(function () {
+        var s = Math.floor((Date.now() - started) / 1000);
+        liveTime.textContent = pad(Math.floor(s / 60)) + ':' + pad(s % 60);
+      }, 1000);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          heroGone = !entries[0].isIntersecting;
+          updateLive();
+        }).observe(document.querySelector('.hero'));
+        new IntersectionObserver(function (entries) {
+          quizVisible = entries[0].isIntersecting;
+          updateLive();
+        }, { threshold: 0.1 }).observe(quizSection);
+      }
+      live.addEventListener('click', function () { scrollToEl(quizSection); });
     })();
   </script>
 </body>
