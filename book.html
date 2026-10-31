@@ -490,7 +490,7 @@
     .bk-why__organizer { max-width: 620px; margin: 0 auto 22px; font-family: var(--font-heading); font-style: italic; font-size: 1.12rem; line-height: 1.6; color: #EFE6DC; }
 
     /* What readers are saying: a strip right under the hero */
-    .bk-praise { background: #FFFFFF; padding: 44px 0 40px; border-bottom: 1px solid var(--divider); }
+    .bk-praise { background: #FFFFFF; padding: 44px 0 40px; border-bottom: 1px solid var(--divider); overflow-x: clip; }
     .bk-praise__title {
       text-align: center; margin: 0 0 26px;
       font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);
@@ -513,7 +513,7 @@
     .bk-praise__item figcaption { margin-top: 12px; font-size: 0.74rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
     .bk-praise__more { display: block; text-align: center; margin-top: 18px; font-size: 0.9rem; color: var(--accent); }
     @media (min-width: 900px) {
-      .bk-praise__row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 0; padding: 4px 0 10px; overflow: visible; }
+      .bk-praise__row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 0; padding: 4px 0 10px; overflow: visible; }
     }
 
     /* One reader line under the cover */
@@ -804,6 +804,9 @@
     .bk-practice__why strong { color: var(--text); font-weight: 600; }
     @media (max-width: 968px) { .bk-practice__steps li { font-size: 16px !important; line-height: 1.6 !important; } }
 
+    .bk-retreat { max-width: 680px; margin: 40px auto 0; text-align: center; line-height: 1.8; color: var(--text-light); }
+    .bk-retreat strong { color: var(--text); font-family: var(--font-heading); font-weight: 500; font-size: 1.1rem; }
+
     /* Fifteen doors */
     .bk-doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 780px; margin: 40px auto 0; }
     @media (min-width: 700px) { .bk-doors { grid-template-columns: repeat(5, 1fr); gap: 14px; } }
@@ -1092,6 +1095,14 @@
           <blockquote>I was laughing so much because I realized I'm being such a Priya.</blockquote>
           <figcaption>Isabella, Spain</figcaption>
         </figure>
+        <figure class="bk-praise__item">
+          <blockquote>One of the few books I've actually read to the end lately.</blockquote>
+          <figcaption>Sasha, Moldova</figcaption>
+        </figure>
+        <figure class="bk-praise__item">
+          <blockquote>I realized I still have the part &#128514;</blockquote>
+          <figcaption>Kelly, Miami</figcaption>
+        </figure>
       </div>
       <button type="button" class="bk-next" data-goto="people" style="margin-top: 22px;">Next on the agenda: meet the people <span aria-hidden="true">&darr;</span></button>
     </div>
@@ -1214,6 +1225,8 @@
 
       </div>
 
+      <p class="bk-retreat fade-in"><strong>Then the company books a retreat.</strong> Three days at a farm, with trust exercises, a sound bath, a fire and two animals with strong opinions. What happens there is funny, and then it isn't, and then something better than both.</p>
+
       <div class="bk-patterns fade-in">
         <span>Read about each pattern:</span>
         <a href="/book/kate">People pleasing at work</a>
@@ -1223,28 +1236,6 @@
         <a href="/book/marta">Burnout that never stops</a>
       </div>
 
-      <div class="bk-attendance fade-in">
-        <div class="bk-attendance__pair">
-          <img src="donkey-circle.jpg" loading="lazy" alt="The donkey, who has never lost a negotiation" class="bk-attendance__animal">
-          <img src="llama-circle.jpg" loading="lazy" alt="The llama, who has seen all of this before" class="bk-attendance__animal">
-        </div>
-        <p class="bk-attendance__line">Also in attendance: a donkey with complete confidence, and a llama who has seen all of this before.</p>
-        <hr class="line-accent line-accent--center" style="width: 40px; height: 2px; margin: 16px auto;">
-        <p class="bk-attendance__note">No parts were exiled in the writing of this novel. Several were finally heard.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- The story -->
-  <section class="section" style="background: #fff; padding-top: 10px;">
-    <div class="container">
-      <div class="text-center fade-in">
-        <h2>Then the company books a retreat</h2>
-        <hr class="line-accent line-accent--center">
-      </div>
-      <div class="fade-in" style="max-width: 680px; margin: 32px auto 0; text-align: center;">
-        <p style="line-height: 1.9;">Arco sells wellness. Arco has forgotten to be well. So the CEO books three days at a farm, with trust exercises, a sound bath, a fire and two animals with strong opinions. What happens there is funny, and then it isn't, and then something better than both.</p>
-      </div>
       <div class="text-center">
       <button type="button" class="bk-next" data-goto="episodes">Next on the agenda: watch them in action <span aria-hidden="true">&darr;</span></button>
       </div>
@@ -1538,7 +1529,6 @@
             <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep03-tom-marta"><span class="bk-watch__icon"></span>See this one in action, 0:55</button><a href="/book/marta" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="marta">More about this pattern &rarr;</a></div>
           </div>
 
-          <div class="bk-result__note">These parts of us take turns. Take it again next month and a different one may be in charge.</div>
 
           <div class="bk-result__actions">
             <button type="button" class="btn btn--primary" id="bkShare" data-copied="Link copied. Send it to someone who says fine a lot.">Share your result</button>
@@ -1568,8 +1558,7 @@
             </form>
           </div>
 
-          <div class="bk-result__team">Want to talk this one through with someone? <a data-umami-event="book-call" data-umami-event-from="quiz-result" href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer">Book a free 30-minute intro call &rarr;</a></div>
-          <div class="bk-result__team" style="margin-top: 8px;">Curious who chairs your team's meetings? <a data-umami-event="teams-page" href="/book/teams">Bring it to your team &rarr;</a></div>
+          <div class="bk-result__team">Want to talk it through? <a data-umami-event="book-call" data-umami-event-from="quiz-result" href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer">Book a free 30-minute intro call</a> &middot; For your team: <a data-umami-event="teams-page" href="/book/teams">see how it works &rarr;</a></div>
         </div>
       </div>
       <button type="button" class="bk-next" data-goto="doors">Next on the agenda: try one of the practices <span aria-hidden="true">&darr;</span></button>
@@ -1623,8 +1612,8 @@
       <div class="bk-door-panel" id="bkDoorPanel" aria-live="polite"></div>
 
       <div class="bk-signup bk-signup--doors fade-in">
-        <div class="bk-signup__title">Get the first door by email</div>
-        <div class="bk-signup__text">The Gap, the practice that opens the book, plus a few short notes from me over the next two weeks. Small enough to try on a workday.</div>
+        <div class="bk-signup__title">Want the first practice in your inbox?</div>
+        <div class="bk-signup__text">The Gap, plus a few short notes from me over two weeks.</div>
         <form class="bk-brevo" data-source="book-doors" novalidate>
           <input type="hidden" name="QUIZ_RESULT" value="">
           <input type="hidden" name="SIGNUP_SOURCE" value="book-doors">
@@ -1639,44 +1628,6 @@
         </form>
       </div>
 
-      <button type="button" class="bk-next" data-goto="notes">Next on the agenda: what readers felt <span aria-hidden="true">&darr;</span></button>
-    </div>
-  </section>
-
-  <!-- Reader notes -->
-  <section class="section" id="notes" data-agenda="notes" style="background: #fff;">
-    <div class="container text-center">
-      <span class="bk-step fade-in"><span>6</span>Readers</span>
-      <h2 class="fade-in">Notes left after the meeting</h2>
-      <hr class="line-accent line-accent--center">
-      <p class="fade-in" style="max-width: 600px; margin: 20px auto 0; color: var(--text-light);">From readers, in their own words.</p>
-
-      <div class="bk-notes fade-in">
-        <div class="bk-note">
-          <p class="bk-note__text">I was working in my catering company the other day and realized I had a pull to make a second batch of sauce, just in case, for the boss to be happy. I was laughing so much because I realized I'm being such a Priya.</p>
-          <div class="bk-note__who">Isabella, Spain</div>
-        </div>
-        <div class="bk-note">
-          <p class="bk-note__text">Woke up jetlagged and got drawn into your novel. My rational part immediately kicking in with: this is powerful s&amp;*_t, more people should feel like how I feel while reading her book. How am I going to organize that ;)</p>
-          <div class="bk-note__who">Roeland, Belgium</div>
-        </div>
-        <div class="bk-note">
-          <p class="bk-note__text">I am reading it and laughing and crying because it's so freaking real. I am an engineer and everything related to AI is super real. I will gift this book to my engineer friends.</p>
-          <div class="bk-note__who">An engineer, Lithuania</div>
-        </div>
-        <div class="bk-note">
-          <p class="bk-note__text">One of the few books I've actually read to the end lately. I really enjoyed it, the humour, the turns of phrase, the whole style. Very unique &#10084;&#65039; And the questions to ask myself. Where would we be without them.</p>
-          <div class="bk-note__who">Sasha, Moldova <em>(translated from Russian)</em></div>
-        </div>
-        <div class="bk-note">
-          <p class="bk-note__text">It made me curious, and it also made me stop, feel, think, and be honest with myself. Some moments stayed with me long after I turned the page. The characters feel real and easy to care about.</p>
-          <div class="bk-note__who">Sophi, Croatia</div>
-        </div>
-        <div class="bk-note">
-          <p class="bk-note__text">I realized I still have the part &#128514; The one who tried to start writing a review before finishing the book. It wrote itself in five minutes after I finished, when, maybe for the first time ever, I went into my pool. Full in. Hair and all. I've definitely slipped in some regards. But it's funny how you can go right back.</p>
-          <div class="bk-note__who">Kelly, Miami</div>
-        </div>
-      </div>
       <button type="button" class="bk-next" data-goto="author">Next on the agenda: who wrote this, and why <span aria-hidden="true">&darr;</span></button>
     </div>
   </section>
@@ -1685,7 +1636,7 @@
   <section class="book-announcement" id="author" data-agenda="author">
     <div class="container fade-in" style="text-align: center;">
       <img src="anna-about.jpg" alt="Anna Milaeva, author of Already In A Meeting" class="bk-why__photo" loading="lazy">
-      <span class="book-announcement__label">7 &middot; Why I wrote it</span>
+      <span class="book-announcement__label">6 &middot; Why I wrote it</span>
       <h2 class="book-announcement__headline">The story is fiction. The meetings are real.</h2>
       <div class="bk-why__organizer">&ldquo;I ran operations for over a decade. I was in these meetings. I was also in the other ones, the ones running inside me. This story is what happened when I finally attended both.&rdquo;</div>
       <p class="book-announcement__body">Now I bring parts work, the method behind this story, to professionals and to teams.</p>
@@ -1701,7 +1652,7 @@
   <!-- Buy strip -->
   <section class="cta-strip" id="get" data-agenda="get">
     <div class="container fade-in">
-      <span class="bk-step"><span>8</span>Get the book</span>
+      <span class="bk-step"><span>7</span>Get the book</span>
       <h2>Take the meeting</h2>
       <p>A couple of evenings of reading. Something to take to work tomorrow that nobody else has to know about.</p>
       <a data-umami-event="amazon-click" data-umami-event-product="already-in-a-meeting" href="https://www.amazon.com/dp/B0HD3GVY6Z/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get it on Amazon</a>
@@ -1789,9 +1740,8 @@
     <button type="button" data-goto="episodes"><span>3</span>Episodes</button>
     <button type="button" data-goto="quiz"><span>4</span>Which one are you?</button>
     <button type="button" data-goto="doors"><span>5</span>Try a door</button>
-    <button type="button" data-goto="notes"><span>6</span>Readers</button>
-    <button type="button" data-goto="author"><span>7</span>The author</button>
-    <button type="button" data-goto="get"><span>8</span>Get the book</button>
+    <button type="button" data-goto="author"><span>6</span>The author</button>
+    <button type="button" data-goto="get"><span>7</span>Get the book</button>
   </nav>
 
   <script src="main.js?v=9"></script>
