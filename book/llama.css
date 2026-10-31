@@ -1,0 +1,52 @@
+/* The llama's invitation */
+.llama-pop {
+  position: fixed; right: 20px; bottom: 20px; z-index: 960;
+  width: min(370px, calc(100vw - 32px)); display: flex; gap: 14px; align-items: flex-start;
+  padding: 22px 20px 16px; background: #FFFFFF; border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(61,37,24,0.25);
+  opacity: 0; transform: translateY(26px);
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.3, 1.2);
+}
+.llama-pop.show { opacity: 1; transform: none; }
+.llama-pop[hidden] { display: none; }
+.llama-pop__face {
+  width: 62px; height: 62px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+  border: 2px solid #E3D5C2; transform-origin: 50% 80%;
+  animation: llamaTilt 3.2s ease-in-out infinite;
+}
+@keyframes llamaTilt { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-7deg); } }
+.llama-pop__body { flex: 1; min-width: 0; }
+.llama-pop__title { font-family: var(--font-heading); font-size: 22px; line-height: 1.3; color: var(--text); padding-right: 18px; }
+.llama-pop__label { font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); padding-right: 22px; }
+.llama-pop__title { margin-top: 4px; }
+.llama-pop__perk { position: relative; margin-top: 7px; padding-left: 18px; font-size: 14px; line-height: 1.45; color: var(--text); }
+.llama-pop__perk::before { content: ''; position: absolute; left: 2px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.llama-pop__foot { margin-top: 10px; font-size: 12.5px; color: var(--text-light); }
+.llama-pop .bk-brevo { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.llama-pop .bk-brevo input[type="text"], .llama-pop .bk-brevo input[type="email"] {
+  flex: none; width: 100%; font-family: var(--font-body); font-size: 15px; color: var(--text);
+  padding: 10px 12px; border: 1.5px solid var(--divider); border-radius: 8px; background: #FAF7F2;
+}
+.llama-pop .bk-brevo input:focus { outline: none; border-color: var(--accent); background: #FFFFFF; }
+.llama-pop .bk-brevo .btn { flex: none; padding: 11px 18px; font-size: 15px; }
+.llama-pop .bk-brevo__trap { position: absolute; left: -5000px; width: 1px; height: 1px; opacity: 0; }
+.llama-pop .bk-brevo__msg { flex: none; font-size: 14px; line-height: 1.45; color: var(--accent); }
+.llama-pop .bk-brevo__msg:empty { display: none; }
+.llama-pop .bk-brevo.is-sent input, .llama-pop .bk-brevo.is-sent .btn { display: none; }
+.llama-pop__close {
+  position: absolute; top: 8px; right: 10px; width: 30px; height: 30px; border: 0; border-radius: 50%;
+  background: transparent; color: var(--text-light); font-size: 1.4rem; line-height: 1; cursor: pointer;
+}
+.llama-pop__close:hover { background: #FAF7F2; color: var(--text); }
+.llama-pop__later { margin-left: 6px; padding: 0; border: 0; background: none; cursor: pointer; font-family: var(--font-body); font-size: 12.5px; color: var(--text-light); text-decoration: underline; }
+@media (max-width: 899px) {
+  .llama-pop { left: 16px; right: 16px; bottom: 74px; width: auto; padding: 18px 16px 14px; }
+  .llama-pop--low { bottom: 16px; }
+  .llama-pop__face { width: 48px; height: 48px; }
+  .llama-pop__title { font-size: 20px; }
+  .llama-pop .bk-brevo input[type="text"], .llama-pop .bk-brevo input[type="email"] { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .llama-pop { transition: none; }
+  .llama-pop__face { animation: none; }
+}

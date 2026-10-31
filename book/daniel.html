@@ -25,7 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap">
   <link rel="stylesheet" href="/styles.css?v=45">
-  <link rel="stylesheet" href="/book/pages.css?v=2">
+  <link rel="stylesheet" href="/book/pages.css?v=3">
+  <link rel="stylesheet" href="/book/llama.css?v=2">
   <!-- Analytics: Umami, no cookies. The website ID comes from cloud.umami.is -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="d81dd3f9-1d51-4c90-a8b2-aab224a36bac" data-domains="annamilaeva.com"></script>
 </head>
@@ -217,19 +218,19 @@
       <div class="bp-others">
         <a class="bp-other bp-rise" href="/book/kate">
           <img src="/cast-kate.jpg" alt="Kate, Chief of Staff" loading="lazy">
-          <span class="bp-other__body"><span class="bp-other__pattern" style="display: block;">The one who holds it together</span><span class="bp-other__who" style="display: block;">Kate, Chief of Staff</span></span>
+          <span class="bp-other__body"><span class="bp-other__pattern">The one who holds it together</span><span class="bp-other__who">Kate, Chief of Staff</span></span>
         </a>
         <a class="bp-other bp-rise" href="/book/priya">
           <img src="/cast-priya.jpg" alt="Priya, Head of Marketing" loading="lazy">
-          <span class="bp-other__body"><span class="bp-other__pattern" style="display: block;">The one with three versions</span><span class="bp-other__who" style="display: block;">Priya, Head of Marketing</span></span>
+          <span class="bp-other__body"><span class="bp-other__pattern">The one with three versions</span><span class="bp-other__who">Priya, Head of Marketing</span></span>
         </a>
         <a class="bp-other bp-rise" href="/book/tom">
           <img src="/cast-tom.jpg" alt="Tom, Engineering Lead" loading="lazy">
-          <span class="bp-other__body"><span class="bp-other__pattern" style="display: block;">The one who says fine</span><span class="bp-other__who" style="display: block;">Tom, Engineering Lead</span></span>
+          <span class="bp-other__body"><span class="bp-other__pattern">The one who says fine</span><span class="bp-other__who">Tom, Engineering Lead</span></span>
         </a>
         <a class="bp-other bp-rise" href="/book/marta">
           <img src="/cast-marta.jpg" alt="Marta, Lawyer, and Tom&#39;s partner" loading="lazy">
-          <span class="bp-other__body"><span class="bp-other__pattern" style="display: block;">The one who can&#39;t stop</span><span class="bp-other__who" style="display: block;">Marta, Lawyer, and Tom&#39;s partner</span></span>
+          <span class="bp-other__body"><span class="bp-other__pattern">The one who can&#39;t stop</span><span class="bp-other__who">Marta, Lawyer, and Tom&#39;s partner</span></span>
         </a>
       </div>
       <div class="bp-small-link">Seeing these patterns across your whole team? <a href="/book/teams">Already In A Meeting for teams &rarr;</a></div>
@@ -276,7 +277,33 @@
     </div>
   </footer>
 
+  <!-- The llama's invitation: a small card that slides up once a visitor is engaged -->
+  <aside class="llama-pop" id="llamaPop" role="dialog" aria-labelledby="llamaPopTitle" hidden>
+    <button type="button" class="llama-pop__close" data-llama-close aria-label="Close">&times;</button>
+    <img src="/llama-circle.jpg" alt="" class="llama-pop__face">
+    <div class="llama-pop__body">
+      <div class="llama-pop__label">An invitation from the llama</div>
+      <div class="llama-pop__title" id="llamaPopTitle">Join the meeting.</div>
+      <div class="llama-pop__perk">New episodes and practices, sent to you first</div>
+      <div class="llama-pop__perk">Behind the scenes with Anna (and the llama)</div>
+      <form class="bk-brevo llama-pop__form" data-source="popup-book" novalidate>
+        <input type="hidden" name="QUIZ_RESULT" value="">
+        <input type="hidden" name="SIGNUP_SOURCE" value="popup-book">
+        <input type="hidden" name="locale" value="en">
+        <input type="text" name="email_address_check" value="" class="bk-brevo__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="visually-hidden" for="llamaName">First name</label>
+        <input type="text" id="llamaName" name="FIRSTNAME" placeholder="First name" autocomplete="given-name" required>
+        <label class="visually-hidden" for="llamaEmail">Email</label>
+        <input type="email" id="llamaEmail" name="EMAIL" placeholder="Email" autocomplete="email" required>
+        <button type="submit" class="btn btn--primary">Accept the invite</button>
+        <div class="bk-brevo__msg" data-ok="Almost in. Check your inbox and confirm, and the llama will save you a seat." data-bad="Add your first name and an email that looks right, then one more try." data-fail="Something went wrong on my side. Please try again in a minute." aria-live="polite"></div>
+      </form>
+      <div class="llama-pop__foot">Free, leave any time. <button type="button" class="llama-pop__later" data-llama-close>Maybe later</button></div>
+    </div>
+  </aside>
+
   <script src="/main.js?v=9"></script>
   <script src="/book/pages.js?v=2"></script>
+  <script src="/book/llama.js?v=2" defer></script>
 </body>
 </html>

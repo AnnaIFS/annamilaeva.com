@@ -56,6 +56,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap">
   <link rel="stylesheet" href="styles.css?v=45">
+  <link rel="stylesheet" href="/book/llama.css?v=2">
 
   <style>
     /* ---- Page-specific styles for /book (prefix bk-) ---- */
@@ -1125,7 +1126,7 @@
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
-                <img src="cast-kate.jpg" loading="lazy" alt="Kate, Chief of Staff, holding two coffees, one of them for someone else" class="bk-art__img">
+                <img src="cast-kate.jpg" loading="lazy" alt="Kate, Chief of Staff" class="bk-art__img">
                 <button type="button" class="bk-art__play" data-video="ep01-kate"><span class="bk-art__play-icon"></span>Her episode, 0:42</button>
               </div>
               <div class="bk-card__info">
@@ -1146,7 +1147,7 @@
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
-                <img src="cast-daniel.jpg" loading="lazy" alt="Daniel, Founder and CEO, mid vision speech with one hand raised and a phone in the other" class="bk-art__img">
+                <img src="cast-daniel.jpg" loading="lazy" alt="Daniel, Founder and CEO" class="bk-art__img">
                 <button type="button" class="bk-art__play bk-art__play--off" data-toast="Daniel's episode has been moved. It is still the most important priority.">Episode rescheduled</button>
               </div>
               <div class="bk-card__info">
@@ -1167,7 +1168,7 @@
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
-                <img src="cast-priya.jpg" loading="lazy" alt="Priya, Head of Marketing, holding three folders, one for each version of the deck" class="bk-art__img">
+                <img src="cast-priya.jpg" loading="lazy" alt="Priya, Head of Marketing" class="bk-art__img">
                 <button type="button" class="bk-art__play" data-video="ep02-priya"><span class="bk-art__play-icon"></span>Her episode, 0:31</button>
               </div>
               <div class="bk-card__info">
@@ -1188,7 +1189,7 @@
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
-                <img src="cast-tom.jpg" loading="lazy" alt="Tom, Engineering Lead, holding a mug of tea in both hands" class="bk-art__img">
+                <img src="cast-tom.jpg" loading="lazy" alt="Tom, Engineering Lead" class="bk-art__img">
                 <button type="button" class="bk-art__play" data-video="ep03-tom-marta"><span class="bk-art__play-icon"></span>His episode, 0:55</button>
               </div>
               <div class="bk-card__info">
@@ -1209,7 +1210,7 @@
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
-                <img src="cast-marta.jpg" loading="lazy" alt="Marta, lawyer, answering one more message" class="bk-art__img">
+                <img src="cast-marta.jpg" loading="lazy" alt="Marta, lawyer" class="bk-art__img">
                 <button type="button" class="bk-art__play" data-video="ep03-tom-marta"><span class="bk-art__play-icon"></span>Her episode, 0:55</button>
               </div>
               <div class="bk-card__info">
@@ -1308,7 +1309,7 @@
         </button>
         <button type="button" class="bk-ep bk-ep--off" data-toast="Daniel's episode has been moved. It is still the most important priority.">
           <span class="bk-ep__media">
-            <img src="cast-daniel.jpg" loading="lazy" alt="Daniel, Founder and CEO, mid vision speech">
+            <img src="cast-daniel.jpg" loading="lazy" alt="Daniel, Founder and CEO">
             <span class="bk-ep__slot">TBC</span>
             <span class="bk-ep__stamp">Rescheduled</span>
           </span>
@@ -1715,6 +1716,31 @@
     </div>
   </footer>
 
+  <!-- The llama's invitation: a small card that slides up once a visitor is engaged -->
+  <aside class="llama-pop" id="llamaPop" role="dialog" aria-labelledby="llamaPopTitle" hidden>
+    <button type="button" class="llama-pop__close" data-llama-close aria-label="Close">&times;</button>
+    <img src="/llama-circle.jpg" alt="" class="llama-pop__face">
+    <div class="llama-pop__body">
+      <div class="llama-pop__label">An invitation from the llama</div>
+      <div class="llama-pop__title" id="llamaPopTitle">Join the meeting.</div>
+      <div class="llama-pop__perk">New episodes and practices, sent to you first</div>
+      <div class="llama-pop__perk">Behind the scenes with Anna (and the llama)</div>
+      <form class="bk-brevo llama-pop__form" data-source="popup-book" novalidate>
+        <input type="hidden" name="QUIZ_RESULT" value="">
+        <input type="hidden" name="SIGNUP_SOURCE" value="popup-book">
+        <input type="hidden" name="locale" value="en">
+        <input type="text" name="email_address_check" value="" class="bk-brevo__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="visually-hidden" for="llamaName">First name</label>
+        <input type="text" id="llamaName" name="FIRSTNAME" placeholder="First name" autocomplete="given-name" required>
+        <label class="visually-hidden" for="llamaEmail">Email</label>
+        <input type="email" id="llamaEmail" name="EMAIL" placeholder="Email" autocomplete="email" required>
+        <button type="submit" class="btn btn--primary">Accept the invite</button>
+        <div class="bk-brevo__msg" data-ok="Almost in. Check your inbox and confirm, and the llama will save you a seat." data-bad="Add your first name and an email that looks right, then one more try." data-fail="Something went wrong on my side. Please try again in a minute." aria-live="polite"></div>
+      </form>
+      <div class="llama-pop__foot">Free, leave any time. <button type="button" class="llama-pop__later" data-llama-close>Maybe later</button></div>
+    </div>
+  </aside>
+
   <div class="bk-toast" id="bkToast" role="status" aria-live="polite"></div>
 
   <!-- Episode titles, read by the player -->
@@ -1748,6 +1774,7 @@
   </nav>
 
   <script src="main.js?v=9"></script>
+  <script src="/book/llama.js?v=2" defer></script>
   <script>
     (function () {
       // RSVP buttons
