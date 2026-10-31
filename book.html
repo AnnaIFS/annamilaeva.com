@@ -719,6 +719,15 @@
     .bk-signup { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--divider); }
     .bk-signup__title { font-family: var(--font-heading); font-size: 1.2rem; color: var(--text); }
     .bk-signup__text { font-size: 0.92rem; color: var(--text-light); margin-top: 6px; }
+    .bk-signup__list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+    .bk-signup__list li { position: relative; padding-left: 28px; font-size: 0.95rem; line-height: 1.5; color: var(--text); }
+    .bk-signup__list li::before {
+      content: ''; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M4 8.5l2.5 2.5L12 5.5'/%3E%3C/svg%3E") center / 12px no-repeat;
+    }
+    .bk-brevo__small { flex-basis: 100%; font-size: 0.82rem; color: var(--text-light); }
+    .bk-brevo.is-sent .bk-brevo__small { display: none; }
+    @media (max-width: 968px) { .bk-signup__list li { font-size: 16px !important; } }
     .bk-brevo { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
     .bk-brevo input[type="text"], .bk-brevo input[type="email"] {
       flex: 1 1 180px; min-width: 0;
@@ -1525,8 +1534,13 @@
           </div>
 
           <div class="bk-signup">
-            <div class="bk-signup__title">Get your result by email</div>
-            <div class="bk-signup__text">Your pattern, the practice, and what to try the next time this part takes over at work. Then a few short notes from me over the next two weeks. Leave whenever a part of you wants to.</div>
+            <div class="bk-signup__title">Want to know what to do when it takes over?</div>
+            <ul class="bk-signup__list">
+              <li>Your result, and what this part is protecting</li>
+              <li>A small practice for the next time it takes over</li>
+              <li>Short notes from me over two weeks, with stories from readers</li>
+              <li>New episodes and practices, about once a month</li>
+            </ul>
             <form class="bk-brevo" data-source="book-quiz" novalidate>
               <input type="hidden" name="QUIZ_RESULT" value="">
               <input type="hidden" name="SIGNUP_SOURCE" value="book-quiz">
@@ -1536,7 +1550,8 @@
               <input type="text" id="bkQuizName" name="FIRSTNAME" placeholder="First name" autocomplete="given-name" required>
               <label class="visually-hidden" for="bkQuizEmail">Email</label>
               <input type="email" id="bkQuizEmail" name="EMAIL" placeholder="Email" autocomplete="email" required>
-              <button type="submit" class="btn btn--primary">Send it to me</button>
+              <button type="submit" class="btn btn--primary">Send me my result</button>
+              <div class="bk-brevo__small">Free. One click to leave, whenever a part of you wants to.</div>
               <div class="bk-brevo__msg" data-ok="Almost there. Check your inbox and confirm, then your result is on its way." data-bad="Add your first name and an email that looks right, then one more try." data-fail="Something went wrong on my side. Please try again in a minute." aria-live="polite"></div>
             </form>
           </div>
