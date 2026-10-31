@@ -18,7 +18,7 @@
   });
 
   // Practice signups go to the same Brevo form as the book page
-  var BREVO_FORM_URL = 'https://dcaf4032.sibforms.com/serve/MUIFALbWwG25PtaOHafrnR3riv55863VfbgRNj2HN6rfpHhA4RoyfAsUlFBeXNnsdVpJded274JB9x0h-NcSeRkhOlhIEOnJL-zZK01OlIU1h4ez_cWcFfp-lFqVs-ZxX7r1_AmRqWGmjmwMwZBWupcLBjZTBE-qgugKnS1uBoXYd59o5gsFptPQr7cOPRY3P2JY6yEG3Sxtr6QZsA';
+  var BREVO_FORM_URL = 'https://dcaf4032.sibforms.com/serve/MUIFALbWwG25PtaOHafrnR3riv55863VfbgRNj2HN6rfpHhA4RoyfAsUlFBeXNnsdVpJded274JB9x0h-NcSeRkhOlhIEOnJL-zZK01OlIU1h4ez_cWcFfp-lFqVs-ZxX7r1_AmRqWGmjmwMwZBWupcLBjZTBE-qgugKnS1uBoXYd59o5gsFptPQr7cOPRY3P2JY6yEG3Sxtr6QZsA==';
   document.querySelectorAll('.bk-brevo').forEach(function (form) {
     var msg = form.querySelector('.bk-brevo__msg');
     var btn = form.querySelector('button[type="submit"]');
