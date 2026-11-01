@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="es" href="https://annamilaeva.com/es/libro">
   <link rel="alternate" hreflang="x-default" href="https://annamilaeva.com/book">
   <title>La reuni&oacute;n ya empez&oacute;. La novela. Anna Milaeva</title>
-  <meta name="description" content="La reuni&oacute;n ya empez&oacute;, una novela de Anna Milaeva. Cinco personas, una empresa en problemas, y las reuniones que ocurren dentro de cada una.">
+  <meta name="description" content="La reuni&oacute;n ya empez&oacute;, una novela de Anna Milaeva. Cinco personas, una empresa en problemas, y las reuniones que ocurren dentro de cada una. Haz el test y descubre qué parte preside tus reuniones.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="book">
@@ -249,32 +249,630 @@
     .bk-quote blockquote { font-family: var(--font-heading); font-style: italic; font-size: 1.7rem; line-height: 1.5; color: #FAF7F2; max-width: 760px; margin: 0 auto; }
     .bk-quote cite { display: block; margin-top: 18px; font-style: normal; font-family: var(--font-body); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: #E8784A; }
 
-    /* Which one are you */
-    .bk-picker { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 36px; }
-    .bk-picker button {
-      font-family: var(--font-body); font-size: 0.92rem;
-      padding: 12px 20px; border-radius: 30px;
-      border: 1.5px solid var(--divider); background: #FFFFFF; color: var(--text);
-      cursor: pointer; transition: all 0.2s ease;
+    @keyframes bkFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* Watch pill: on cast cards, the organizer note and quiz results */
+    .bk-watch {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.3px;
+      color: var(--accent); background: #FFFFFF;
+      border: 1.5px solid var(--accent); border-radius: 30px;
+      padding: 7px 15px 7px 8px; cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
     }
-    .bk-picker button:hover { border-color: var(--accent); color: var(--accent); }
-    .bk-picker button.active { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
-    .bk-reveal {
-      max-width: 680px; margin: 36px auto 0;
-      background: #FFFFFF; border-radius: 12px;
-      padding: 36px 40px;
+    .bk-watch__icon {
+      width: 20px; height: 20px; border-radius: 50%; background: var(--accent);
+      display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .bk-watch__icon::after {
+      content: ''; margin-left: 2px;
+      border-left: 7px solid #FFFFFF; border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent;
+    }
+    .bk-watch:hover { background: var(--accent); color: #FFFFFF; }
+    .bk-watch:hover .bk-watch__icon { background: #FFFFFF; }
+    .bk-watch:hover .bk-watch__icon::after { border-left-color: var(--accent); }
+    .bk-watch--off { color: var(--text-light); border-color: var(--divider); }
+    .bk-watch--off .bk-watch__icon { background: var(--divider); }
+    .bk-watch--off:hover { background: #FAF7F2; color: var(--text-light); }
+    .bk-watch--off:hover .bk-watch__icon { background: var(--divider); }
+    .bk-watch--off:hover .bk-watch__icon::after { border-left-color: #FFFFFF; }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+
+    /* Play badge on the cast art */
+    .bk-art { position: relative; }
+    .bk-art__play {
+      position: absolute; left: 12px; bottom: 12px; z-index: 1;
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+      color: #FAF7F2; background: rgba(61,37,24,0.86); border: 0; border-radius: 30px;
+      padding: 6px 13px 6px 6px; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .bk-art__play:hover { background: var(--accent); transform: scale(1.04); }
+    .bk-art__play-icon {
+      width: 22px; height: 22px; border-radius: 50%; background: #FAF7F2;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .bk-art__play-icon::after {
+      content: ''; margin-left: 2px;
+      border-left: 8px solid var(--accent); border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+    }
+    .bk-art__play--off { padding: 6px 13px; background: rgba(250,247,242,0.92); color: var(--accent); border: 1.5px dashed var(--accent); box-shadow: none; }
+    .bk-art__play--off:hover { background: #FAF7F2; transform: none; }
+
+    .bk-result__more { font-size: 0.9rem; color: var(--accent); margin-left: 4px; }
+    .bk-patterns { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 10px; max-width: 760px; margin: 36px auto 0; font-size: 0.9rem; }
+    .bk-patterns span { color: var(--text-light); }
+    .bk-patterns a { color: var(--accent); background: #FAF7F2; border: 1px solid var(--divider); border-radius: 30px; padding: 6px 14px; text-decoration: none; transition: border-color 0.2s ease; }
+    .bk-patterns a:hover { border-color: var(--accent); }
+
+    /* Hero: one clear welcome */
+    .bk-hero__grid { display: grid; gap: 34px; align-items: center; }
+    @media (min-width: 900px) { .bk-hero__grid { grid-template-columns: 1.15fr 0.85fr; gap: 56px; } }
+    .bk-hero__text { text-align: left; }
+    .bk-hero__chip {
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 22px;
+      font-size: 0.74rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent);
+      background: #FFFFFF; border: 1px solid var(--divider); border-radius: 30px; padding: 7px 15px;
+    }
+    .bk-hero__dot { width: 8px; height: 8px; border-radius: 50%; background: #E8784A; animation: bkBlink 1.6s ease-in-out infinite; }
+    .bk-hero__title { margin: 0; font-family: var(--font-heading); font-weight: 500; font-size: clamp(2.4rem, 5vw, 3.7rem); line-height: 1.08; color: var(--text); }
+    .bk-hero__sub { margin-top: 12px; font-family: var(--font-heading); font-style: italic; font-size: clamp(1.3rem, 2.5vw, 1.8rem); line-height: 1.3; color: var(--accent); }
+    .bk-hero__lede { margin-top: 20px; max-width: 520px; font-size: 1.06rem; line-height: 1.7; color: var(--text-light); }
+    .bk-hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .bk-hero__soft { display: inline-block; margin-top: 16px; padding: 0; background: none; border: 0; cursor: pointer; font-family: var(--font-body); font-size: 0.92rem; color: var(--accent); border-bottom: 1px solid rgba(200,90,42,0.4); }
+    .bk-hero__soft:hover { border-bottom-color: var(--accent); }
+    .bk-hero__meta { margin-top: 16px; font-size: 0.86rem; color: var(--text-light); }
+    .bk-hero__meta a { color: var(--accent); }
+    .bk-hero__visual { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .bk-hero__visual .bk-cover { max-width: 340px; }
+    .bk-hero__text > * { animation: bkRise 0.7s cubic-bezier(0.2, 0.7, 0.3, 1.1) both; }
+    .bk-hero__text > :nth-child(2) { animation-delay: 0.08s; }
+    .bk-hero__text > :nth-child(3) { animation-delay: 0.16s; }
+    .bk-hero__text > :nth-child(4) { animation-delay: 0.24s; }
+    .bk-hero__text > :nth-child(5) { animation-delay: 0.32s; }
+    .bk-hero__text > :nth-child(6) { animation-delay: 0.4s; }
+    .bk-hero__visual { animation: bkRise 0.9s cubic-bezier(0.2, 0.7, 0.3, 1.1) 0.2s both; }
+    @keyframes bkRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    @media (max-width: 968px) {
+      .bk-hero__title { margin-top: 0 !important; font-size: 2.3rem !important; line-height: 1.12 !important; }
+      .bk-hero__visual .bk-cover { max-width: 230px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bk-hero__text > *, .bk-hero__visual, .bk-hero__dot { animation: none; }
+    }
+
+    /* The book on stage, with the five people seated around it */
+    .bk-stage { position: relative; display: inline-block; padding: 34px 52px 30px; }
+    .bk-stage .bk-cover-wrap { position: relative; z-index: 1; }
+    .bk-seat {
+      position: absolute; z-index: 2; width: 66px; height: 66px; padding: 0; border: 0; background: none; cursor: pointer;
+      animation: bkSeatFloat 5s ease-in-out infinite;
+    }
+    .bk-seat__img {
+      width: 66px; height: 66px; border-radius: 50%; object-fit: cover; object-position: center top; display: block;
+      border: 3px solid #FFFFFF; box-shadow: 0 6px 18px rgba(61,37,24,0.22);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .bk-seat:hover .bk-seat__img, .bk-seat:focus-visible .bk-seat__img, .bk-seat.open .bk-seat__img { transform: scale(1.12); box-shadow: 0 10px 26px rgba(61,37,24,0.3); }
+    .bk-seat--kate { left: 0; top: 6%; }
+    .bk-seat--daniel { right: 0; top: 2%; animation-delay: -1.2s; }
+    .bk-seat--priya { left: -4%; top: 46%; animation-delay: -2.4s; }
+    .bk-seat--tom { right: -4%; top: 50%; animation-delay: -3.1s; }
+    .bk-seat--marta { left: 8%; bottom: 0; animation-delay: -4s; }
+    .bk-seat__bubble {
+      position: absolute; z-index: 3; bottom: calc(100% + 10px); left: 50%; transform: translate(-50%, 6px);
+      width: 200px; padding: 10px 13px; border-radius: 12px; text-align: left;
+      background: #3D2518; color: #FAF7F2; font-family: var(--font-heading); font-style: italic; font-size: 0.9rem; line-height: 1.4;
+      opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .bk-seat__bubble strong { display: block; font-family: var(--font-body); font-style: normal; font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; color: #E8784A; margin-bottom: 3px; }
+    .bk-seat__bubble::after { content: ''; position: absolute; top: 100%; left: 50%; margin-left: -7px; border: 7px solid transparent; border-top-color: #3D2518; }
+    .bk-seat:hover .bk-seat__bubble, .bk-seat:focus-visible .bk-seat__bubble, .bk-seat.open .bk-seat__bubble { opacity: 1; transform: translate(-50%, 0); }
+    .bk-seat--daniel .bk-seat__bubble, .bk-seat--tom .bk-seat__bubble { left: auto; right: 0; transform: translate(0, 6px); }
+    .bk-seat--daniel:hover .bk-seat__bubble, .bk-seat--tom:hover .bk-seat__bubble,
+    .bk-seat--daniel.open .bk-seat__bubble, .bk-seat--tom.open .bk-seat__bubble,
+    .bk-seat--daniel:focus-visible .bk-seat__bubble, .bk-seat--tom:focus-visible .bk-seat__bubble { transform: none; }
+    .bk-seat--daniel .bk-seat__bubble::after, .bk-seat--tom .bk-seat__bubble::after { left: auto; right: 26px; }
+    .bk-seat--kate .bk-seat__bubble, .bk-seat--priya .bk-seat__bubble, .bk-seat--marta .bk-seat__bubble { left: 0; transform: translate(0, 6px); }
+    .bk-seat--kate:hover .bk-seat__bubble, .bk-seat--priya:hover .bk-seat__bubble, .bk-seat--marta:hover .bk-seat__bubble,
+    .bk-seat--kate.open .bk-seat__bubble, .bk-seat--priya.open .bk-seat__bubble, .bk-seat--marta.open .bk-seat__bubble,
+    .bk-seat--kate:focus-visible .bk-seat__bubble, .bk-seat--priya:focus-visible .bk-seat__bubble, .bk-seat--marta:focus-visible .bk-seat__bubble { transform: none; }
+    .bk-seat--kate .bk-seat__bubble::after, .bk-seat--priya .bk-seat__bubble::after, .bk-seat--marta .bk-seat__bubble::after { left: 26px; margin-left: 0; }
+    @keyframes bkSeatFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    .bk-stage__hint { font-size: 0.82rem; color: var(--text-light); text-align: center; }
+    @media (max-width: 600px) {
+      .bk-stage { padding: 26px 34px 24px; }
+      .bk-seat, .bk-seat__img { width: 52px; height: 52px; }
+      .bk-seat__bubble { width: 170px; font-size: 0.82rem; }
+    }
+
+    /* The journey: a numbered step above each heading, a link into the next one below */
+    .bk-step {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;
+      font-size: 0.74rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent);
+    }
+    .bk-step span {
+      display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--accent); color: #FFFFFF; font-size: 0.72rem; letter-spacing: 0;
+    }
+    .bk-next {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 40px; padding: 11px 20px;
+      font-family: var(--font-body); font-size: 0.9rem; color: var(--accent);
+      background: transparent; border: 1.5px dashed var(--accent); border-radius: 30px; cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .bk-next:hover { background: var(--accent); color: #FFFFFF; border-style: solid; }
+    .bk-next span { display: inline-block; animation: bkNudge 1.8s ease-in-out infinite; }
+    .bk-next--dark { color: #FAF7F2; border-color: rgba(250,247,242,0.6); }
+    .bk-next--dark:hover { background: #FAF7F2; color: #3D2518; }
+    .bk-praise .bk-next { display: flex; margin-left: auto; margin-right: auto; width: max-content; }
+    @keyframes bkNudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+    @media (prefers-reduced-motion: reduce) { .bk-next span { animation: none; } }
+
+    /* Instagram invitation under the episodes */
+    .bk-insta {
+      display: grid; grid-template-columns: 1fr 250px; gap: 28px; align-items: center;
+      max-width: 720px; margin: 40px auto 0; text-align: left; text-decoration: none; color: var(--text);
+      background: #FFFFFF; border-radius: 16px; padding: 26px 28px; box-shadow: 0 8px 28px rgba(61,37,24,0.1);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .bk-insta:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(61,37,24,0.16); }
+    .bk-insta__head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .bk-insta__avatar {
+      width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex-shrink: 0;
+      padding: 2px; background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
+    }
+    .bk-insta__who { flex: 1 1 200px; display: flex; flex-direction: column; gap: 2px; }
+    .bk-insta__who strong { font-size: 1rem; }
+    .bk-insta__who span { font-size: 0.9rem; color: var(--text-light); }
+    .bk-insta__btn {
+      display: inline-flex; align-items: center; gap: 8px; color: #FFFFFF; font-weight: 600; font-size: 0.9rem;
+      padding: 11px 18px; border-radius: 30px; background: linear-gradient(45deg, #F58529, #DD2A7B 55%, #8134AF);
+    }
+    .bk-insta__screen {
+      display: block; overflow: hidden; border-radius: 24px; border: 7px solid #16171B; background: #000000;
+      box-shadow: 0 18px 36px rgba(61,37,24,0.22); transform: rotate(2deg); transition: transform 0.35s ease;
+    }
+    .bk-insta:hover .bk-insta__screen { transform: rotate(0deg) translateY(-3px); }
+    .bk-insta__screen img { display: block; width: 100%; height: auto; }
+    @media (max-width: 700px) {
+      .bk-insta { grid-template-columns: 1fr; gap: 22px; padding: 20px; }
+      .bk-insta__screen { width: 100%; max-width: 280px; margin: 0 auto; }
+      .bk-insta__btn { width: 100%; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { .bk-insta__screen, .bk-insta:hover .bk-insta__screen { transform: none; transition: none; } }
+
+    /* Agenda bar: where you are on the page, and what comes next */
+    .bk-agenda {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 950;
+      display: flex; align-items: center; gap: 4px; padding: 8px 12px;
+      overflow-x: auto; scrollbar-width: none; white-space: nowrap;
+      background: rgba(61,37,24,0.96); box-shadow: 0 -4px 18px rgba(0,0,0,0.15);
+      transform: translateY(110%); transition: transform 0.35s ease;
+    }
+    .bk-agenda::-webkit-scrollbar { display: none; }
+    .bk-agenda.show { transform: none; }
+    .bk-agenda__label { font-size: 0.66rem; letter-spacing: 2px; text-transform: uppercase; color: #E8784A; padding: 0 8px 0 4px; flex-shrink: 0; }
+    .bk-agenda button {
+      flex-shrink: 0; display: inline-flex; align-items: center; gap: 7px;
+      font-family: var(--font-body); font-size: 0.82rem; color: #EFE6DC;
+      background: transparent; border: 0; border-radius: 30px; padding: 7px 12px; cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .bk-agenda button span {
+      display: inline-flex; align-items: center; justify-content: center; width: 19px; height: 19px; border-radius: 50%;
+      font-size: 0.68rem; border: 1px solid rgba(239,230,220,0.5);
+    }
+    .bk-agenda button:hover { background: rgba(250,247,242,0.1); }
+    .bk-agenda button.active { background: #FAF7F2; color: #3D2518; }
+    .bk-agenda button.active span { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+    @media (min-width: 900px) {
+      .bk-agenda {
+        bottom: auto; top: 80px; justify-content: center; padding: 6px 16px;
+        background: rgba(250,247,242,0.97); border-bottom: 1px solid var(--divider); box-shadow: 0 6px 18px rgba(61,37,24,0.06);
+        transform: translateY(-120%); z-index: 990;
+      }
+      .bk-agenda__label { color: var(--accent); }
+      .bk-agenda button { color: var(--text); }
+      .bk-agenda button span { border-color: var(--divider); }
+      .bk-agenda button:hover { background: #FFFFFF; }
+      .bk-agenda button.active { background: #3D2518; color: #FAF7F2; }
+    }
+    footer.footer { padding-bottom: 70px; }
+
+    /* The organizer's words inside "Why I wrote it" */
+    .bk-why__creds { font-size: 0.85rem !important; margin-top: 22px; }
+    .bk-why__organizer { max-width: 620px; margin: 0 auto 22px; font-family: var(--font-heading); font-style: italic; font-size: 1.12rem; line-height: 1.6; color: #EFE6DC; }
+
+    /* What readers are saying: a strip right under the hero */
+    .bk-praise { background: #FFFFFF; padding: 44px 0 40px; border-bottom: 1px solid var(--divider); overflow-x: clip; }
+    .bk-praise__title {
+      text-align: center; margin: 0 0 26px;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);
+    }
+    .bk-praise__row {
+      display: flex; gap: 16px; margin: 0 -24px; padding: 4px 24px 10px;
+      overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    }
+    .bk-praise__row::-webkit-scrollbar { display: none; }
+    .bk-praise__item {
+      position: relative; flex: 0 0 78%; scroll-snap-align: center; margin: 0;
+      background: #FAF7F2; border-radius: 12px; padding: 30px 22px 20px;
+      border-top: 3px solid var(--accent);
+    }
+    .bk-praise__item::before {
+      content: '\201C'; position: absolute; top: 2px; left: 16px;
+      font-family: var(--font-heading); font-size: 3.4rem; line-height: 1; color: var(--accent); opacity: 0.35;
+    }
+    .bk-praise__item blockquote { margin: 0; font-family: var(--font-heading); font-style: italic; font-size: 1.12rem; line-height: 1.5; color: var(--text); }
+    .bk-praise__item figcaption { margin-top: 12px; font-size: 0.74rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+    .bk-praise__more { display: block; text-align: center; margin-top: 18px; font-size: 0.9rem; color: var(--accent); }
+    @media (min-width: 900px) {
+      .bk-praise__row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 0; padding: 4px 0 10px; overflow: visible; }
+    }
+
+    /* One reader line under the cover */
+    .bk-hero-note {
+      max-width: 300px; margin: 18px auto 0;
+      font-family: var(--font-heading); font-style: italic; font-size: 0.98rem; line-height: 1.5; color: var(--text);
+    }
+    .bk-hero-note span { display: block; margin-top: 4px; font-family: var(--font-body); font-style: normal; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+
+    /* Reader notes: sticky notes left on the meeting room wall */
+    .bk-notes { display: grid; grid-template-columns: 1fr; gap: 26px; max-width: 980px; margin: 48px auto 0; }
+    @media (min-width: 700px) { .bk-notes { grid-template-columns: repeat(2, 1fr); gap: 34px; } }
+    /* Each note drops onto the wall at its own slight angle */
+    .bk-note {
+      --tilt: -1.4deg;
+      position: relative; text-align: left;
+      background: #FFF3C4; padding: 30px 26px 22px;
+      box-shadow: 0 10px 24px rgba(61,37,24,0.12), 0 2px 4px rgba(61,37,24,0.06);
+      opacity: 0; transform: translateY(-34px) rotate(calc(var(--tilt) * 5)) scale(1.04);
+      transition: opacity 0.45s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.3, 1.25);
+    }
+    .bk-note:nth-child(2) { --tilt: 1.2deg; background: #FBE1D3; }
+    .bk-note:nth-child(3) { --tilt: 0.8deg; background: #E4EEDD; }
+    .bk-note:nth-child(4) { --tilt: -1deg; background: #F1E6D8; }
+    .bk-note:nth-child(5) { --tilt: 1.1deg; background: #E6ECF3; }
+    .bk-note:nth-child(6) { --tilt: -0.7deg; background: #FFF3C4; }
+    .bk-note.bk-in { opacity: 1; transform: rotate(var(--tilt)); }
+    .bk-note.bk-in:hover { transform: rotate(0deg) translateY(-4px); transition-duration: 0.3s; }
+
+    /* The pause before a quiz result */
+    .bk-deliberate { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 48px 0; color: var(--text-light); font-size: 0.95rem; }
+    .bk-deliberate[hidden] { display: none; }
+    .bk-deliberate__dots { display: flex; gap: 8px; }
+    .bk-deliberate__dots span { width: 11px; height: 11px; border-radius: 50%; background: var(--accent); animation: bkDots 1s ease-in-out infinite; }
+    .bk-deliberate__dots span:nth-child(2) { animation-delay: 0.15s; }
+    .bk-deliberate__dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes bkDots { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(-9px); opacity: 1; } }
+    .bk-note::before {
+      content: ''; position: absolute; top: -11px; left: 50%; margin-left: -42px;
+      width: 84px; height: 22px; background: rgba(255,255,255,0.55);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08); transform: rotate(-3deg);
+    }
+    .bk-note__text { font-family: var(--font-heading); font-size: 1.08rem; line-height: 1.6; color: var(--text); }
+    .bk-note__who { margin-top: 14px; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: #6B4A35; }
+    .bk-note__who em { text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
+
+    /* Why I wrote it: the real photo */
+    .bk-why__photo {
+      width: 128px; height: 128px; border-radius: 50%; object-fit: cover; object-position: center 20%;
+      border: 3px solid rgba(250,247,242,0.85); margin: 0 auto 22px; display: block;
+    }
+    .bk-why__note { max-width: 520px; margin: 34px auto 0; padding-top: 24px; border-top: 1px solid rgba(250,247,242,0.18); }
+    .bk-why__note-text { font-family: var(--font-heading); font-style: italic; font-size: 1.08rem; line-height: 1.6; color: #FAF7F2; }
+    .bk-why__note-who { margin-top: 8px; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: #E8784A; }
+
+    /* A reader line inside a quiz result */
+    .bk-result__reader { margin-top: 16px; padding: 14px 18px; background: #FFF3C4; transform: rotate(-0.6deg); font-size: 0.92rem; line-height: 1.6; }
+    .bk-result__reader span { display: block; margin-top: 6px; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: #6B4A35; }
+
+    /* Episodes: the day's calendar */
+    /* Phones and tablets: a row you swipe, like reels. Desktop: all five in a line. */
+    .bk-eps {
+      display: flex; gap: 14px; margin: 44px -24px 0; padding: 4px 24px 18px;
+      overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    }
+    .bk-eps::-webkit-scrollbar { display: none; }
+    .bk-eps > .bk-ep { flex: 0 0 62%; max-width: 260px; scroll-snap-align: center; }
+    @media (max-width: 768px) { .bk-eps { margin: 44px -20px 0; padding: 4px 20px 18px; } }
+    @media (min-width: 900px) {
+      .bk-eps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin: 44px 0 0; padding: 4px 0 18px; overflow: visible; }
+      .bk-eps > .bk-ep { max-width: none; }
+    }
+    .bk-ep__title, .bk-ep__who { display: block; }
+    .bk-ep__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .bk-ep {
+      display: flex; flex-direction: column; text-align: left;
+      background: #FFFFFF; border: 0; border-radius: 12px; overflow: hidden; padding: 0;
+      font: inherit; color: inherit; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(61,37,24,0.09);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bk-ep { opacity: 0; transform: translateY(26px); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1.12), box-shadow 0.3s ease; }
+    .bk-ep.bk-in { opacity: 1; transform: none; }
+    .bk-ep.bk-in:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(61,37,24,0.16); }
+    .bk-ep__media { position: relative; aspect-ratio: 9 / 16; overflow: hidden; background: #EFE3D3; }
+    .bk-ep__media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .bk-ep__play {
+      position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px;
+      border-radius: 50%; background: rgba(250,247,242,0.92); box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      display: flex; align-items: center; justify-content: center; transition: transform 0.25s ease;
+    }
+    .bk-ep__play::after {
+      content: ''; margin-left: 5px;
+      border-left: 17px solid var(--accent); border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+    }
+    .bk-ep:hover .bk-ep__play { transform: scale(1.08); }
+    .bk-ep__slot {
+      position: absolute; top: 12px; left: 12px;
+      background: #3D2518; color: #FAF7F2; border-radius: 6px;
+      font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 10px;
+    }
+    .bk-ep__len {
+      position: absolute; bottom: 12px; right: 12px;
+      background: rgba(0,0,0,0.55); color: #FFFFFF; border-radius: 4px;
+      font-size: 0.75rem; padding: 3px 8px; font-variant-numeric: tabular-nums;
+    }
+    .bk-ep__info { padding: 14px 16px 18px; }
+    .bk-ep__title { font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.3; color: var(--text); }
+    .bk-ep__who { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
+    .bk-ep--off { cursor: default; }
+    .bk-ep--off:hover { transform: none; box-shadow: 0 6px 24px rgba(61,37,24,0.09); }
+    .bk-ep--off .bk-ep__media img { filter: grayscale(0.85); opacity: 0.5; }
+    .bk-ep__stamp {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg);
+      border: 2.5px solid var(--accent); border-radius: 6px; background: rgba(250,247,242,0.88);
+      color: var(--accent); font-weight: 600; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase;
+      padding: 8px 14px; white-space: nowrap;
+    }
+    .bk-eps-note { margin-top: 32px; font-size: 0.92rem; color: var(--text-light); }
+    .bk-eps-note a { color: var(--accent); }
+
+    /* Video player */
+    .bk-player {
+      border: 0; padding: 0; background: transparent; overflow: visible;
+      margin: auto; /* the global reset strips the dialog's centring margin */
+      width: min(400px, 92vw, calc(76vh * 9 / 16));
+      max-width: none;
+    }
+    .bk-player::backdrop { background: rgba(26,16,10,0.84); }
+    .bk-player__frame { position: relative; aspect-ratio: 9 / 16; background: #000000; border-radius: 14px; overflow: hidden; }
+    .bk-player__frame video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000000; }
+    .bk-player__close {
+      position: absolute; top: 10px; right: 10px; z-index: 2;
+      width: 38px; height: 38px; border-radius: 50%; border: 0;
+      background: rgba(0,0,0,0.55); color: #FFFFFF; font-size: 1.4rem; line-height: 1; cursor: pointer;
+    }
+    .bk-player__meta { text-align: center; margin-top: 14px; }
+    .bk-player__title { font-family: var(--font-heading); font-size: 1.1rem; color: #FAF7F2; }
+    .bk-player__cta {
+      margin-top: 8px; padding: 2px 0; cursor: pointer;
+      font-family: var(--font-body); font-size: 0.92rem; color: #E8784A;
+      background: none; border: 0; border-bottom: 1px solid #E8784A;
+    }
+
+    /* Quiz */
+    .bk-quiz {
+      max-width: 680px; margin: 40px auto 0; text-align: left;
+      background: #FFFFFF; border-radius: 14px; padding: 34px 38px 36px;
       box-shadow: 0 6px 24px rgba(61,37,24,0.08);
-      display: none; text-align: left;
     }
-    .bk-reveal.show { display: block; animation: bkFade 0.4s ease; }
-    .bk-reveal h3 { font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 14px; }
-    .bk-reveal .bk-practice {
+    .bk-sent {
+      max-width: 680px; margin: 28px auto 0;
+      background: #FAF7F2; border: 1px dashed var(--accent); border-radius: 10px;
+      padding: 14px 20px; font-size: 0.95rem;
+    }
+    .bk-quiz__progress {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light);
+      margin-bottom: 18px;
+    }
+    .bk-quiz__dots { display: flex; gap: 6px; }
+    .bk-quiz__dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--divider); transition: background 0.3s ease; }
+    .bk-quiz__dots span.done { background: var(--accent); }
+    .bk-q { display: none; }
+    .bk-q.show { display: block; animation: bkFade 0.4s ease; }
+    .bk-q__text { font-family: var(--font-heading); font-size: 1.35rem; line-height: 1.4; color: var(--text); margin-bottom: 22px; }
+    .bk-q__opts { display: flex; flex-direction: column; gap: 10px; }
+    .bk-q__opts button {
+      text-align: left; font-family: var(--font-body); font-size: 0.95rem; line-height: 1.5;
+      padding: 14px 18px; border-radius: 10px; cursor: pointer;
+      border: 1.5px solid var(--divider); background: #FAF7F2; color: var(--text);
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .bk-q__opts button:hover, .bk-q__opts button:focus-visible { border-color: var(--accent); background: #FFFFFF; }
+    .bk-q__opts button.picked { border-color: var(--accent); background: var(--accent); color: #FFFFFF; }
+    .bk-quiz__back {
+      margin-top: 16px; padding: 4px 0; cursor: pointer;
+      background: none; border: 0; font-family: var(--font-body); font-size: 0.85rem; color: var(--text-light);
+    }
+    .bk-quiz__back:hover { color: var(--accent); }
+    .bk-result { display: none; }
+    .bk-result.show { display: block; animation: bkFade 0.5s ease; }
+    .bk-r[hidden] { display: none; }
+    .bk-result__head { display: flex; gap: 20px; align-items: center; }
+    .bk-result__img {
+      width: 96px; height: 96px; border-radius: 50%; flex-shrink: 0;
+      object-fit: cover; object-position: center top;
+      border: 3px solid #FFFFFF; box-shadow: 0 4px 16px rgba(61,37,24,0.18);
+    }
+    .bk-result__label { display: block; font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); }
+    .bk-result__name { font-family: var(--font-heading); font-size: 1.7rem; line-height: 1.2; color: var(--text); margin-top: 4px; }
+    .bk-result__title { font-size: 0.95rem; color: var(--text-light); margin-top: 2px; }
+    .bk-result__body { margin-top: 20px; line-height: 1.8; }
+    .bk-result__second { margin-top: 14px; font-size: 0.95rem; color: var(--text); }
+    .bk-result__second strong { color: var(--accent); }
+    .bk-doorbox {
       margin-top: 20px; padding: 18px 22px;
       background: #FAF7F2; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0;
       font-size: 0.95rem;
     }
-    .bk-reveal .bk-practice strong { display: block; margin-bottom: 6px; font-family: var(--font-heading); font-weight: 600; font-size: 1.02rem; }
-    @keyframes bkFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .bk-doorbox strong { display: block; margin-bottom: 6px; font-family: var(--font-heading); font-weight: 600; font-size: 1.02rem; }
+    .bk-result__actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 24px; }
+    .bk-result__actions .btn { padding: 11px 20px; font-size: 0.88rem; }
+    .bk-result__note { font-size: 0.88rem; color: var(--text-light); margin-top: 18px; }
+    .bk-signup { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--divider); }
+    .bk-signup__title { font-family: var(--font-heading); font-size: 1.2rem; color: var(--text); }
+    .bk-signup__text { font-size: 0.92rem; color: var(--text-light); margin-top: 6px; }
+    .bk-signup__list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+    .bk-signup__list li { position: relative; padding-left: 28px; font-size: 0.95rem; line-height: 1.5; color: var(--text); }
+    .bk-signup__list li::before {
+      content: ''; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M4 8.5l2.5 2.5L12 5.5'/%3E%3C/svg%3E") center / 12px no-repeat;
+    }
+    .bk-brevo__small { flex-basis: 100%; font-size: 0.82rem; color: var(--text-light); }
+    .bk-brevo.is-sent .bk-brevo__small { display: none; }
+    @media (max-width: 968px) { .bk-signup__list li { font-size: 16px !important; } }
+    .bk-brevo { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .bk-brevo input[type="text"], .bk-brevo input[type="email"] {
+      flex: 1 1 180px; min-width: 0;
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--text);
+      padding: 13px 16px; border: 1.5px solid var(--divider); border-radius: 8px; background: #FAF7F2;
+    }
+    .bk-brevo input:focus { outline: none; border-color: var(--accent); background: #FFFFFF; }
+    .bk-brevo .btn { padding: 13px 24px; font-size: 0.92rem; }
+    .bk-brevo .bk-brevo__trap { position: absolute; left: -5000px; width: 1px; height: 1px; opacity: 0; }
+    .bk-brevo__msg { flex-basis: 100%; font-size: 0.9rem; color: var(--accent); min-height: 1px; }
+    .bk-brevo.is-sent input, .bk-brevo.is-sent .btn { display: none; }
+    .bk-signup--doors {
+      max-width: 680px; margin: 40px auto 0; padding: 26px 30px 24px; text-align: left;
+      background: #FFFFFF; border: 1px dashed var(--accent); border-radius: 12px;
+    }
+    @media (max-width: 768px) { .bk-signup--doors { padding: 22px 20px; } }
+    .bk-result__team { margin-top: 18px; font-size: 0.92rem; }
+    .bk-result__team a { color: var(--accent); }
+    @media (max-width: 768px) {
+      .bk-quiz { padding: 26px 20px 28px; }
+      .bk-q__text { font-size: 1.2rem; }
+      .bk-result__head { gap: 14px; }
+      .bk-result__img { width: 76px; height: 76px; }
+      .bk-result__name { font-size: 1.45rem; }
+    }
+
+    /* Quiz statements and the three-step scale */
+    .bk-q .bk-q__text { text-align: center; font-size: 1.45rem; min-height: 3.6em; display: flex; align-items: center; justify-content: center; }
+    .bk-q__scale { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .bk-q__scale button {
+      padding: 14px 8px; border-radius: 10px; cursor: pointer;
+      font-family: var(--font-body); font-size: 0.95rem; color: var(--text);
+      border: 1.5px solid var(--divider); background: #FAF7F2;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .bk-q__scale button:hover, .bk-q__scale button:focus-visible { border-color: var(--accent); background: #FFFFFF; }
+    .bk-q__scale button:active { transform: scale(0.97); }
+    .bk-q__scale button.picked { border-color: var(--accent); background: var(--accent); color: #FFFFFF; }
+
+    /* Result: the mix of all five */
+    .bk-mix { margin-bottom: 30px; }
+    .bk-mix[hidden], .bk-r-empty[hidden] { display: none; }
+    .bk-mix__chair { margin-top: 6px; font-family: var(--font-heading); font-size: 1.45rem; line-height: 1.3; color: var(--text); }
+    .bk-mix__chair strong { color: var(--accent); font-weight: 500; }
+    .bk-mix__chair [hidden] { display: none; }
+    .bk-mix__bars { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+    .bk-bar { display: grid; grid-template-columns: 44px 1fr 46px; align-items: center; gap: 12px; }
+    .bk-bar img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(61,37,24,0.15); }
+    .bk-bar__label { font-size: 0.92rem; line-height: 1.3; color: var(--text); }
+    .bk-bar__label small { margin-left: 6px; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); }
+    .bk-bar__track { height: 10px; margin-top: 6px; border-radius: 10px; background: #F2ECE4; overflow: hidden; }
+    .bk-bar__fill { width: 0; height: 100%; border-radius: 10px; background: #E8A47F; transition: width 0.9s cubic-bezier(0.2, 0.7, 0.3, 1); }
+    .bk-bar.is-chair .bk-bar__fill { background: var(--accent); }
+    .bk-bar.is-chair .bk-bar__label { font-weight: 600; }
+    .bk-bar__pct { text-align: right; font-size: 0.9rem; font-variant-numeric: tabular-nums; color: var(--text-light); }
+    .bk-mix__hint { margin-top: 14px; font-size: 0.88rem; color: var(--text-light); }
+    .bk-r-empty { margin-bottom: 20px; }
+    @media (max-width: 768px) {
+      .bk-q .bk-q__text { font-size: 1.2rem !important; line-height: 1.45 !important; }
+      .bk-q__scale button { font-size: 0.88rem; padding: 13px 4px; }
+      .bk-mix__chair { font-size: 1.25rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .bk-bar__fill { transition: none; } }
+
+    /* A practice: when to use it, the steps, and why it helps */
+    .bk-practice { margin-top: 6px; text-align: left; }
+    .bk-practice__meta { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-bottom: 10px; font-size: 0.82rem; color: var(--text-light); }
+    .bk-practice__meta span:first-child { font-weight: 600; color: var(--accent); }
+    .bk-practice__meta span + span::before { content: '\00B7'; margin-right: 10px; color: var(--divider); }
+    .bk-practice__steps { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .bk-practice__steps li { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
+    .bk-practice__why { margin-top: 10px; font-size: 0.9rem; line-height: 1.55; color: var(--text-light); }
+    .bk-practice__why strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 968px) { .bk-practice__steps li { font-size: 16px !important; line-height: 1.6 !important; } }
+
+    .bk-retreat { max-width: 680px; margin: 40px auto 0; text-align: center; line-height: 1.8; color: var(--text-light); }
+    .bk-retreat strong { color: var(--text); font-family: var(--font-heading); font-weight: 500; font-size: 1.1rem; }
+
+    /* Fifteen doors */
+    .bk-doors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 780px; margin: 40px auto 0; }
+    @media (min-width: 700px) { .bk-doors { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; } }
+    .bk-door {
+      position: relative; aspect-ratio: 3 / 4.2;
+      display: flex; flex-direction: column; justify-content: flex-end; text-align: left;
+      padding: 12px 11px; cursor: pointer; font: inherit; color: var(--text);
+      border: 1.5px solid #E3D5C2; border-radius: 10px 10px 3px 3px;
+      background: linear-gradient(170deg, #FFFFFF 0%, #F5EDE2 100%);
+      transform-origin: left center;
+      transition: transform 0.45s cubic-bezier(0.3, 0.7, 0.3, 1.1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .bk-door::after {
+      content: ''; position: absolute; right: 11px; top: 50%;
+      width: 7px; height: 7px; border-radius: 50%; background: var(--gold);
+    }
+    .bk-door:hover { box-shadow: 0 8px 22px rgba(61,37,24,0.12); }
+    .bk-door__num { position: absolute; top: 9px; left: 11px; font-family: var(--font-heading); font-size: 1.35rem; color: #C85A2A; opacity: 0.55; }
+    .bk-door__name { font-family: var(--font-heading); font-size: 0.9rem; line-height: 1.25; overflow-wrap: break-word; hyphens: auto; }
+    .bk-door__tag { font-size: 0.64rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); margin-top: 5px; }
+    .bk-door--ajar { border-color: var(--accent); }
+    .bk-door--ajar .bk-door__tag { color: var(--accent); font-weight: 600; }
+    .bk-door.is-active { transform: perspective(700px) rotateY(-20deg); box-shadow: 10px 10px 26px rgba(61,37,24,0.18); }
+    .bk-door-panel {
+      display: none; max-width: 680px; margin: 26px auto 0; text-align: left;
+      background: #FFFFFF; border-radius: 12px; padding: 26px 30px;
+      box-shadow: 0 6px 24px rgba(61,37,24,0.08);
+    }
+    .bk-door-panel.show { display: block; animation: bkFade 0.4s ease; }
+    .bk-door-panel h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 4px; }
+    .bk-door-panel .bk-door-panel__ch { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); margin-bottom: 14px; }
+    .bk-door-panel a { color: var(--accent); }
+    @media (max-width: 768px) {
+      .bk-door { padding: 10px 9px; }
+      .bk-door__name { font-size: 0.82rem; }
+      .bk-door-panel { padding: 22px 20px; }
+    }
+    @media (max-width: 480px) {
+      .bk-door { padding: 40px 8px 10px; }
+      .bk-door::after { top: 17px; right: 10px; }
+      .bk-door__name { font-size: 0.7rem; }
+      .bk-door__tag { font-size: 0.6rem; letter-spacing: 0.6px; }
+    }
+
+    /* Meeting in progress pill */
+    .bk-live {
+      position: fixed; left: 16px; bottom: 16px; z-index: 900;
+      display: flex; align-items: center; gap: 9px;
+      background: #3D2518; color: #FAF7F2; border: 0; border-radius: 30px;
+      font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.4px;
+      padding: 9px 16px 9px 13px; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      opacity: 0; transform: translateY(12px); pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .bk-live.show { opacity: 1; transform: none; pointer-events: auto; }
+    .bk-live__dot { width: 8px; height: 8px; border-radius: 50%; background: #E8784A; animation: bkBlink 1.6s ease-in-out infinite; }
+    .bk-live__time { font-variant-numeric: tabular-nums; opacity: 0.75; }
+    .bk-live__go { color: #E8784A; }
+    @media (max-width: 600px) {
+      .bk-ep__slot { font-size: 0.68rem; letter-spacing: 1px; padding: 5px 8px; top: 10px; left: 10px; white-space: nowrap; }
+      .bk-ep__info { padding: 12px 12px 14px; }
+      .bk-ep__title { font-size: 1rem; }
+      .bk-live { left: 12px; bottom: 12px; font-size: 0.72rem; padding: 7px 13px 7px 11px; gap: 7px; }
+    }
 
     /* Review ask with stars */
     .bk-review {
@@ -348,6 +946,13 @@
       .bk-cover { transform: none; }
       .bk-card__face::before { animation: none !important; }
       .bk-review__stars span { opacity: 1; transform: none; animation: none !important; }
+      .bk-ep, .bk-ep:hover, .bk-ep.bk-in:hover, .bk-door, .bk-door.is-active { opacity: 1; transform: none; transition: none; }
+      .bk-note, .bk-note.bk-in, .bk-note.bk-in:hover { opacity: 1; transform: rotate(var(--tilt)); transition: none; }
+      .bk-deliberate__dots span { animation: none; opacity: 1; }
+      .bk-seat { animation: none; }
+      .bk-agenda { transition: none; }
+      .bk-live__dot { animation: none; }
+      .bk-q.show, .bk-result.show, .bk-door-panel.show { animation: none; }
     }
 
     @media (max-width: 768px) {
@@ -360,8 +965,11 @@
       .bk-card__back p { color: #EFE6DC !important; font-size: 16px !important; line-height: 1.65 !important; }
       .bk-card__back .bk-inside-label { color: #E8784A !important; }
     }
+    /* Spanish edition: flat cover instead of the paperback mock */
+    .bk-hero__visual .bk-cover--es { max-width: 250px; border-radius: 4px; box-shadow: 0 18px 40px rgba(61, 37, 24, 0.22); }
+    @media (max-width: 600px) { .bk-hero__visual .bk-cover--es { max-width: 170px; } }
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://annamilaeva.com/#anna","name":"Anna Milaeva","url":"https://annamilaeva.com/about","image":"https://annamilaeva.com/anna-about.jpg","jobTitle":"Transformational IFS Coach","description":"IFS coach trained through all three levels at the IFS Institute and a certified Deep Transformational Coach, working with professionals, leaders and people in transition.","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"Spanish"},{"@type":"Language","name":"Russian"}],"alumniOf":[{"@type":"Organization","name":"IFS Institute","url":"https://ifs-institute.com/"},{"@type":"CollegeOrUniversity","name":"Florida International University"}],"knowsAbout":["Internal Family Systems","IFS coaching","burnout","leadership","operations","career transition"],"sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]},{"@type":"ProfessionalService","@id":"https://annamilaeva.com/#practice","name":"Anna Milaeva","url":"https://annamilaeva.com/","image":"https://annamilaeva.com/og-image.png","description":"IFS coaching for professionals, leaders and people in transition. Online, in English and Spanish.","founder":{"@id":"https://annamilaeva.com/#anna"},"provider":{"@id":"https://annamilaeva.com/#anna"},"areaServed":{"@type":"Place","name":"Worldwide, online"},"availableLanguage":["en","es"],"priceRange":"$105-$2550","currenciesAccepted":"USD","sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://annamilaeva.com/#anna","name":"Anna Milaeva","url":"https://annamilaeva.com/about","image":"https://annamilaeva.com/anna-about.jpg","jobTitle":"IFS Coach for People in Transition","description":"IFS coach trained through all three levels at the IFS Institute and a certified Deep Transformational Coach, working with professionals, leaders and people in transition.","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"Spanish"},{"@type":"Language","name":"Russian"}],"alumniOf":[{"@type":"Organization","name":"IFS Institute","url":"https://ifs-institute.com/"},{"@type":"CollegeOrUniversity","name":"Florida International University"}],"knowsAbout":["Internal Family Systems","IFS coaching","burnout","leadership","operations","career transition"],"sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]},{"@type":"ProfessionalService","@id":"https://annamilaeva.com/#practice","name":"Anna Milaeva","url":"https://annamilaeva.com/","image":"https://annamilaeva.com/og-image.png","description":"IFS coaching for professionals, leaders and people in transition. Online, in English and Spanish.","founder":{"@id":"https://annamilaeva.com/#anna"},"provider":{"@id":"https://annamilaeva.com/#anna"},"areaServed":{"@type":"Place","name":"Worldwide, online"},"availableLanguage":["en","es"],"priceRange":"$105-$2550","currenciesAccepted":"USD","sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com"]}]}</script>
   <!-- Analytics: Umami, no cookies. The website ID comes from cloud.umami.is -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="d81dd3f9-1d51-4c90-a8b2-aab224a36bac" data-domains="annamilaeva.com"></script>
 </head>
@@ -369,7 +977,7 @@
 
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
-  <!-- Navigation -->
+  <!-- Navegación -->
   <nav class="nav" id="nav">
     <div class="container nav__inner">
       <a href="/es/" class="nav__logo">Anna Milaeva <span class="nav__logo-role">Coach de IFS para Personas en Transici&oacute;n</span></a>
@@ -428,75 +1036,99 @@
 
   <main id="main">
 
-  <!-- Hero: la invitaci&oacute;n de calendario -->
-  <section class="hero hero--compact" style="background: radial-gradient(ellipse at 60% 40%, #F0E8DE 0%, #FAF7F2 65%);">
+  <!-- Hero: la bienvenida -->
+  <section class="hero hero--compact bk-hero" id="book" data-agenda="book" style="background: radial-gradient(ellipse at 70% 40%, #F0E8DE 0%, #FAF7F2 65%);">
     <div class="container">
-      <div class="grid-2 fade-in" style="align-items: center; gap: 48px;">
-        <div style="display: flex; justify-content: center;">
-          <div class="bk-invite">
-            <div class="bk-invite__bar">
-              <span class="bk-invite__dots"><span></span><span></span><span></span></span>
-              Invitaci&oacute;n de calendario
-            </div>
-            <div class="bk-invite__body">
-              <h1 class="bk-invite__title">Tienes una invitaci&oacute;n: La reuni&oacute;n ya empez&oacute;</h1>
-              <div class="bk-invite__row"><span class="bk-invite__key">Qu&eacute;</span><span>Una novela sobre esas partes nuestras que nunca dejan de trabajar.</span></div>
-              <div class="bk-invite__row"><span class="bk-invite__key">Cu&aacute;ndo</span><span>Ahora. Empez&oacute; sin ti.</span></div>
-              <div class="bk-invite__row"><span class="bk-invite__key">D&oacute;nde</span><span>Adentro. Est&aacute;s m&aacute;s cerca de lo que crees.</span></div>
-              <div class="bk-invite__row"><span class="bk-invite__key">Organiza</span><span class="bk-invite__organizer"><img src="/anna-author.jpg" alt="Anna Milaeva, autora de La reuni&oacute;n ya empez&oacute;" class="bk-invite__avatar">Anna Milaeva</span></div>
-              <div class="bk-invite__row"><span class="bk-invite__key">Invitados</span><span>Kate, Daniel, Priya, Tom, Marta, un burro, una llama, y todas tus partes.</span></div>
-              <div class="bk-invite__rsvp">
-                <button class="btn btn--primary" data-rsvp="accept">Aceptar</button>
-                <button class="btn btn--outline" data-rsvp="maybe">Quiz&aacute;s</button>
-                <button class="btn btn--outline" data-rsvp="decline">Rechazar</button>
-              </div>
-            </div>
+      <div class="bk-hero__grid">
+        <div class="bk-hero__text">
+          <span class="bk-hero__chip"><span class="bk-hero__dot" aria-hidden="true"></span>Reunión en curso &middot; Una novela de Anna Milaeva</span>
+          <h1 class="bk-hero__title">Todo el mundo ya está en una reunión.</h1>
+          <div class="bk-hero__sub">No hablo de la del calendario. Hablo de la otra.</div>
+          <div class="bk-hero__lede">Una novela corta y divertida sobre cinco personas en una startup y las voces internas que mueven a cada una, con trabajo de partes de verdad por debajo.</div>
+          <div class="bk-hero__ctas">
+            <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" data-umami-event-place="hero" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Consigue el libro</a>
+            <a href="#quiz" class="btn btn--outline">¿Cuál eres tú?</a>
           </div>
+          <button type="button" class="bk-hero__soft" data-goto="doors">¿Primera vez aquí? Prueba una práctica del libro &rarr;</button>
+          <div class="bk-hero__meta">En español. Tapa blanda y Kindle, y gratis en Kindle+. <a href="/book" lang="en" hreflang="en">Also in English</a></div>
         </div>
-        <div class="bk-cover-col">
-          <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="bk-cover-wrap">
-            <img src="/book-cover-es.jpg" width="938" height="1500" alt="La reuni&oacute;n ya empez&oacute;, una novela de Anna Milaeva" class="bk-cover">
-          </a>
-          <div style="margin-top: 26px;">
-            <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Cons&iacute;guela en Amazon</a>
+        <div class="bk-hero__visual">
+          <div class="bk-stage">
+            <button type="button" class="bk-seat bk-seat--kate" data-seat="kate" aria-label="Kate, Chief of Staff: Sin problema. Lo tengo listo para las 10.">
+              <img src="/cast-kate.jpg" alt="" class="bk-seat__img">
+              <span class="bk-seat__bubble"><strong>Kate</strong>&ldquo;Sin problema. Lo tengo listo para las 10.&rdquo;</span>
+            </button>
+            <button type="button" class="bk-seat bk-seat--daniel" data-seat="daniel" aria-label="Daniel, fundador y CEO: Esta es nuestra prioridad más importante en este momento.">
+              <img src="/cast-daniel.jpg" alt="" class="bk-seat__img">
+              <span class="bk-seat__bubble"><strong>Daniel</strong>&ldquo;Esta es nuestra prioridad más importante en este momento.&rdquo;</span>
+            </button>
+            <button type="button" class="bk-seat bk-seat--priya" data-seat="priya" aria-label="Priya, directora de Marketing: Tres versiones de cada presentación. Por si acaso.">
+              <img src="/cast-priya.jpg" alt="" class="bk-seat__img">
+              <span class="bk-seat__bubble"><strong>Priya</strong>&ldquo;Tres versiones de cada presentación. Por si acaso.&rdquo;</span>
+            </button>
+            <button type="button" class="bk-seat bk-seat--tom" data-seat="tom" aria-label="Tom, jefe de Ingeniería: Bien.">
+              <img src="/cast-tom.jpg" alt="" class="bk-seat__img">
+              <span class="bk-seat__bubble"><strong>Tom</strong>&ldquo;Bien.&rdquo;</span>
+            </button>
+            <button type="button" class="bk-seat bk-seat--marta" data-seat="marta" aria-label="Marta, abogada: Solo esta semana. Solo hasta el cierre.">
+              <img src="/cast-marta.jpg" alt="" class="bk-seat__img">
+              <span class="bk-seat__bubble"><strong>Marta</strong>&ldquo;Solo esta semana. Solo hasta el cierre.&rdquo;</span>
+            </button>
+            <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" data-umami-event-place="hero-cover" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="bk-cover-wrap">
+            <img src="/book-cover-es.jpg" alt="La reunión ya empezó, una novela de Anna Milaeva" class="bk-cover bk-cover--es">
+            </a>
           </div>
-          <p class="bk-cover-note">Una novela corta y divertida, con trabajo de partes de verdad por debajo. En espa&ntilde;ol. Tapa blanda y Kindle, y gratis en Kindle+.</p>
+          <div class="bk-stage__hint">Cinco personas ya están en esta reunión. Toca una cara.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Cita -->
-  <section class="bk-quote">
-    <div class="container fade-in">
-      <blockquote>"Todo el mundo ya est&aacute; en una reuni&oacute;n. No hablo de la del calendario. Hablo de la otra."</blockquote>
-      <cite>La reuni&oacute;n ya empez&oacute;</cite>
-    </div>
-  </section>
-
-  <!-- Unas palabras de la organizadora -->
-  <section class="section section--sm" style="background: #fff;">
+  <!-- Lo que dicen quienes la leyeron -->
+  <section class="bk-praise" aria-labelledby="bkPraiseTitle">
     <div class="container">
-      <div class="bk-author fade-in">
-        <img src="/anna-comic.jpg?v=2" alt="Anna Milaeva, autora de La reuni&oacute;n ya empez&oacute;, retrato ilustrado" class="bk-author__photo">
-        <div class="bk-author__bubble">
-          <p>"Dirig&iacute; operaciones durante m&aacute;s de una d&eacute;cada. Estuve en estas reuniones. Tambi&eacute;n estuve en las otras, las que corr&iacute;an por dentro. Esta historia es lo que pas&oacute; cuando por fin fui a las dos."</p>
-          <span class="bk-author__attr">Anna, la organizadora. Todas sus partes aprobaron este mensaje.</span>
-        </div>
+      <h2 class="bk-praise__title" id="bkPraiseTitle">Lo que dicen quienes la leyeron</h2>
+      <div class="bk-praise__row">
+        <figure class="bk-praise__item">
+          <blockquote>Reconocible, ágil, y muy difícil de soltar.</blockquote>
+          <figcaption>Roeland, Bélgica</figcaption>
+        </figure>
+        <figure class="bk-praise__item">
+          <blockquote>Me hizo parar, sentir, pensar y ser honesta conmigo misma.</blockquote>
+          <figcaption>Sophi, Croacia</figcaption>
+        </figure>
+        <figure class="bk-praise__item">
+          <blockquote>Riendo y llorando, porque es demasiado real.</blockquote>
+          <figcaption>Laurinas, Lituania</figcaption>
+        </figure>
+        <figure class="bk-praise__item">
+          <blockquote>Me reí muchísimo porque me di cuenta de que estaba siendo muy Priya.</blockquote>
+          <figcaption>Isabella, España</figcaption>
+        </figure>
+        <figure class="bk-praise__item">
+          <blockquote>Uno de los pocos libros que de verdad terminé últimamente.</blockquote>
+          <figcaption>Sasha, Moldavia</figcaption>
+        </figure>
+        <figure class="bk-praise__item">
+          <blockquote>Me di cuenta de que todavía tengo esa parte &#128514;</blockquote>
+          <figcaption>Kelly, EE. UU.</figcaption>
+        </figure>
       </div>
+      <button type="button" class="bk-next" data-goto="people" style="margin-top: 22px;">Siguiente en la agenda: conoce a las personas <span aria-hidden="true">&darr;</span></button>
     </div>
   </section>
 
-  <!-- Qui&eacute;n est&aacute; en la reuni&oacute;n -->
-  <section class="section" style="background: #fff; padding-top: 0;">
+  <!-- Personajes -->
+  <section class="section" id="people" data-agenda="people" style="background: #fff; padding-bottom: 30px;">
     <div class="container text-center">
-      <h2 class="fade-in">Qui&eacute;n est&aacute; en la reuni&oacute;n</h2>
+      <span class="bk-step fade-in"><span>2</span>Las personas</span>
+      <h2 class="fade-in">Quién está en la reunión</h2>
       <hr class="line-accent line-accent--center">
-      <p class="fade-in" style="max-width: 640px; margin: 20px auto 0; color: var(--text-light);">Cinco personas en Arco, una startup de bienestar que pivot&oacute; cuatro veces en ocho meses. Todas trabajan. Todas act&uacute;an. Y cada una est&aacute; en un tipo distinto de reuni&oacute;n. Toca una tarjeta para ver la de adentro.</p>
+      <p class="fade-in" style="max-width: 640px; margin: 20px auto 0; color: var(--text-light);">Cinco personas en Arco, una startup de bienestar que pivotó cuatro veces en ocho meses. Todas trabajan. Todas actúan. Y cada una está en un tipo distinto de reunión. Toca una tarjeta para ver la de adentro.</p>
 
       <div class="bk-cast fade-in">
 
-        <div class="bk-card" data-flip>
+        <div class="bk-card" data-flip id="card-kate">
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
@@ -509,14 +1141,14 @@
               </div>
             </div>
             <div class="bk-card__face bk-card__back">
-              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
-              <p><em>"Necesito dejar de estar tan disponible."</em></p>
-              <p style="margin-top: 12px;">Una parte de ella aprendi&oacute; temprano que ser &uacute;til es lo mismo que estar a salvo. No se ha tomado un solo d&iacute;a libre.</p>
+              <span class="bk-inside-label">La reunión de adentro</span>
+              <p><em>"Tengo que dejar de estar tan disponible."</em></p>
+              <p style="margin-top: 12px;">Una parte de ella aprendió temprano que ser útil es lo mismo que estar a salvo. No se ha tomado un solo día libre.</p>
             </div>
           </div>
         </div>
 
-        <div class="bk-card" data-flip>
+        <div class="bk-card" data-flip id="card-daniel">
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
@@ -525,58 +1157,58 @@
               <div class="bk-card__info">
                 <div class="bk-card__name">Daniel</div>
                 <div class="bk-card__role">Fundador y CEO</div>
-                <p class="bk-card__line">"Esta es nuestra prioridad m&aacute;s importante en este momento."</p>
+                <p class="bk-card__line">"Esta es nuestra prioridad más importante en este momento."</p>
               </div>
             </div>
             <div class="bk-card__face bk-card__back">
-              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
-              <p>Las palabras <em>en este momento</em> cargan con todo.</p>
-              <p style="margin-top: 12px;">Una parte de &eacute;l convierte cada sentimiento en un plan antes de que el sentimiento llegue a aterrizar. Cuatro giros en ocho meses. Cada uno completamente sincero.</p>
+              <span class="bk-inside-label">La reunión de adentro</span>
+              <p>Las palabras <em>en este momento</em> cargan con mucho trabajo.</p>
+              <p style="margin-top: 12px;">Una parte de él convierte cada sentimiento en un plan antes de que el sentimiento llegue a aterrizar. Cuatro giros en ocho meses. Cada uno completamente sincero.</p>
             </div>
           </div>
         </div>
 
-        <div class="bk-card" data-flip>
+        <div class="bk-card" data-flip id="card-priya">
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
-                <img src="/cast-priya.jpg" loading="lazy" alt="Priya, directora de marketing" class="bk-art__img">
+                <img src="/cast-priya.jpg" loading="lazy" alt="Priya, directora de Marketing" class="bk-art__img">
               </div>
               <div class="bk-card__info">
                 <div class="bk-card__name">Priya</div>
                 <div class="bk-card__role">Directora de Marketing</div>
-                <p class="bk-card__line">"Tres versiones de cada presentaci&oacute;n. Por si acaso."</p>
+                <p class="bk-card__line">"Tres versiones de cada presentación. Por si acaso."</p>
               </div>
             </div>
             <div class="bk-card__face bk-card__back">
-              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
-              <p>La versi&oacute;n A es la que &eacute;l dijo que quer&iacute;a. La versi&oacute;n B es la que quiere de verdad. La versi&oacute;n C es la que ella cree, y nadie la pidi&oacute;.</p>
-              <p style="margin-top: 12px;">Tener raz&oacute;n en privado es mejor que no tenerla en absoluto.</p>
+              <span class="bk-inside-label">La reunión de adentro</span>
+              <p>La versión A es la que él dijo que quería. La versión B es la que quiere de verdad. La versión C es la que ella cree, y nadie la pidió.</p>
+              <p style="margin-top: 12px;">Tener razón en privado es mejor que no tenerla en absoluto.</p>
             </div>
           </div>
         </div>
 
-        <div class="bk-card" data-flip>
+        <div class="bk-card" data-flip id="card-tom">
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
-                <img src="/cast-tom.jpg" loading="lazy" alt="Tom, jefe de ingenier&iacute;a" class="bk-art__img">
+                <img src="/cast-tom.jpg" loading="lazy" alt="Tom, jefe de Ingeniería" class="bk-art__img">
               </div>
               <div class="bk-card__info">
                 <div class="bk-card__name">Tom</div>
-                <div class="bk-card__role">Jefe de Ingenier&iacute;a</div>
+                <div class="bk-card__role">Jefe de Ingeniería</div>
                 <p class="bk-card__line">"Bien."</p>
               </div>
             </div>
             <div class="bk-card__face bk-card__back">
-              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
+              <span class="bk-inside-label">La reunión de adentro</span>
               <p>Significa por lo menos seis cosas distintas.</p>
-              <p style="margin-top: 12px;">Toda una vida interior, completa, actualizada sin parar, casi nunca transmitida. Cuando algo importa, hace t&eacute; en lugar de decirlo.</p>
+              <p style="margin-top: 12px;">Toda una vida interior, completa, actualizada sin parar, casi nunca transmitida. Cuando algo importa, hace té en lugar de decirlo.</p>
             </div>
           </div>
         </div>
 
-        <div class="bk-card" data-flip>
+        <div class="bk-card" data-flip id="card-marta">
           <div class="bk-card__inner">
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
@@ -589,101 +1221,325 @@
               </div>
             </div>
             <div class="bk-card__face bk-card__back">
-              <span class="bk-inside-label">La reuni&oacute;n de adentro</span>
+              <span class="bk-inside-label">La reunión de adentro</span>
               <p>Factura su vida en bloques de seis minutos.</p>
-              <p style="margin-top: 12px;">Una parte de ella quiso apoyo con tantas ganas, durante tanto tiempo, que se olvid&oacute; de c&oacute;mo aceptarlo. Rechazar&iacute;a la palabra agotamiento como quien rechaza una invitaci&oacute;n a una reuni&oacute;n.</p>
+              <p style="margin-top: 12px;">Una parte de ella quiso apoyo con tantas ganas, durante tanto tiempo, que se olvidó de cómo aceptarlo. Rechazaría la palabra agotamiento como quien rechaza una invitación a una reunión.</p>
             </div>
           </div>
         </div>
 
       </div>
 
-      <div class="bk-attendance fade-in">
-        <div class="bk-attendance__pair">
-          <img src="/donkey-circle.jpg" loading="lazy" alt="El burro, que nunca ha perdido una negociaci&oacute;n" class="bk-attendance__animal">
-          <img src="/llama-circle.jpg" loading="lazy" alt="La llama, que ya vio todo esto antes" class="bk-attendance__animal">
-        </div>
-        <p class="bk-attendance__line">Tambi&eacute;n asisten: un burro con una confianza absoluta, y una llama que ya vio todo esto antes.</p>
-        <hr class="line-accent line-accent--center" style="width: 40px; height: 2px; margin: 16px auto;">
-        <p class="bk-attendance__note">Ninguna parte fue exiliada durante la escritura de esta novela. Varias por fin fueron escuchadas.</p>
+      <p class="bk-retreat fade-in"><strong>Y entonces la empresa organiza un retiro.</strong> Tres días en una granja, con ejercicios de confianza, un baño de sonido, un fuego y dos animales con opiniones firmes. Lo que pasa ahí es divertido, después deja de serlo, y después es algo mejor que las dos cosas.</p>
+
+      <div class="bk-patterns fade-in">
+        <span>Lee sobre cada patrón (en inglés):</span>
+        <a href="/book/kate" lang="en" hreflang="en">Complacer a todos en el trabajo</a>
+        <a href="/book/daniel" lang="en" hreflang="en">El fundador con el plan nuevo</a>
+        <a href="/book/priya" lang="en" hreflang="en">Prepararse de más</a>
+        <a href="/book/tom" lang="en" hreflang="en">Decir «bien»</a>
+        <a href="/book/marta" lang="en" hreflang="en">El agotamiento que no para</a>
+      </div>
+
+      <div class="text-center">
+      <button type="button" class="bk-next" data-goto="quiz">Siguiente en la agenda: ¿cuál eres tú? <span aria-hidden="true">&darr;</span></button>
       </div>
     </div>
   </section>
 
-  <!-- Wave Divider -->
-  <div class="wave-divider wave-divider--flip" aria-hidden="true">
-    <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0 48h1440V24C1280 0 1120 48 960 36 800 24 640 0 480 12 320 24 160 48 0 36V48z" fill="#FFFFFF"/>
-    </svg>
-  </div>
-
-  <!-- La historia -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center fade-in">
-        <h2>Y entonces la empresa organiza un retiro</h2>
-        <hr class="line-accent line-accent--center">
-      </div>
-      <div class="fade-in" style="max-width: 680px; margin: 32px auto 0; text-align: center;">
-        <p style="line-height: 1.9;">Arco vende bienestar. Arco se olvid&oacute; de estar bien. As&iacute; que el CEO hace lo que hacen los CEO despu&eacute;s de una experiencia espiritual sin integrar: reserva tres d&iacute;as en una granja. Ejercicios de confianza. Un ba&ntilde;o de sonido. Tarjetas de valores plastificadas. Un fuego. Dos animales con opiniones firmes.</p>
-        <p style="line-height: 1.9; margin-top: 16px; font-family: var(--font-heading); font-style: italic; font-size: 1.1rem;">"Parejas y acompa&ntilde;antes bienvenidos. Traigan calzado c&oacute;modo."</p>
-        <p style="line-height: 1.9; margin-top: 16px;">Lo que pasa ah&iacute; es divertido, y despu&eacute;s deja de serlo en voz baja, y despu&eacute;s es algo mejor que las dos cosas. Nadie vuelve arreglado. Nunca se trat&oacute; de eso.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- &iquest;Cu&aacute;l eres t&uacute;? -->
-  <section class="section" style="background: #fff;">
+  <!-- ¿Cuál eres tú? -->
+  <section class="section" id="quiz" data-agenda="quiz" style="background: #FAF7F2;">
     <div class="container text-center">
-      <h2 class="fade-in">&iquest;Cu&aacute;l eres t&uacute;?</h2>
+      <span class="bk-step fade-in"><span>3</span>Tu turno</span>
+      <h2 class="fade-in">¿Cuál eres tú?</h2>
       <hr class="line-accent line-accent--center">
-      <p class="fade-in" style="max-width: 600px; margin: 20px auto 0; color: var(--text-light);">No hay respuesta incorrecta. Todas tus partes son bienvenidas aqu&iacute;. Incluso la que lee en diagonal.</p>
+      <p class="fade-in" style="max-width: 620px; margin: 20px auto 0; color: var(--text-light);">Todos tenemos algunas voces internas que llevan el mando, en distintas proporciones. Diez frases rápidas: marca cuánto se parece cada una a ti, y descubre quién está en tu reunión.</p>
 
-      <div class="bk-picker fade-in">
-        <button data-who="kate">La que sostiene todo</button>
-        <button data-who="daniel">El que tiene el plan nuevo</button>
-        <button data-who="priya">La que tiene tres versiones</button>
-        <button data-who="tom">El que dice bien</button>
-        <button data-who="marta">La que no puede parar</button>
-      </div>
+      <p class="bk-sent" id="bkSent" hidden>Alguien te mandó esto. Le salió <strong data-slot="name"></strong>. ¿Cuál eres tú?</p>
 
-      <div class="bk-reveal" id="bkReveal">
-        <h3 id="bkRevealTitle"></h3>
-        <p id="bkRevealBody" style="line-height: 1.8;"></p>
-        <div class="bk-practice">
-          <strong id="bkRevealPractice"></strong>
-          <span id="bkRevealPracticeBody"></span>
+      <div class="bk-quiz fade-in" id="bkQuiz">
+        <div class="bk-quiz__steps" id="bkQuizSteps">
+          <div class="bk-quiz__progress">
+            <span>Frase <span data-slot="step">1</span> de 10</span>
+            <span class="bk-quiz__dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+          </div>
+
+          <div class="bk-q show" data-part="kate">
+            <p class="bk-q__text">Digo que sí antes de pensar si de verdad quiero.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="priya">
+            <p class="bk-q__text">Ensayo en mi cabeza conversaciones que nunca llegan a pasar.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="tom">
+            <p class="bk-q__text">Digo «bien» cuando no está del todo bien.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="daniel">
+            <p class="bk-q__text">Cuando algo me incomoda, prefiero empezar algo nuevo antes que quedarme con eso.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="marta">
+            <p class="bk-q__text">Me digo que voy a descansar cuando pase esta racha de trabajo.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="priya">
+            <p class="bk-q__text">Me preparo más de lo que nadie me pidió, por si acaso.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="kate">
+            <p class="bk-q__text">Noto lo que necesitan los demás antes de notar lo que necesito yo.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="marta">
+            <p class="bk-q__text">Reviso mensajes en momentos en que pensaba desconectarme.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="daniel">
+            <p class="bk-q__text">Me entusiasman las ideas nuevas y pierdo el interés antes de terminarlas.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <div class="bk-q" data-part="tom">
+            <p class="bk-q__text">Cuando algo me importa de verdad, me lo guardo.</p>
+            <div class="bk-q__scale">
+              <button type="button" data-score="0">Nada que ver</button>
+              <button type="button" data-score="1">A veces</button>
+              <button type="button" data-score="2">Muy yo</button>
+            </div>
+          </div>
+
+          <button type="button" class="bk-quiz__back" id="bkQuizBack" hidden>&larr; Volver una</button>
+        </div>
+
+        <div class="bk-deliberate" id="bkDeliberate" hidden aria-live="polite">
+          <span class="bk-deliberate__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>Tu comité interno está comparando notas</span>
+        </div>
+
+        <div class="bk-result" id="bkResult" aria-live="polite">
+
+          <div class="bk-mix" id="bkMix">
+            <span class="bk-result__label">Quién está en tu reunión hoy</span>
+            <div class="bk-mix__chair"><span data-slot="single">Preside</span><span data-slot="co" hidden>Copresiden</span> <strong data-slot="names" data-and=" y "></strong></div>
+            <div class="bk-mix__bars" id="bkBars"></div>
+            <div class="bk-mix__hint">Todos tenemos a los cinco. La mezcla cambia con el día, y con quién está en la sala.</div>
+          </div>
+
+          <div class="bk-r-empty" id="bkEmpty" hidden>
+            <div class="bk-result__name">Una reunión muy tranquila</div>
+            <p class="bk-result__body">Ninguna de estas frases sonó a ti hoy. O estás de vacaciones, o una parte de ti es muy buena para los tests :) Vuelve a intentarlo un martes complicado, o abre una de las puertas de abajo.</p>
+          </div>
+
+          <div class="bk-r" data-part="kate" data-char="Kate" data-name="&laquo;quien sostiene todo&raquo;" data-share-text="Mi reunión interna la preside &laquo;quien sostiene todo&raquo;. ¿Quién preside la tuya?" hidden>
+            <div class="bk-result__head">
+              <img src="/cast-kate.jpg" alt="Kate" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">Quién preside, de cerca</span>
+                <div class="bk-result__name">Quien sostiene todo</div>
+                <div class="bk-result__title">En el libro, es Kate, la Chief of Staff.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">Respondes antes de terminar de leer. Haces el café, la agenda y el rescate. La gente dice que esto se caería sin ti, y una parte de ti necesita que eso siga siendo verdad. Más abajo hay una pregunta más callada: ¿quién te sostiene a ti?</p>
+            <div class="bk-doorbox"><strong>Una puerta del libro: La brecha</strong><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutos</span><span>Después de un día en que dijiste que sí y te arrepentiste.</span></div><ol class="bk-practice__steps"><li>Piensa en la última vez que hiciste algo que no querías hacer sin decirlo. Algo pequeño. Un sí que te costó algo.</li><li>Observa qué pasó por dentro antes de que respondieras. Qué había ahí primero, antes de la acción.</li><li>Escribe una frase sobre eso. Solo una. Nadie tiene que verla.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> La parte que dice que sí se mueve rápido. Ver el medio segundo de antes es como recuperas la elección.</div></div></div>
+            <div class="bk-result__actions"><a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="bk-watch"><span class="bk-watch__icon"></span>Conoce a Kate en el libro</a><a href="/book/kate" lang="en" hreflang="en" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="kate">Más sobre este patrón (en inglés) &rarr;</a></div>
+          </div>
+
+          <div class="bk-r" data-part="daniel" data-char="Daniel" data-name="&laquo;quien tiene el plan nuevo&raquo;" data-share-text="Mi reunión interna la preside &laquo;quien tiene el plan nuevo&raquo;. ¿Quién preside la tuya?" hidden>
+            <div class="bk-result__head">
+              <img src="/cast-daniel.jpg" alt="Daniel" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">Quién preside, de cerca</span>
+                <div class="bk-result__name">Quien tiene el plan nuevo</div>
+                <div class="bk-result__title">En el libro, es Daniel, el fundador.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">Tu entusiasmo es real. La velocidad también. Una parte de ti convierte cada sentimiento incómodo en un plan antes de que el sentimiento llegue a aterrizar, y los planes son buenos, lo que lo hace muy difícil de ver. El sentimiento espera. Es paciente en eso.</p>
+            <div class="bk-doorbox"><strong>Una puerta del libro: El giro</strong><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutos</span><span>Cuando sientes el impulso de cambiar de rumbo otra vez.</span></div><ol class="bk-practice__steps"><li>Piensa en algo en lo que hayas cambiado de rumbo más de una vez. Un proyecto, un plan, una manera de abordar algo.</li><li>¿Cuál fue la sensación justo antes del giro? ¿En qué parte del cuerpo vivía?</li><li>Pregúntate: ¿era claridad o era alivio? No hace falta que respondas en voz alta. Solo observa la diferencia.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> Desde adentro, el alivio puede sentirse igual que la claridad. Distinguirlos es toda la habilidad.</div></div></div>
+            <div class="bk-result__actions"><a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="bk-watch"><span class="bk-watch__icon"></span>Conoce a Daniel en el libro</a><a href="/book/daniel" lang="en" hreflang="en" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="daniel">Más sobre este patrón (en inglés) &rarr;</a></div>
+          </div>
+
+          <div class="bk-r" data-part="priya" data-char="Priya" data-name="&laquo;quien tiene tres versiones&raquo;" data-share-text="Mi reunión interna la preside &laquo;quien tiene tres versiones&raquo;. ¿Quién preside la tuya?" hidden>
+            <div class="bk-result__head">
+              <img src="/cast-priya.jpg" alt="Priya" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">Quién preside, de cerca</span>
+                <div class="bk-result__name">Quien tiene tres versiones</div>
+                <div class="bk-result__title">En el libro, es Priya, la directora de Marketing.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">Te preparas para todas las versiones de la sala. La versión A, la versión B, y la que crees de verdad, que se queda en una carpeta. Tener razón en privado se siente más seguro que averiguarlo. Los planes de respaldo son excelentes. También son muy buenas paredes.</p>
+            <div class="bk-doorbox"><strong>Una puerta del libro: Sin respaldo</strong><div class="bk-practice"><div class="bk-practice__meta"><span>Una cosa pequeña, esta semana</span><span>Cuando te descubres armando una red de seguridad.</span></div><ol class="bk-practice__steps"><li>Prueba hacer una cosa sin tu respaldo de siempre. Envía el correo sin tres borradores. Haz la propuesta sin averiguar antes qué va a pensar tu jefe.</li><li>Observa qué pasa por dentro mientras lo haces. La parte de ti que quería la red de seguridad va a tener sentimientos. Escúchalos. No tienes que obedecerlos.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> La incomodidad es el dato.</div></div></div>
+            <div class="bk-result__reader">&ldquo;Me di cuenta de que tenía el impulso de hacer una segunda tanda de salsa, por si acaso, para que el jefe estuviera contento. Me reí muchísimo porque me di cuenta de que estaba siendo muy Priya.&rdquo;<span>Isabella, España</span></div>
+            <div class="bk-result__actions"><a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="bk-watch"><span class="bk-watch__icon"></span>Conoce a Priya en el libro</a><a href="/book/priya" lang="en" hreflang="en" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="priya">Más sobre este patrón (en inglés) &rarr;</a></div>
+          </div>
+
+          <div class="bk-r" data-part="tom" data-char="Tom" data-name="&laquo;quien dice que todo está bien&raquo;" data-share-text="Mi reunión interna la preside &laquo;quien dice que todo está bien&raquo;. ¿Quién preside la tuya?" hidden>
+            <div class="bk-result__head">
+              <img src="/cast-tom.jpg" alt="Tom" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">Quién preside, de cerca</span>
+                <div class="bk-result__name">Quien dice que todo está bien</div>
+                <div class="bk-result__title">En el libro, es Tom, el jefe de Ingeniería.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">Tienes toda una vida interior corriendo en paralelo a la de afuera, completa, actualizada sin parar, casi nunca transmitida. Cuando algo importa de verdad, haces té. Quienes te quieren distinguen entre tus silencios. Eso no es lo mismo que escucharte.</p>
+            <div class="bk-doorbox"><strong>Una puerta del libro: Quién te sostiene</strong><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutos</span><span>Cuando notas que estás cargando algo en soledad.</span></div><ol class="bk-practice__steps"><li>Hazte dos preguntas: en tu vida, ¿en quién puedes confiar para que te sostenga cuando resbalas? ¿Y a quién puedes sostener tú?</li><li>Escribe un nombre para cada una. Solo uno.</li><li>Si no se te ocurre un nombre para alguna de las dos, eso también es la práctica. Quédate con lo que eso te está diciendo.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> Una parte que se lo guarda todo tiene sus razones. Un nombre le da un lugar donde apoyar las cosas.</div></div></div>
+            <div class="bk-result__actions"><a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="bk-watch"><span class="bk-watch__icon"></span>Conoce a Tom en el libro</a><a href="/book/tom" lang="en" hreflang="en" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="tom">Más sobre este patrón (en inglés) &rarr;</a></div>
+          </div>
+
+          <div class="bk-r" data-part="marta" data-char="Marta" data-name="&laquo;quien no puede parar&raquo;" data-share-text="Mi reunión interna la preside &laquo;quien no puede parar&raquo;. ¿Quién preside la tuya?" hidden>
+            <div class="bk-result__head">
+              <img src="/cast-marta.jpg" alt="Marta" class="bk-result__img">
+              <div>
+                <span class="bk-result__label">Quién preside, de cerca</span>
+                <div class="bk-result__name">Quien no puede parar</div>
+                <div class="bk-result__title">En el libro, es Marta, la abogada.</div>
+              </div>
+            </div>
+            <p class="bk-result__body">Solo esta semana. Solo este mes. Solo hasta el cierre. Llevas diciéndolo el tiempo suficiente como para que se haya vuelto una forma de vida con excelentes registros de facturación. Una parte de ti quiso apoyo con tantas ganas, durante tanto tiempo, que dejó de poder aceptarlo.</p>
+            <div class="bk-doorbox"><strong>Una puerta del libro: Cuando resbalas</strong><div class="bk-practice"><div class="bk-practice__meta"><span>Hoy</span><span>Cuando un hábito viejo empieza a volver.</span></div><ol class="bk-practice__steps"><li>Pregúntate en qué podrías estar resbalando en este momento. Un patrón viejo que vuelve, despacio. Probablemente ya lo sabes.</li><li>Piensa en una persona en quien confiarías para que te lo diga cuando lo vea.</li><li>Pídeselo. Cuéntale lo que estás notando en ti, y que prefieres oírlo de su boca antes que darte cuenta tres meses tarde.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> Resbalar es parte del trabajo. Que te vean a tiempo es lo que hace fácil volver.</div></div></div>
+            <div class="bk-result__reader">&ldquo;Definitivamente resbalé en algunas cosas. Pero es curioso lo rápido que puedes volver.&rdquo;<span>Kelly, EE. UU.</span></div>
+            <div class="bk-result__actions"><a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="bk-watch"><span class="bk-watch__icon"></span>Conoce a Marta en el libro</a><a href="/book/marta" lang="en" hreflang="en" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="marta">Más sobre este patrón (en inglés) &rarr;</a></div>
+          </div>
+
+
+          <div class="bk-result__actions">
+            <button type="button" class="btn btn--primary" id="bkShare" data-copied="Enlace copiado. Envíaselo a alguien que dice «bien» muy seguido.">Comparte tu resultado</button>
+            <button type="button" class="btn btn--outline" id="bkRetake">Hacerlo de nuevo</button>
+          </div>
+
+          <div class="bk-result__team">¿Quieres conversarlo? <a data-umami-event="book-call" data-umami-event-from="quiz-result-es" href="https://calendly.com/annamilaeva/discovery-call-with-anna" target="_blank" rel="noopener noreferrer">Reserva una llamada gratuita de 30 minutos</a> &middot; Para tu equipo: <a data-umami-event="teams-page" href="/book/teams" lang="en" hreflang="en">mira cómo funciona (en inglés) &rarr;</a></div>
         </div>
       </div>
-
-      <p class="fade-in" style="margin-top: 36px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 0.95rem; color: var(--text-light);">El libro deja quince puertas peque&ntilde;as como esta, una cada pocos cap&iacute;tulos. Leerlas es opcional. Notar lo que te mueven, lamentablemente no.</p>
+      <button type="button" class="bk-next" data-goto="doors">Siguiente en la agenda: prueba una de las prácticas <span aria-hidden="true">&darr;</span></button>
     </div>
   </section>
 
-  <!-- Puente: de la ficci&oacute;n al trabajo real -->
-  <section class="book-announcement">
+  <!-- Quince puertas -->
+  <section class="section" id="doors" data-agenda="doors" style="background: #fff;">
+    <div class="container text-center">
+      <span class="bk-step fade-in"><span>4</span>Abre una puerta</span>
+      <h2 class="fade-in">Quince puertas</h2>
+      <hr class="line-accent line-accent--center">
+      <p class="fade-in" style="max-width: 600px; margin: 20px auto 0; color: var(--text-light);">Cada pocos capítulos, el libro deja una pequeña puerta abierta: una práctica con una página en blanco después. Aquí hay cinco abiertas. Las demás están en el libro.</p>
+
+      <div class="bk-doors fade-in" id="bkDoors">
+        <button type="button" class="bk-door bk-door--ajar" data-door="1"><span class="bk-door__num">1</span><span class="bk-door__name">La brecha</span><span class="bk-door__tag">Ábrela aquí</span></button>
+        <button type="button" class="bk-door bk-door--ajar" data-door="2"><span class="bk-door__num">2</span><span class="bk-door__name">El giro</span><span class="bk-door__tag">Ábrela aquí</span></button>
+        <button type="button" class="bk-door" data-door="3"><span class="bk-door__num">3</span><span class="bk-door__name">Las tres versiones</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door" data-door="4"><span class="bk-door__num">4</span><span class="bk-door__name">Lo pendiente</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door" data-door="5"><span class="bk-door__num">5</span><span class="bk-door__name">Ponerle nombre</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door" data-door="6"><span class="bk-door__num">6</span><span class="bk-door__name">La reunión detrás de la reunión</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door" data-door="7"><span class="bk-door__num">7</span><span class="bk-door__name">Lo útil</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door" data-door="8"><span class="bk-door__num">8</span><span class="bk-door__name">La laptop cerrada</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door bk-door--ajar" data-door="9"><span class="bk-door__num">9</span><span class="bk-door__name">Sin respaldo</span><span class="bk-door__tag">Ábrela aquí</span></button>
+        <button type="button" class="bk-door" data-door="10"><span class="bk-door__num">10</span><span class="bk-door__name">El consejo que diste</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door" data-door="11"><span class="bk-door__num">11</span><span class="bk-door__name">El comentarista</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door bk-door--ajar" data-door="12"><span class="bk-door__num">12</span><span class="bk-door__name">Quién te sostiene</span><span class="bk-door__tag">Ábrela aquí</span></button>
+        <button type="button" class="bk-door" data-door="13"><span class="bk-door__num">13</span><span class="bk-door__name">Lo que te llevas a casa</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door" data-door="14"><span class="bk-door__num">14</span><span class="bk-door__name">El espacio increíble</span><span class="bk-door__tag">En el libro</span></button>
+        <button type="button" class="bk-door bk-door--ajar" data-door="15"><span class="bk-door__num">15</span><span class="bk-door__name">Cuando resbalas</span><span class="bk-door__tag">Ábrela aquí</span></button>
+      </div>
+
+      <div id="bkDoorTexts" hidden>
+        <div data-door="1"><h3>La brecha</h3><div class="bk-door-panel__ch">Del libro</div><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutos</span><span>Después de un día en que dijiste que sí y te arrepentiste.</span></div><ol class="bk-practice__steps"><li>Piensa en la última vez que hiciste algo que no querías hacer sin decirlo. Algo pequeño. Un sí que te costó algo.</li><li>Observa qué pasó por dentro antes de que respondieras. Qué había ahí primero, antes de la acción.</li><li>Escribe una frase sobre eso. Solo una. Nadie tiene que verla.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> La parte que dice que sí se mueve rápido. Ver el medio segundo de antes es como recuperas la elección.</div></div></div>
+        <div data-door="2"><h3>El giro</h3><div class="bk-door-panel__ch">Del libro</div><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutos</span><span>Cuando sientes el impulso de cambiar de rumbo otra vez.</span></div><ol class="bk-practice__steps"><li>Piensa en algo en lo que hayas cambiado de rumbo más de una vez. Un proyecto, un plan, una manera de abordar algo.</li><li>¿Cuál fue la sensación justo antes del giro? ¿En qué parte del cuerpo vivía?</li><li>Pregúntate: ¿era claridad o era alivio? No hace falta que respondas en voz alta. Solo observa la diferencia.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> Desde adentro, el alivio puede sentirse igual que la claridad. Distinguirlos es toda la habilidad.</div></div></div>
+        <div data-door="3"><h3>Las tres versiones</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="4"><h3>Lo pendiente</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="5"><h3>Ponerle nombre</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="6"><h3>La reunión detrás de la reunión</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="7"><h3>Lo útil</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="8"><h3>La laptop cerrada</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="9"><h3>Sin respaldo</h3><div class="bk-door-panel__ch">Del libro</div><div class="bk-practice"><div class="bk-practice__meta"><span>Una cosa pequeña, esta semana</span><span>Cuando te descubres armando una red de seguridad.</span></div><ol class="bk-practice__steps"><li>Prueba hacer una cosa sin tu respaldo de siempre. Envía el correo sin tres borradores. Haz la propuesta sin averiguar antes qué va a pensar tu jefe.</li><li>Observa qué pasa por dentro mientras lo haces. La parte de ti que quería la red de seguridad va a tener sentimientos. Escúchalos. No tienes que obedecerlos.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> La incomodidad es el dato.</div></div></div>
+        <div data-door="10"><h3>El consejo que diste</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="11"><h3>El comentarista</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="12"><h3>Quién te sostiene</h3><div class="bk-door-panel__ch">Del libro</div><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutos</span><span>Cuando notas que estás cargando algo en soledad.</span></div><ol class="bk-practice__steps"><li>Hazte dos preguntas: en tu vida, ¿en quién puedes confiar para que te sostenga cuando resbalas? ¿Y a quién puedes sostener tú?</li><li>Escribe un nombre para cada una. Solo uno.</li><li>Si no se te ocurre un nombre para alguna de las dos, eso también es la práctica. Quédate con lo que eso te está diciendo.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> Una parte que se lo guarda todo tiene sus razones. Un nombre le da un lugar donde apoyar las cosas.</div></div></div>
+        <div data-door="13"><h3>Lo que te llevas a casa</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="14"><h3>El espacio increíble</h3><div class="bk-door-panel__ch">Del libro</div>Esta puerta está en el libro. <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer">Ábrela ahí &rarr;</a></div>
+        <div data-door="15"><h3>Cuando resbalas</h3><div class="bk-door-panel__ch">Del libro</div><div class="bk-practice"><div class="bk-practice__meta"><span>Hoy</span><span>Cuando un hábito viejo empieza a volver.</span></div><ol class="bk-practice__steps"><li>Pregúntate en qué podrías estar resbalando en este momento. Un patrón viejo que vuelve, despacio. Probablemente ya lo sabes.</li><li>Piensa en una persona en quien confiarías para que te lo diga cuando lo vea.</li><li>Pídeselo. Cuéntale lo que estás notando en ti, y que prefieres oírlo de su boca antes que darte cuenta tres meses tarde.</li></ol><div class="bk-practice__why"><strong>Por qué ayuda.</strong> Resbalar es parte del trabajo. Que te vean a tiempo es lo que hace fácil volver.</div></div></div>
+      </div>
+
+      <div class="bk-door-panel" id="bkDoorPanel" aria-live="polite"></div>
+
+      <button type="button" class="bk-next" data-goto="author">Siguiente en la agenda: quién la escribió, y por qué <span aria-hidden="true">&darr;</span></button>
+    </div>
+  </section>
+
+  <!-- Puente: de la ficción al trabajo real -->
+  <section class="book-announcement" id="author" data-agenda="author">
     <div class="container fade-in" style="text-align: center;">
-      <span class="book-announcement__label">Por qu&eacute; la escrib&iacute;</span>
-      <h2 class="book-announcement__headline">La historia es ficci&oacute;n. Las reuniones son reales.</h2>
-      <p class="book-announcement__body">Pas&eacute; m&aacute;s de una d&eacute;cada en operaciones, en las salas donde las cosas se romp&iacute;an. Hoy llevo el trabajo con partes, el m&eacute;todo que hay detr&aacute;s de esta historia, a la vida de profesionales y adentro de las empresas. En casi toda sala hay una regla no dicha que proh&iacute;be hablar de lo que est&aacute; pasando de verdad dentro de las personas que est&aacute;n ah&iacute;. Escrib&iacute; una novela porque las historias se saltan esa regla. Si te viste en alguno de estos cinco, esa es la puerta. El trabajo detr&aacute;s de la puerta es lo que hago.</p>
+      <img src="/anna-about.jpg" alt="Anna Milaeva, autora de La reunión ya empezó" class="bk-why__photo" loading="lazy">
+      <span class="book-announcement__label">5 &middot; Por qué la escribí</span>
+      <h2 class="book-announcement__headline">La historia es ficción. Las reuniones son reales.</h2>
+      <div class="bk-why__organizer">&ldquo;Dirigí operaciones durante más de diez años. Estuve en estas reuniones. También estuve en las otras, las que corrían por dentro. Esta historia es lo que pasó cuando por fin fui a las dos.&rdquo;</div>
+      <p class="book-announcement__body">Hoy llevo el trabajo con partes, el método que hay detrás de esta historia, a profesionales y a equipos.</p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
         <a href="/es/coaching" class="btn btn--primary">Trabaja conmigo 1:1</a>
-        <a data-umami-event="fino-click" href="https://www.fino.website" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="color: #FAF7F2; border-color: #FAF7F2;">Ll&eacute;valo a tu equipo</a>
+        <a data-umami-event="teams-page" href="/book/teams" lang="en" hreflang="en" class="btn btn--outline" style="color: #FAF7F2; border-color: #FAF7F2;">Llévalo a tu equipo</a>
       </div>
-      <p class="book-announcement__note">Tambi&eacute;n est&aacute; <a data-umami-event="amazon-click" data-umami-event-product="diario-de-tus-partes" href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer" style="color: #E8784A;">El Diario de tus Partes</a>, un acompa&ntilde;ante de ocho semanas para conocer tus propias partes. Kate ya lo tendr&iacute;a completo. Tom dir&iacute;a que est&aacute; bien.</p>
-      <p class="book-announcement__note" style="font-size: 0.9rem; max-width: 560px; margin-left: auto; margin-right: auto;">Anna Milaeva se form&oacute; en Sistemas de Familia Interna en el IFS Institute, Niveles 1, 2 y 3, y en Coaching de Transformaci&oacute;n Profunda. Ha acompa&ntilde;ado a clientes en m&aacute;s de 15 pa&iacute;ses. Dirigi&oacute; operaciones el tiempo suficiente para tener opiniones sobre las invitaciones de calendario. Esta es su primera novela. <a href="/es/sobre-mi" style="color: #E8784A;">M&aacute;s sobre Anna &rarr;</a></p>
+      <p class="book-announcement__note">También está <a data-umami-event="amazon-click" data-umami-event-product="self-journal-es" href="https://www.amazon.com/dp/B0H38NM77Y/" target="_blank" rel="noopener noreferrer" style="color: #E8784A;">El Diario de tus Partes</a>, un acompañante de ocho semanas para conocer tus propias partes.</p>
+      <p class="book-announcement__note bk-why__creds">Formada en IFS hasta el Nivel 3 &middot; Coach certificada en Transformación Profunda &middot; Clientes en más de 15 países &middot; <a href="/es/sobre-mi" style="color: #E8784A;">Más sobre Anna &rarr;</a></p>
+      <button type="button" class="bk-next bk-next--dark" data-goto="get">Siguiente en la agenda: entra a la reunión <span aria-hidden="true">&darr;</span></button>
     </div>
   </section>
 
-  <!-- Compra -->
-  <section class="cta-strip">
+  <!-- Comprar -->
+  <section class="cta-strip" id="get" data-agenda="get">
     <div class="container fade-in">
-      <h2>Mejor si&eacute;ntate</h2>
-      <p>Un par de tardes de lectura. Algo para llevarte al trabajo ma&ntilde;ana que nadie m&aacute;s tiene por qu&eacute; saber.</p>
-      <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Cons&iacute;guela en Amazon</a>
+      <span class="bk-step"><span>6</span>Consigue el libro</span>
+      <h2>Entra a la reunión</h2>
+      <p>Un par de tardes de lectura. Algo para llevarte al trabajo mañana que nadie más tiene por qué saber.</p>
+      <a data-umami-event="amazon-click" data-umami-event-product="la-reunion-ya-empezo" href="https://www.amazon.com/dp/B0HJ323PN7/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Consíguela en Amazon</a>
+      <p style="margin: 18px auto 0; font-size: 0.92rem;"><a href="/book" lang="en" hreflang="en" style="color: var(--accent);">Also in English: <em>Already In A Meeting</em> &rarr;</a></p>
       <div class="bk-review">
         <div class="bk-review__stars" aria-hidden="true"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
-        <p>Si te hace re&iacute;r, o te hace mirar tu propio martes de otra manera, una rese&ntilde;a corta en Amazon ayuda a que otras personas la encuentren. M&aacute;s de lo que te imaginas.</p>
+        <p>¿Ya la leíste? Una reseña corta en Amazon ayuda a que otras personas la encuentren.</p>
       </div>
     </div>
   </section>
@@ -697,7 +1553,7 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- Pie de página -->
   <footer class="footer">
     <div class="container">
       <div class="footer__quote-block">
@@ -706,14 +1562,14 @@
       </div>
       <div class="footer__follow">
         <p class="footer__follow-title">Ven a leer lo que estoy viviendo.</p>
-        <p class="footer__follow-text">IFS, agotamiento, duelo, dinero, sentido. Textos nuevos cada una o dos semanas, gratis.</p>
+        <p class="footer__follow-text">IFS, agotamiento, duelo, dinero, sentido. Textos nuevos una o dos veces por semana, gratis.</p>
         <a data-umami-event="substack-click" class="footer__follow-link" href="https://annamilaeva.substack.com" target="_blank" rel="noopener noreferrer" hreflang="en">S&iacute;gueme en Substack &rarr;</a>
         <p class="footer__follow-note">Los textos est&aacute;n en ingl&eacute;s, y tu navegador puede traducirlos.</p>
       </div>
       <div class="footer__main">
         <div class="footer__brand">
           <span class="footer__brand-name">Anna Milaeva</span>
-          <span class="footer__brand-role">Coach Transformacional de IFS</span>
+          <span class="footer__brand-role">Coach de IFS para Personas en Transici&oacute;n</span>
           <span class="footer__brand-url">annamilaeva.com</span>
         </div>
         <div class="footer__nav">
@@ -731,7 +1587,7 @@
       </div>
       <div class="footer__bottom">
         <span>&copy; 2026 Anna Milaeva. Todos los derechos reservados. <a href="/es/privacidad" class="footer__legal-link">Privacidad</a></span>
-        <span>Los servicios de coaching no son terapia y no tienen como objetivo diagnosticar, tratar, curar ni prevenir ninguna enfermedad o trastorno de salud mental. Si est&aacute;s atravesando una crisis de salud mental, contacta a un profesional titulado.</span>
+        <span>Los servicios de coaching no son terapia y no tienen como objetivo diagnosticar, tratar, curar ni prevenir ninguna enfermedad o trastorno de salud mental. Si est&aacute;s atravesando una crisis de salud mental, contacta a un profesional de la salud mental.</span>
         <span style="font-weight:bold;color:#e87a2e;">Sitio creado por <a data-umami-event="fino-click" href="https://fino.website/studio/" target="_blank" rel="noopener noreferrer" style="color:#e87a2e;font-weight:bold;">FINO Studio</a></span>
       </div>
     </div>
@@ -739,46 +1595,42 @@
 
   <div class="bk-toast" id="bkToast" role="status" aria-live="polite"></div>
 
+  <nav class="bk-agenda" id="bkAgenda" aria-label="Agenda de esta página">
+    <span class="bk-agenda__label">Agenda</span>
+    <button type="button" data-goto="book"><span>1</span>El libro</button>
+    <button type="button" data-goto="people"><span>2</span>Las personas</button>
+    <button type="button" data-goto="quiz"><span>3</span>¿Cuál eres tú?</button>
+    <button type="button" data-goto="doors"><span>4</span>Abre una puerta</button>
+    <button type="button" data-goto="author"><span>5</span>La autora</button>
+    <button type="button" data-goto="get"><span>6</span>Consigue el libro</button>
+  </nav>
+
   <script src="/main.js?v=9"></script>
   <script>
     (function () {
-      // Botones de la invitación
       var toast = document.getElementById('bkToast');
       var toastTimer;
-      var rsvpLines = {
-        accept: "Perfecto. Los demás ya están aquí.",
-        maybe: "Eso es lo que diría Tom.",
-        decline: "La reunión ya está en curso. Mejor siéntate."
-      };
-      document.querySelectorAll('[data-rsvp]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          toast.textContent = rsvpLines[btn.getAttribute('data-rsvp')];
-          toast.classList.add('show');
-          clearTimeout(toastTimer);
-          toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3000);
-          setTimeout(function () {
-            document.querySelector('.bk-author').scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 700);
-        });
-      });
-
-      // Tarjetas que giran (toque en pantallas táctiles)
+      // Flip cards (tap support for touch devices)
       document.querySelectorAll('[data-flip]').forEach(function (card) {
         card.addEventListener('click', function () {
           card.classList.toggle('flipped');
         });
       });
 
-      // Entradas escalonadas de las tarjetas y la cita
-      var inTargets = document.querySelectorAll('.bk-card, .bk-quote blockquote, .bk-review');
+      // Staggered entrances for cast cards and the quote band
+      var inTargets = document.querySelectorAll('.bk-card, .bk-quote blockquote, .bk-review, .bk-ep, .bk-note');
       if ('IntersectionObserver' in window) {
-        var cards = Array.prototype.slice.call(document.querySelectorAll('.bk-card'));
         var inObs = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               var el = entry.target;
-              var idx = cards.indexOf(el);
-              if (idx > -1) { el.style.transitionDelay = (idx % 5) * 90 + 'ms'; }
+              // Cards, tiles and notes arrive one after another
+              if (el.matches('.bk-card, .bk-ep, .bk-note')) {
+                var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+                el.style.transitionDelay = (idx % 5) * (el.matches('.bk-note') ? 140 : 90) + 'ms';
+                // Clear the delay once it has arrived, so hover reacts at once
+                setTimeout(function () { el.style.transitionDelay = ''; }, 1400);
+              }
               el.classList.add('bk-in');
               inObs.unobserve(el);
             }
@@ -789,55 +1641,248 @@
         inTargets.forEach(function (el) { el.classList.add('bk-in'); });
       }
 
-      // ¿Cuál eres tú?
-      var who = {
-        kate: {
-          title: "La que sostiene todo",
-          body: "Respondes antes de terminar de leer. Haces el café, la agenda y el rescate. La gente dice que esto se caería sin ti, y una parte de ti necesita que eso siga siendo verdad. Más abajo hay una pregunta más callada: ¿quién te sostiene a ti?",
-          practice: "Una puerta del libro: La brecha",
-          practiceBody: "Busca el último sí que te costó algo. No la acción. El medio segundo justo antes, donde algo más casi llegó a votar."
-        },
-        daniel: {
-          title: "El que tiene el plan nuevo",
-          body: "Tu entusiasmo es real. La velocidad también. Una parte de ti convierte cada sentimiento incómodo en un plan antes de que el sentimiento llegue a aterrizar, y los planes son genuinamente buenos, lo que lo hace muy difícil de ver. El sentimiento espera. Es paciente en eso.",
-          practice: "Una puerta del libro: El giro",
-          practiceBody: "Piensa en tu último gran cambio de rumbo. Quédate con una sola pregunta, más tiempo del que resulte cómodo: ¿era claridad o era alivio?"
-        },
-        priya: {
-          title: "La que tiene tres versiones",
-          body: "Estás preparada para todas las versiones de la sala. La versión A, la versión B, y la que crees de verdad, que se queda en una carpeta. Tener razón en privado se siente más seguro que averiguarlo. Los planes de respaldo son excelentes. También son muy buenas paredes.",
-          practice: "Una puerta del libro: Sin respaldo",
-          practiceBody: "Haz una cosa esta semana sin la red de seguridad. Manda la versión de verdad. La incomodidad es el dato."
-        },
-        tom: {
-          title: "El que dice bien",
-          body: "Tienes toda una vida interior corriendo en paralelo a la de afuera, completa, actualizada sin parar, casi nunca transmitida. Cuando algo importa de verdad, haces té. Quienes te quieren distinguen entre tus silencios. Eso no es lo mismo que escucharte.",
-          practice: "Una puerta del libro: Quién te sostiene",
-          practiceBody: "Escribe dos nombres. ¿En quién confías para que te sostenga cuando resbalas? ¿Y a quién sostienes tú? Si alguna de las dos líneas queda en blanco, empieza por ahí."
-        },
-        marta: {
-          title: "La que no puede parar",
-          body: "Solo esta semana. Solo este mes. Solo hasta el cierre. Llevas diciéndolo el tiempo suficiente como para que se haya vuelto una forma de vida con excelentes registros de facturación. Una parte de ti quiso apoyo con tantas ganas, durante tanto tiempo, que en silencio dejó de poder aceptarlo.",
-          practice: "Una puerta del libro: Cuando resbalas",
-          practiceBody: "Pídele a una persona que te lo diga, con cariño, cuando lo vea: te veo resbalando. Y después déjala."
+      // Scroll to an element, clearing the fixed nav
+      function scrollToEl(el) {
+        var navBar = document.getElementById('nav');
+        var bar = document.getElementById('bkAgenda');
+        var barH = bar && window.innerWidth >= 900 ? bar.offsetHeight : 0;
+        var top = el.getBoundingClientRect().top + window.scrollY - ((navBar ? navBar.offsetHeight : 0) + barH + 24);
+        window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+      }
+      function showToast(text) {
+        toast.textContent = text;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3200);
+      }
+      // Analytics events (Umami). Does nothing until the Umami script is live.
+      function track(name, data) {
+        if (window.umami && typeof window.umami.track === 'function') { window.umami.track(name, data); }
+      }
+      var quizSection = document.getElementById('quiz');
+
+      var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('[data-toast]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          showToast(btn.getAttribute('data-toast'));
+        });
+      });
+
+      // Quiz: ten statements, each scored Not me (0), Sometimes (1) or So me (2) for one part
+      var steps = document.getElementById('bkQuizSteps');
+      var qs = Array.prototype.slice.call(steps.querySelectorAll('.bk-q'));
+      var dots = steps.querySelectorAll('.bk-quiz__dots span');
+      var stepSlot = steps.querySelector('[data-slot="step"]');
+      var back = document.getElementById('bkQuizBack');
+      var result = document.getElementById('bkResult');
+      var parts = ['kate', 'daniel', 'priya', 'tom', 'marta'];
+      var answers = [];
+      var current = 0;
+      var quizDone = false;
+
+      function showQ(i) {
+        current = i;
+        qs.forEach(function (q, n) { q.classList.toggle('show', n === i); });
+        dots.forEach(function (d, n) { d.classList.toggle('done', n < i); });
+        stepSlot.textContent = i + 1;
+        back.hidden = i === 0;
+        qs[i].querySelectorAll('[data-score]').forEach(function (b) {
+          b.classList.toggle('picked', Number(b.getAttribute('data-score')) === answers[i]);
+        });
+      }
+      qs.forEach(function (q, n) {
+        q.querySelectorAll('[data-score]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            if (n !== current) { return; }
+            if (n === 0 && answers[0] === undefined) { track('quiz-start'); }
+            answers[n] = Number(btn.getAttribute('data-score'));
+            q.querySelectorAll('[data-score]').forEach(function (b) { b.classList.toggle('picked', b === btn); });
+            setTimeout(function () {
+              if (n < qs.length - 1) { showQ(n + 1); } else { finish(); }
+            }, 260);
+          });
+        });
+      });
+      back.addEventListener('click', function () { if (current > 0) { showQ(current - 1); } });
+
+      function card(part) { return result.querySelector('.bk-r[data-part="' + part + '"]'); }
+      function nameOf(part) { return card(part).getAttribute('data-name'); }
+
+      // One row per part: face, pattern, character, and a bar for its share of the meeting
+      function drawBars(ranked, score, total, chairs) {
+        var bars = document.getElementById('bkBars');
+        bars.innerHTML = '';
+        ranked.forEach(function (part) {
+          var pct = Math.round(score[part] / total * 100);
+          var row = document.createElement('div');
+          row.className = 'bk-bar' + (chairs.indexOf(part) > -1 ? ' is-chair' : '');
+          var img = document.createElement('img');
+          img.src = 'cast-' + part + '.jpg';
+          img.alt = '';
+          var mid = document.createElement('div');
+          var label = document.createElement('div');
+          label.className = 'bk-bar__label';
+          label.textContent = card(part).querySelector('.bk-result__name').textContent;
+          var who = document.createElement('small');
+          who.textContent = card(part).getAttribute('data-char');
+          label.appendChild(who);
+          var track = document.createElement('div');
+          track.className = 'bk-bar__track';
+          var fill = document.createElement('div');
+          fill.className = 'bk-bar__fill';
+          track.appendChild(fill);
+          mid.appendChild(label);
+          mid.appendChild(track);
+          var pctEl = document.createElement('div');
+          pctEl.className = 'bk-bar__pct';
+          pctEl.textContent = pct + '%';
+          row.appendChild(img);
+          row.appendChild(mid);
+          row.appendChild(pctEl);
+          bars.appendChild(row);
+          setTimeout(function () { fill.style.width = pct + '%'; }, 80);
+        });
+      }
+
+      function finish() {
+        var score = {};
+        parts.forEach(function (p) { score[p] = 0; });
+        qs.forEach(function (q, n) { score[q.getAttribute('data-part')] += answers[n] || 0; });
+        var total = parts.reduce(function (sum, p) { return sum + score[p]; }, 0);
+        var ranked = parts.slice().sort(function (a, b) {
+          return score[b] !== score[a] ? score[b] - score[a] : parts.indexOf(a) - parts.indexOf(b);
+        });
+        var top = score[ranked[0]];
+        var chairs = top > 0 ? ranked.filter(function (p) { return score[p] === top; }) : [];
+
+        // A short pause while the "committee" deliberates, then the reveal
+        var deliberate = document.getElementById('bkDeliberate');
+        steps.hidden = true;
+        deliberate.hidden = false;
+        quizDone = true;
+        updateLive();
+        setTimeout(function () {
+          deliberate.hidden = true;
+          var empty = !chairs.length;
+          document.getElementById('bkEmpty').hidden = !empty;
+          document.getElementById('bkMix').hidden = empty;
+          document.getElementById('bkShare').hidden = empty;
+          result.querySelectorAll('.bk-r').forEach(function (r) { r.hidden = empty || r.getAttribute('data-part') !== chairs[0]; });
+          if (!empty) {
+            var mix = document.getElementById('bkMix');
+            var namesEl = mix.querySelector('[data-slot="names"]');
+            mix.querySelector('[data-slot="single"]').hidden = chairs.length > 1;
+            mix.querySelector('[data-slot="co"]').hidden = chairs.length < 2;
+            namesEl.textContent = chairs.slice(0, 2).map(nameOf).join(namesEl.getAttribute('data-and'));
+            drawBars(ranked, score, total, chairs);
+          }
+          result.setAttribute('data-part', chairs[0] || '');
+          result.classList.add('show');
+          track('quiz-complete', { result: chairs[0] || 'none', mix: ranked.map(function (p) { return p + ':' + score[p]; }).join(' ') });
+          scrollToEl(document.getElementById('bkQuiz'));
+        }, calm ? 0 : 1400);
+      }
+      document.getElementById('bkRetake').addEventListener('click', function () {
+        answers = [];
+        result.classList.remove('show');
+        steps.hidden = false;
+        showQ(0);
+        scrollToEl(document.getElementById('bkQuiz'));
+      });
+
+      // Share: the link carries the result so a friend lands on the quiz with it
+      var shareBtn = document.getElementById('bkShare');
+      shareBtn.addEventListener('click', function () {
+        var part = result.getAttribute('data-part');
+        var text = result.querySelector('.bk-r[data-part="' + part + '"]').getAttribute('data-share-text');
+        var url = 'https://annamilaeva.com/es/libro?part=' + part + '&utm_source=quiz-share';
+        track('quiz-share', { result: part });
+        if (navigator.share) {
+          navigator.share({ title: document.title, text: text, url: url }).catch(function () {});
+          return;
         }
-      };
-      var reveal = document.getElementById('bkReveal');
-      document.querySelectorAll('[data-who]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          document.querySelectorAll('[data-who]').forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          var d = who[btn.getAttribute('data-who')];
-          document.getElementById('bkRevealTitle').textContent = d.title;
-          document.getElementById('bkRevealBody').textContent = d.body;
-          document.getElementById('bkRevealPractice').textContent = d.practice;
-          document.getElementById('bkRevealPracticeBody').textContent = d.practiceBody;
-          reveal.classList.remove('show');
-          void reveal.offsetWidth;
-          reveal.classList.add('show');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text + ' ' + url).then(function () {
+            showToast(shareBtn.getAttribute('data-copied'));
+          }, function () { window.prompt('', url); });
+        } else {
+          window.prompt('', url);
+        }
+      });
+
+      var sentPart = new URLSearchParams(window.location.search).get('part');
+      if (sentPart && parts.indexOf(sentPart) > -1) {
+        var sent = document.getElementById('bkSent');
+        sent.querySelector('[data-slot="name"]').textContent = nameOf(sentPart);
+        sent.hidden = false;
+        track('quiz-link-visit', { from: sentPart });
+        setTimeout(function () { scrollToEl(quizSection); }, 600);
+      }
+
+      // Fifteen doors: the door swings open and its text shows underneath
+      var doorPanel = document.getElementById('bkDoorPanel');
+      var doorTexts = document.getElementById('bkDoorTexts');
+      var doors = document.querySelectorAll('#bkDoors .bk-door');
+      doors.forEach(function (door) {
+        door.addEventListener('click', function () {
+          var wasOpen = door.classList.contains('is-active');
+          doors.forEach(function (d) { d.classList.remove('is-active'); });
+          if (wasOpen) { doorPanel.classList.remove('show'); return; }
+          door.classList.add('is-active');
+          track('door-open', { door: door.getAttribute('data-door') });
+          doorPanel.innerHTML = doorTexts.querySelector('[data-door="' + door.getAttribute('data-door') + '"]').innerHTML;
+          doorPanel.classList.remove('show');
+          void doorPanel.offsetWidth;
+          doorPanel.classList.add('show');
+          doorPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+      });
+
+      // Agenda bar: appears after the welcome, shows where you are, jumps to a step
+      var agenda = document.getElementById('bkAgenda');
+      var agendaBtns = agenda.querySelectorAll('[data-goto]');
+      function updateLive() {}
+      document.querySelectorAll('[data-goto]').forEach(function (b) {
+        b.addEventListener('click', function () { scrollToEl(document.getElementById(b.getAttribute('data-goto'))); });
+      });
+      function placeAgenda() {
+        var navBar = document.getElementById('nav');
+        agenda.style.top = window.innerWidth >= 900 && navBar ? navBar.offsetHeight + 'px' : '';
+      }
+      placeAgenda();
+      window.addEventListener('resize', placeAgenda);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          agenda.classList.toggle('show', !entries[0].isIntersecting);
+        }, { threshold: 0.2 }).observe(document.getElementById('book'));
+        var stepObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) { return; }
+            var id = entry.target.getAttribute('data-agenda');
+            agendaBtns.forEach(function (b) {
+              var on = b.getAttribute('data-goto') === id;
+              b.classList.toggle('active', on);
+              if (on && agenda.scrollWidth > agenda.clientWidth) {
+                agenda.scrollTo({ left: b.offsetLeft - 16, behavior: 'smooth' });
+              }
+            });
+          });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        document.querySelectorAll('[data-agenda]').forEach(function (sec) { stepObs.observe(sec); });
+      }
+
+      // The people around the book: tap a face to see their line, tap again to meet them
+      document.querySelectorAll('[data-seat]').forEach(function (seat) {
+        seat.addEventListener('click', function () {
+          var wasOpen = seat.classList.contains('open');
+          document.querySelectorAll('[data-seat]').forEach(function (o) { o.classList.remove('open'); });
+          if (!wasOpen) { seat.classList.add('open'); track('seat-open', { who: seat.getAttribute('data-seat') }); return; }
+          var card = document.getElementById('card-' + seat.getAttribute('data-seat'));
+          scrollToEl(card);
+          setTimeout(function () { card.classList.add('flipped'); }, 700);
         });
       });
     })();
-  </script>
-</body>
+  </script></body>
 </html>
