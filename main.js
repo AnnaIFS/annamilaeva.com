@@ -202,3 +202,16 @@ document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
     window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
   });
 });
+
+// Keep the footer copyright year current. The HTML says the year it was
+// written; this swaps in this year so nobody has to edit every page in January.
+(function () {
+  var year = String(new Date().getFullYear());
+  document.querySelectorAll('.footer__bottom span, .sh-footer, footer').forEach(function (el) {
+    el.childNodes.forEach(function (node) {
+      if (node.nodeType === 3 && /©\s*\d{4}/.test(node.nodeValue)) {
+        node.nodeValue = node.nodeValue.replace(/(©\s*)\d{4}/, '$1' + year);
+      }
+    });
+  });
+})();
