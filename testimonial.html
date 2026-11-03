@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>A Few Words | Anna Milaeva</title>
+  <meta name="description" content="Share a few words about your work with Anna Milaeva.">
+  <link rel="icon" href="https://annamilaeva.com/favicon.png">
+  <style>
+    @font-face { font-family: 'Inter'; font-weight: 100 900; font-display: swap; src: url(/fonts/inter.woff2) format('woff2'); }
+    @font-face { font-family: 'Playfair Display'; font-weight: 400 900; font-display: swap; src: url(/fonts/playfair.woff2) format('woff2'); }
+    @font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 400 900; font-display: swap; src: url(/fonts/playfair-italic.woff2) format('woff2'); }
+    :root {
+      --bg: #FAF7F2;
+      --accent: #C85A2A;
+      --accent-hover: #A94A22;
+      --gold: #E8A020;
+      --text: #1A1A1A;
+      --text-light: #6B6B6B;
+      --divider: #E8E0D8;
+      --white: #FFFFFF;
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; }
+    a { color: var(--accent); }
+    [hidden] { display: none !important; }
+
+    .nav { border-bottom: 1px solid var(--divider); background: rgba(250, 247, 242, 0.92); }
+    .nav__inner { max-width: 720px; margin: 0 auto; padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav__logo { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 500; color: var(--text); letter-spacing: -0.01em; text-decoration: none; line-height: 1.3; }
+    .nav__logo-role { display: block; font-family: var(--font-body); font-size: 0.82rem; font-weight: 400; color: var(--accent); letter-spacing: 0.06em; margin-top: 2px; }
+    .lang { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--divider); flex-shrink: 0; }
+    .lang button { background: none; border: 0; font: inherit; color: var(--text-light); cursor: pointer; padding: 4px 2px; }
+    .lang button[aria-pressed="true"] { color: var(--accent); font-weight: 600; }
+
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+
+    .hero { padding: 48px 0 32px; display: flex; gap: 32px; align-items: center; }
+    .hero__photo { width: 148px; height: 148px; border-radius: 50%; object-fit: cover; background: var(--accent); flex-shrink: 0; }
+    h1 { font-family: var(--font-heading); font-weight: 400; font-size: 2.5rem; line-height: 1.2; margin-bottom: 14px; }
+    h2 { font-family: var(--font-heading); font-weight: 400; font-size: 1.6rem; line-height: 1.25; }
+    .line-accent { width: 48px; height: 2px; background: var(--accent); border: 0; margin: 10px 0 20px; }
+    .lead { color: var(--text); }
+    .sub { color: var(--text-light); font-size: 0.95rem; margin-top: 10px; }
+
+    .block { padding: 28px 0; border-top: 1px solid var(--divider); }
+    .field { margin-bottom: 24px; }
+    .field:last-child { margin-bottom: 0; }
+    label.q, .q { display: block; font-weight: 500; margin-bottom: 6px; line-height: 1.45; }
+    .hint { display: block; color: var(--text-light); font-size: 0.875rem; line-height: 1.5; margin-bottom: 8px; }
+    .opt { color: var(--text-light); font-weight: 400; font-size: 0.875rem; }
+    input[type=text], textarea {
+      width: 100%; font: inherit; font-size: 16px; color: var(--text); background: var(--white);
+      border: 1px solid var(--divider); border-radius: 6px; padding: 12px 14px;
+    }
+    textarea { min-height: 112px; resize: vertical; line-height: 1.6; }
+    input[type=text]:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { position: relative; }
+    .chip input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; cursor: pointer; margin: 0; }
+    .chip span { display: block; padding: 8px 14px; font-size: 0.9rem; border: 1px solid var(--divider); border-radius: 999px; background: var(--white); }
+    .chip input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--white); }
+    .chip input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .stars { display: flex; gap: 2px; }
+    .star { background: none; border: 0; cursor: pointer; padding: 4px; line-height: 0; border-radius: 4px; }
+    .star svg { width: 34px; height: 34px; fill: none; stroke: var(--divider); stroke-width: 1.5; transition: fill .15s ease, stroke .15s ease; }
+    .star.on svg { fill: var(--gold); stroke: var(--gold); }
+
+    .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--divider); border-radius: 6px; overflow: hidden; margin-bottom: 24px; background: var(--white); }
+    .tab { border: 0; background: none; font: inherit; font-weight: 500; font-size: 0.95rem; padding: 12px; cursor: pointer; color: var(--text-light); }
+    .tab[aria-selected="true"] { background: var(--accent); color: var(--white); }
+
+    .prompts { list-style: none; background: var(--white); border: 1px solid var(--divider); border-radius: 6px; padding: 16px 18px; margin-bottom: 16px; }
+    .prompts li { padding: 3px 0; }
+    .prompts li::before { content: counter(p) ". "; counter-increment: p; color: var(--accent); font-weight: 600; }
+    .prompts { counter-reset: p; }
+    .stage { width: 100%; max-height: 420px; background: #1E110A; border-radius: 6px; display: block; margin-bottom: 12px; }
+    .stage--live { transform: scaleX(-1); }
+    .rec-status { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+    .rec-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .msg { font-size: 0.9rem; margin-top: 12px; color: var(--accent-hover); line-height: 1.5; }
+
+    .btn { display: inline-block; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.04em; padding: 16px 36px; border-radius: 6px; border: none; cursor: pointer; text-decoration: none; text-align: center; transition: background .2s ease; }
+    .btn--primary { background: var(--accent); color: var(--white); }
+    .btn--primary:hover { background: var(--accent-hover); }
+    .btn--primary:disabled { opacity: .6; cursor: default; }
+    .btn--outline { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); padding: 10px 20px; font-size: 0.9rem; }
+    .btn--outline:hover { background: rgba(200, 90, 42, 0.07); }
+    .btn--file { position: relative; overflow: hidden; }
+    .btn--file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; font-size: 0; }
+    .btn--file:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .radio, .check { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; cursor: pointer; line-height: 1.5; }
+    .radio input, .check input { accent-color: var(--accent); width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0; }
+
+    .promise { background: var(--white); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem; margin-bottom: 24px; }
+    .progress { height: 6px; border-radius: 3px; background: var(--divider); overflow: hidden; margin-top: 14px; }
+    .progress div { height: 100%; width: 0; background: var(--accent); transition: width .2s ease; }
+    .status { font-size: 0.875rem; color: var(--text-light); margin-top: 8px; }
+
+    .thanks { padding: 56px 0 24px; }
+    .share { background: var(--white); border: 1px solid var(--divider); border-radius: 6px; padding: 24px; margin: 32px 0 24px; }
+    .share h2 { margin-bottom: 10px; }
+    .share__note { background: var(--bg); border-radius: 6px; padding: 14px 16px; margin: 16px 0; font-size: 0.95rem; }
+
+    footer { margin-top: 32px; border-top: 1px solid var(--divider); padding: 28px 0 40px; text-align: center; }
+    .footer__quote { font-family: var(--font-heading); font-style: italic; font-size: 1.05rem; color: var(--text); line-height: 1.5; }
+    .footer__small { font-size: 0.85rem; color: var(--text-light); margin-top: 12px; }
+
+    @media (max-width: 600px) {
+      .hero { flex-direction: column; align-items: flex-start; gap: 20px; padding-top: 32px; }
+      .hero__photo { width: 104px; height: 104px; }
+      h1 { font-size: 2.1rem; }
+      .btn--primary { width: 100%; }
+      .nav__logo { font-size: 1.15rem; }
+      .nav__logo-role { font-size: 0.72rem; letter-spacing: 0.03em; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="https://annamilaeva.com/" class="nav__logo">Anna Milaeva <span class="nav__logo-role" data-t="role"></span></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en">English</button>
+        <span>|</span>
+        <button type="button" data-lang="es">Español</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div id="formView" hidden>
+      <header class="hero">
+        <img class="hero__photo" src="https://annamilaeva.com/anna-hero.jpg?v=20260502" alt="Anna Milaeva">
+        <div>
+          <h1 data-t="h1"></h1>
+          <p class="lead" data-t="lead"></p>
+          <p class="sub" data-t="sub"></p>
+        </div>
+      </header>
+
+      <form id="form" novalidate>
+        <section class="block">
+          <div class="field">
+            <span class="q"><span data-t="offersQ"></span> <span class="opt" data-t="optional"></span></span>
+            <div class="chips" id="offers"></div>
+          </div>
+          <div class="field">
+            <span class="q"><span data-t="starsQ"></span> <span class="opt" data-t="optional"></span></span>
+            <span class="hint" data-t="starsHint"></span>
+            <div class="stars" id="stars"></div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2 data-t="wordsH"></h2>
+          <hr class="line-accent">
+          <div class="tabs" role="tablist">
+            <button type="button" class="tab" role="tab" id="tabWrite" aria-controls="panelWrite" aria-selected="true" data-t="tabWrite"></button>
+            <button type="button" class="tab" role="tab" id="tabVideo" aria-controls="panelVideo" aria-selected="false" data-t="tabVideo"></button>
+          </div>
+
+          <div id="panelWrite" role="tabpanel">
+            <p class="hint" data-t="writeHint"></p>
+            <div class="field" style="margin-top:16px">
+              <label class="q" for="before" data-t="q1"></label>
+              <textarea id="before" maxlength="4000"></textarea>
+            </div>
+            <div class="field">
+              <label class="q" for="after" data-t="q2"></label>
+              <span class="hint" data-t="q2Hint"></span>
+              <textarea id="after" maxlength="4000"></textarea>
+            </div>
+            <div class="field">
+              <label class="q" for="friend" data-t="q3"></label>
+              <textarea id="friend" maxlength="4000"></textarea>
+            </div>
+          </div>
+
+          <div id="panelVideo" role="tabpanel" hidden>
+            <p class="hint" data-t="videoHint"></p>
+            <ol class="prompts">
+              <li data-t="q1"></li>
+              <li data-t="q2"></li>
+              <li data-t="q3"></li>
+            </ol>
+            <video id="stage" class="stage" playsinline hidden></video>
+            <div class="rec-status" id="recStatus" hidden><span class="rec-dot"></span><span id="recTime">0:00</span> / 2:00</div>
+            <div class="row">
+              <button type="button" class="btn btn--outline" id="camOn" data-t="camOn"></button>
+              <button type="button" class="btn btn--outline" id="recStart" data-t="recStart" hidden></button>
+              <button type="button" class="btn btn--outline" id="recStop" data-t="recStop" hidden></button>
+              <button type="button" class="btn btn--outline" id="videoRemove" data-t="videoRemove" hidden></button>
+              <label class="btn btn--outline btn--file" id="uploadLabel"><span data-t="upload"></span><input type="file" id="file" accept="video/mp4,video/quicktime,video/webm,video/x-m4v"></label>
+            </div>
+            <p class="msg" id="videoMsg" hidden></p>
+            <p class="hint" style="margin-top:16px" data-t="voiceNote"></p>
+            <div class="field" id="videoUseField" style="margin-top:16px" hidden>
+              <span class="q" data-t="videoUseQ"></span>
+              <label class="radio"><input type="radio" name="video_use" value="publish" checked><span data-t="videoPublish"></span></label>
+              <label class="radio"><input type="radio" name="video_use" value="words_only"><span data-t="videoWords"></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2 data-t="appearH"></h2>
+          <hr class="line-accent">
+          <div class="field">
+            <span class="q" data-t="displayQ"></span>
+            <label class="radio"><input type="radio" name="name_display" value="full_role"><span data-t="dFull"></span></label>
+            <label class="radio"><input type="radio" name="name_display" value="first_role" checked><span data-t="dFirst"></span></label>
+            <label class="radio"><input type="radio" name="name_display" value="initials_role"><span data-t="dInitials"></span></label>
+            <label class="radio"><input type="radio" name="name_display" value="role_only"><span data-t="dRole"></span></label>
+            <label class="radio"><input type="radio" name="name_display" value="anonymous"><span data-t="dAnon"></span></label>
+          </div>
+          <div class="field">
+            <label class="q" for="role"><span data-t="roleQ"></span> <span class="opt" data-t="optional"></span></label>
+            <input type="text" id="role" maxlength="200" data-tp="rolePh">
+          </div>
+          <div class="field">
+            <label class="check"><input type="checkbox" id="social"><span data-t="socialOk"></span></label>
+            <label class="check"><input type="checkbox" id="reference"><span data-t="referenceOk"></span></label>
+          </div>
+          <div class="field">
+            <label class="q" for="note"><span data-t="noteQ"></span> <span class="opt" data-t="optional"></span></label>
+            <span class="hint" data-t="noteHint"></span>
+            <textarea id="note" maxlength="4000"></textarea>
+          </div>
+        </section>
+
+        <section class="block">
+          <p class="promise" data-t="promise"></p>
+          <button type="submit" class="btn btn--primary" id="submit" data-t="submit"></button>
+          <div class="progress" id="progress" hidden><div id="progressBar"></div></div>
+          <p class="status" id="status" hidden></p>
+          <p class="msg" id="formMsg" role="alert" hidden></p>
+        </section>
+      </form>
+    </div>
+
+    <div id="closedView" class="thanks" hidden>
+      <h1 data-t="closedH"></h1>
+      <p class="lead" data-t="closedP"></p>
+    </div>
+
+    <div id="thanksView" class="thanks" hidden tabindex="-1">
+      <h1 data-t="thanksH"></h1>
+      <p class="lead" data-t="thanksP"></p>
+      <div class="share">
+        <h2 data-t="shareH"></h2>
+        <p data-t="shareP"></p>
+        <p class="share__note" id="shareNote"></p>
+        <div class="row">
+          <button type="button" class="btn btn--outline" id="copy" data-t="copy"></button>
+          <a class="btn btn--outline" id="whatsapp" target="_blank" rel="noopener noreferrer" data-t="whatsapp"></a>
+        </div>
+      </div>
+      <p><span data-t="teamP"></span> <a href="https://www.fino.website" target="_blank" rel="noopener noreferrer" data-t="teamLink"></a></p>
+    </div>
+
+    <footer>
+      <p class="footer__quote" data-t="closing"></p>
+      <p class="footer__small" data-t="privacy"></p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var FORM_API = 'https://selovqhwipyakrlezdbk.supabase.co/functions/v1/testimonial-submit';
+      var TOKEN = location.hash.slice(1);
+      var MAX_BYTES = 50 * 1024 * 1024;
+      var MAX_SECONDS = 120;
+      var DRAFT_KEY = 'testimonial-draft-v1';
+      var SITE_LINK = 'https://annamilaeva.com/?utm_source=client-referral';
+
+      var OFFERS = [
+        ['1:1 Coaching', 'offer1'],
+        ['Self-Quest', 'offer2'],
+        ['AI Coaching', 'offer3'],
+        ['Sacred Circles', 'offer4'],
+        ['Couples', 'offer5'],
+        ['Team or workplace', 'offer6']
+      ];
+
+      var T = {
+        en: {
+          title: 'A Few Words | Anna Milaeva',
+          role: 'IFS Coach for People in Transition',
+          h1: 'Thank you for doing this.',
+          lead: 'Someone is reading my website right now, trying to decide if this work is for them. Your words will help them more than anything I could write about myself.',
+          sub: 'About five minutes. Write it or record it, whichever is easier. Nothing goes up until you approve the final wording.',
+          optional: '(optional)',
+          offersQ: 'What did we do together?',
+          offer1: '1:1 coaching', offer2: 'Self-Quest', offer3: 'AI coaching', offer4: 'Sacred Circles', offer5: 'Couples', offer6: 'Team or workplace',
+          starsQ: 'How was the work, overall?',
+          starsHint: 'Your words matter more to me than the number :)',
+          starLabel: ' of 5',
+          wordsH: 'In your words',
+          tabWrite: 'Write it',
+          tabVideo: 'Record a video',
+          writeHint: 'Two or three sentences is plenty. Answer one question or all of them. Your wording is better than polished wording, so please don\'t tidy it up. Leave out names and anything you wouldn\'t want a stranger to read.',
+          q1: 'What was going on for you when we started?',
+          q2: 'What\'s different now?',
+          q2Hint: 'A specific moment helps: a conversation that went differently, a decision you finally made, a Tuesday that felt lighter.',
+          q3: 'What would you tell a friend who is where you were?',
+          videoHint: 'One or two minutes, on these three questions. Nobody expects a film. Sit near a window, say your first name, and talk the way you talk to me.',
+          camOn: 'Record here',
+          recStart: 'Start recording',
+          recStop: 'Stop',
+          videoRemove: 'Remove and redo',
+          upload: 'Upload a video',
+          voiceNote: 'Prefer a voice note? Send me one, the way we usually talk, and I\'ll write it up for you to approve.',
+          videoUseQ: 'What can I do with the video?',
+          videoPublish: 'You can publish it, once I\'ve seen the final cut',
+          videoWords: 'Use my words only. The video is just for you',
+          camError: 'I couldn\'t turn on your camera. Your browser may have blocked it. You can record on your phone and use "Upload a video" instead.',
+          recUnsupported: 'This browser can\'t record here. Record on your phone and use "Upload a video" instead.',
+          tooBig: 'This video is over 50 MB, too big for this form. Record it here on the page instead, which makes a smaller file, or send it to me on WhatsApp.',
+          badType: 'I can\'t accept this file type here. Please use MP4, MOV or WebM, or send it to me on WhatsApp.',
+          appearH: 'How you appear',
+          displayQ: 'If this goes on my website, how should I name you?',
+          dFull: 'Full name and role',
+          dFirst: 'First name and role',
+          dInitials: 'Initials and role',
+          dRole: 'Role and country only',
+          dAnon: 'Anonymous',
+          roleQ: 'Your role and country',
+          rolePh: 'Realtor, USA',
+          socialOk: 'It\'s also fine to share this on LinkedIn, Instagram or Substack.',
+          referenceOk: 'I\'m open to a short chat with someone deciding whether to work with Anna.',
+          noteQ: 'Anything you want to say just to me?',
+          noteHint: 'This never gets published. What could have been better is very welcome here.',
+          promise: 'I\'ll send you the final wording before anything goes up. I might shorten it, and I won\'t change what you meant. If you change your mind later, tell me and it comes down.',
+          submit: 'Send to Anna',
+          uploading: 'Uploading your video. Please keep this page open.',
+          sending: 'Sending',
+          needContent: 'Please answer at least one question, or add a video.',
+          sendError: 'Something went wrong on my side. Your words are still here. Please try again in a minute, or just message me and I\'ll sort it out.',
+          thanksH: 'Thank you.',
+          thanksP: 'It\'s with me now. I\'ll read it properly and send you the final wording. Nothing goes up before your yes.',
+          shareH: 'One more thing, only if someone comes to mind',
+          shareP: 'If a friend or colleague is in the middle of a big change, this note is yours to send. You don\'t have to say you worked with me.',
+          shareNote: 'I thought of you. Anna Milaeva is a coach who works with people in the middle of a big change, using Internal Family Systems. The first call is free, 30 minutes, no obligation. In case it\'s useful: ',
+          copy: 'Copy the note',
+          copied: 'Copied',
+          whatsapp: 'Send on WhatsApp',
+          teamP: 'And if your team could use this, I do that work too.',
+          teamLink: 'See FINO',
+          closing: '"Every part of you has a reason for being there. Nothing needs to be cut out. Everything has a gift."',
+          privacy: 'This link is just for you and works once. What you send is stored privately for Anna, and nothing appears anywhere until you approve it.',
+          closedH: 'This link isn\'t active.',
+          closedP: 'It may have been used already, or it may have expired. Message me and I\'ll send you a new one.'
+        },
+        es: {
+          title: 'Unas Palabras | Anna Milaeva',
+          role: 'Coach de IFS para Personas en Transición',
+          h1: 'Gracias por hacer esto.',
+          lead: 'Ahora mismo alguien está leyendo mi página, intentando decidir si este trabajo es para esa persona. Tus palabras le van a ayudar más que cualquier cosa que yo pueda escribir sobre mí.',
+          sub: 'Son unos cinco minutos. Escríbelo o grábalo, lo que te resulte más fácil. No se publica nada hasta que apruebes la versión final.',
+          optional: '(opcional)',
+          offersQ: '¿Qué hicimos juntos?',
+          offer1: 'Coaching 1:1', offer2: 'Self-Quest', offer3: 'Coaching de IA', offer4: 'Sacred Circles', offer5: 'Parejas', offer6: 'Equipo o trabajo',
+          starsQ: '¿Cómo fue el trabajo, en general?',
+          starsHint: 'Tus palabras me importan más que el número :)',
+          starLabel: ' de 5',
+          wordsH: 'En tus palabras',
+          tabWrite: 'Escribirlo',
+          tabVideo: 'Grabar un video',
+          writeHint: 'Con dos o tres frases alcanza. Responde una pregunta o todas. Tu manera de decirlo vale más que una versión pulida, así que no la arregles. Deja fuera nombres y cualquier cosa que no quieras que lea un desconocido.',
+          q1: '¿Qué estaba pasando en tu vida cuando empezamos?',
+          q2: '¿Qué es distinto ahora?',
+          q2Hint: 'Ayuda un momento concreto: una conversación que fue distinta, una decisión que por fin tomaste, un martes más liviano.',
+          q3: '¿Qué le dirías a una amiga o un amigo que está donde tú estabas?',
+          videoHint: 'Uno o dos minutos, sobre estas tres preguntas. Nadie espera una película. Siéntate cerca de una ventana, di tu nombre y habla como hablas conmigo.',
+          camOn: 'Grabar aquí',
+          recStart: 'Empezar a grabar',
+          recStop: 'Parar',
+          videoRemove: 'Borrar y repetir',
+          upload: 'Subir un video',
+          voiceNote: '¿Prefieres un audio? Mándame uno, como siempre hablamos, y yo lo paso a texto para que lo apruebes.',
+          videoUseQ: '¿Qué puedo hacer con el video?',
+          videoPublish: 'Puedes publicarlo, después de que yo vea la versión final',
+          videoWords: 'Usa solo mis palabras. El video es solo para ti',
+          camError: 'No pude encender tu cámara. Puede que tu navegador la haya bloqueado. Puedes grabar con tu teléfono y usar "Subir un video".',
+          recUnsupported: 'Este navegador no puede grabar aquí. Graba con tu teléfono y usa "Subir un video".',
+          tooBig: 'Este video pesa más de 50 MB, demasiado para este formulario. Grábalo aquí en la página, que genera un archivo más liviano, o mándamelo por WhatsApp.',
+          badType: 'No puedo recibir este tipo de archivo aquí. Usa MP4, MOV o WebM, o mándamelo por WhatsApp.',
+          appearH: 'Cómo apareces',
+          displayQ: 'Si esto va en mi página, ¿cómo te nombro?',
+          dFull: 'Nombre completo y profesión',
+          dFirst: 'Nombre y profesión',
+          dInitials: 'Iniciales y profesión',
+          dRole: 'Solo profesión y país',
+          dAnon: 'Anónimo',
+          roleQ: 'Tu profesión y país',
+          rolePh: 'Abogada, México',
+          socialOk: 'También se puede compartir en LinkedIn, Instagram o Substack.',
+          referenceOk: 'Estoy abierto o abierta a una charla corta con alguien que esté decidiendo si trabajar con Anna.',
+          noteQ: '¿Algo que quieras decirme solo a mí?',
+          noteHint: 'Esto nunca se publica. Lo que podría haber sido mejor también es muy bienvenido aquí.',
+          promise: 'Te mando la versión final antes de publicar nada. Puede que la acorte, y no voy a cambiar lo que quisiste decir. Si más adelante cambias de opinión, me avisas y la quito.',
+          submit: 'Enviar a Anna',
+          uploading: 'Subiendo tu video. Por favor deja esta página abierta.',
+          sending: 'Enviando',
+          needContent: 'Por favor responde al menos una pregunta, o agrega un video.',
+          sendError: 'Algo falló de mi lado. Tus palabras siguen aquí. Inténtalo de nuevo en un minuto, o escríbeme y lo resuelvo.',
+          thanksH: 'Gracias.',
+          thanksP: 'Ya me llegó. Lo voy a leer con calma y te mando la versión final. No se publica nada antes de tu sí.',
+          shareH: 'Una cosa más, solo si te viene alguien a la mente',
+          shareP: 'Si una amiga o un colega está en medio de un gran cambio, esta nota es tuya para enviar. No hace falta que digas que trabajaste conmigo.',
+          shareNote: 'Pensé en ti. Anna Milaeva es una coach que trabaja con personas en medio de un gran cambio, usando Sistemas de Familia Interna (IFS). La primera llamada es gratis, 30 minutos, sin compromiso. Por si te sirve: ',
+          copy: 'Copiar la nota',
+          copied: 'Copiada',
+          whatsapp: 'Enviar por WhatsApp',
+          teamP: 'Y si a tu equipo le serviría esto, también hago ese trabajo.',
+          teamLink: 'Ver FINO',
+          closing: '"Cada parte de ti tiene una razón para estar ahí. Nada necesita ser eliminado. Todo tiene un regalo que ofrecer."',
+          privacy: 'Este enlace es solo para ti y funciona una vez. Lo que envías se guarda en privado para Anna, y nada aparece en ningún lado hasta que lo apruebes.',
+          closedH: 'Este enlace no está activo.',
+          closedP: 'Puede que ya se haya usado o que haya vencido. Escríbeme y te mando uno nuevo.'
+        }
+      };
+
+      var $ = function (id) { return document.getElementById(id); };
+      var lang = new URLSearchParams(location.search).get('lang') === 'es' ? 'es' : 'en';
+      var rating = null;
+      var video = null;       // { blob, ext, type }
+      var videoUploaded = false;
+      var firstName = '';
+      var recordingStream = null;
+      var recorder = null;
+      var recTimer = null;
+
+      function t(key) { return T[lang][key]; }
+
+      function shareText() { return t('shareNote') + (lang === 'es' ? 'https://annamilaeva.com/es/?utm_source=client-referral' : SITE_LINK); }
+
+      function applyLang() {
+        document.documentElement.lang = lang;
+        document.title = t('title');
+        document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t(el.getAttribute('data-t')); });
+        if (firstName) document.querySelector('.hero h1').textContent = t('h1').replace(/\.$/, ', ' + firstName + '.');
+        document.querySelectorAll('[data-tp]').forEach(function (el) { el.placeholder = t(el.getAttribute('data-tp')); });
+        document.querySelectorAll('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
+        document.querySelectorAll('#stars .star').forEach(function (b, i) { b.setAttribute('aria-label', (i + 1) + t('starLabel')); });
+        $('shareNote').textContent = shareText();
+        $('whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText());
+      }
+
+      document.querySelectorAll('[data-lang]').forEach(function (b) {
+        b.addEventListener('click', function () { lang = b.getAttribute('data-lang'); applyLang(); });
+      });
+
+      // Offers
+      OFFERS.forEach(function (o) {
+        var label = document.createElement('label');
+        label.className = 'chip';
+        var input = document.createElement('input');
+        input.type = 'checkbox';
+        input.value = o[0];
+        var span = document.createElement('span');
+        span.setAttribute('data-t', o[1]);
+        label.appendChild(input);
+        label.appendChild(span);
+        $('offers').appendChild(label);
+      });
+
+      // Stars
+      for (var i = 1; i <= 5; i++) {
+        (function (n) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'star';
+          b.setAttribute('aria-pressed', 'false');
+          b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.5l-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z" stroke-linejoin="round"/></svg>';
+          b.addEventListener('click', function () { rating = rating === n ? null : n; paintStars(); });
+          $('stars').appendChild(b);
+        })(i);
+      }
+      function paintStars() {
+        document.querySelectorAll('#stars .star').forEach(function (b, idx) {
+          b.classList.toggle('on', rating !== null && idx < rating);
+          b.setAttribute('aria-pressed', rating === idx + 1 ? 'true' : 'false');
+        });
+      }
+
+      // Tabs
+      function selectTab(which) {
+        var write = which === 'write';
+        $('tabWrite').setAttribute('aria-selected', String(write));
+        $('tabVideo').setAttribute('aria-selected', String(!write));
+        $('panelWrite').hidden = !write;
+        $('panelVideo').hidden = write;
+      }
+      $('tabWrite').addEventListener('click', function () { selectTab('write'); });
+      $('tabVideo').addEventListener('click', function () { selectTab('video'); });
+
+      // Video
+      function videoMsg(key) {
+        $('videoMsg').hidden = !key;
+        $('videoMsg').textContent = key ? t(key) : '';
+      }
+      function stopStream() {
+        if (recordingStream) { recordingStream.getTracks().forEach(function (tr) { tr.stop(); }); recordingStream = null; }
+      }
+      function showButtons(state) {
+        $('camOn').hidden = state !== 'idle';
+        $('uploadLabel').hidden = state !== 'idle';
+        $('recStart').hidden = state !== 'live';
+        $('recStop').hidden = state !== 'recording';
+        $('videoRemove').hidden = state !== 'review';
+        $('recStatus').hidden = state !== 'recording';
+        $('videoUseField').hidden = state !== 'review';
+      }
+      function resetVideo() {
+        stopStream();
+        var s = $('stage');
+        s.pause();
+        s.srcObject = null;
+        if (s.src) { URL.revokeObjectURL(s.src); s.removeAttribute('src'); s.load(); }
+        s.hidden = true;
+        video = null;
+        videoUploaded = false;
+        $('file').value = '';
+        showButtons('idle');
+      }
+      function reviewVideo(blob, type, ext) {
+        video = { blob: blob, type: type, ext: ext };
+        videoUploaded = false;
+        var s = $('stage');
+        s.srcObject = null;
+        s.classList.remove('stage--live');
+        s.muted = false;
+        s.controls = true;
+        s.src = URL.createObjectURL(blob);
+        s.hidden = false;
+        showButtons('review');
+      }
+      function pickMime() {
+        var list = ['video/mp4;codecs=avc1,mp4a', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm'];
+        for (var j = 0; j < list.length; j++) { if (MediaRecorder.isTypeSupported(list[j])) return list[j]; }
+        return '';
+      }
+
+      $('camOn').addEventListener('click', function () {
+        videoMsg(null);
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) { videoMsg('recUnsupported'); return; }
+        navigator.mediaDevices.getUserMedia({ video: { width: { ideal: 1280 }, height: { ideal: 720 }, facingMode: 'user' }, audio: true }).then(function (stream) {
+          recordingStream = stream;
+          var s = $('stage');
+          s.controls = false;
+          s.muted = true;
+          s.srcObject = stream;
+          s.classList.add('stage--live');
+          s.hidden = false;
+          s.play();
+          showButtons('live');
+        }).catch(function () { videoMsg('camError'); });
+      });
+
+      $('recStart').addEventListener('click', function () {
+        var mime = pickMime();
+        var chunks = [];
+        // About 2 Mbps, so the two minute limit stays well under the 50 MB upload limit.
+        recorder = new MediaRecorder(recordingStream, { mimeType: mime || undefined, videoBitsPerSecond: 2000000, audioBitsPerSecond: 96000 });
+        recorder.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+        recorder.onstop = function () {
+          clearInterval(recTimer);
+          stopStream();
+          var type = (recorder.mimeType || mime || 'video/webm').split(';')[0];
+          var ext = type === 'video/mp4' ? 'mp4' : 'webm';
+          var blob = new Blob(chunks, { type: type });
+          if (blob.size > MAX_BYTES) { resetVideo(); videoMsg('tooBig'); return; }
+          reviewVideo(blob, type, ext);
+        };
+        recorder.start(1000);
+        var started = Date.now();
+        $('recTime').textContent = '0:00';
+        recTimer = setInterval(function () {
+          var sec = Math.floor((Date.now() - started) / 1000);
+          $('recTime').textContent = Math.floor(sec / 60) + ':' + String(sec % 60).padStart(2, '0');
+          if (sec >= MAX_SECONDS && recorder.state === 'recording') recorder.stop();
+        }, 500);
+        showButtons('recording');
+      });
+
+      $('recStop').addEventListener('click', function () { if (recorder && recorder.state === 'recording') recorder.stop(); });
+      $('videoRemove').addEventListener('click', function () { resetVideo(); videoMsg(null); });
+
+      $('file').addEventListener('change', function () {
+        var f = this.files[0];
+        videoMsg(null);
+        if (!f) return;
+        var exts = { 'video/mp4': 'mp4', 'video/quicktime': 'mov', 'video/webm': 'webm', 'video/x-m4v': 'm4v' };
+        if (!exts[f.type]) { this.value = ''; videoMsg('badType'); return; }
+        if (f.size > MAX_BYTES) { this.value = ''; videoMsg('tooBig'); return; }
+        reviewVideo(f, f.type, exts[f.type]);
+      });
+
+      // Kept for this tab only, so nothing stays behind on a shared or work computer
+      var DRAFT_FIELDS = ['before', 'after', 'friend', 'role', 'note'];
+      function saveDraft() {
+        try {
+          var d = {};
+          DRAFT_FIELDS.forEach(function (f) { d[f] = $(f).value; });
+          sessionStorage.setItem(DRAFT_KEY, JSON.stringify(d));
+        } catch (e) {}
+      }
+      try {
+        var saved = JSON.parse(sessionStorage.getItem(DRAFT_KEY) || 'null');
+        if (saved) DRAFT_FIELDS.forEach(function (f) { if (saved[f]) $(f).value = saved[f]; });
+      } catch (e) {}
+      DRAFT_FIELDS.forEach(function (f) { $(f).addEventListener('input', saveDraft); });
+
+      // Submit
+      function formMsg(text) {
+        $('formMsg').hidden = !text;
+        $('formMsg').textContent = text || '';
+      }
+      function api(body) {
+        body.token = TOKEN;
+        return fetch(FORM_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        });
+      }
+      function showClosed() {
+        $('formView').hidden = true;
+        $('closedView').hidden = false;
+      }
+      function uploadVideo() {
+        return api({ action: 'upload_url', ext: video.ext }).then(function (res) {
+          if (!res.ok) throw new Error('upload url ' + res.status);
+          return res.json();
+        }).then(function (data) {
+          return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('PUT', data.url);
+            xhr.setRequestHeader('Content-Type', video.type);
+            xhr.upload.onprogress = function (e) {
+              if (e.lengthComputable) $('progressBar').style.width = Math.round((e.loaded / e.total) * 100) + '%';
+            };
+            xhr.onload = function () { xhr.status < 300 ? resolve() : reject(new Error('upload ' + xhr.status)); };
+            xhr.onerror = function () { reject(new Error('upload network')); };
+            xhr.send(video.blob);
+          });
+        });
+      }
+      var val = function (id) { var v = $(id).value.trim(); return v || null; };
+
+      $('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        formMsg(null);
+        var before = val('before'), after = val('after'), friend = val('friend');
+        if (!before && !after && !friend && !video) { formMsg(t('needContent')); return; }
+
+        $('submit').disabled = true;
+        var step = Promise.resolve();
+        if (video && !videoUploaded) {
+          $('progress').hidden = false;
+          $('status').hidden = false;
+          $('status').textContent = t('uploading');
+          step = uploadVideo().then(function () { videoUploaded = true; });
+        }
+        step.then(function () {
+          $('status').hidden = false;
+          $('status').textContent = t('sending');
+          return api({
+            action: 'submit',
+            fields: {
+              lang: lang,
+              offers: Array.prototype.map.call(document.querySelectorAll('#offers input:checked'), function (c) { return c.value; }),
+              rating: rating,
+              before_text: before,
+              after_text: after,
+              friend_text: friend,
+              has_video: !!video,
+              video_use: document.querySelector('input[name=video_use]:checked').value,
+              name_display: document.querySelector('input[name=name_display]:checked').value,
+              role_country: val('role'),
+              social_ok: $('social').checked,
+              reference_ok: $('reference').checked,
+              private_note: val('note')
+            }
+          });
+        }).then(function (res) {
+          if (res.status === 403) { showClosed(); return; }
+          if (!res.ok) throw new Error('submit ' + res.status);
+          try { sessionStorage.removeItem(DRAFT_KEY); } catch (err) {}
+          showThanks();
+        }).catch(function () {
+          $('submit').disabled = false;
+          $('progress').hidden = true;
+          $('status').hidden = true;
+          formMsg(t('sendError'));
+        });
+      });
+
+      function showThanks() {
+        stopStream();
+        $('formView').hidden = true;
+        $('thanksView').hidden = false;
+        window.scrollTo(0, 0);
+        $('thanksView').focus();
+      }
+
+      $('copy').addEventListener('click', function () {
+        var btn = this;
+        var done = function () {
+          btn.textContent = t('copied');
+          setTimeout(function () { btn.textContent = t('copy'); }, 2000);
+        };
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(shareText()).then(done).catch(function () {});
+        }
+      });
+
+      showButtons('idle');
+      applyLang();
+
+      // The form only opens for a live invite.
+      if (!TOKEN) {
+        showClosed();
+      } else {
+        api({ action: 'check' }).then(function (res) {
+          if (!res.ok) { showClosed(); return; }
+          return res.json().then(function (data) {
+            firstName = data.first_name || '';
+            applyLang();
+            $('formView').hidden = false;
+          });
+        }).catch(function () { $('formView').hidden = false; });
+      }
+    })();
+  </script>
+</body>
+</html>
