@@ -827,6 +827,36 @@ p {
   color: var(--text-light);
 }
 
+/* ---- Featured client quote (one big quote high on a page) ---- */
+.voice-feature {
+  padding: 56px 0 8px;
+}
+
+.voice-feature__inner {
+  margin: 0 auto;
+  max-width: 760px;
+  text-align: center;
+}
+
+.voice-feature__quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0 auto 18px;
+  max-width: none;
+}
+
+@media (max-width: 768px) {
+  .voice-feature {
+    padding: 40px 0 4px;
+  }
+  .voice-feature__quote {
+    font-size: 1.25rem;
+  }
+}
+
 .shelf-band {
   padding: 0 0 72px;
 }
