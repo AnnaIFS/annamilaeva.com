@@ -47,7 +47,8 @@
       {"@type": "VideoObject", "name": "So now, they get a voice. Already in a Meeting, the series", "description": "Anna Milaeva introduces the animated episodes made from her novel Already in a Meeting.", "thumbnailUrl": "https://annamilaeva.com/videos/ep00-anna-intro.jpg", "contentUrl": "https://annamilaeva.com/videos/ep00-anna-intro.mp4", "uploadDate": "2026-10-31", "duration": "PT30S"},
       {"@type": "VideoObject", "name": "Kate: Thirteen Minutes Early. Already in a Meeting, episode 1", "description": "Kate, Chief of Staff, arrives early, makes the coffee, and says yes before she sits down. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep01-kate.jpg", "contentUrl": "https://annamilaeva.com/videos/ep01-kate.mp4", "uploadDate": "2026-10-31", "duration": "PT42S"},
       {"@type": "VideoObject", "name": "Priya: Version C. Already in a Meeting, episode 2", "description": "Priya, Head of Marketing, brings three versions of every deck. Version C is the one she believes. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep02-priya.jpg", "contentUrl": "https://annamilaeva.com/videos/ep02-priya.mp4", "uploadDate": "2026-10-31", "duration": "PT31S"},
-      {"@type": "VideoObject", "name": "Tom and Marta: The Homework. Already in a Meeting, episode 3", "description": "Their couples therapist gave Tom and Marta homework: one intentional moment of connection per week. It was Sunday. They had not done the homework. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep03-tom-marta.jpg", "contentUrl": "https://annamilaeva.com/videos/ep03-tom-marta.mp4", "uploadDate": "2026-10-31", "duration": "PT55S"}
+      {"@type": "VideoObject", "name": "Tom and Marta: The Homework. Already in a Meeting, episode 3", "description": "Their couples therapist gave Tom and Marta homework: one intentional moment of connection per week. It was Sunday. They had not done the homework. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep03-tom-marta.jpg", "contentUrl": "https://annamilaeva.com/videos/ep03-tom-marta.mp4", "uploadDate": "2026-10-31", "duration": "PT55S"},
+      {"@type": "VideoObject", "name": "Daniel: For Calm. Already in a Meeting, episode 4", "description": "Daniel does his whole morning routine for a calm day: ice water, twelve supplements, a gratitude journal, a podcast at 3x. His stress climbs with every step. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep04-daniel.jpg", "contentUrl": "https://annamilaeva.com/videos/ep04-daniel.mp4", "uploadDate": "2026-11-06", "duration": "PT59S"}
     ]
   }
   </script>
@@ -1175,7 +1176,7 @@
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
                 <img src="cast-daniel.jpg" loading="lazy" alt="Daniel, Founder and CEO" class="bk-art__img">
-                <button type="button" class="bk-art__play bk-art__play--off" data-toast="Daniel's episode has been moved. It is still the most important priority.">Episode rescheduled</button>
+                <button type="button" class="bk-art__play" data-video="ep04-daniel"><span class="bk-art__play-icon"></span>His episode, 0:59</button>
               </div>
               <div class="bk-card__info">
                 <div class="bk-card__name">Daniel</div>
@@ -1334,16 +1335,18 @@
           </span>
           <span class="visually-hidden">Watch Tom and Marta's episode</span>
         </button>
-        <button type="button" class="bk-ep bk-ep--off" data-toast="Daniel's episode has been moved. It is still the most important priority.">
+        <button type="button" class="bk-ep" data-video="ep04-daniel">
           <span class="bk-ep__media">
-            <img src="cast-daniel.jpg" loading="lazy" alt="Daniel, Founder and CEO">
-            <span class="bk-ep__slot">TBC</span>
-            <span class="bk-ep__stamp">Rescheduled</span>
+            <video class="bk-ep__preview" muted loop playsinline preload="none" poster="videos/ep04-daniel.jpg" data-src="videos/ep04-daniel-preview.mp4" aria-hidden="true"></video>
+            <span class="bk-ep__slot">5:00 am</span>
+            <span class="bk-ep__play" aria-hidden="true"></span>
+            <span class="bk-ep__len">0:59</span>
           </span>
           <span class="bk-ep__info">
-            <span class="bk-ep__title">The Most Important Priority</span>
-            <span class="bk-ep__who">Daniel, coming up</span>
+            <span class="bk-ep__title">For Calm</span>
+            <span class="bk-ep__who">Daniel, episode 4</span>
           </span>
+          <span class="visually-hidden">Watch Daniel's episode</span>
         </button>
       </div>
 
@@ -1779,6 +1782,7 @@
     <li data-ep="ep01-kate">Kate. Thirteen Minutes Early</li>
     <li data-ep="ep02-priya">Priya. Version C</li>
     <li data-ep="ep03-tom-marta">Tom and Marta. The Homework</li>
+    <li data-ep="ep04-daniel">Daniel. For Calm</li>
   </ul>
 
   <dialog class="bk-player" id="bkPlayer" aria-label="Episode player">
