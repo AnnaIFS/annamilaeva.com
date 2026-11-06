@@ -1452,6 +1452,55 @@ p {
   margin: 16px 0 0;
 }
 
+/* Quiet listen line under the Substack button */
+.footer__follow-listen {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  margin: 18px auto 0;
+  max-width: 440px;
+}
+
+.footer__follow-listen a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer__follow-listen a:hover {
+  color: var(--accent-hover);
+}
+
+/* Listen box on the Writing page */
+.listen-box {
+  max-width: 760px;
+  margin-top: 28px;
+  padding: 24px 28px;
+  background: var(--bg);
+  border: 1px solid var(--divider);
+  border-radius: 14px;
+  scroll-margin-top: 110px;
+}
+
+.listen-box h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+}
+
+.listen-box p {
+  color: var(--text-light);
+  margin: 0;
+}
+
+.listen-box__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
 .footer__main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -2255,6 +2304,25 @@ p {
   .footer__follow-note {
     font-size: 13px !important;
     color: #6B6B6B !important;
+  }
+
+  .footer__follow-listen {
+    font-size: 14px !important;
+    color: #6B6B6B !important;
+  }
+
+  .footer__follow-listen a {
+    font-size: 14px !important;
+    color: #C85A2A !important;
+  }
+
+  .listen-box {
+    padding: 22px 20px;
+  }
+
+  .listen-box__links .btn {
+    width: 100%;
+    text-align: center;
   }
 
   .footer__main {

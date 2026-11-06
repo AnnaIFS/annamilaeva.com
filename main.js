@@ -43,43 +43,45 @@ if (hamburger && mobileNav) {
   });
 }
 
-// Desktop dropdown — opens on hover, link navigates on click
-const dropdown = document.querySelector('.nav__dropdown');
-const dropdownToggle = document.querySelector('.nav__dropdown-toggle');
-const dropdownArrow = dropdown ? dropdown.querySelector('.nav__dropdown-arrow') : null;
+// Desktop dropdowns — open on hover, link navigates on click
+const dropdowns = document.querySelectorAll('.nav__dropdown');
 
-if (dropdown && dropdownToggle) {
-  // Arrow click toggles dropdown without navigating
+dropdowns.forEach(dropdown => {
+  // Arrow click toggles this dropdown without navigating
+  const dropdownArrow = dropdown.querySelector('.nav__dropdown-arrow');
   if (dropdownArrow) {
     dropdownArrow.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
+      dropdowns.forEach(other => { if (other !== dropdown) other.classList.remove('open'); });
       dropdown.classList.toggle('open');
     });
   }
+});
 
+if (dropdowns.length) {
   // Close when clicking outside
   document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove('open');
-    }
+    dropdowns.forEach(dropdown => {
+      if (!dropdown.contains(e.target)) dropdown.classList.remove('open');
+    });
   });
 
   // Close on Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') dropdown.classList.remove('open');
+    if (e.key === 'Escape') dropdowns.forEach(dropdown => dropdown.classList.remove('open'));
   });
 }
 
-// Mobile dropdown
-const mobileDropdown = document.querySelector('.nav__mobile-dropdown');
-const mobileDropdownToggle = document.querySelector('.nav__mobile-dropdown-toggle');
-
-if (mobileDropdown && mobileDropdownToggle) {
-  mobileDropdownToggle.addEventListener('click', () => {
-    mobileDropdown.classList.toggle('open');
-  });
-}
+// Mobile dropdowns
+document.querySelectorAll('.nav__mobile-dropdown').forEach(mobileDropdown => {
+  const mobileDropdownToggle = mobileDropdown.querySelector('.nav__mobile-dropdown-toggle');
+  if (mobileDropdownToggle) {
+    mobileDropdownToggle.addEventListener('click', () => {
+      mobileDropdown.classList.toggle('open');
+    });
+  }
+});
 
 // Nav scroll shadow
 const nav = document.getElementById('nav');
