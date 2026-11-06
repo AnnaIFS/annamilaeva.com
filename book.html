@@ -48,7 +48,8 @@
       {"@type": "VideoObject", "name": "Kate: Thirteen Minutes Early. Already in a Meeting, episode 1", "description": "Kate, Chief of Staff, arrives early, makes the coffee, and says yes before she sits down. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep01-kate.jpg", "contentUrl": "https://annamilaeva.com/videos/ep01-kate.mp4", "uploadDate": "2026-10-31T12:00:00+00:00", "duration": "PT42S"},
       {"@type": "VideoObject", "name": "Priya: Version C. Already in a Meeting, episode 2", "description": "Priya, Head of Marketing, brings three versions of every deck. Version C is the one she believes. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep02-priya.jpg", "contentUrl": "https://annamilaeva.com/videos/ep02-priya.mp4", "uploadDate": "2026-10-31T12:00:00+00:00", "duration": "PT31S"},
       {"@type": "VideoObject", "name": "Tom and Marta: The Homework. Already in a Meeting, episode 3", "description": "Their couples therapist gave Tom and Marta homework: one intentional moment of connection per week. It was Sunday. They had not done the homework. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep03-tom-marta.jpg", "contentUrl": "https://annamilaeva.com/videos/ep03-tom-marta.mp4", "uploadDate": "2026-10-31T12:00:00+00:00", "duration": "PT55S"},
-      {"@type": "VideoObject", "name": "Daniel: For Calm. Already in a Meeting, episode 4", "description": "Daniel does his whole morning routine for a calm day: ice water, twelve supplements, a gratitude journal, a podcast at 3x. His stress climbs with every step. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep04-daniel.jpg", "contentUrl": "https://annamilaeva.com/videos/ep04-daniel.mp4", "uploadDate": "2026-11-06T12:00:00+00:00", "duration": "PT59S"}
+      {"@type": "VideoObject", "name": "Daniel: For Calm. Already in a Meeting, episode 4", "description": "Daniel does his whole morning routine for a calm day: ice water, twelve supplements, a gratitude journal, a podcast at 3x. His stress climbs with every step. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep04-daniel.jpg", "contentUrl": "https://annamilaeva.com/videos/ep04-daniel.mp4", "uploadDate": "2026-11-06T12:00:00+00:00", "duration": "PT59S"},
+      {"@type": "VideoObject", "name": "Tom: Four Minutes. Already in a Meeting, episode 5", "description": "Tom, Engineering Lead, spent three weeks building something. The AI did it in four minutes, and it is good. His boss asks him to write down everything he does. That night, alone, he builds something nobody asked for. An animated episode from the novel Already in a Meeting by Anna Milaeva.", "thumbnailUrl": "https://annamilaeva.com/videos/ep05-tom.jpg", "contentUrl": "https://annamilaeva.com/videos/ep05-tom.mp4", "uploadDate": "2026-11-06T12:00:00+00:00", "duration": "PT1M4S"}
     ]
   }
   </script>
@@ -594,7 +595,7 @@
     .bk-eps > .bk-ep { flex: 0 0 62%; max-width: 260px; scroll-snap-align: center; }
     @media (max-width: 768px) { .bk-eps { margin: 44px -20px 0; padding: 4px 20px 18px; } }
     @media (min-width: 900px) {
-      .bk-eps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin: 44px 0 0; padding: 4px 0 18px; overflow: visible; }
+      .bk-eps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin: 44px 0 0; padding: 4px 0 18px; overflow: visible; }
       .bk-eps > .bk-ep { max-width: none; }
     }
     .bk-ep__title, .bk-ep__who { display: block; }
@@ -1218,7 +1219,7 @@
             <div class="bk-card__face bk-card__front">
               <div class="bk-art">
                 <img src="cast-tom.jpg" loading="lazy" alt="Tom, Engineering Lead" class="bk-art__img">
-                <button type="button" class="bk-art__play" data-video="ep03-tom-marta"><span class="bk-art__play-icon"></span>His episode, 0:55</button>
+                <button type="button" class="bk-art__play" data-video="ep05-tom"><span class="bk-art__play-icon"></span>His episode, 1:04</button>
               </div>
               <div class="bk-card__info">
                 <div class="bk-card__name">Tom</div>
@@ -1347,6 +1348,19 @@
             <span class="bk-ep__who">Daniel, episode 4</span>
           </span>
           <span class="visually-hidden">Watch Daniel's episode</span>
+        </button>
+        <button type="button" class="bk-ep" data-video="ep05-tom">
+          <span class="bk-ep__media">
+            <video class="bk-ep__preview" muted loop playsinline preload="none" poster="videos/ep05-tom.jpg" data-src="videos/ep05-tom-preview.mp4" aria-hidden="true"></video>
+            <span class="bk-ep__slot">9:00 am</span>
+            <span class="bk-ep__play" aria-hidden="true"></span>
+            <span class="bk-ep__len">1:04</span>
+          </span>
+          <span class="bk-ep__info">
+            <span class="bk-ep__title">Four Minutes</span>
+            <span class="bk-ep__who">Tom, episode 5</span>
+          </span>
+          <span class="visually-hidden">Watch Tom's episode</span>
         </button>
       </div>
 
@@ -1545,7 +1559,7 @@
             </div>
             <p class="bk-result__body">You have an entire inner life running parallel to your outer one, fully formed, continuously updated, rarely transmitted. When something really matters, you make tea. The people who love you can tell the difference between your silences. That is not the same as hearing you.</p>
             <div class="bk-doorbox"><strong>A door from the book: Who Catches You</strong><div class="bk-practice"><div class="bk-practice__meta"><span>5 minutes</span><span>When you notice you are carrying something alone.</span></div><ol class="bk-practice__steps"><li>Ask yourself two questions: who in your life can you trust to catch you when you slip? And who can you catch?</li><li>Write one name for each. Just one.</li><li>If you cannot think of a name for either, that is also the practice. Sit with what it is telling you.</li></ol><div class="bk-practice__why"><strong>Why it helps.</strong> A part that keeps everything inside has its reasons. One name gives it somewhere to put things down.</div></div></div>
-            <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep03-tom-marta"><span class="bk-watch__icon"></span>See this one in action, 0:55</button><a href="/book/tom" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="tom">More about this pattern &rarr;</a></div>
+            <div class="bk-result__actions"><button type="button" class="bk-watch" data-video="ep05-tom"><span class="bk-watch__icon"></span>See this one in action, 1:04</button><a href="/book/tom" class="bk-result__more" data-umami-event="pattern-page" data-umami-event-part="tom">More about this pattern &rarr;</a></div>
           </div>
 
           <div class="bk-r" data-part="marta" data-char="Marta" data-name="&ldquo;the one who can't stop&rdquo;" data-share-text="My inner meeting is chaired by &ldquo;the one who can't stop.&rdquo; Who is chairing yours?" hidden>
@@ -1783,6 +1797,7 @@
     <li data-ep="ep02-priya">Priya. Version C</li>
     <li data-ep="ep03-tom-marta">Tom and Marta. The Homework</li>
     <li data-ep="ep04-daniel">Daniel. For Calm</li>
+    <li data-ep="ep05-tom">Tom. Four Minutes</li>
   </ul>
 
   <dialog class="bk-player" id="bkPlayer" aria-label="Episode player">
