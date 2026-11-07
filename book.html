@@ -587,7 +587,7 @@
     .bk-result__reader span { display: block; margin-top: 6px; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: #6B4A35; }
 
     /* Episodes: the day's calendar */
-    /* Phones and tablets: a row you swipe, like reels. Desktop: all five in a line. */
+    /* Phones and tablets: a row you swipe, like reels. Desktop: two rows of four; the eighth card is See more. */
     .bk-eps {
       display: flex; gap: 14px; margin: 44px -24px 0; padding: 4px 24px 18px;
       overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
@@ -596,7 +596,7 @@
     .bk-eps > .bk-ep { flex: 0 0 62%; max-width: 260px; scroll-snap-align: center; }
     @media (max-width: 768px) { .bk-eps { margin: 44px -20px 0; padding: 4px 20px 18px; } }
     @media (min-width: 900px) {
-      .bk-eps { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; margin: 44px 0 0; padding: 4px 0 18px; overflow: visible; }
+      .bk-eps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 920px; margin: 44px auto 0; padding: 4px 0 18px; overflow: visible; }
       .bk-eps > .bk-ep { max-width: none; }
     }
     .bk-ep__title, .bk-ep__who { display: block; }
@@ -634,7 +634,7 @@
       font-size: 0.75rem; padding: 3px 8px; font-variant-numeric: tabular-nums;
     }
     .bk-ep__info { padding: 14px 16px 18px; }
-    .bk-ep__title { font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.3; color: var(--text); }
+    .bk-ep__title { font-family: var(--font-heading); font-size: 1.1rem; line-height: 1.3; color: var(--text); font-variant-numeric: lining-nums; }
     .bk-ep__who { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
     .bk-ep--off { cursor: default; }
     .bk-ep--off:hover { transform: none; box-shadow: 0 6px 24px rgba(61,37,24,0.09); }
@@ -647,6 +647,18 @@
     }
     .bk-eps-note { margin-top: 32px; font-size: 0.92rem; color: var(--text-light); }
     .bk-eps-note a { color: var(--accent); }
+    .bk-ep[hidden] { display: none; }
+    a.bk-ep { text-decoration: none; }
+    .bk-ep--more .bk-ep__media {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+      background: linear-gradient(170deg, #FFFFFF 0%, #F5EDE2 100%);
+    }
+    .bk-ep--more__icon {
+      width: 58px; height: 58px; border-radius: 50%; background: var(--accent); color: #FFFFFF;
+      display: flex; align-items: center; justify-content: center; transition: transform 0.25s ease;
+    }
+    .bk-ep--more:hover .bk-ep--more__icon { transform: translateX(4px); }
+    .bk-ep--more__label { font-family: var(--font-heading); font-size: 1.35rem; color: var(--text); }
 
     /* Video player */
     .bk-player {
@@ -1376,6 +1388,16 @@
           </span>
           <span class="visually-hidden">Watch Marta's episode</span>
         </button>
+        <a class="bk-ep bk-ep--more" id="bkEpsMore" href="https://www.youtube.com/playlist?list=PLQtxAdTrH0Q0" target="_blank" rel="noopener noreferrer" data-umami-event="episodes-see-more">
+          <span class="bk-ep__media">
+            <span class="bk-ep--more__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="bk-ep--more__label">See more</span>
+          </span>
+          <span class="bk-ep__info">
+            <span class="bk-ep__title" id="bkEpsMoreTitle">All the episodes</span>
+            <span class="bk-ep__who" id="bkEpsMoreWho">Meet the Cast, on YouTube</span>
+          </span>
+        </a>
       </div>
 
       <a class="bk-insta fade-in" href="https://www.instagram.com/anna_milaeva_ifs/" target="_blank" rel="noopener noreferrer" data-umami-event="instagram-click" data-umami-event-place="episodes">
@@ -2229,6 +2251,30 @@
           scrollToEl(card);
           setTimeout(function () { card.classList.add('flipped'); }, 700);
         });
+      });
+    })();
+  </script>
+  <script>
+    // Episodes: two rows of four on desktop. Seven episodes show; the eighth card is See more.
+    // With more than seven, the rest wait behind See more and appear on tap. Until then it opens the YouTube playlist.
+    (function () {
+      var grid = document.querySelector('.bk-eps');
+      var more = document.getElementById('bkEpsMore');
+      if (!grid || !more) { return; }
+      var eps = grid.querySelectorAll('.bk-ep[data-video]');
+      var SHOW = 7;
+      if (eps.length <= SHOW) { return; }
+      var extra = eps.length - SHOW;
+      for (var i = SHOW; i < eps.length; i++) { eps[i].hidden = true; }
+      eps[SHOW - 1].insertAdjacentElement('afterend', more);
+      document.getElementById('bkEpsMoreTitle').textContent = extra === 1 ? 'One more episode' : extra + ' more episodes';
+      document.getElementById('bkEpsMoreWho').textContent = 'Tap to see them';
+      more.removeAttribute('target');
+      more.setAttribute('role', 'button');
+      more.addEventListener('click', function (e) {
+        e.preventDefault();
+        for (var j = SHOW; j < eps.length; j++) { eps[j].hidden = false; eps[j].classList.add('bk-in'); }
+        more.hidden = true;
       });
     })();
   </script>
