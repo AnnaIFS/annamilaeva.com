@@ -997,7 +997,9 @@ function setupGate(){
 }
 /* Brevo: the sign-up goes out in the background. The games open at once and never wait on the network.
    If the phone is offline, the address waits on this phone only and goes out on the next visit or when the signal is back. */
-const FORM_URL=''; /* Brevo form "Already Home kit": the sibforms.com/serve/... address, it ends in "==" */
+/* Brevo form "Already Home kit" (list #10, email + SIGNUP_SOURCE only, no confirmation email). The address ends in "==".
+   Brevo answers {"success":true} even when it drops a sign-up, so check the contact in Brevo after any change to the form. */
+const FORM_URL='https://dcaf4032.sibforms.com/serve/MUIFANFh35s7L5A0HyF5nD-vRi5X6ck96aixTQX-6PDFH9VpUM4TavLnJ_SHQl5RFPfLuDZx52xHUQ7uuqsQvmfbhPYX3mSNTJKUVZOLJrlsznWtZr_2KPBP44WCWiLvDGxtXhtgJPCfhHom7GPlQ3dIGe36mdSSp3jxLOsyuhCkO0ApUzq8tjWTxfFJeEp6IPc0fO1fJwkVRZc_Cw==';
 function postSignup(it){return fetch(FORM_URL,{method:'POST',mode:'no-cors',keepalive:true,body:new URLSearchParams({EMAIL:it.email,SIGNUP_SOURCE:it.source,email_address_check:'',locale:'en'})})}
 function flushSignups(){
   if(!FORM_URL||!/^https:\/\//.test(FORM_URL))return;
