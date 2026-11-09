@@ -29,15 +29,22 @@
   {
     "@context": "https://schema.org",
     "@type": "Book",
+    "@id": "https://annamilaeva.com/book#novel",
     "name": "Already in a Meeting",
     "alternateName": "A story about the parts of us that never stop working",
-    "author": {"@type": "Person", "name": "Anna Milaeva", "url": "https://annamilaeva.com/about"},
+    "description": "A novel about the parts of us that never stop working. Five people, one company in trouble, and the meetings nobody sees: the ones running inside each of them.",
+    "author": {"@id": "https://annamilaeva.com/#anna"},
     "genre": "Fiction",
     "inLanguage": "en",
     "image": "https://annamilaeva.com/book-cover.jpg",
     "url": "https://annamilaeva.com/book",
-    "sameAs": "https://www.amazon.com/dp/B0HD3GVY6Z/",
-    "workTranslation": {"@type": "Book", "name": "La reunión ya empezó", "inLanguage": "es", "url": "https://annamilaeva.com/es/libro", "sameAs": "https://www.amazon.com/dp/B0HJ323PN7/"}
+    "sameAs": ["https://www.amazon.com/dp/B0HD3GVY6Z/", "https://www.goodreads.com/book/show/256453929", "https://www.goodreads.com/book/show/256462302"],
+    "workExample": [
+      {"@type": "Book", "bookFormat": "https://schema.org/EBook", "name": "Already in a Meeting", "inLanguage": "en", "url": "https://www.amazon.com/dp/B0HD3GVY6Z/", "identifier": {"@type": "PropertyValue", "propertyID": "ASIN", "value": "B0HD3GVY6Z"}, "sameAs": "https://www.goodreads.com/book/show/256453929"},
+      {"@type": "Book", "bookFormat": "https://schema.org/Paperback", "name": "Already in a Meeting", "inLanguage": "en", "isbn": "9798191052953", "numberOfPages": 178, "datePublished": "2026-08-05", "url": "https://www.amazon.com/dp/B0HD47FYXW/", "identifier": {"@type": "PropertyValue", "propertyID": "ASIN", "value": "B0HD47FYXW"}, "sameAs": "https://www.goodreads.com/book/show/256462302"},
+      {"@type": "Audiobook", "bookFormat": "https://schema.org/AudiobookFormat", "name": "Already in a Meeting", "inLanguage": "en", "url": "https://open.spotify.com/show/2jGqSeqZqTpMonIxQKE9jx"}
+    ],
+    "workTranslation": {"@id": "https://annamilaeva.com/es/libro#novel"}
   }
   </script>
   <script type="application/ld+json">
@@ -991,7 +998,7 @@
       .bk-card__back .bk-inside-label { color: #E8784A !important; }
     }
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://annamilaeva.com/#anna","name":"Anna Milaeva","url":"https://annamilaeva.com/about","image":"https://annamilaeva.com/anna-about.jpg","jobTitle":"IFS Coach for People in Transition","description":"IFS coach trained through all three levels at the IFS Institute and a certified Deep Transformational Coach, working with professionals, leaders and people in transition.","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"Spanish"},{"@type":"Language","name":"Russian"}],"alumniOf":[{"@type":"Organization","name":"IFS Institute","url":"https://ifs-institute.com/"},{"@type":"CollegeOrUniversity","name":"Florida International University"}],"knowsAbout":["Internal Family Systems","IFS coaching","burnout","leadership","operations","career transition"],"sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com","https://www.youtube.com/@anna_milaeva_ifs","https://open.spotify.com/show/69LzXrTWNCCYFtUnXvPQoT"]},{"@type":"ProfessionalService","@id":"https://annamilaeva.com/#practice","name":"Anna Milaeva","url":"https://annamilaeva.com/","image":"https://annamilaeva.com/og-image.png","description":"IFS coaching for professionals, leaders and people in transition. Online, in English and Spanish.","founder":{"@id":"https://annamilaeva.com/#anna"},"provider":{"@id":"https://annamilaeva.com/#anna"},"areaServed":{"@type":"Place","name":"Worldwide, online"},"availableLanguage":["en","es"],"priceRange":"$105-$2550","currenciesAccepted":"USD","sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com","https://www.youtube.com/@anna_milaeva_ifs","https://open.spotify.com/show/69LzXrTWNCCYFtUnXvPQoT"]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://annamilaeva.com/#anna","name":"Anna Milaeva","url":"https://annamilaeva.com/about","image":"https://annamilaeva.com/anna-about.jpg","jobTitle":"IFS Coach for People in Transition","description":"IFS coach trained through all three levels at the IFS Institute and a certified Deep Transformational Coach, working with professionals, leaders and people in transition.","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"Spanish"},{"@type":"Language","name":"Russian"}],"alumniOf":[{"@type":"Organization","name":"IFS Institute","url":"https://ifs-institute.com/"},{"@type":"CollegeOrUniversity","name":"Florida International University"}],"knowsAbout":["Internal Family Systems","IFS coaching","burnout","leadership","operations","career transition"],"sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com","https://www.youtube.com/@anna_milaeva_ifs","https://open.spotify.com/show/69LzXrTWNCCYFtUnXvPQoT","https://www.goodreads.com/author/show/69908090.Anna_Milaeva","https://www.amazon.com/e/B0GXYDLZBF","https://fino.website/about/"],"worksFor":{"@id":"https://fino.website/#org"}},{"@type":"ProfessionalService","@id":"https://annamilaeva.com/#practice","name":"Anna Milaeva","url":"https://annamilaeva.com/","image":"https://annamilaeva.com/og-image.png","description":"IFS coaching for professionals, leaders and people in transition. Online, in English and Spanish.","founder":{"@id":"https://annamilaeva.com/#anna"},"provider":{"@id":"https://annamilaeva.com/#anna"},"areaServed":{"@type":"Place","name":"Worldwide, online"},"availableLanguage":["en","es"],"priceRange":"$105-$2550","currenciesAccepted":"USD","sameAs":["https://www.linkedin.com/in/anna-milaeva/","https://www.instagram.com/anna_milaeva_ifs/","https://annamilaeva.substack.com","https://www.youtube.com/@anna_milaeva_ifs","https://open.spotify.com/show/69LzXrTWNCCYFtUnXvPQoT"]}]}</script>
   <!-- Analytics: Umami, no cookies. The website ID comes from cloud.umami.is -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="d81dd3f9-1d51-4c90-a8b2-aab224a36bac" data-domains="annamilaeva.com"></script>
 </head>
