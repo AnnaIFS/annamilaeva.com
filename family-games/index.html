@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Already Home. The Family Holiday Survival Kit</title>
+<meta name="description" content="Four games for the holiday table, on your phone. Made to get the whole family laughing and talking. By Anna Milaeva, IFS Coach for People in Transition.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FAF7F2">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://annamilaeva.com/family-games/">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-title" content="Already Home">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anna Milaeva">
+<meta property="og:url" content="https://annamilaeva.com/family-games/">
+<meta property="og:title" content="Already Home. The Family Holiday Survival Kit">
+<meta property="og:description" content="Four games for the holiday table, on your phone. Made to get the whole family laughing and talking.">
+<meta property="og:image" content="https://annamilaeva.com/family-games/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Four painted cards from the Already Home kit: Family Charades, Family Dinner Bingo, Questions for the Table and Which Part of You Came to Dinner?">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Already Home. The Family Holiday Survival Kit">
+<meta name="twitter:description" content="Four games for the holiday table, on your phone. Made to get the whole family laughing and talking.">
+<meta name="twitter:image" content="https://annamilaeva.com/family-games/og.jpg">
+<meta name="twitter:image:alt" content="Four painted cards from the Already Home kit: Family Charades, Family Dinner Bingo, Questions for the Table and Which Part of You Came to Dinner?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,700&family=Inter:wght@400;500;600;700&display=swap">
+<!-- Analytics: Umami, no cookies. Same website ID as the rest of annamilaeva.com -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="d81dd3f9-1d51-4c90-a8b2-aab224a36bac" data-domains="annamilaeva.com"></script>
+<style>
+/* Already Home: "The Painted Deck". Single light theme on purpose (the Questions screen is a dark game screen, set explicitly).
+   Tokens from spec-visual-design.md. Every colour is set explicitly. */
+:root{
+  --cream:#FAF7F2;--paper:#FFFFFF;--oat:#EFE6D7;--line:#E8E0D8;--line-edge:#D9CFC0;
+  --ink:#2B211C;--ink-2:#6E5A4E;--ink-edge:#140E0B;
+  --terra:#C85A2A;--terra-dark:#A94A22;--terra-edge:#7A3418;--terra-tint:#F6E1D3;
+  --sage:#5F7A61;--sage-edge:#3F5A44;--sage-text:#4E6650;--sage-tint:#E3EBDF;
+  --night:#2B211C;--night-2:#3D312A;
+  --gold:#E8A020;--gold-edge:#B87A10;--gold-text:#8A5A0A;--gold-tint:#FBEACB;
+  --got:#4E6650;--skip:#E8A020;
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --text:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --shadow-rest:0 1px 2px rgba(43,33,28,.08),0 6px 14px -6px rgba(43,33,28,.18);
+  --shadow-lift:0 22px 44px -18px rgba(43,33,28,.5);
+  --shadow-sheet:0 -16px 40px -12px rgba(20,14,11,.35);
+  --ease-out:cubic-bezier(.2,.8,.2,1);--ease-in:cubic-bezier(.5,0,.75,0);--ease-inout:cubic-bezier(.65,0,.35,1);--ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --sbg:#FAF7F2;--fg:#2B211C;--fg2:#6E5A4E;--lab:#A94A22;--focus:#2B211C;
+  color-scheme:light;
+}
+:root[data-screen="charades"]{--sbg:#F6E1D3;--lab:#7A3418}
+:root[data-screen="bingo"]{--sbg:#E3EBDF;--lab:#4E6650}
+:root[data-screen="talk"]{--sbg:#2B211C;--fg:#FAF7F2;--fg2:#E3D9CC;--lab:#E8A020;--focus:#E8A020}
+:root[data-screen="parts"]{--sbg:#FBEACB;--lab:#8A5A0A}
+[hidden]{display:none!important}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--sbg);color:var(--fg);overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sbg);color:var(--fg);font:400 16px/1.6 var(--text);padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;left:0;right:0;top:0;height:env(safe-area-inset-top, 0px);background:var(--sbg);z-index:30}
+img{display:block;max-width:100%}
+button,input{font:inherit;color:inherit;margin:0}
+button{cursor:pointer;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.i{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.num{font-variant-numeric:lining-nums tabular-nums}
+.center{text-align:center;align-self:center}
+.stack{display:flex;flex-direction:column;gap:16px}
+.stack-s{display:flex;flex-direction:column;gap:8px}
+
+/* App shell */
+.app{max-width:430px;margin-inline:auto;min-height:100vh;min-height:100dvh}
+@media (min-width:600px){html,body{background:#EFE6D7}.app{background:var(--sbg);padding-inline:16px;box-shadow:0 0 0 1px rgba(43,33,28,.06),0 30px 70px -40px rgba(43,33,28,.45)}}
+.screen{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+.screen.enter{animation:scrIn 240ms var(--ease-out)}
+@keyframes scrIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@keyframes fadeOnly{from{opacity:0}}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;gap:8px;min-height:60px;margin-inline:-16px;padding-inline:16px;background:var(--sbg);transition:box-shadow 160ms}
+.bar.scrolled{box-shadow:0 1px 0 rgba(43,33,28,.10)}
+#talk .bar.scrolled{box-shadow:0 1px 0 rgba(250,247,242,.14)}
+.bar-title{flex:1;min-width:0;font:600 15px/20px var(--text);color:var(--fg);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.body{flex:1;display:flex;flex-direction:column;gap:16px;padding-block:8px 24px}
+.dock{position:sticky;bottom:0;z-index:15;display:flex;gap:12px;align-items:flex-end;padding-top:20px;padding-bottom:calc(12px + env(safe-area-inset-bottom, 0px));background:linear-gradient(to bottom, rgba(250,247,242,0), var(--sbg) 18px)}
+
+/* Buttons */
+.btn{--b:#A94A22;--f:#FFFFFF;--e:#7A3418;flex:none;min-width:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:8px 18px;margin:0 0 4px;border:0;border-radius:16px;background:var(--b);color:var(--f);font:700 17px/1.2 var(--text);letter-spacing:.01em;text-align:center;text-decoration:none;box-shadow:0 4px 0 var(--e);transition:transform 140ms var(--ease-spring),box-shadow 140ms var(--ease-spring)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--e);transition-duration:80ms;transition-timing-function:var(--ease-out)}
+.btn:disabled{--b:#E8E0D8;--f:#6E5A4E;--e:#D9CFC0;cursor:default;transform:none}
+.btn.sage{--b:#5F7A61;--e:#3F5A44}
+.btn.gold{--b:#E8A020;--f:#2B211C;--e:#B87A10}
+.btn.ink{--b:#2B211C;--f:#FAF7F2;--e:#140E0B}
+.btn.sec{--b:#FFFFFF;--f:#2B211C;--e:#D9CFC0;min-height:52px;font:600 15px/1.2 var(--text);box-shadow:0 3px 0 var(--e),inset 0 0 0 2px #E8E0D8}
+.btn.sec:active{box-shadow:0 1px 0 var(--e),inset 0 0 0 2px #E8E0D8}
+.dock .btn{flex:1 1 0;padding-inline:10px;font-size:16px;white-space:nowrap}
+.dock .btn.sec{flex:0 1 auto;padding-inline:12px;gap:6px;font-size:15px}
+.dock .btn.sec:only-child{flex:1 1 auto}
+.btn.isq,.dock .btn.isq{flex:0 0 56px;width:56px;padding:0}
+.btn.wide{flex:none;width:100%}
+.btn .i{width:20px;height:20px}
+#talk .btn.sec{--b:transparent;--f:#FAF7F2;box-shadow:inset 0 0 0 2px rgba(250,247,242,.35)}
+#talk .btn.sec[aria-pressed="true"]{--b:rgba(232,160,32,.16);box-shadow:inset 0 0 0 2px #E8A020}
+#talk .btn.sec:disabled{opacity:.45}
+.tbtn{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0 8px;border:0;background:none;color:#A94A22;font:600 15px/1.25 var(--text);text-decoration:none;text-align:left}
+.tbtn .i{width:18px;height:18px}
+#talk .tbtn{color:#E8A020}
+.ibtn{width:44px;height:44px;flex:none;display:inline-flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:50%;background:#FFFFFF;color:#2B211C;box-shadow:var(--shadow-rest)}
+#talk .ibtn{background:#3D312A;color:#FAF7F2;box-shadow:none}
+
+/* Type */
+.lab{font:700 12px/16px var(--text);letter-spacing:.16em;text-transform:uppercase;color:var(--lab)}
+.h1{font:700 26px/31px var(--display);color:var(--fg);text-wrap:balance}
+.h2{font:600 20px/24px var(--display);text-wrap:balance}
+.hint{font:500 14px/20px var(--text);color:var(--fg2)}
+.fine{font:400 14px/20px var(--text);color:var(--fg2)}
+.flabel{font:600 14px/20px var(--text);color:var(--fg)}
+
+/* Steps (max three) */
+.intro{display:flex;flex-direction:column;gap:10px}
+.intro .tbtn{align-self:flex-start;margin:-6px 0 -8px -8px}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;font:400 15px/21px var(--text)}
+.steps li::before{counter-increment:st;content:counter(st);width:26px;height:26px;margin-top:-2px;border-radius:50%;display:grid;place-items:center;font:700 14px/1 var(--text);background:var(--nb,#2B211C);color:var(--nf,#FFFFFF)}
+.steps b{font-weight:700}
+
+/* Fields */
+.field{width:100%;height:52px;border:1.5px solid #E8E0D8;border-radius:12px;background:#FFFFFF;color:#2B211C;font:400 17px/1.2 var(--text);padding:0 14px;transition:border-color 160ms,box-shadow 160ms}
+.field::placeholder{color:#6E5A4E;opacity:1}
+.field:focus{outline:none;border-color:#A94A22;box-shadow:0 0 0 4px rgba(169,74,34,.18)}
+.field.bad{border-color:#A94A22}
+.err{display:flex;align-items:center;gap:6px;font:500 14px/20px var(--text);color:#A94A22}
+.err .i{width:18px;height:18px}
+.shake{animation:shake 240ms}
+@keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+
+/* Portraits: arches and small circles */
+.arch{display:block;position:relative;overflow:hidden;background:#EFE6D7;flex:none;width:100%}
+.arch::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(43,33,28,.06);pointer-events:none}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:var(--fx,50%) var(--fy,30%)}
+.a-sq{aspect-ratio:1;border-radius:50% 50% 12px 12px / 50% 50% 12px 12px}
+.a-wide{aspect-ratio:5/4;border-radius:50% 50% 12px 12px / 62.5% 62.5% 12px 12px}
+.a-cine{aspect-ratio:16/9;border-radius:50% 50% 12px 12px / 88.9% 88.9% 12px 12px}
+.arch.self-glow::after{box-shadow:inset 0 0 0 3px #E8A020}
+.av{display:block;position:relative;border-radius:50%;overflow:hidden;background:#EFE6D7;flex:none}
+.av img{width:100%;height:100%;object-fit:cover;object-position:var(--fx,50%) var(--fy,30%);transform:scale(var(--z,1.5));transform-origin:var(--fx,50%) var(--fy,30%)}
+
+/* Suits */
+.s-terra{background:#A94A22;color:#FFFFFF;--e:#7A3418}
+.s-sage{background:#5F7A61;color:#FFFFFF;--e:#3F5A44}
+.s-night{background:#2B211C;color:#FAF7F2;--e:#140E0B}
+.s-gold{background:#E8A020;color:#2B211C;--e:#B87A10}
+.s-paper{background:#FFFFFF;color:#2B211C;--e:#D9CFC0}
+
+/* Gate */
+#gate .body{padding-top:calc(12px + env(safe-area-inset-top, 0px));gap:20px}
+.fan{display:flex;justify-content:center;height:156px;padding-top:6px}
+.fc{width:92px;height:132px;flex:none;border-radius:16px;padding:8px;display:flex;flex-direction:column;align-items:center;gap:8px;margin-left:-10px;box-shadow:var(--shadow-rest);transform:translateY(var(--y,0px)) rotate(var(--r,0deg))}
+.fc:first-child{margin-left:0}
+.fc .arch{width:76px}
+.fc span{font:700 12px/14px var(--text);letter-spacing:.02em;text-transform:uppercase}
+.fan.deal .fc{animation:deal 420ms var(--ease-spring) backwards}
+@keyframes deal{from{opacity:0;transform:translate(var(--dx,0px),24px) rotate(0deg)}}
+.ghead{display:flex;flex-direction:column;gap:6px}
+.hero{font:700 40px/44px var(--display);color:#2B211C}
+.hero em{font-style:italic;color:#C85A2A}
+.by{font:400 14px/20px var(--text);color:#6E5A4E}
+.by b{color:#2B211C;font-weight:600}
+.sub{font:400 16px/24px var(--text);color:#2B211C}
+.signup{display:flex;flex-direction:column;gap:8px}
+.signup .h2{margin-bottom:2px}
+.signup .btn{margin-top:4px}
+.signup .fine,.unlock .fine{text-align:center}
+.glist{list-style:none;margin:0;padding:16px 0 0;border-top:1px solid #E8E0D8;display:flex;flex-direction:column;gap:12px}
+.glist li{display:grid;grid-template-columns:12px 1fr;gap:12px;font:400 15px/21px var(--text);color:#6E5A4E}
+.glist li::before{content:"";width:12px;height:12px;border-radius:4px;margin-top:5px;background:var(--dot)}
+.glist b{display:block;color:#2B211C;font-weight:600}
+.foot{font:400 14px/20px var(--text);color:#6E5A4E;text-align:center;padding-top:8px}
+
+/* Home */
+.brand{display:flex;align-items:center;gap:10px;min-height:44px;padding:0;border:0;background:none;color:#2B211C}
+.brand .av{width:32px;height:32px}
+.wm{font:700 20px/1 var(--display)}
+.wm em{font-style:italic;color:#A94A22}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{display:flex;flex-direction:column;gap:10px;min-height:228px;margin:0 0 4px;padding:12px;border:0;border-radius:24px;text-align:left;box-shadow:0 4px 0 var(--e);transition:transform 140ms var(--ease-spring),box-shadow 140ms var(--ease-spring)}
+.tile:active{transform:translateY(3px);box-shadow:0 1px 0 var(--e)}
+.tile .tn{font:600 19px/22px var(--display);text-wrap:balance}
+.tile .meta{margin-top:auto;font:700 12px/16px var(--text);letter-spacing:.1em;text-transform:uppercase}
+.tiles.deal .tile{animation:tileIn 360ms var(--ease-spring) backwards}
+@keyframes tileIn{from{opacity:0;transform:translateY(16px) rotate(var(--tr,2deg))}}
+.invite{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:24px;background:#E3EBDF}
+.invite p{font:600 16px/22px var(--text);color:#2B211C}
+.gifts{display:flex;flex-direction:column;gap:8px}
+.giftlink{display:flex;align-items:center;gap:12px;min-height:56px;padding:14px 16px;border-radius:24px;background:#FFFFFF;box-shadow:inset 0 0 0 1px #E8E0D8;color:#2B211C;text-decoration:none}
+.giftlink b{display:flex;align-items:center;gap:4px;font:600 16px/22px var(--text);color:#A94A22}
+.giftlink b .i{width:18px;height:18px}
+.giftlink span{display:block;font:400 14px/20px var(--text);color:#6E5A4E;margin-top:2px}
+
+/* Segmented control */
+.seg{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;min-height:52px;padding:4px;border-radius:999px;background:#EFE6D7}
+.seg .thumb{position:absolute;top:4px;bottom:4px;left:4px;width:calc((100% - 8px) / var(--n,3));border-radius:999px;background:#FFFFFF;box-shadow:var(--shadow-rest);transform:translateX(calc(var(--i,0) * 100%));transition:transform 240ms var(--ease-out)}
+.seg button{position:relative;z-index:1;min-height:44px;padding:0 6px;border:0;border-radius:999px;background:none;color:#6E5A4E;font:600 15px/1.1 var(--text)}
+.seg button[aria-checked="true"]{color:#2B211C;font-weight:700}
+#talk .seg{background:#3D312A}
+#talk .seg .thumb{background:#E8A020;box-shadow:none}
+#talk .seg button{color:#FAF7F2}
+#talk .seg button[aria-checked="true"]{color:#2B211C}
+
+/* Family Charades */
+.hero-card{display:flex;flex-direction:column;gap:12px;margin-bottom:4px;padding:16px;border-radius:24px;box-shadow:0 4px 0 var(--e)}
+.hero-card .h2{font:700 22px/27px var(--display)}
+.hero-card .steps{--nb:#7A3418;--nf:#FFFFFF}
+.hero-card .tbtn{color:#FFFFFF;align-self:flex-start;margin:-8px 0 -8px -8px}
+.opt{display:flex;flex-direction:column;gap:6px}
+.ovl{position:fixed;inset:0;z-index:65;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center}
+.count{background:#A94A22;color:#FFFFFF}
+.count .n{font:700 160px/1 var(--display)}
+.count .n.land{animation:land 300ms var(--ease-spring)}
+@keyframes land{from{opacity:0;transform:scale(1.4)}}
+.count p,.tup p{font:600 18px/26px var(--text);max-width:24ch}
+.tup{background:#2B211C;color:#FAF7F2}
+.tup b{font:700 48px/1.05 var(--display)}
+.fh:focus{outline:none}
+.fh{position:fixed;inset:0;z-index:60;overflow:hidden;background:#A94A22;color:#FFFFFF;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.fh-bar{position:absolute;left:0;right:0;top:0;height:6px;background:#7A3418;z-index:3}
+.fh-bar i{display:block;height:100%;background:#FAF7F2;transform-origin:left center;transform:scaleX(var(--p,1));transition:transform 1s linear}
+.fh.hurry .fh-bar i{background:#E8A020}
+.fh-top{position:absolute;left:0;right:0;top:calc(16px + env(safe-area-inset-top, 0px));z-index:3;display:flex;align-items:center;gap:12px;padding-inline:max(16px, env(safe-area-inset-left, 0px));pointer-events:none}
+.fh-time{font:700 32px/1 var(--display);padding:6px 10px;border-radius:999px}
+.fh.hurry .fh-time{background:#2B211C;color:#E8A020}
+.fh-time.tick{animation:tick 240ms var(--ease-out)}
+@keyframes tick{50%{transform:scale(1.12)}}
+.fh-score{margin-left:auto;display:flex;align-items:center;gap:6px;font:700 32px/1 var(--display);padding-right:max(0px, env(safe-area-inset-right, 0px))}
+.fh-score .i{width:26px;height:26px;stroke-width:2.5}
+.fh-zone{position:absolute;left:0;right:0;height:50%;z-index:1;display:flex;justify-content:center;padding:0;border:0;background:transparent;color:#FFFFFF}
+.fh-zone.top{top:0;align-items:flex-start;padding-top:calc(72px + env(safe-area-inset-top, 0px))}
+.fh-zone.bot{bottom:0;align-items:flex-end;padding-bottom:calc(30px + env(safe-area-inset-bottom, 0px))}
+.fh-zone:focus-visible{outline:3px solid #FFFFFF;outline-offset:-8px}
+.zl{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;box-shadow:inset 0 0 0 1.5px #FFFFFF;font:700 16px/1 var(--text);letter-spacing:.08em}
+.zl .i{width:18px;height:18px}
+.fh-prompt{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:110px 24px;text-align:center;pointer-events:none}
+.fh-prompt p{max-width:min(80vw,680px);font:700 34px/38px var(--display);text-wrap:balance}
+@media (orientation:landscape){.fh-prompt{padding:70px 120px}.fh-prompt p{font-size:clamp(34px,11vh,60px);line-height:1.05}}
+.fh-prompt p.in-down{animation:inDown 220ms var(--ease-spring)}
+.fh-prompt p.in-up{animation:inUp 220ms var(--ease-spring)}
+@keyframes inDown{from{opacity:0;transform:translateY(-28px)}}
+@keyframes inUp{from{opacity:0;transform:translateY(28px)}}
+.fh-stop{position:absolute;z-index:4;left:max(12px, env(safe-area-inset-left, 0px));bottom:calc(12px + env(safe-area-inset-bottom, 0px));min-height:44px;padding:0 14px;border:0;border-radius:999px;background:#7A3418;color:#FFFFFF;font:600 14px/1 var(--text)}
+.fh-stop:focus-visible{outline-color:#FFFFFF}
+.flash{position:fixed;inset:0;z-index:70;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;pointer-events:none;animation:flash 380ms linear forwards}
+.flash.got{background:#4E6650;color:#FAF7F2}
+.flash.pass{background:#E8A020;color:#2B211C}
+.flash .i{width:72px;height:72px;stroke-width:2.5}
+.flash b{font:700 40px/1 var(--display)}
+@keyframes flash{0%{opacity:0}21%{opacity:1}74%{opacity:1}100%{opacity:0}}
+.score{display:flex;align-items:center;gap:8px;font:700 96px/1 var(--display);color:#A94A22}
+.score .i{width:44px;height:44px;stroke-width:2.5}
+.quip{font:italic 500 20px/28px var(--display);color:#2B211C}
+.away{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.away li{font:600 22px/28px var(--display);color:#2B211C}
+.chips-list{display:flex;flex-wrap:wrap;gap:8px}
+.gchip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:#FFFFFF;font:500 14px/20px var(--text);color:#2B211C}
+.gchip .i{width:16px;height:16px;color:#4E6650}
+.board{display:flex;flex-direction:column;gap:4px;padding:16px;border-radius:24px;background:#FFFFFF;color:#2B211C;box-shadow:var(--shadow-rest)}
+.board .lab{color:#7A3418}
+.brow{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:10px;min-height:44px}
+.brow .nm{font:500 16px/20px var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.brow .bar2{height:10px;border-radius:999px;background:#EFE6D7;overflow:hidden}
+.brow .bar2 i{display:block;height:100%;width:var(--w);border-radius:999px;background:#A94A22}
+.brow .sc{display:flex;align-items:center;gap:6px;font:700 16px/1 var(--text)}
+.lead-pill{padding:4px 8px;border-radius:999px;background:#E8A020;color:#2B211C;font:700 12px/1 var(--text);letter-spacing:.06em;text-transform:uppercase}
+.win-big{font:700 40px/44px var(--display);color:#2B211C;text-wrap:balance}
+
+/* Family Dinner Bingo */
+.bprog{display:flex;align-items:center;gap:10px;font:600 14px/20px var(--text);color:#4E6650}
+.bprog .goal{flex:1}
+.dots{display:flex;gap:4px}
+.dots i{width:10px;height:10px;border-radius:50%;background:#FFFFFF;box-shadow:inset 0 0 0 1.5px #9FB09C}
+.dots i.on{background:#5F7A61;box-shadow:none}
+.bwrap{position:relative}
+.bgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sq{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;margin:0 0 3px;padding:8px;border:0;border-radius:12px;background:#FFFFFF;color:#2B211C;box-shadow:0 3px 0 #D9CFC0;font:600 14px/17px var(--text);text-align:center;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:transform 80ms var(--ease-out),box-shadow 80ms var(--ease-out),background 200ms,color 200ms}
+.sq .t{position:relative;text-wrap:balance;overflow-wrap:anywhere}
+.sq .daub{position:absolute;left:11%;top:11%;width:78%;height:78%;border-radius:48% 52% 50% 50% / 52% 48% 52% 48%;background:#E8A020;opacity:0;transform:scale(.6);transition:opacity 160ms,transform 160ms}
+.sq > .i{position:absolute;top:6px;right:6px;width:16px;height:16px;color:#3F5A44;stroke-width:2.6;opacity:0}
+.sq.on{transform:translateY(2px);box-shadow:0 1px 0 #D9CFC0}
+.sq.on .daub{opacity:1;transform:none}
+.sq.on > .i{opacity:1}
+.sq.pop .daub{animation:daub 260ms var(--ease-spring)}
+@keyframes daub{from{opacity:0;transform:scale(1.35) rotate(-10deg)}to{opacity:1;transform:none}}
+.sq.win{background:#3F5A44;color:#FFFFFF;box-shadow:0 1px 0 #2A3D2E}
+.sq.win .daub{opacity:0}
+.sq.win > .i{color:#FFFFFF}
+.sq.free{padding:0;overflow:hidden;background:#EFE6D7;cursor:default}
+.sq.free img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 37%}
+.sq.free .fp{position:absolute;left:6px;right:6px;bottom:6px;display:flex;flex-direction:column;align-items:center;padding:4px 4px 5px;border-radius:10px;background:#5F7A61;color:#FFFFFF;font:700 12px/14px var(--text);letter-spacing:.06em;text-transform:uppercase}
+.banner{position:absolute;left:50%;top:50%;z-index:5;padding:14px 30px;border-radius:999px;background:#E8A020;color:#2B211C;font:700 48px/1 var(--display);box-shadow:var(--shadow-lift);pointer-events:none;transform:translate(-50%,-50%);animation:bannerIn 420ms var(--ease-spring)}
+@keyframes bannerIn{from{opacity:0;transform:translate(-50%,-50%) scale(.6)}}
+
+/* Questions for the Table */
+.qdeck{position:relative;padding-bottom:16px}
+.qdeck::before,.qdeck::after{content:"";position:absolute;height:60px;border-radius:24px}
+.qdeck::before{left:4%;right:4%;bottom:8px;background:#E9DFD0}
+.qdeck::after{left:8%;right:8%;bottom:0;background:#D9CDBB;z-index:-1}
+#talk .body{isolation:isolate}
+.qcard{--focus:#2B211C;position:relative;z-index:1;min-height:248px;display:flex;flex-direction:column;gap:14px;padding:20px;border-radius:24px;background:#FFFFFF;color:#2B211C;box-shadow:var(--shadow-lift);touch-action:pan-y}
+.qcard .lab{color:#A94A22}
+.qtext{margin:auto 0;font:600 26px/32px var(--display);text-wrap:balance}
+.qmore{align-self:flex-start;padding:8px 14px;border-radius:16px;background:#FBEACB;font:500 14px/20px var(--text);color:#2B211C}
+.qwho{display:flex;align-items:center;gap:10px;font:500 14px/20px var(--text);color:#6E5A4E}
+.qwho .av{width:32px;height:32px}
+.qwho.all{align-self:flex-start;padding:6px 14px 6px 6px;border-radius:999px;background:#FBEACB;color:#2B211C}
+.qopts{display:flex;flex-direction:column;gap:10px;margin:auto 0}
+.qopt{width:100%;min-height:64px;margin:0 0 3px;padding:14px 16px;border:0;border-radius:16px;background:#FAF7F2;color:#2B211C;text-align:left;font:600 19px/25px var(--display);box-shadow:inset 0 0 0 2px #E8E0D8,0 3px 0 #D9CFC0;transition:transform 140ms var(--ease-spring),box-shadow 140ms}
+.qopt:active{transform:translateY(2px);box-shadow:inset 0 0 0 2px #E8E0D8,0 1px 0 #D9CFC0}
+.qcard.deal{animation:qIn 300ms var(--ease-spring)}
+@keyframes qIn{from{opacity:0;transform:translateY(14px) scale(.97)}}
+.qcard.out{transition:transform 260ms var(--ease-in),opacity 260ms;transform:translateX(-120%) rotate(-10deg);opacity:0}
+.tlinks{display:flex;flex-direction:column;align-items:flex-start;margin-left:-8px}
+
+/* Which Part of You Came to Dinner? */
+.pprog{display:flex;align-items:center;gap:10px;min-height:44px}
+.segs{flex:1;display:flex;gap:4px}
+.segs i{position:relative;flex:1;height:4px;border-radius:2px;overflow:hidden;background:rgba(43,33,28,.15)}
+.segs i b{position:absolute;inset:0;background:#2B211C;transform-origin:left center;transform:scaleX(var(--f,0))}
+.pdeck{position:relative;margin-inline:-16px;overflow:hidden;padding-bottom:8px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.pdeck:focus-visible{outline-offset:-3px}
+.ptrack{display:flex;gap:12px;align-items:stretch;transform:translateX(var(--tx,0px));will-change:transform}
+.ptrack.anim{transition:transform 360ms var(--ease-out)}
+.ptrack.jump{animation:fadeOnly 260ms var(--ease-out)}
+.ptrack.riffle{animation:riffle 180ms ease-in-out 4}
+@keyframes riffle{25%{transform:translateX(calc(var(--tx,0px) - 16px)) rotate(-1deg)}75%{transform:translateX(calc(var(--tx,0px) + 16px)) rotate(1deg)}}
+.pcard{flex:0 0 var(--cw,276px);display:flex;flex-direction:column;gap:8px;margin-bottom:4px;padding:16px;border-radius:24px;box-shadow:0 4px 0 var(--e);opacity:.55;transform:scale(.92);transition:transform 200ms var(--ease-out),opacity 200ms;cursor:pointer}
+.pcard.on{opacity:1;transform:none;cursor:default}
+.pname{font:700 26px/30px var(--display);margin-top:4px}
+.psays{font:italic 500 19px/26px var(--display)}
+.psub{font:500 16px/22px var(--text)}
+.parrow{position:absolute;z-index:3;top:var(--at,130px);transform:translateY(-50%)}
+.parrow.prev{left:6px}
+.parrow.next{right:6px}
+.faces{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 8px}
+.face{position:relative;width:48px;height:48px;padding:0;border:0;border-radius:50%;background:none}
+.face .av{width:48px;height:48px}
+.face[aria-current="true"] .av{box-shadow:0 0 0 2px #FBEACB,0 0 0 4px #2B211C}
+.ownpill{display:inline-flex;align-items:center;gap:6px;height:48px;padding:0 16px;border:0;border-radius:999px;background:#FFFFFF;color:#2B211C;box-shadow:inset 0 0 0 1.5px #E8E0D8;font:600 15px/1 var(--text)}
+.ownpill .i{width:18px;height:18px}
+.ownpill[aria-current="true"]{box-shadow:inset 0 0 0 2px #2B211C}
+.pres{display:flex;flex-direction:column;gap:14px}
+.pres.reveal > *{animation:revealUp 300ms var(--ease-spring) backwards}
+.pres.reveal > *:nth-child(2){animation-delay:60ms}
+.pres.reveal > *:nth-child(3){animation-delay:120ms}
+.pres.reveal > *:nth-child(4){animation-delay:180ms}
+.pres.reveal > *:nth-child(n+5){animation-delay:240ms}
+@keyframes revealUp{from{opacity:0;transform:translateY(16px)}}
+.chosen{display:flex;align-items:center;gap:14px;margin-bottom:4px;padding:12px;border-radius:24px;box-shadow:0 4px 0 var(--e)}
+.chosen .arch{width:96px}
+.chosen .pname{font-size:24px;line-height:28px;margin:0}
+.chosen .psays{font-size:17px;line-height:23px;margin-top:4px}
+.chosen .lab{color:inherit}
+.card{display:flex;flex-direction:column;gap:14px;padding:20px;border-radius:24px;background:#FFFFFF;color:#2B211C;box-shadow:var(--shadow-rest)}
+.card .lab{color:#8A5A0A}
+.card p:not(.lab){margin-top:4px;font:400 16px/26px var(--text)}
+.card p.gift{font:italic 500 20px/28px var(--display)}
+.card p.note{font:400 14px/20px var(--text);color:#6E5A4E}
+.reset{display:grid;grid-template-columns:1fr 64px;gap:14px;align-items:start;padding:20px;border-radius:24px;background:#2B211C;color:#FAF7F2}
+.reset .lab{color:#E8A020}
+.reset p:not(.lab){margin-top:6px;font:400 16px/26px var(--text)}
+.ring{--focus:#E8A020;position:relative;width:64px;height:64px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:conic-gradient(#E8A020 calc(var(--p,0) * 1turn), #3D312A 0)}
+.ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#2B211C}
+.ring-n{position:relative;display:flex;flex-direction:column;align-items:center;font:700 22px/1 var(--display);color:#FAF7F2}
+.ring-n span{font:700 14px/1 var(--text)}
+.ring-n .i{width:18px;height:18px;margin-bottom:2px}
+.ring.done{background:#5F7A61}
+.ring.done::before{background:#4E6650}
+.links{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px;margin-inline:-8px}
+.coach{padding:14px 16px;border-radius:24px;background:#FAF7F2;box-shadow:inset 0 0 0 1px #E8E0D8;font:500 14px/22px var(--text);color:#6E5A4E}
+.coach a{display:inline-flex;align-items:center;gap:2px;color:#A94A22;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.coach a .i{width:16px;height:16px}
+.unlock{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:24px;background:#FFFFFF;color:#2B211C;box-shadow:var(--shadow-rest)}
+.unlock .flabel{color:#2B211C}
+.unlock .fine{color:#6E5A4E}
+.ufan{display:flex;justify-content:center;height:104px;margin-bottom:4px}
+.uc{width:92px;height:96px;margin-left:-4px;display:flex;align-items:flex-end;justify-content:center;padding:6px;border-radius:12px;box-shadow:var(--shadow-rest);transform:rotate(var(--r,0deg));background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M6 25V14a8 8 0 0 1 16 0v11' fill='none' stroke='white' stroke-opacity='.18' stroke-width='1.5'/%3E%3C/svg%3E")}
+.uc:first-child{margin-left:0}
+.uc span{padding:4px 6px;border-radius:999px;background:#FAF7F2;color:#2B211C;font:700 12px/1 var(--text);letter-spacing:.03em;text-transform:uppercase}
+.mk{display:flex;flex-direction:column;gap:14px}
+.mk-top{display:flex;align-items:center;gap:8px;margin-left:-8px}
+.mk-prog{display:flex;align-items:center;gap:12px}
+.mk-segs{flex:1;display:flex;gap:4px}
+.mk-segs i{flex:1;height:4px;border-radius:2px;background:rgba(43,33,28,.15)}
+.mk-segs i.on{background:#2B211C}
+.mk-step{display:flex;flex-direction:column;gap:12px}
+.mk-step.in{animation:stepIn 220ms var(--ease-out)}
+@keyframes stepIn{from{opacity:0;transform:translateX(24px)}}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:48px;padding:0 18px;border:0;border-radius:999px;background:#FFFFFF;color:#2B211C;box-shadow:inset 0 0 0 1.5px #E8E0D8;font:600 15px/1.2 var(--text);transition:transform 160ms var(--ease-spring),background 160ms,color 160ms}
+.chip:active{transform:scale(.96)}
+.chip .i{width:16px;height:16px;display:none}
+.chip[aria-checked="true"]{background:#2B211C;color:#FAF7F2;box-shadow:none}
+.chip[aria-checked="true"] .i{display:block}
+
+/* Sheets */
+.overlay{position:fixed;inset:0;z-index:80;display:flex;align-items:flex-end;justify-content:center;background:rgba(20,14,11,.55);animation:fadeOnly 200ms}
+.sheet{--focus:#2B211C;position:relative;width:100%;max-width:460px;max-height:92vh;max-height:92dvh;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:12px max(16px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));border-radius:24px 24px 0 0;background:#FFFFFF;color:#2B211C;box-shadow:var(--shadow-sheet);animation:sheetUp 320ms cubic-bezier(.2,.9,.3,1.05)}
+.sheet:focus{outline:none}
+@media (min-width:600px){.overlay{align-items:center;padding:24px}.sheet{border-radius:24px}}
+@keyframes sheetUp{from{transform:translateY(100%)}}
+.grab{flex:none;align-self:center;width:36px;height:4px;border-radius:2px;background:#E8E0D8}
+.sclose{position:absolute;top:10px;right:max(12px, env(safe-area-inset-right, 0px))}
+.sheet .h2{font:700 22px/27px var(--display);padding-right:52px}
+.sheet .fine{color:#6E5A4E;font-weight:500;font-size:15px;line-height:21px}
+.sheet .hint{color:#6E5A4E}
+.sheet .tbtn{color:#A94A22}
+.sheet.rules{overflow:hidden;padding-top:12px}
+.sheet-scroll{overflow:auto;min-height:0;flex:1;padding-right:4px}
+.sheet-foot{flex:none;padding-top:4px}
+.help h3{margin:0 52px 4px 0;font:700 24px/29px var(--display);color:#2B211C}
+.help h4{margin:18px 0 6px;font:700 12px/16px var(--text);letter-spacing:.16em;text-transform:uppercase;color:var(--rl)}
+.help p,.help li{font:400 16px/26px var(--text);color:#2B211C}
+.help ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.help li{position:relative;padding-left:18px}
+.help li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--rd)}
+.r-charades{--rl:#A94A22;--rd:#C85A2A}
+.r-bingo{--rl:#4E6650;--rd:#5F7A61}
+.r-talk{--rl:#6E5A4E;--rd:#2B211C}
+.r-parts{--rl:#8A5A0A;--rd:#E8A020}
+.slead{padding-inline:48px;font:600 16px/22px var(--text);text-align:center}
+.fmt{align-self:center;width:250px}
+.pvwrap{display:flex;justify-content:center;padding:4px 0 10px}
+.pv{position:relative;flex:none;width:min(240px,34dvh);aspect-ratio:4/5;overflow:hidden;border-radius:16px;box-shadow:var(--shadow-lift);transform:rotate(-1.5deg);container-type:inline-size}
+.pv.story{width:min(200px,24dvh);aspect-ratio:9/16}
+.pv img.shot{width:100%;height:100%;object-fit:cover;-webkit-touch-callout:default;user-select:auto}
+.pvc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;gap:2.4cqw;padding:7.4cqw;text-align:center}
+.pv.story .pvc{padding-top:30cqw}
+.pvc .wm{align-self:flex-start;font-size:3.7cqw}
+.pvc .wm em{color:inherit}
+.pvc .k{align-self:flex-start;text-align:left;font:700 2.6cqw/1.35 var(--text);letter-spacing:.14em;text-transform:uppercase}
+.pvc .arch{width:57.4cqw;aspect-ratio:620/540;border-radius:50% 50% 1.3cqw 1.3cqw / 57.4% 57.4% 1.3cqw 1.3cqw;margin-top:1.5cqw}
+.pvc .big{margin-top:3cqw;font:700 7.2cqw/1.06 var(--display);text-wrap:balance}
+.pvc .sm{font:500 3.15cqw/1.3 var(--text)}
+.pvc .ft{margin-top:auto;align-self:stretch;padding-top:1.8cqw;border-top:.2cqw solid;border-color:inherit;font:600 2.4cqw/1.2 var(--text);letter-spacing:.06em;opacity:.85}
+.copytext{padding:12px;border-radius:12px;background:#FAF7F2;box-shadow:inset 0 0 0 1px #E8E0D8;font:400 15px/22px var(--text);color:#2B211C;user-select:text;-webkit-user-select:text;overflow-wrap:anywhere}
+.typick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 10px}
+.tyc{display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px;border:0;border-radius:16px;background:none;color:#2B211C;font:600 14px/18px var(--text);text-align:center}
+.tyc .arch{width:80px}
+.tyc:active{transform:scale(.96)}
+
+/* Toast, confetti */
+.alt{display:flex;flex-direction:column;gap:10px}
+.alt .row{display:flex;gap:10px}
+.alt .row .btn{flex:1 1 0;padding-inline:10px;font-size:16px}
+.toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom, 0px));z-index:95;width:max-content;max-width:min(90vw,400px);padding:12px 18px;border-radius:999px;background:#2B211C;color:#FAF7F2;font:600 15px/20px var(--text);text-align:center;box-shadow:0 0 0 1px rgba(250,247,242,.22),var(--shadow-lift);transform:translateX(-50%);animation:toastIn 200ms var(--ease-out)}
+@keyframes toastIn{from{opacity:0;transform:translate(-50%,12px)}}
+#confetti{position:fixed;inset:0;z-index:90;width:100%;height:100%;pointer-events:none}
+
+@media (prefers-reduced-motion: reduce){
+  .screen.enter,.overlay,.sheet,.toast,.ptrack.jump,.pres.reveal > *,.mk-step.in,.qcard.deal,.fh-prompt p.in-down,.fh-prompt p.in-up{animation:fadeOnly 120ms}
+  .fan.deal .fc,.tiles.deal .tile,.count .n.land,.fh-time.tick,.sq.pop .daub,.banner,.ptrack.riffle,.shake{animation:none}
+  .btn,.tile,.chip,.qopt,.sq,.sq .daub,.seg .thumb,.ptrack.anim{transition:none}
+  .pcard{transform:none;transition:opacity 200ms}
+  .qcard.out{transition:opacity 120ms;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+<!-- GATE -->
+<section id="gate" class="screen" hidden>
+  <div class="body">
+    <div class="fan" id="fan" aria-hidden="true">
+      <div class="fc s-terra" style="--r:-10deg;--y:10px;--dx:123px;animation-delay:0ms"><div class="arch a-sq" style="--fx:49%;--fy:30%"><img src="img/s_daniel_phone.jpg" alt=""></div><span>Charades</span></div>
+      <div class="fc s-sage" style="--r:-3.5deg;--dx:41px;animation-delay:70ms"><div class="arch a-sq" style="--fx:56%;--fy:37%"><img src="img/s_priya_bingo.jpg" alt=""></div><span>Bingo</span></div>
+      <div class="fc s-night" style="--r:3.5deg;--dx:-41px;animation-delay:140ms"><div class="arch a-sq" style="--fx:48%;--fy:34%"><img src="img/s_tom_story.jpg" alt=""></div><span>Questions</span></div>
+      <div class="fc s-gold" style="--r:10deg;--y:10px;--dx:-123px;animation-delay:210ms"><div class="arch a-sq" style="--fx:50%;--fy:27%"><img src="img/s_kate.jpg" alt=""></div><span>Parts</span></div>
+    </div>
+    <div class="ghead">
+      <p class="lab" style="color:#A94A22">The Family Holiday Survival Kit</p>
+      <h1 class="hero">Already <em>Home</em></h1>
+      <p class="by">By <b>Anna Milaeva</b>, IFS Coach for People in Transition</p>
+      <p class="sub" id="gate-sub">Four games for the holiday table, on your phone. Made to get the whole family laughing and talking.</p>
+    </div>
+    <div class="signup">
+      <h2 class="h2" id="gate-title">Get all four games, free</h2>
+      <label class="flabel" for="gate-email">Your email</label>
+      <input class="field" id="gate-email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" aria-describedby="gate-err">
+      <p class="err" id="gate-err" hidden><svg class="i" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>Check your email address and try again.</p>
+      <button class="btn" type="button" id="gate-go"><span id="gate-go-t">Open the games</span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+      <p class="fine">You&#x2019;ll also get Anna&#x2019;s letters. Unsubscribe any time.</p>
+    </div>
+    <button class="tbtn center" type="button" id="try">Try the parts game first, no email<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+    <ul class="glist" aria-label="The four games">
+      <li style="--dot:#A94A22"><span><b>Family Charades</b>Phone on your forehead. The others act. You guess.</span></li>
+      <li style="--dot:#5F7A61"><span><b>Family Dinner Bingo</b>Tap what happens at the table. Three in a row wins.</span></li>
+      <li style="--dot:#2B211C"><span><b>Questions for the Table</b>Questions that bring out the family stories. Anyone can pass.</span></li>
+      <li style="--dot:#E8A020"><span><b>Which Part of You Came to Dinner?</b>Find the part of you that showed up. Then a 30-second reset.</span></li>
+    </ul>
+    <p class="foot">Already Home &#xB7; by Anna Milaeva &#xB7; annamilaeva.com</p>
+  </div>
+</section>
+
+<!-- HOME -->
+<section id="home" class="screen" hidden>
+  <header class="bar">
+    <button class="brand" type="button" id="brand" aria-label="Already Home, home screen"><span class="av" style="--fx:52%;--fy:37%;--z:1.4"><img src="img/s_llama.jpg" alt=""></span><span class="wm">Already <em>Home</em></span></button>
+  </header>
+  <div class="body">
+    <h1 class="h1">Pick a game</h1>
+    <div class="tiles" id="tiles">
+      <button class="tile s-terra" type="button" data-go="charades" style="--tr:-2deg"><span class="arch a-wide" style="--fx:49%;--fy:30%"><img src="img/s_daniel_phone.jpg" alt=""></span><span class="tn">Family Charades</span><span class="meta">3+ players &#xB7; 1-minute turns</span><span class="sr">Phone on your forehead. The others act. You guess.</span></button>
+      <button class="tile s-sage" type="button" data-go="bingo" style="--tr:2deg;animation-delay:50ms"><span class="arch a-wide" style="--fx:56%;--fy:37%"><img src="img/s_priya_bingo.jpg" alt=""></span><span class="tn">Family Dinner Bingo</span><span class="meta">Everyone &#xB7; during the meal</span><span class="sr">Tap what happens at the table. Three in a row wins.</span></button>
+      <button class="tile s-night" type="button" data-go="talk" style="--tr:-2deg;animation-delay:100ms"><span class="arch a-wide" style="--fx:48%;--fy:34%"><img src="img/s_tom_story.jpg" alt=""></span><span class="tn">Questions for the Table</span><span class="meta">2+ players &#xB7; after the meal</span><span class="sr">Questions that bring out the family stories. Anyone can pass.</span></button>
+      <button class="tile s-gold" type="button" data-go="parts" style="--tr:2deg;animation-delay:150ms"><span class="arch a-wide" style="--fx:50%;--fy:27%"><img src="img/s_kate.jpg" alt=""></span><span class="tn">Which Part of You Came to Dinner?</span><span class="meta">Just you &#xB7; 1 minute</span><span class="sr">Find the part of you that showed up. Then reset.</span></button>
+    </div>
+    <div class="invite">
+      <p>Playing bingo? Everyone needs a card.</p>
+      <button class="btn sage" type="button" id="invite"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Send bingo to the family chat</button>
+    </div>
+    <div class="gifts">
+      <h2 class="h2">Still need a gift?</h2>
+      <a class="giftlink" href="https://annamilaeva.com/gifts" target="_blank" rel="noopener" data-track="gift_click"><span><b>Holiday gift ideas<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></b><span>Pair Anna&#x2019;s novel <i>Already in a Meeting</i> with the wine or a nice pen. Or give IFS coaching sessions to your significant other.</span></span></a>
+    </div>
+    <p class="foot">Already Home &#xB7; by Anna Milaeva &#xB7; annamilaeva.com</p>
+  </div>
+</section>
+
+<!-- FAMILY CHARADES -->
+<section id="charades" class="screen" hidden>
+  <header class="bar">
+    <button class="ibtn" type="button" data-back aria-label="All games"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg></button>
+    <h1 class="bar-title">Family Charades</h1>
+    <button class="ibtn" type="button" id="ch-sound" aria-label="Sound" aria-pressed="true"></button>
+    <button class="ibtn" type="button" data-help="charades" aria-label="Full rules"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg></button>
+  </header>
+  <div class="body">
+    <div id="ch-lobby" class="stack">
+      <div class="hero-card s-terra">
+        <div class="arch a-cine" style="--fx:49%;--fy:30%"><img src="img/s_daniel_phone.jpg" alt=""></div>
+        <h2 class="h2">Phone on your forehead. Everyone else acts.</h2>
+        <ol class="steps">
+          <li><span><b>Guesser:</b> phone on your forehead, screen facing out.</span></li>
+          <li><span><b>Everyone else acts out the card.</b> Sounds, yes. Words, no.</span></li>
+          <li><span><b>Got it?</b> Tap the bottom half. <b>Too hard?</b> Tap the top to pass.</span></li>
+        </ol>
+        <button class="tbtn" type="button" data-help="charades">Full rules<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+      </div>
+      <div class="opt">
+        <label class="flabel" for="ch-name">Who&#x2019;s guessing? (optional)</label>
+        <input class="field" id="ch-name" type="text" maxlength="24" placeholder="Name" autocomplete="off">
+      </div>
+      <div class="opt">
+        <span class="flabel" id="ch-len-l">Round length</span>
+        <div class="seg" id="ch-len" role="radiogroup" aria-labelledby="ch-len-l"><span class="thumb" aria-hidden="true"></span><button type="button" role="radio" aria-checked="true" data-v="60">60 sec</button><button type="button" role="radio" aria-checked="false" data-v="90">90 sec</button><button type="button" role="radio" aria-checked="false" data-v="0">No timer</button></div>
+      </div>
+    </div>
+    <div id="ch-end" class="stack" hidden>
+      <p class="lab" id="ch-who">Guesser 1</p>
+      <div class="score"><span id="ch-final" class="num">0</span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg><span class="sr">guessed</span></div>
+      <p class="quip" id="ch-line"></p>
+      <div id="ch-away" class="stack-s"><p class="lab">The ones that got away</p><ul class="away" id="ch-away-list"></ul></div>
+      <div id="ch-gotbox" class="stack-s"><p class="lab">Guessed</p><div class="chips-list" id="ch-got-list"></div></div>
+      <div class="board" id="ch-board"></div>
+      <button class="tbtn center" type="button" id="ch-endgame">End game and see the winner<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+    </div>
+    <div id="ch-win" class="stack" hidden>
+      <div class="arch a-cine" style="--fx:49%;--fy:30%"><img src="img/s_daniel_phone.jpg" alt=""></div>
+      <p class="lab">Family Charades</p>
+      <h2 class="win-big" id="ch-win-big"></h2>
+      <p class="quip" id="ch-win-line"></p>
+      <div class="board" id="ch-win-board"></div>
+    </div>
+  </div>
+  <div class="dock" id="ch-dock-lobby"><button class="btn" type="button" id="ch-start">I&#x2019;m the guesser. Start</button></div>
+  <div class="dock" id="ch-dock-end" hidden><button class="btn sec" type="button" id="ch-share"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Share score</button><button class="btn" type="button" id="ch-next">Next guesser</button></div>
+  <div class="dock" id="ch-dock-win" hidden><button class="btn sec" type="button" id="ch-wshare"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Share the winner</button><button class="btn" type="button" id="ch-new">New game</button></div>
+</section>
+
+<!-- FAMILY DINNER BINGO -->
+<section id="bingo" class="screen" hidden>
+  <header class="bar">
+    <button class="ibtn" type="button" data-back aria-label="All games"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg></button>
+    <h1 class="bar-title">Family Dinner Bingo</h1>
+    <button class="ibtn" type="button" data-help="bingo" aria-label="Full rules"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg></button>
+  </header>
+  <div class="body">
+    <div class="intro">
+      <h2 class="h1">Watch the table. Tap what happens.</h2>
+      <ol class="steps" style="--nb:#5F7A61;--nf:#FFFFFF">
+        <li><span><b>Everyone opens their own card.</b> No two are the same.</span></li>
+        <li><span><b>When it happens,</b> tap the square.</span></li>
+        <li><span><b>Three in a row?</b> Shout &#x201C;Bingo!&#x201D; and show your phone.</span></li>
+      </ol>
+      <button class="tbtn" type="button" data-help="bingo">Full rules<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+    </div>
+    <div class="bprog"><span class="goal" id="bn-goal">Your card</span><span class="dots" id="bn-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="num" id="bn-count">0 of 8</span></div>
+    <div class="bwrap" id="bn-wrap"><div class="bgrid" id="bn-grid" role="group" aria-label="Your bingo card"></div></div>
+    <button class="tbtn center" type="button" id="bn-new"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-refresh"></use></svg><span id="bn-new-t">New card</span></button>
+  </div>
+  <div class="dock"><button class="btn sec" type="button" id="bn-invite"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Send bingo to the family chat</button></div>
+</section>
+
+<!-- QUESTIONS FOR THE TABLE -->
+<section id="talk" class="screen" hidden>
+  <header class="bar">
+    <button class="ibtn" type="button" data-back aria-label="All games"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg></button>
+    <h1 class="bar-title">Questions for the Table</h1>
+    <button class="ibtn" type="button" data-help="talk" aria-label="Full rules"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg></button>
+  </header>
+  <div class="body">
+    <div class="intro">
+      <h2 class="h1">Easy questions. Real family stories.</h2>
+      <ol class="steps" style="--nb:#E8A020;--nf:#2B211C">
+        <li><span><b>Pick a level:</b> Light, Stories or Deeper.</span></li>
+        <li><span><b>Read it out and answer.</b> Then hand the phone on.</span></li>
+        <li><span><b>Anyone can pass.</b> No reason needed.</span></li>
+      </ol>
+      <button class="tbtn" type="button" data-help="talk">Full rules<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+    </div>
+    <div class="seg" id="tt-lvl" role="radiogroup" aria-label="Question level"><span class="thumb" aria-hidden="true"></span><button type="button" role="radio" aria-checked="true" data-v="warm">Light</button><button type="button" role="radio" aria-checked="false" data-v="story">Stories</button><button type="button" role="radio" aria-checked="false" data-v="deep">Deeper</button></div>
+    <div class="qdeck"><div class="qcard" id="tt-card"></div></div>
+    <div class="tlinks">
+      <button class="tbtn" type="button" id="tt-send"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Send this question to the family chat</button>
+      <button class="tbtn" type="button" id="tt-last">Last question<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+    </div>
+  </div>
+  <div class="dock" id="tt-dock"><button class="btn sec" type="button" id="tt-all" aria-pressed="false">Ask everyone</button><button class="btn gold" type="button" id="tt-next">Next question</button></div>
+  <div class="dock" id="tt-dock-last" hidden><button class="btn sec" type="button" id="tt-home">Back to all games</button><button class="btn gold" type="button" id="tt-again">Start again</button></div>
+</section>
+
+<!-- WHICH PART OF YOU CAME TO DINNER? -->
+<section id="parts" class="screen" hidden>
+  <header class="bar">
+    <button class="ibtn" type="button" data-back aria-label="All games"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg></button>
+    <h1 class="bar-title">Which Part of You Came to Dinner?</h1>
+    <button class="ibtn" type="button" data-help="parts" aria-label="Full rules"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg></button>
+  </header>
+  <div class="body">
+    <div class="intro" id="pt-intro">
+      <h2 class="h1">Something triggered you?</h2>
+      <ol class="steps" style="--nb:#E8A020;--nf:#2B211C">
+        <li><span><b>Everyone has parts.</b> Part of you loves this. Part of you wants a nap.</span></li>
+        <li><span><b>Meet the parts one by one.</b> Tap &#x201C;That&#x2019;s me!&#x201D; on yours.</span></li>
+        <li><span><b>Read the gift it brings.</b> Then try the 30-second reset.</span></li>
+      </ol>
+      <button class="tbtn" type="button" data-help="parts">Full rules<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+    </div>
+    <div id="pt-deckview" class="stack">
+      <div class="pprog"><div class="segs" id="pt-segs" aria-hidden="true"></div><button class="ibtn" type="button" id="pt-play" aria-label="Pause" hidden></button></div>
+      <div class="pdeck" id="pt-deck" role="region" aria-roledescription="carousel" aria-label="Parts" tabindex="0">
+        <div class="ptrack" id="pt-track"></div>
+        <button class="ibtn parrow prev" type="button" id="pt-prev" aria-label="Previous part"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg></button>
+        <button class="ibtn parrow next" type="button" id="pt-next" aria-label="Next part"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+      </div>
+      <p class="hint center" id="pt-hint" aria-live="polite"></p>
+      <div class="stack-s"><p class="hint" id="pt-faces-l">Or tap a face</p><div class="faces" id="pt-faces" role="group" aria-labelledby="pt-faces-l"></div></div>
+    </div>
+    <div id="pt-result" hidden></div>
+    <div id="pt-make" class="mk" hidden></div>
+  </div>
+  <div class="dock" id="pt-dock-deck"><button class="btn sec isq" type="button" id="pt-shuffle" aria-label="Shuffle"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-shuffle"></use></svg></button><button class="btn gold" type="button" id="pt-main">Show me the parts</button></div>
+  <div class="dock" id="pt-dock-res" hidden><button class="btn sec" type="button" id="pt-share"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Share my part</button><button class="btn gold" type="button" id="pt-send">Send a thank-you</button></div>
+  <div class="dock" id="pt-dock-mk" hidden><button class="btn gold" type="button" id="pt-mkgo">Show my part</button></div>
+</section>
+
+</div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="live" class="sr" aria-live="polite"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9.3a2.6 2.6 0 0 1 5 .9c0 1.8-2.5 2.2-2.5 3.9"/><path d="M12 17.3h.01"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M18.5 12.5L12 19l-6.5-6.5"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7.5 10.5L12 15l4.5-4.5"/><path d="M5 20h14"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v5h-5"/></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M16 4h4v4"/><path d="M4 20L20 4"/><path d="M20 16v4h-4"/><path d="M14.5 14.5L20 20"/><path d="M4 4l5 5"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M22 9l-6 6M16 9l6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v5.5M12 16.5h.01"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></symbol>
+</svg>
+
+<script>
+(function(){
+'use strict';
+/* ================= helpers ================= */
+const $=(s,r)=>(r||document).querySelector(s);
+const $$=(s,r)=>Array.from((r||document).querySelectorAll(s));
+const RM=()=>{try{return window.matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){return false}};
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const I=n=>'<svg class="i" aria-hidden="true" focusable="false"><use href="#i-'+n+'"></use></svg>';
+const store={get(k){try{const v=localStorage.getItem('ah_'+k);return v==null?null:JSON.parse(v)}catch(e){return null}},set(k,v){try{localStorage.setItem('ah_'+k,JSON.stringify(v))}catch(e){}}};
+const vib=p=>{try{if(navigator.userActivation&&!navigator.userActivation.hasBeenActive)return;if(navigator.vibrate)navigator.vibrate(p)}catch(e){}};
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const stripQ=s=>String(s).replace(/^\u201C/,'').replace(/\u201D$/,'');
+const validEmail=v=>/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(String(v).trim());
+function live(t){const l=$('#live');l.textContent='';setTimeout(()=>{l.textContent=t},40)}
+function toast(t){$$('.toast').forEach(x=>x.remove());const d=document.createElement('div');d.className='toast';d.setAttribute('role','status');d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2600)}
+document.addEventListener('error',e=>{const t=e.target;if(t&&t.tagName==='IMG')t.style.visibility='hidden'},true);
+
+/* ================= analytics (Umami, no cookies) ================= */
+const tq=[];let tqIv=null;
+function track(name,data){
+  const send=()=>{try{if(window.umami&&typeof window.umami.track==='function'){window.umami.track(name,data);return true}}catch(e){return true}return false};
+  if(send())return;
+  tq.push(send);
+  if(!tqIv){let n=0;tqIv=setInterval(()=>{n++;while(tq.length&&tq[0]())tq.shift();if(!tq.length||n>40){clearInterval(tqIv);tqIv=null;tq.length=0}},500)}
+}
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[data-track]');if(a)track(a.dataset.track,{screen:current||''})},true);
+
+/* ================= links and names ================= */
+const SITE='annamilaeva.com/family-games';
+const URL_BASE='https://annamilaeva.com/family-games/';
+const SHARE_LINK=URL_BASE+'?from=share';
+const BINGO_LINK=URL_BASE+'?play=bingo';
+const NAMES={charades:'Family Charades',bingo:'Family Dinner Bingo',talk:'Questions for the Table',parts:'Which Part of You Came to Dinner?'};
+
+/* Portrait focus points (face centre x%, y%) */
+const FOCUS={s_daniel_phone:[49,30],s_priya_bingo:[56,37],s_tom_story:[48,34],s_kate:[50,27],s_tom:[47,30],s_priya:[49,27],s_marta:[52,31],s_marta_say:[47,30],s_daniel:[65,37],s_donkey:[57,43],s_llama:[52,37],s_llama_calm:[52,45],s_priya_worry:[54,30]};
+function pic(name,cls,zoom){const f=FOCUS[name]||[50,30];return '<span class="'+cls+'" style="--fx:'+f[0]+'%;--fy:'+f[1]+'%'+(zoom?';--z:'+zoom:'')+'"><img src="img/'+name+'.jpg" alt="" decoding="async"></span>'}
+
+/* ================= DATA: everything Anna may want to edit ================= */
+/* Parts: change names here. short = face row and thank-you label. suit = card colour. */
+const PARTS=[
+{n:"The Fixer",short:"Fixer",img:"s_kate",suit:"sage",
+ says:"I\u2019ll just get the plates.",
+ does:"Jumps up to clear plates before anyone asks. Keeps everything running so nothing goes wrong.",
+ gift:"Parts like this often bring an eye for what people need before they ask.",
+ card:"Its gift: seeing what people need first.",
+ prac:"Put both feet on the floor. Stay in your seat one more minute. Let someone else get the water.",
+ thanks:"Thank you for noticing what everyone needs. For once, sit down. We\u2019ve got the plates."},
+{n:"The Peacemaker",short:"Peacemaker",img:"s_priya",suit:"gold",
+ says:"Anyway\u2026 how about this weather?",
+ does:"Changes the subject the second voices rise. Smooths every sharp edge.",
+ gift:"Parts like this often bring a quick read of the room, and help people feel safe.",
+ card:"Its gift: helping a room feel safe.",
+ prac:"Let one awkward silence happen. Count three slow breaths. Notice that nothing breaks.",
+ thanks:"Thank you for keeping the peace. You don\u2019t have to hold this whole meal together."},
+{n:"The Critic",short:"Critic",img:"s_marta",suit:"night",
+ says:"That\u2019s not how you do it.",
+ does:"Spots everything that\u2019s off: the food, the clothes, the choices. Nobody escapes.",
+ gift:"Parts like this often bring high standards and an eye for detail.",
+ card:"Its gift: high standards.",
+ prac:"Thank it, silently. Ask it to take the rest of the meal off. See if it agrees.",
+ thanks:"Thank you for caring that things are done well. This time, it\u2019s already good enough."},
+{n:"The Truth-Teller",short:"Truth-Teller",img:"s_marta_say",suit:"sage",
+ says:"Someone has to say it.",
+ does:"Has a whole speech ready. Something feels unfair, and it wants everyone to know.",
+ gift:"Parts like this often bring a clear sense of when something isn\u2019t right.",
+ card:"Its gift: knowing when something isn\u2019t right.",
+ prac:"Feet on the floor. Breathe out slowly. Say it now, say it tomorrow, or let it go. You choose, not the part.",
+ thanks:"Thank you for standing up for what matters. We\u2019re listening. Maybe after dessert."},
+{n:"The 15-Year-Old",short:"15-Year-Old",img:"s_tom",suit:"terra",
+ says:"Ugh. Seriously?",
+ does:"Shows up when someone treats you like a kid. Eyes roll. Arms cross.",
+ gift:"Parts like this often bring a strong sense of what\u2019s fair, and no patience for pretending.",
+ card:"Its gift: a strong sense of what\u2019s fair.",
+ prac:"Notice how old you feel right now. Then remind yourself how old you are today. Sit up to your full height.",
+ thanks:"Thank you for always saying what\u2019s fair. Roll your eyes all you like. We still want you here."},
+{n:"The Entertainer",short:"Entertainer",img:"s_daniel",suit:"terra",
+ says:"Did I ever tell you the one about\u2026",
+ does:"Cracks a joke the second things get tense. Keeps the table laughing.",
+ gift:"Parts like this often bring lightness when things get heavy.",
+ card:"Its gift: lightness when it gets heavy.",
+ prac:"Next time it gets tense, wait one breath before the joke. Notice what\u2019s under it. Then decide.",
+ thanks:"Thank you for the laughs. We\u2019d love to hear how you\u2019re really doing too."},
+{n:"The Worrier",short:"Worrier",img:"s_priya_worry",suit:"sage",
+ says:"What if it all goes wrong?",
+ does:"Runs through everything that could go wrong. Checks the oven, the clock and everyone\u2019s mood.",
+ gift:"Parts like this often bring good planning, and spot trouble early.",
+ card:"Its gift: spotting trouble early.",
+ prac:"Name three things that are fine right now. Then breathe out slowly, once.",
+ thanks:"Thank you for thinking of everything. This time, we\u2019ve got it. Nothing is burning."},
+{n:"The Sleepyhead",short:"Sleepyhead",img:"s_donkey",suit:"gold",
+ says:"Is it nap time yet?",
+ does:"Switches off after the third person asks the same question. Wants a quiet corner, now.",
+ gift:"Parts like this often bring a sense of your limits, and protect your energy.",
+ card:"Its gift: knowing when enough is enough.",
+ prac:"Step into another room or outside for 30 seconds. Look at something far away. Come back when you\u2019re ready.",
+ thanks:"Thank you for knowing your limits. The sofa is yours. We\u2019ll cover for you."},
+{n:"The Calm One",short:"Calm One",img:"s_llama_calm",suit:"night",ring:true,
+ says:"I\u2019m good right here.",
+ does:"Sometimes no part takes over. There\u2019s just you: calm, curious, a little amused.",
+ gift:"The Calm One brings calm, curiosity and room for everyone.",
+ note:"IFS, the approach behind this game, calls this Self. Everyone has it, under all the parts.",
+ card:"Its gift: calm and curiosity.",
+ prac:"Look around the table. Notice one thing you like about one person. Tell them, if you want.",
+ thanks:"Thank you for being the calm in the room. Teach the rest of us?"}];
+
+const BODY=[
+{k:"chest",label:"Chest",where:"You feel it in your chest.",prac:"Put one hand on your chest. Breathe out a little slower than you breathe in. Three times."},
+{k:"stomach",label:"Stomach",where:"You feel it in your stomach.",prac:"Put one hand on your stomach. Let it rise as you breathe in. Let it soften as you breathe out."},
+{k:"throat",label:"Throat",where:"You feel it in your throat.",prac:"Take a sip of water. Swallow slowly. Then let out one long, quiet breath."},
+{k:"jaw",label:"Jaw or face",where:"You feel it in your jaw or face.",prac:"Let your jaw drop a little. Teeth apart, tongue soft. Breathe out through your mouth."},
+{k:"shoulders",label:"Shoulders",where:"You feel it in your shoulders.",prac:"Lift your shoulders up to your ears. Hold for three. Let them drop. Once more."},
+{k:"head",label:"Head",where:"You feel it in your head.",prac:"Look at something far away for ten seconds. Then notice three sounds around you."},
+{k:"hands",label:"Hands",where:"You feel it in your hands.",prac:"Press your palms together for five seconds. Let go. Notice how your hands feel now."},
+{k:"unsure",label:"Not sure",where:"Not sure where? That\u2019s common.",prac:"Feet on the floor. Notice where the chair holds you. Breathe out slowly, twice."}];
+const RESET_END="If you like, tell it inside: I see you.";
+const WANTS=[
+{k:"leave",label:"Leave the room",want:"leave the room",names:["The Escape Artist","The Door-Watcher"],gift:"Parts that want out often know when enough is enough."},
+{k:"say",label:"Say something",want:"say something",names:["The Speech-Writer","The Firecracker"],gift:"Parts that want to speak up often care a lot about what\u2019s fair."},
+{k:"fix",label:"Fix everything",want:"fix everything",names:["The Problem-Solver","The Helper"],gift:"Parts that want to fix things often notice what others need."},
+{k:"joke",label:"Make a joke",want:"make a joke",names:["The Comedian","The Class Clown"],gift:"Parts that joke often bring lightness when things get heavy."},
+{k:"peace",label:"Keep the peace",want:"keep the peace",names:["The Diplomat","The Referee"],gift:"Parts that keep the peace often help a whole room feel safer."},
+{k:"quiet",label:"Go quiet",want:"go quiet",names:["The Turtle","The Quiet One"],gift:"Parts that go quiet often save energy for what matters."},
+{k:"eyes",label:"Roll my eyes",want:"roll its eyes",names:["The Eye-Roller","The Unimpressed One"],gift:"Parts that roll their eyes often refuse to pretend. That honesty has value."},
+{k:"phone",label:"Hide in my phone",want:"disappear into the phone",names:["The Scroller","The Screen Break"],gift:"Parts that reach for the phone often know a short break is needed."}];
+
+const CARDS=[
+"Carrying a pot that\u2019s too full","Blowing on soup that\u2019s too hot","Burning your tongue, acting fine","Grandpa\u2019s glasses are on his head",
+"Teaching Grandma to video call","Everyone talking at once","Squeezing in one more chair","Too full to move",
+"Hunting for the TV remote","Hunting for a phone charger","Loving a gift you secretly hate","The goodbye that takes an hour",
+"The kid who found the chocolate","Building a toy with no instructions","The dog steals food from the table","Arriving late with a bought dessert",
+"Two hands reach for the last piece","Pretending you didn\u2019t hear the question","Doing the dishes to avoid talking","Asleep on the sofa by eight",
+"A selfie with the whole family","Still at the kids\u2019 table at 35","A hug that won\u2019t end","Carving at the table like a surgeon",
+"Saying \u201CI\u2019m fine\u201D when you\u2019re not","Dancing in the kitchen while cooking","A baby who won\u2019t stop crying","A sore loser at a board game",
+"Wrapping a gift at the last minute","Carrying a sleeping child to the car","Opening the oven: a wall of heat","Kids hiding under the table"];
+
+const SQUARES=[
+"\u201CAre you seeing anyone?\u201D","Dinner is an hour late","Someone says \u201CPhones away!\u201D","Someone dozes off",
+"The same old family story","Politics. Briefly. Then not.","Happy tears","A kid melts down",
+"\u201CWhen I was your age\u2026\u201D","Something gets burned","You fix someone\u2019s phone","Someone sneaks a taste",
+"A speech that runs long","The pet gets fed under the table","Ten tries at the group photo","A baby story about you",
+"Leftovers get negotiated","\u201CSo what do you do again?\u201D","Someone photographs the food","You hide in the kitchen",
+"\u201CThis is my last year hosting\u201D","A game ends in an argument","\u201CWe should do this more often\u201D","Someone asks for the recipe",
+"Same story, two versions","Someone on a loud video call","Something gets spilled","Someone insists you eat more",
+"\u201CYou\u2019ve grown so much!\u201D","Someone checks the score","Someone arrives late","Phone photos get passed around"];
+
+const QS={
+warm:[
+{q:"Which dish on this table would you defend in court?"},
+{q:"Who here would win a cooking show?",more:"Who would go home first?"},
+{q:"What\u2019s your most useless talent?",more:"Can you show us?"},
+{q:"What food did you hate as a kid but love now?"},
+{q:"Which song should be banned from this house?"},
+{q:"If this family were a TV show, what would it be called?",more:"Who would play you?"},
+{q:"Who here would last longest on a desert island?",more:"What would they bring?"},
+{q:"Who at this table would make the best spy?",more:"What\u2019s their cover story?"},
+{q:"What\u2019s the strangest thing you believed as a kid?"},
+{q:"What one rule would you add to family meals?"},
+{q:"Which animal is most like this family?",more:"Which animal are you?"},
+{q:"What\u2019s a small thing that always makes you happy?"}],
+story:[
+{q:"Tell us about a holiday that went completely wrong.",more:"What happened next?"},
+{q:"What did you believe about grown-ups when you were ten?",more:"Was any of it true?"},
+{q:"Who in this family taught you to laugh?",more:"What did they do that was so funny?"},
+{q:"What\u2019s a family saying only we understand?",more:"Where did it come from?"},
+{q:"Tell a family story the youngest here hasn\u2019t heard.",more:"Who else was there?"},
+{q:"What\u2019s a love story in this family everyone should know?",more:"Who told it to you first?"},
+{q:"What\u2019s the best trouble you got into as a kid?",more:"Did anyone find out?"},
+{q:"Which family recipe has a story behind it?",more:"Who made it first?"},
+{q:"Where does your name come from?",more:"Would you choose it again?"},
+{q:"What was your first job?",more:"What did you buy with your first pay?"},
+{q:"What\u2019s a gift that cost almost nothing and meant a lot?",more:"Who gave it to you?"},
+{q:"What did your home smell like when you were a kid?",more:"Which room do you remember best?"}],
+deep:[
+{q:"What did this family give you that you still use?"},
+{q:"What do you want to take into next year?",more:"What would you like to leave behind?"},
+{q:"Who would you like to thank today, and for what?"},
+{q:"What\u2019s something you never said thank you for?",more:"Could you say it now?"},
+{q:"When did you feel most at home this year?",more:"Who were you with?"},
+{q:"What would you tell a younger you at this table?",more:"How old is that younger you?"},
+{q:"What\u2019s something you\u2019ve changed your mind about?",more:"What changed it?"},
+{q:"Who taught you how to be kind?",more:"What did they do?"},
+{q:"What\u2019s a hard thing you\u2019re proud you got through?"},
+{q:"When were you proud of someone at this table?",more:"Do they know?"},
+{q:"What small thing made your year better?"},
+{q:"Is there someone you miss today? Tell us one small thing about them."}]};
+const LAST={q:"One word for today. Go round the table.",who:"Last question \u00B7 everyone answers"};
+
+const HELP={
+charades:`<h3>Full rules: Family Charades</h3>
+<h4>Who plays</h4><p>Three or more. One person guesses. Everyone else acts.</p>
+<h4>Get ready</h4><ul><li>Pick a round: 60 seconds, 90 seconds, or no timer for small kids.</li><li>The guesser taps \u201CI\u2019m the guesser. Start\u201D. A 3-2-1 countdown begins.</li><li>Lift the phone to your forehead, screen facing the room. No peeking.</li></ul>
+<h4>Acting</h4><ul><li>A family moment shows on the screen, like \u201CGrandpa\u2019s glasses are on his head\u201D.</li><li>Everyone else acts it out. Sounds are fine. Words are not.</li><li>No pointing at the screen.</li></ul>
+<h4>Scoring</h4><ul><li>Got it? Tap the bottom half of the screen. One point.</li><li>Too hard? Tap the top half to pass. No point lost.</li></ul>
+<h4>The timer</h4><p>A bar shrinks as time runs out. The screen pulses in the last 10 seconds.</p>
+<h4>Next turn</h4><p>Tap \u201CNext guesser\u201D and hand the phone on. The game keeps everyone\u2019s score. When you\u2019re done, tap \u201CEnd game\u201D to see the winner.</p>
+<h4>Big group?</h4><p>Play in two teams. Type the team name in \u201CWho\u2019s guessing?\u201D.</p>
+<h4>With small kids</h4><p>Choose \u201CNo timer\u201D. A grown-up can whisper the card to a child who can\u2019t read yet.</p>`,
+bingo:`<h3>Full rules: Family Dinner Bingo</h3>
+<h4>Before you eat</h4><ul><li>Send the link to the family chat. Everyone opens it on their own phone and gets their own card.</li><li>No phone? Share one. Kids can team up with a grown-up.</li></ul>
+<h4>During the meal</h4><ul><li>Keep your phone face up by your plate. Eat, talk, enjoy.</li><li>When something on your card happens, tap that square.</li><li>The middle square is free. You made it.</li><li>Tapped by mistake? Tap again to undo.</li></ul>
+<h4>Winning</h4><ul><li>Three in a line wins: across, down or corner to corner.</li><li>Shout \u201CBingo!\u201D, show your phone, and tell the table what happened.</li><li>Keep going. A second line is Double Bingo. A full card makes you a family legend.</li></ul>
+<h4>House rule</h4><p>No making squares happen on purpose. Fixing someone\u2019s phone is allowed. That\u2019s just kind.</p>`,
+talk:`<h3>Full rules: Questions for the Table</h3>
+<h4>When</h4><p>After the main course, or with dessert, when people sit back. Two or more people.</p>
+<h4>Pick a level</h4><ul><li>Light: quick and funny. Start here.</li><li>Stories: memories and family moments.</li><li>Deeper: things that matter. Only if the table wants to.</li></ul>
+<h4>How a turn works</h4><ul><li>Whoever holds the phone reads the question out loud and answers.</li><li>Some cards have an \u201CAsk one more\u201D question. Anyone can ask it.</li><li>Then hand the phone to the next person. They tap \u201CNext question\u201D.</li><li>Want everyone to answer? Tap \u201CAsk everyone\u201D.</li></ul>
+<h4>Passing</h4><p>Anyone can say \u201CPass\u201D at any time. No reason needed.</p>
+<h4>Good to know</h4><p>Listen, don\u2019t fix. Don\u2019t argue with someone\u2019s memory. Laughing is allowed.</p>
+<h4>Someone missing?</h4><p>Send a question to the family chat, so they can answer too.</p>
+<h4>Ending</h4><p>Tap \u201CLast question\u201D for one closing question that everyone answers.</p>`,
+parts:`<h3>Full rules: Which Part of You Came to Dinner?</h3>
+<h4>What\u2019s a part?</h4><p>Everyone has different sides. Part of you loves this. Part of you wants a nap. Part of you wants to fix everything. Each part is trying to help, even when it gets loud.</p>
+<h4>When to play</h4><p>Something triggered you: a comment, a question, a look. Take your phone, at the table or for a minute outside.</p>
+<h4>How it works</h4><ul><li>Tap \u201CShow me the parts\u201D. They appear one at a time.</li><li>Swipe to go faster or back. Touch the screen to pause.</li><li>Tap \u201CThat\u2019s me!\u201D on the one that showed up. Or tap a face below to jump to it.</li><li>Read what it often does and the gift it brings. Then try the 30-second reset. Nobody will notice.</li></ul>
+<h4>None of them fit?</h4><p>Tap \u201CMake your own\u201D. Three taps: where you feel it, what it wants to do, and a name if you like.</p>
+<h4>Sharing</h4><p>Share your own part, or send a thank-you to someone. Pick the part you see in them, and they get a kind, funny note. It\u2019s for kindness, never for labels.</p>
+<h4>Good to know</h4><p>This is a light game, not therapy. It knows nothing about you, so it never guesses. It\u2019s inspired by IFS (Internal Family Systems), the approach Anna uses with clients.</p>`};
+
+/* ================= state ================= */
+let unlocked=!!store.get('unlocked');
+let params;try{params=new URLSearchParams(location.search)}catch(e){params=new URLSearchParams()}
+const bingoInvite=params.get('play')==='bingo'||params.get('game')==='bingo';
+const SCREENS=['gate','home','charades','bingo','talk','parts'];
+const LOCKED=['home','charades','bingo','talk'];
+let current=null,firstShow=true,homeDealt=false;
+
+/* ================= sound, haptics, wake lock ================= */
+let soundOn=store.get('sound');if(soundOn===null)soundOn=true;
+let actx=null;
+function audio(){try{if(!actx){const A=window.AudioContext||window.webkitAudioContext;if(!A)return null;actx=new A()}if(actx.state==='suspended')actx.resume();return actx}catch(e){return null}}
+function tone(f,d,o){o=o||{};const a=audio();if(!a)return;try{const t=a.currentTime+(o.at||0);const os=a.createOscillator(),g=a.createGain();os.type=o.type||'sine';os.frequency.setValueAtTime(f,t);if(o.to)os.frequency.exponentialRampToValueAtTime(o.to,t+d);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(o.vol||0.12,t+0.012);g.gain.exponentialRampToValueAtTime(0.0001,t+d);os.connect(g);g.connect(a.destination);os.start(t);os.stop(t+d+0.03)}catch(e){}}
+const SFX={tick:()=>tone(880,.06,{vol:.06}),got:()=>{tone(1047,.11);tone(1319,.11,{at:.11})},pass:()=>tone(220,.14,{type:'triangle',to:160,vol:.14}),beep:()=>tone(1000,.03,{vol:.05}),up:()=>{tone(784,.14);tone(659,.14,{at:.14});tone(523,.22,{at:.28})}};
+function sfx(n){if(soundOn&&SFX[n])SFX[n]()}
+let wl=null,wantWake=false;
+async function wake(on){wantWake=on;try{if(on){if(!wl&&navigator.wakeLock&&navigator.wakeLock.request){wl=await navigator.wakeLock.request('screen');wl.addEventListener('release',()=>{wl=null})}}else if(wl){const w=wl;wl=null;await w.release()}}catch(e){wl=null}}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&wantWake)wake(true)});
+
+/* ================= navigation (hash, so the phone's Back works) ================= */
+function resolve(id){
+  if(!SCREENS.includes(id))id=unlocked?(firstShow&&bingoInvite?'bingo':'home'):'gate';
+  if(!unlocked&&LOCKED.includes(id))id='gate';
+  if(unlocked&&id==='gate')id='home';
+  return id;
+}
+function show(id){
+  id=resolve(id);
+  layers=[];
+  if(sheetCtl)sheetCtl.close(true);
+  if(current)leave(current);
+  SCREENS.forEach(s=>{$('#'+s).hidden=(s!==id)});
+  document.documentElement.dataset.screen=id;
+  current=id;
+  const sec=$('#'+id);
+  if(!firstShow){sec.classList.remove('enter');void sec.offsetWidth;sec.classList.add('enter')}
+  firstShow=false;
+  try{window.scrollTo(0,0)}catch(e){}
+  enter(id);
+  onScroll();
+}
+function go(id){show(id);try{if(location.hash!=='#'+id)history.pushState(null,'','#'+id)}catch(e){}}
+function fromHistory(){let h='';try{h=location.hash.slice(1)}catch(e){}const id=resolve(h);if(id!==current)show(id)}
+/* Layers (sheets, the charades round, a parts result) get their own history entry,
+   so the phone's Back closes the top layer, not the whole game. tag: 'sheet', 'round' or 'parts'. */
+let layers=[],skipPop=0;
+const topLayer=()=>layers[layers.length-1];
+function openLayer(tag,close,replace){const t=topLayer();if(replace&&t&&t.tag===tag){t.close=close;return}layers.push({tag,close});try{history.pushState({ahLayer:layers.length},'',location.href)}catch(e){}}
+function dropLayer(tag){const t=topLayer();if(!t||t.tag!==tag)return;layers.pop();try{if(history.state&&history.state.ahLayer){skipPop++;history.back()}}catch(e){}}
+window.addEventListener('popstate',()=>{
+  if(skipPop>0){skipPop--;return}
+  if(layers.length){const l=layers.pop();l.close();return}
+  fromHistory();
+});
+window.addEventListener('hashchange',()=>{if(!layers.length&&!skipPop)fromHistory()});
+function enter(id){
+  if(id==='gate')setupGate();
+  if(id==='home')dealHome();
+  if(id==='charades'){if(ch.state!=='end'&&ch.state!=='win')chShow('lobby');updSound();wake(true)}
+  if(id==='bingo'){if(!bn.card)bnLoad();else bnDraw();wake(true)}
+  if(id==='talk'){if(!tt.opts.length)ttDeal(false)}
+  if(id==='parts')ptReset();
+  if(id!=='gate'&&id!=='home')track('game_start',{game:id,unlocked:unlocked?'yes':'no'});
+}
+function leave(id){
+  if(id==='charades'){chAbort();wake(false)}
+  if(id==='bingo')wake(false);
+  if(id==='parts'){ptPause();clearInterval(pt.ringIv);clearTimeout(pt.mkTo)}
+}
+function updBack(){$$('[data-back]').forEach(b=>b.setAttribute('aria-label',unlocked?'All games':'Back'))}
+$$('[data-back]').forEach(b=>b.addEventListener('click',()=>{if(current==='parts'&&ptBack())return;go(unlocked?'home':'gate')}));
+$$('[data-help]').forEach(b=>b.addEventListener('click',()=>rules(b.dataset.help)));
+$$('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+$('#brand').addEventListener('click',()=>go('home'));
+function onScroll(){const b=current&&$('#'+current+' .bar');if(b)b.classList.toggle('scrolled',(window.scrollY||0)>4)}
+window.addEventListener('scroll',onScroll,{passive:true});
+
+/* ================= sign-up ================= */
+function setupGate(){
+  if(bingoInvite){$('#gate-sub').textContent='Your family is playing Family Dinner Bingo. Get your own card.';$('#gate-title').textContent='Get your bingo card, free';$('#gate-go-t').textContent='Get my card'}
+  const f=$('#fan');if(!RM()&&!f.dataset.done){f.dataset.done='1';f.classList.add('deal')}
+}
+/* Brevo: the sign-up goes out in the background. The games open at once and never wait on the network.
+   If the phone is offline, the address waits on this phone only and goes out on the next visit or when the signal is back. */
+const FORM_URL=''; /* Brevo form "Already Home kit": the sibforms.com/serve/... address, it ends in "==" */
+function postSignup(it){return fetch(FORM_URL,{method:'POST',mode:'no-cors',keepalive:true,body:new URLSearchParams({EMAIL:it.email,SIGNUP_SOURCE:it.source,email_address_check:'',locale:'en'})})}
+function flushSignups(){
+  if(!FORM_URL||!/^https:\/\//.test(FORM_URL))return;
+  const q=store.get('pending')||[];
+  q.forEach(it=>{postSignup(it).then(()=>{store.set('pending',(store.get('pending')||[]).filter(x=>x.email!==it.email))},()=>{})});
+}
+function saveSignup(email,source){
+  const q=(store.get('pending')||[]).filter(x=>x.email!==email);q.push({email,source});store.set('pending',q.slice(-5));
+  track('signup',{source});
+  try{flushSignups()}catch(e){}
+}
+window.addEventListener('online',()=>{try{flushSignups()}catch(e){}});
+function tryEmail(input,err,dest,source){
+  if(!validEmail(input.value)){
+    err.hidden=false;input.classList.add('bad');input.setAttribute('aria-invalid','true');
+    if(!RM()){input.classList.remove('shake');void input.offsetWidth;input.classList.add('shake')}
+    input.focus();return;
+  }
+  err.hidden=true;input.classList.remove('bad');input.removeAttribute('aria-invalid');
+  const email=String(input.value).trim().toLowerCase();
+  unlocked=true;store.set('unlocked',true);updBack();
+  toast(dest==='bingo'?'You\u2019re in.':'You\u2019re in. Pick a game.');
+  go(dest);
+  setTimeout(()=>saveSignup(email,source),0);
+}
+$('#gate-go').addEventListener('click',()=>tryEmail($('#gate-email'),$('#gate-err'),bingoInvite?'bingo':'home',bingoInvite?'bingo-invite':'gate'));
+$('#gate-email').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#gate-go').click()}});
+$('#try').addEventListener('click',()=>go('parts'));
+
+/* ================= home ================= */
+function dealHome(){const t=$('#tiles');if(homeDealt||RM())return;homeDealt=true;t.classList.add('deal');setTimeout(()=>t.classList.remove('deal'),800)}
+const INVITE_TEXT='We\u2019re playing bingo at the table. Get your own card on your phone before we sit down: '+BINGO_LINK;
+$('#invite').addEventListener('click',()=>sendShare(INVITE_TEXT,null,'invite',null));
+$('#bn-invite').addEventListener('click',()=>sendShare(INVITE_TEXT,null,'invite',null));
+
+/* ================= sheets ================= */
+let sheetCtl=null;
+function sheet(opts){
+  const replacing=!!sheetCtl;
+  if(sheetCtl)sheetCtl.close(true,'replace');
+  const opener=document.activeElement;
+  const o=document.createElement('div');o.className='overlay';
+  o.innerHTML='<div class="sheet '+(opts.cls||'')+'" role="dialog" aria-modal="true" aria-label="'+esc(opts.label)+'" tabindex="-1"><div class="grab" aria-hidden="true"></div><button class="ibtn sclose" type="button" data-a="close" aria-label="Close">'+I('close')+'</button>'+opts.html+'</div>';
+  document.body.appendChild(o);
+  const sh=$('.sheet',o);
+  const prevOv=document.documentElement.style.overflow;document.documentElement.style.overflow='hidden';
+  let closed=false;
+  const key=e=>{
+    if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close();return}
+    if(e.key==='Tab'){const f=$$('button,a[href],input,[tabindex]:not([tabindex="-1"])',sh).filter(el=>!el.disabled&&el.offsetParent!==null);if(!f.length)return;const a=f[0],z=f[f.length-1];
+      if(e.shiftKey&&(document.activeElement===a||document.activeElement===sh)){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
+  };
+  function close(noFocus,mode){if(closed)return;closed=true;document.removeEventListener('keydown',key,true);o.remove();if(sheetCtl&&sheetCtl.o===o)sheetCtl=null;document.documentElement.style.overflow=prevOv;if(opts.onClose)opts.onClose();
+    if(mode!=='replace')dropLayer('sheet');
+    if(!noFocus&&opener&&opener.focus&&document.contains(opener)){try{opener.focus({preventScroll:true})}catch(e){}}}
+  document.addEventListener('keydown',key,true);
+  o.addEventListener('click',e=>{if(e.target===o)close()});
+  $$('[data-a="close"]',o).forEach(b=>b.addEventListener('click',()=>close()));
+  sheetCtl={o,close};
+  openLayer('sheet',()=>close(),replacing);
+  try{sh.focus({preventScroll:true})}catch(e){}
+  if(opts.onReady)opts.onReady(o,close);
+  return sheetCtl;
+}
+const SUIT_BTN={charades:'',bingo:'sage',talk:'gold',parts:'gold'};
+function rules(g){sheet({label:'Full rules: '+NAMES[g],cls:'rules r-'+g,html:'<div class="sheet-scroll help">'+HELP[g]+'</div><div class="sheet-foot"><button class="btn wide '+SUIT_BTN[g]+'" type="button" data-a="close">Got it. Let\u2019s play</button></div>'})}
+
+/* ================= share: copy, web share, canvas card ================= */
+function canWebShare(){try{if(!navigator.share)return false;if(document.featurePolicy&&document.featurePolicy.allowsFeature&&!document.featurePolicy.allowsFeature('web-share'))return false;return true}catch(e){return false}}
+function execCopy(text){try{const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;opacity:0;pointer-events:none';(sheetCtl?sheetCtl.o:document.body).appendChild(ta);ta.select();ta.setSelectionRange(0,text.length);const ok=document.execCommand('copy');ta.remove();return ok}catch(e){return false}}
+function copyText(text,box){
+  const ok=()=>toast('Copied. Paste it in the family chat.');
+  const fail=()=>{if(execCopy(text)){ok();return}
+    toast('Couldn\u2019t copy. Press and hold the link to copy it.');
+    if(box){box.textContent=text;box.hidden=false}
+    else sheet({label:'Copy the link',html:'<p class="copytext">'+esc(text)+'</p><button class="btn sec wide" type="button" data-a="close">Close</button>'});};
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fail)}else fail()}catch(e){fail()}
+}
+const IOS=(()=>{try{return /iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)}catch(e){return false}})();
+const TOUCH=()=>{try{return window.matchMedia('(pointer: coarse)').matches}catch(e){return false}};
+function tShare(what,how){track(what==='invite'?'invite':'share',{what,how})}
+function waLink(text){return 'https://wa.me/?text='+encodeURIComponent(text)}
+function altHTML(text){return '<div class="alt" data-r="alt"><p class="copytext">'+esc(text)+'</p><div class="row"><a class="btn sage" href="'+esc(waLink(text))+'" target="_blank" rel="noopener" data-a="wa">WhatsApp</a><button class="btn sec" type="button" data-a="copy">Copy message</button></div></div>'}
+function wireAlt(root,text,what){
+  const wa=$('[data-a="wa"]',root);if(wa)wa.addEventListener('click',()=>tShare(what,'whatsapp'));
+  const cp=$('[data-a="copy"]',root);if(cp)cp.addEventListener('click',()=>{copyText(text,null);tShare(what,'copy')});
+}
+/* No share menu on this device (or it failed): offer WhatsApp and copy. Inside a share sheet it opens in place. */
+function fallbackShare(text,what,host){
+  if(host&&document.contains(host)){let a=$('[data-r="alt"]',host);if(!a){host.innerHTML=altHTML(text);a=$('[data-r="alt"]',host);wireAlt(a,text,what)}try{a.scrollIntoView({block:'nearest'})}catch(e){}return}
+  sheet({label:'Send to the family chat',html:'<h2 class="h2">Send to the family chat</h2>'+altHTML(text)+'<button class="tbtn center" type="button" data-a="close">Close</button>',onReady:o=>wireAlt(o,text,what)});
+}
+function sendShare(text,file,what,host){
+  if(canWebShare()){
+    const data={text};
+    try{if(file&&navigator.canShare&&navigator.canShare({files:[file],text}))data.files=[file]}catch(e){}
+    try{navigator.share(data).then(()=>tShare(what,data.files?'picture':'menu'),e=>{if(e&&e.name==='AbortError')return;fallbackShare(text,what,host)})}catch(e){fallbackShare(text,what,host)}
+    return;
+  }
+  fallbackShare(text,what,host);
+}
+const SUITS={terra:['#A94A22','#FFFFFF'],sage:['#5F7A61','#FFFFFF'],night:['#2B211C','#FAF7F2'],gold:['#E8A020','#2B211C']};
+const SHARE_BTN={terra:'',sage:'sage',night:'ink',gold:'gold'};
+const FOOT='ALREADY HOME \u00B7 free at '+SITE;
+function cardHTML(c){const s=SUITS[c.suit]||SUITS.terra;return '<div class="pvc" style="background:'+s[0]+';color:'+s[1]+';border-color:'+s[1]+'"><span class="wm">Already <em>Home</em></span><span class="k">'+esc(c.kicker)+'</span>'+pic(c.img,'arch')+'<span class="big">'+esc(c.big)+'</span><span class="sm">'+esc(c.small)+'</span><span class="ft">'+esc(FOOT)+'</span></div>'}
+let fontsP=null;
+function fontsReady(){if(!fontsP){fontsP=(async()=>{try{if(!document.fonts||!document.fonts.load)return;await Promise.race([Promise.all(['700 40px "Playfair Display"','italic 700 40px "Playfair Display"','500 34px Inter','600 26px Inter','700 28px Inter'].map(f=>document.fonts.load(f))),new Promise(r=>setTimeout(r,2500))])}catch(e){}})()}return fontsP}
+function loadImg(src){const one=co=>new Promise(res=>{const im=new Image();if(co)im.crossOrigin='anonymous';im.onload=()=>res(im);im.onerror=()=>res(null);im.src=src});return one(true).then(im=>im||one(false))}
+function setLS(x,v){try{if('letterSpacing' in x)x.letterSpacing=v}catch(e){}}
+function wrap(x,text,maxW){const words=String(text).split(/\s+/);const lines=[];let line='';words.forEach(w=>{const t=line?line+' '+w:w;if(x.measureText(t).width>maxW&&line){lines.push(line);line=w}else line=t});if(line)lines.push(line);return lines}
+function archPath(x,ax,ay,w,h,r){const R=w/2;x.beginPath();x.moveTo(ax,ay+R);x.arc(ax+R,ay+R,R,Math.PI,0);x.lineTo(ax+w,ay+h-r);x.quadraticCurveTo(ax+w,ay+h,ax+w-r,ay+h);x.lineTo(ax+r,ay+h);x.quadraticCurveTo(ax,ay+h,ax,ay+h-r);x.closePath()}
+async function drawCard(c,fmt){
+  try{
+    const W=1080,H=fmt==='story'?1920:1350,oy=fmt==='story'?250:0,P=80;
+    const cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');if(!x)return null;
+    await fontsReady();
+    const s=SUITS[c.suit]||SUITS.terra,bg=s[0],fg=s[1];
+    x.fillStyle=bg;x.fillRect(0,0,W,H);
+    let y=oy+P;
+    x.fillStyle=fg;x.textAlign='left';x.textBaseline='alphabetic';
+    x.font='700 40px "Playfair Display", Georgia, serif';x.fillText('Already ',P,y+36);
+    const w1=x.measureText('Already ').width;x.font='italic 700 40px "Playfair Display", Georgia, serif';x.fillText('Home',P+w1,y+36);
+    y+=76;
+    x.font='700 28px Inter, system-ui, sans-serif';setLS(x,'4px');
+    const kl=wrap(x,c.kicker.toUpperCase(),W-2*P).slice(0,2);kl.forEach((l,i)=>x.fillText(l,P,y+28+i*38));setLS(x,'0px');
+    y+=kl.length*38+34;
+    const aw=620,ah=540,ax=(W-aw)/2,ay=y;
+    x.save();x.shadowColor='rgba(20,14,11,.45)';x.shadowBlur=60;x.shadowOffsetY=30;archPath(x,ax,ay,aw,ah,14);x.fillStyle='#EFE6D7';x.fill();x.restore();
+    const img=await loadImg('img/'+c.img+'.jpg');
+    if(img&&img.naturalWidth){const f=FOCUS[c.img]||[50,30];x.save();archPath(x,ax,ay,aw,ah,14);x.clip();const sc=Math.max(aw/img.naturalWidth,ah/img.naturalHeight);const dw=img.naturalWidth*sc,dh=img.naturalHeight*sc;x.drawImage(img,ax+(aw-dw)*f[0]/100,ay+(ah-dh)*f[1]/100,dw,dh);x.restore()}
+    y=ay+ah+64;
+    x.fillStyle=fg;x.textAlign='center';
+    const maxW=W-2*P;let size=84,lines=[];
+    for(const sz of [84,76,68,60,54,48]){x.font='700 '+sz+'px "Playfair Display", Georgia, serif';lines=wrap(x,c.big,maxW);size=sz;if(lines.length<=(sz>=76?2:sz>=60?3:4))break}
+    const lh=Math.round(size*1.08);
+    lines.forEach((l,i)=>x.fillText(l,W/2,y+size+i*lh));
+    y+=size+(lines.length-1)*lh+30;
+    x.font='500 34px Inter, system-ui, sans-serif';
+    const room=Math.max(1,Math.floor((oy+1180-y)/44));
+    wrap(x,c.small,maxW).slice(0,Math.min(4,room)).forEach((l,i)=>x.fillText(l,W/2,y+34+i*44));
+    x.globalAlpha=.3;x.fillRect(P,oy+1205,W-2*P,2);x.globalAlpha=1;
+    x.font='600 26px Inter, system-ui, sans-serif';setLS(x,'2px');x.fillText(FOOT,W/2,oy+1268);setLS(x,'0px');
+    const blob=await new Promise((res,rej)=>{try{cv.toBlob(b=>res(b),'image/png')}catch(e){rej(e)}});
+    if(!blob)return null;
+    let file=null;try{file=new File([blob],'already-home.png',{type:'image/png'})}catch(e){}
+    return {url:URL.createObjectURL(blob),file};
+  }catch(e){return null}
+}
+function shareSheet(c){
+  let fmt='post';const made={};
+  const dot=s=>/[.!?…:]$/.test(s)?s+' ':s+'. ';
+  const alt=dot(c.kicker)+dot(c.big)+c.small;
+  sheet({label:'Share',cls:'share',html:
+    (c.lead?'<p class="slead">'+esc(c.lead)+'</p>':'')+
+    '<div class="seg fmt" role="radiogroup" aria-label="Picture shape"><span class="thumb" aria-hidden="true"></span><button type="button" role="radio" aria-checked="true" data-v="post">Post 4:5</button><button type="button" role="radio" aria-checked="false" data-v="story">Story 9:16</button></div>'+
+    '<div class="pvwrap"><div class="pv" role="img" aria-label="'+esc(alt)+'">'+cardHTML(c)+'</div></div>'+
+    '<p class="hint center" data-r="hint" hidden>Press and hold the picture to save it.</p>'+
+    '<button class="btn wide '+(SHARE_BTN[c.suit]||'')+'" type="button" data-a="send">'+I('share')+'Send to the family chat</button>'+
+    '<button class="btn sec wide" type="button" data-a="save">'+I('download')+'Save picture</button>'+
+    '<div data-r="althost"></div>'+
+    '<button class="tbtn center" type="button" data-a="close">Close</button>',
+    onClose:()=>{Object.keys(made).forEach(k=>{if(made[k])try{URL.revokeObjectURL(made[k].url)}catch(e){}})},
+    onReady:(o)=>{
+      const pv=$('.pv',o);
+      const render=async()=>{const f=fmt;pv.classList.toggle('story',f==='story');if(!(f in made)){pv.innerHTML=cardHTML(c);made[f]=await drawCard(c,f)}if(f!==fmt||!document.contains(pv))return;const r=made[f];pv.innerHTML=r?'<img class="shot" src="'+r.url+'" alt="">':cardHTML(c)};
+      seg($('.fmt',o),v=>{fmt=v;$('[data-r="hint"]',o).hidden=true;render()});
+      render();
+      $('[data-a="send"]',o).addEventListener('click',()=>{const r=made[fmt];sendShare(c.text,r&&r.file,c.what,$('[data-r="althost"]',o))});
+      $('[data-a="save"]',o).addEventListener('click',()=>{const r=made[fmt];
+        if(!r){toast('Couldn\u2019t save. Take a screenshot instead.');return}
+        const hint=()=>{$('[data-r="hint"]',o).hidden=false};
+        tShare(c.what,'save');
+        /* iPhone and iPad: press and hold the picture, or "Save Image" in the share menu */
+        if(IOS){hint();try{if(canWebShare()&&r.file&&navigator.canShare&&navigator.canShare({files:[r.file]}))navigator.share({files:[r.file]}).catch(()=>{})}catch(e){}return}
+        /* Everyone else: a real download */
+        try{const a=document.createElement('a');a.href=r.url;a.download='already-home-'+(fmt==='story'?'story':'post')+'.png';document.body.appendChild(a);a.click();a.remove();toast('Picture saved.')}catch(e){hint();return}
+        if(TOUCH())hint();
+      });
+    }});
+}
+
+/* ================= segmented control ================= */
+function seg(el,onChange){
+  const bs=$$('button',el);el.style.setProperty('--n',bs.length);
+  const set=(i,fire)=>{bs.forEach((b,j)=>{b.setAttribute('aria-checked',j===i?'true':'false');b.tabIndex=j===i?0:-1});el.style.setProperty('--i',i);if(fire)onChange(bs[i].dataset.v,i)};
+  bs.forEach((b,i)=>{b.addEventListener('click',()=>set(i,true));b.addEventListener('keydown',e=>{let k=null;if(e.key==='ArrowRight'||e.key==='ArrowDown')k=(i+1)%bs.length;if(e.key==='ArrowLeft'||e.key==='ArrowUp')k=(i-1+bs.length)%bs.length;if(k!==null){e.preventDefault();set(k,true);bs[k].focus()}})});
+  const init=bs.findIndex(b=>b.getAttribute('aria-checked')==='true');set(init<0?0:init,false);
+}
+
+/* ================= confetti ================= */
+function confetti(){if(RM())return;const c=$('#confetti'),x=c.getContext('2d');if(!x)return;c.width=innerWidth;c.height=innerHeight;
+  const cols=['#C85A2A','#E8A020','#5F7A61','#2B211C','#EFE6D7'];
+  const ps=Array.from({length:150},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,r:4+Math.random()*7,vy:2+Math.random()*3,vx:-1.5+Math.random()*3,a:Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)]}));
+  let f=0;(function draw(){x.clearRect(0,0,c.width,c.height);ps.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.a+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/2,p.r,p.r*.6);x.restore()});f++;if(f<180)requestAnimationFrame(draw);else x.clearRect(0,0,c.width,c.height)})()}
+function countUp(el,n){if(RM()||n===0){el.textContent=n;return}const t0=performance.now();const step=t=>{const k=Math.min(1,(t-t0)/600);el.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};el.textContent=0;requestAnimationFrame(step)}
+
+/* ================= FAMILY CHARADES ================= */
+const ch={state:'lobby',len:60,roundLen:60,deck:[],got:[],passed:[],t:0,iv:null,lastTo:null,cdIv:null,tupTo:null,rounds:[],name:'',last:false,cur:'',fh:null,cd:null,tup:null,done:true,lastTap:0,winner:null};
+function chShow(s){ch.state=s;['lobby','end','win'].forEach(k=>{$('#ch-'+k).hidden=k!==s;$('#ch-dock-'+k).hidden=k!==s})}
+seg($('#ch-len'),v=>{ch.len=+v});
+function updSound(){const b=$('#ch-sound');b.setAttribute('aria-pressed',soundOn?'true':'false');b.innerHTML=I(soundOn?'sound':'mute')}
+$('#ch-sound').addEventListener('click',()=>{soundOn=!soundOn;store.set('sound',soundOn);updSound();if(soundOn){audio();sfx('tick')}});
+const fmtT=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+function scoreLine(n){return n===0?'Zero. Clearly the actors\u2019 fault.':n<=3?'A warm-up. The actors are just getting started.':n<=7?'Solid. The actors can take a bow.':n<=11?'Impressive. Are you reading minds?':'Family legend. Nobody wants to go after you.'}
+function chStart(){
+  if(ch.cd||ch.fh)return;
+  ch.name=$('#ch-name').value.trim().slice(0,24);ch.got=[];ch.passed=[];ch.last=false;ch.done=false;ch.roundLen=ch.len;
+  if(soundOn)audio();
+  wake(true);
+  openLayer('round',()=>{if(ch.cd){clearInterval(ch.cdIv);ch.cd.remove();ch.cd=null;document.documentElement.style.overflow='';ch.done=true;return}chEnd()});
+  const o=document.createElement('div');o.className='ovl count';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.setAttribute('aria-label','Countdown');
+  o.innerHTML='<div class="n land num" aria-live="assertive">3</div><p>Phone on your forehead. Screen out.</p>';
+  document.body.appendChild(o);ch.cd=o;document.documentElement.style.overflow='hidden';let n=3;sfx('tick');
+  ch.cdIv=setInterval(()=>{n--;if(n<=0){clearInterval(ch.cdIv);o.remove();ch.cd=null;chPlay();return}const d=$('.n',o);d.textContent=n;d.classList.remove('land');void d.offsetWidth;d.classList.add('land');sfx('tick')},1000);
+}
+function chPlay(){
+  const fh=document.createElement('div');fh.className='fh';fh.setAttribute('role','dialog');fh.setAttribute('aria-modal','true');fh.setAttribute('aria-label','Family Charades round');
+  fh.innerHTML='<div class="fh-bar"'+(ch.roundLen?'':' hidden')+'><i></i></div>'+
+    '<div class="fh-top"><span class="fh-time num"'+(ch.roundLen?'':' hidden')+'></span><span class="fh-score num"><span class="v">0</span>'+I('check')+'<span class="sr"> guessed</span></span></div>'+
+    '<button class="fh-zone top" type="button" aria-label="Pass"><span class="zl">PASS'+I('up')+'</span></button>'+
+    '<button class="fh-zone bot" type="button" aria-label="Got it"><span class="zl">GOT IT'+I('down')+'</span></button>'+
+    '<div class="fh-prompt" aria-live="polite"><p></p></div>'+
+    '<button class="fh-stop" type="button">Stop round</button>';
+  document.body.appendChild(fh);ch.fh=fh;document.documentElement.style.overflow='hidden';
+  $('.fh-zone.top',fh).addEventListener('click',()=>chAnswer(false));
+  $('.fh-zone.bot',fh).addEventListener('click',()=>chAnswer(true));
+  $('.fh-stop',fh).addEventListener('click',e=>{e.stopPropagation();chEnd()});
+  fh.addEventListener('keydown',e=>{if(e.key==='ArrowUp'){e.preventDefault();chAnswer(false)}else if(e.key==='ArrowDown'){e.preventDefault();chAnswer(true)}else if(e.key==='Escape'){e.preventDefault();chEnd()}});
+  ch.deck=shuffle(CARDS);chNext('down');
+  fh.tabIndex=-1;try{fh.focus({preventScroll:true})}catch(e){}
+  wake(true);
+  if(ch.roundLen){ch.t=ch.roundLen;chTick();ch.iv=setInterval(()=>{ch.t--;chTick();if(ch.t<=0){clearInterval(ch.iv);chLast()}},1000)}
+}
+function chTick(){const fh=ch.fh;if(!fh)return;const tm=$('.fh-time',fh);tm.textContent=fmtT(Math.max(0,ch.t));$('.fh-bar i',fh).style.setProperty('--p',Math.max(0,ch.t)/ch.roundLen);
+  if(ch.t<=10&&ch.t>0){fh.classList.add('hurry');if(!RM()){tm.classList.remove('tick');void tm.offsetWidth;tm.classList.add('tick')}}
+  if(ch.t<=5&&ch.t>0)sfx('beep');
+  if(ch.t===30||ch.t===10)live(ch.t+' seconds left');}
+function chLast(){const fh=ch.fh;if(!fh)return;ch.last=true;const tm=$('.fh-time',fh);tm.textContent='Last chance!';live('Last chance!');ch.lastTo=setTimeout(chTimesUp,3000)}
+function chNext(dir){if(!ch.deck.length)ch.deck=shuffle(CARDS);ch.cur=ch.deck.pop();const p=$('.fh-prompt p',ch.fh);p.textContent=ch.cur;p.classList.remove('in-down','in-up');void p.offsetWidth;p.classList.add(dir==='up'?'in-up':'in-down')}
+function flash(got){const f=document.createElement('div');f.className='flash '+(got?'got':'pass');f.setAttribute('aria-hidden','true');f.innerHTML=I(got?'check':'up')+'<b>'+(got?'Got it':'Pass')+'</b>';document.body.appendChild(f);setTimeout(()=>f.remove(),420)}
+function chAnswer(got){
+  if(!ch.fh||!ch.cur)return;const now=Date.now();if(now-ch.lastTap<300)return;ch.lastTap=now;
+  (got?ch.got:ch.passed).push(ch.cur);
+  flash(got);vib(got?[20,40,20]:30);sfx(got?'got':'pass');
+  $('.fh-score .v',ch.fh).textContent=ch.got.length;
+  if(ch.last){clearTimeout(ch.lastTo);chTimesUp();return}
+  chNext(got?'down':'up');
+}
+function chClosePlay(){clearInterval(ch.iv);clearTimeout(ch.lastTo);if(ch.fh){ch.fh.remove();ch.fh=null}document.documentElement.style.overflow=''}
+function chTimesUp(){
+  if(!ch.fh)return;chClosePlay();sfx('up');vib(250);
+  const n=ch.got.length;const o=document.createElement('div');o.className='ovl tup';o.setAttribute('role','alert');
+  o.innerHTML='<b>Time\u2019s up!</b><p>'+(n?n+' guessed. Hand the phone on.':'No luck this time. Hand the phone on.')+'</p>';
+  document.body.appendChild(o);ch.tup=o;ch.tupTo=setTimeout(()=>{o.remove();ch.tup=null;chEnd()},1600);
+}
+function totals(){const m=new Map();ch.rounds.forEach(r=>{const t=m.get(r.key)||{name:r.name,n:0};t.n+=r.n;m.set(r.key,t)});return Array.from(m.values()).sort((a,b)=>b.n-a.n)}
+function board(el){const ts=totals();const max=Math.max(1,...ts.map(t=>t.n));const top=ts.length?ts[0].n:0;
+  el.innerHTML='<p class="lab">Scores so far</p>'+ts.map(t=>'<div class="brow"><span class="nm">'+esc(t.name)+'</span><span class="bar2"><i style="--w:'+(100*t.n/max)+'%"></i></span><span class="sc num">'+t.n+(t.n===top&&top>0?'<span class="lead-pill">Leading</span>':'')+'</span></div>').join('')}
+function chEnd(){
+  dropLayer('round');
+  chClosePlay();clearTimeout(ch.tupTo);if(ch.tup){ch.tup.remove();ch.tup=null}
+  if(ch.done)return;ch.done=true;
+  const n=ch.got.length;const label=ch.name||('Guesser '+(ch.rounds.length+1));
+  ch.rounds.push({name:label,key:label.toLowerCase(),n});
+  $('#ch-who').textContent=label;
+  $('#ch-line').textContent=scoreLine(n);
+  $('#ch-away').hidden=!ch.passed.length;
+  $('#ch-away-list').innerHTML=ch.passed.map(c=>'<li>\u201C'+esc(c)+'\u201D</li>').join('');
+  $('#ch-gotbox').hidden=!ch.got.length;
+  $('#ch-got-list').innerHTML=ch.got.map(c=>'<span class="gchip">'+I('check')+esc(c)+'</span>').join('');
+  board($('#ch-board'));
+  chShow('end');try{window.scrollTo(0,0)}catch(e){}
+  countUp($('#ch-final'),n);live(label+': '+n+' guessed.');
+  try{$('#ch-next').focus({preventScroll:true})}catch(e){}
+}
+function chAbort(){clearInterval(ch.cdIv);if(ch.cd){ch.cd.remove();ch.cd=null}if(ch.tup){chEnd();return}chClosePlay();ch.done=true}
+function joinNames(a){return a.length<2?(a[0]||''):a.slice(0,-1).join(', ')+' and '+a[a.length-1]}
+function chWin(){const ts=totals();const top=ts.length?ts[0].n:0;const leaders=ts.filter(t=>t.n===top);
+  ch.winner={names:joinNames(leaders.map(t=>t.name)),n:top,tie:leaders.length>1};
+  $('#ch-win-big').textContent=ch.winner.tie?'It\u2019s a tie!':ch.winner.names+' wins!';
+  $('#ch-win-line').textContent=ch.winner.tie?ch.winner.names+', '+top+' each. Rematch?':top+' guessed. Take a bow.';
+  board($('#ch-win-board'));chShow('win');try{window.scrollTo(0,0)}catch(e){}confetti();live($('#ch-win-big').textContent)}
+$('#ch-start').addEventListener('click',chStart);
+$('#ch-name').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();chStart()}});
+$('#ch-next').addEventListener('click',()=>{$('#ch-name').value='';chShow('lobby');try{window.scrollTo(0,0)}catch(e){}});
+$('#ch-endgame').addEventListener('click',chWin);
+$('#ch-new').addEventListener('click',()=>{ch.rounds=[];$('#ch-name').value='';chShow('lobby');try{window.scrollTo(0,0)}catch(e){}});
+$('#ch-share').addEventListener('click',()=>{const r=ch.rounds[ch.rounds.length-1];const n=r?r.n:0;const L=ch.roundLen;
+  shareSheet({what:'charades-score',suit:'terra',kicker:NAMES.charades,img:'s_daniel_phone',
+    big:L?'I guessed '+n+' in '+L+' seconds':'I guessed '+n+' family moment'+(n===1?'':'s'),
+    small:ch.passed.length?'The one that got away: \u201C'+stripQ(ch.passed[0])+'\u201D':'Not a single pass.',
+    text:L?'I guessed '+n+' family moment'+(n===1?'':'s')+' in '+L+' seconds. Your turn: '+SHARE_LINK:'I guessed '+n+' family moment'+(n===1?'':'s')+' in Family Charades. Your turn: '+SHARE_LINK})});
+$('#ch-wshare').addEventListener('click',()=>{const w=ch.winner;if(!w)return;
+  shareSheet({what:'charades-winner',suit:'terra',kicker:NAMES.charades,img:'s_daniel_phone',big:w.names+' won our family charades',small:w.n+' guessed. Can your family beat it?',
+    text:w.names+' won our family charades with '+w.n+'. Can your family beat it? '+SHARE_LINK})});
+
+/* ================= FAMILY DINNER BINGO ================= */
+const bn={card:null,marks:null,won:0,armed:false,armTo:null};
+const LINES=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+function bnLoad(){const s=store.get('bingo2');if(s&&Array.isArray(s.card)&&s.card.length===8&&Array.isArray(s.marks)&&s.marks.length===9){bn.card=s.card;bn.marks=s.marks;bn.won=s.won||0;bnDraw()}else bnNew(false)}
+function bnNew(t){bn.card=shuffle(SQUARES).slice(0,8);bn.marks=Array(9).fill(false);bn.marks[4]=true;bn.won=0;bnSave();bnDraw();if(t)toast('New card. Good luck.')}
+function bnSave(){store.set('bingo2',{card:bn.card,marks:bn.marks,won:bn.won})}
+function lineSet(){const w=new Set();LINES.forEach(l=>{if(l.every(i=>bn.marks[i]))l.forEach(i=>w.add(i))});return w}
+function bnDraw(){const g=$('#bn-grid');g.innerHTML='';const w=lineSet();
+  for(let i=0;i<9;i++){
+    if(i===4){const d=document.createElement('div');d.className='sq free';d.setAttribute('role','img');d.setAttribute('aria-label','Free square: you made it');d.innerHTML='<img src="img/s_llama.jpg" alt=""><span class="fp" aria-hidden="true"><span>Free</span><span>You made it</span></span>';g.appendChild(d);continue}
+    const txt=bn.card[i<4?i:i-1];const b=document.createElement('button');b.type='button';
+    b.className='sq'+(bn.marks[i]?' on':'')+(bn.won&&w.has(i)?' win':'');b.setAttribute('aria-pressed',bn.marks[i]?'true':'false');
+    b.innerHTML='<span class="daub" aria-hidden="true"></span><span class="t">'+esc(txt)+'</span>'+I('check');
+    b.addEventListener('click',()=>bnTap(i,b,txt));g.appendChild(b);
+  }
+  bnCount();
+}
+function bnWinMarks(){const w=lineSet();$$('#bn-grid .sq').forEach((s,i)=>{if(i!==4)s.classList.toggle('win',!!bn.won&&w.has(i))})}
+function bnCount(){const n=bn.marks.filter(Boolean).length-1;$('#bn-count').textContent=n+' of 8';$$('#bn-dots i').forEach((d,k)=>d.classList.toggle('on',k<n));
+  $('#bn-goal').textContent=(bn.won>=3||n===8)?'Full card. Legend.':bn.won===2?'Next: full card':bn.won===1?'Next: Double Bingo':'Your card'}
+function bnTap(i,b,txt){
+  bn.marks[i]=!bn.marks[i];b.classList.toggle('on',bn.marks[i]);b.setAttribute('aria-pressed',bn.marks[i]?'true':'false');
+  if(bn.marks[i]){b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');vib(12)}
+  const lc=LINES.filter(l=>l.every(k=>bn.marks[k])).length;const n=bn.marks.filter(Boolean).length-1;
+  if(bn.marks[i]){
+    if(bn.won<1&&lc>=1){bn.won=1;bnSave();bnCount();bnBingo(txt);return}
+    if(n===8&&bn.won<3){bn.won=3;bnSave();bnWinMarks();confetti();vib([30,60,30,60,80]);toast('Full card! Family legend.')}
+    else if(lc>=2&&bn.won<2){bn.won=2;bnSave();bnWinMarks();toast('Double Bingo! Two lines. Keep going.')}
+  }
+  bnSave();bnWinMarks();bnCount();
+}
+function bnBingo(last){
+  const sq=$$('#bn-grid .sq');const l=LINES.find(L=>L.every(k=>bn.marks[k]));
+  l.forEach((k,j)=>setTimeout(()=>{if(k!==4&&sq[k])sq[k].classList.add('win')},RM()?0:j*80));
+  const ban=document.createElement('div');ban.className='banner';ban.setAttribute('aria-hidden','true');ban.textContent='Bingo!';$('#bn-wrap').appendChild(ban);
+  live('Bingo!');confetti();vib([30,60,30,60,80]);
+  setTimeout(()=>{ban.remove();bnWinMarks();if(current==='bingo')bnShare(last)},1300);
+}
+function bnShare(last){const s=stripQ(last);shareSheet({what:'bingo',suit:'sage',lead:'Bingo! Tell the table what happened.',kicker:NAMES.bingo,big:'Bingo at our table!',small:'Winning square: \u201C'+s+'\u201D',img:'s_priya_bingo',
+  text:'Bingo at our family table! Winning square: \u201C'+s+'\u201D. Get your own card: '+BINGO_LINK})}
+$('#bn-new').addEventListener('click',()=>{
+  if(!bn.armed){bn.armed=true;$('#bn-new-t').textContent='Tap again to clear your card';clearTimeout(bn.armTo);bn.armTo=setTimeout(()=>{bn.armed=false;$('#bn-new-t').textContent='New card'},3000);return}
+  bn.armed=false;clearTimeout(bn.armTo);$('#bn-new-t').textContent='New card';bnNew(true);
+});
+
+/* ================= QUESTIONS FOR THE TABLE ================= */
+const tt={lvl:'warm',pools:{},mode:'pick',opts:[],q:null,all:false};
+const LVL={warm:'Light',story:'Stories',deep:'Deeper'};
+function ttTake(){const l=tt.lvl;if(!tt.pools[l]||!tt.pools[l].length)tt.pools[l]=shuffle(QS[l]);return tt.pools[l].pop()}
+function ttDeal(anim){const a=ttTake();let b=ttTake();if(b===a)b=ttTake();tt.opts=[a,b];tt.mode='pick';tt.all=false;tt.q=null;ttRender(anim)}
+function ttRender(anim){
+  const c=$('#tt-card');c.classList.remove('out');c.style.transform='';c.style.transition='';
+  let h='<p class="lab">'+(tt.mode==='last'?'Last question':LVL[tt.lvl])+'</p>';
+  if(tt.mode==='pick')h+='<div class="qopts">'+tt.opts.map((o,i)=>'<button class="qopt" type="button" data-i="'+i+'">'+esc(o.q)+'</button>').join('')+'</div>';
+  else{const q=tt.mode==='last'?LAST:tt.q;h+='<p class="qtext">'+esc(q.q)+'</p>'+(tt.mode==='q'&&q.more?'<p class="qmore">Ask one more: '+esc(q.more)+'</p>':'')}
+  const who=tt.mode==='pick'?'Pick one to answer.':tt.mode==='last'?LAST.who:tt.all?'Everyone answers this one. Go round the table.':'Whoever holds the phone answers';
+  h+='<div class="qwho'+((tt.all&&tt.mode==='q')||tt.mode==='last'?' all':'')+'">'+pic('s_tom_story','av',1.5)+'<span>'+esc(who)+'</span></div>';
+  c.innerHTML=h;
+  $$('.qopt',c).forEach(b=>b.addEventListener('click',()=>{tt.q=tt.opts[+b.dataset.i];tt.mode='q';ttRender(true);live(tt.q.q)}));
+  $('#tt-dock').hidden=tt.mode==='last';$('#tt-dock-last').hidden=tt.mode!=='last';
+  const all=$('#tt-all');all.disabled=tt.mode!=='q';all.setAttribute('aria-pressed',tt.all?'true':'false');
+  $('#tt-send').hidden=tt.mode!=='q';$('#tt-last').hidden=tt.mode==='last';
+  if(anim&&!RM()){c.classList.remove('deal');void c.offsetWidth;c.classList.add('deal')}
+}
+function ttNext(){const c=$('#tt-card');if(RM()||tt.mode!=='q'){ttDeal(true);return}c.classList.add('out');setTimeout(()=>ttDeal(true),240)}
+seg($('#tt-lvl'),v=>{tt.lvl=v;ttDeal(true)});
+$('#tt-next').addEventListener('click',ttNext);
+$('#tt-all').addEventListener('click',()=>{if(tt.mode!=='q')return;tt.all=!tt.all;ttRender(false)});
+$('#tt-last').addEventListener('click',()=>{tt.mode='last';tt.all=false;ttRender(true);live(LAST.q)});
+$('#tt-again').addEventListener('click',()=>ttDeal(true));
+$('#tt-home').addEventListener('click',()=>go('home'));
+$('#tt-send').addEventListener('click',()=>{if(!tt.q)return;shareSheet({what:'question',suit:'night',kicker:NAMES.talk,big:tt.q.q,small:'Asked at our table. Your turn.',img:'s_tom_story',
+  text:'A question from our table: \u201C'+tt.q.q+'\u201D Your turn. More questions: '+SHARE_LINK})});
+(function(){const c=$('#tt-card');let sx=0,sy=0,dx=0,on=false,pid=null;
+  c.addEventListener('pointerdown',e=>{if(tt.mode!=='q'||e.target.closest('button'))return;on=true;pid=e.pointerId;sx=e.clientX;sy=e.clientY;dx=0;c.style.transition='none'});
+  c.addEventListener('pointermove',e=>{if(!on||e.pointerId!==pid)return;dx=e.clientX-sx;if(Math.abs(dx)>8&&Math.abs(dx)>Math.abs(e.clientY-sy)){try{c.setPointerCapture(pid)}catch(_){}if(!RM())c.style.transform='translateX('+Math.min(0,dx)+'px) rotate('+(Math.min(0,dx)/20)+'deg)'}});
+  const end=()=>{if(!on)return;on=false;c.style.transition='';if(dx<-70){c.style.transform='';ttNext()}else c.style.transform=''};
+  c.addEventListener('pointerup',end);c.addEventListener('pointercancel',end);
+})();
+
+/* ================= WHICH PART OF YOU CAME TO DINNER? ================= */
+const NONE=PARTS.length+1;
+const pt={mode:'deck',idx:0,started:false,playing:false,el:0,lt:0,raf:0,tx:0,autoAt:0,prevIdx:0,chosen:null,own:null,ringIv:null,mk:null,mkTo:null};
+(function buildDeck(){
+  const cards=['<div class="pcard s-paper" data-k="0" role="group" aria-roledescription="slide" aria-label="Start">'+pic('s_llama','arch a-wide')+'<h3 class="pname">Who came to dinner?</h3></div>'];
+  PARTS.forEach((p,i)=>cards.push('<div class="pcard s-'+p.suit+'" data-k="'+(i+1)+'" role="group" aria-roledescription="slide" aria-label="'+(i+1)+' of '+PARTS.length+': '+esc(p.n)+'">'+pic(p.img,'arch a-wide'+(p.ring?' self-glow':''))+'<h3 class="pname">'+esc(p.n)+'</h3><p class="psays">\u201C'+esc(p.says)+'\u201D</p></div>'));
+  cards.push('<div class="pcard s-paper" data-k="'+NONE+'" role="group" aria-roledescription="slide" aria-label="None of these?">'+pic('s_llama','arch a-wide')+'<h3 class="pname">None of these?</h3><p class="psub">Make your own in three taps.</p></div>');
+  $('#pt-track').innerHTML=cards.join('');
+  $('#pt-segs').innerHTML=Array.from({length:NONE},()=>'<i><b></b></i>').join('');
+  $('#pt-faces').innerHTML=PARTS.map((p,i)=>'<button class="face" type="button" data-k="'+(i+1)+'" aria-label="'+esc(p.n)+'">'+pic(p.img,'av',1.55)+'</button>').join('')+'<button class="ownpill" type="button" id="pt-own">'+I('plus')+'Your own</button>';
+})();
+function setDock(n){['deck','res','mk'].forEach(k=>{$('#pt-dock-'+k).hidden=k!==n})}
+function ptLayout(anim){
+  const deck=$('#pt-deck');const vw=deck.clientWidth||343;const cw=Math.min(276,Math.round(vw*0.74));const gap=12;
+  deck.style.setProperty('--cw',cw+'px');deck.style.setProperty('--at',Math.round(16+(cw-32)*0.4)+'px');
+  pt.tx=(vw-cw)/2-pt.idx*(cw+gap);
+  const tr=$('#pt-track');tr.classList.toggle('anim',!!anim&&!RM());tr.style.setProperty('--tx',pt.tx+'px');
+  $$('.pcard',tr).forEach((c,k)=>{const on=k===pt.idx;c.classList.toggle('on',on);c.setAttribute('aria-hidden',on?'false':'true');if(k===0)c.style.visibility=(pt.started&&pt.idx!==0)?'hidden':''});
+}
+function ptSegs(){const k=pt.idx;$$('#pt-segs i').forEach((s,j)=>{const pos=j+1;s.style.setProperty('--f',!pt.started?0:pos<k?1:pos>k?0:(pt.playing?Math.min(1,pt.el/3000):1))})}
+function ptUpdate(){
+  const k=pt.idx;ptSegs();
+  $$('#pt-faces .face').forEach(f=>f.setAttribute('aria-current',+f.dataset.k===k?'true':'false'));
+  $('#pt-own').setAttribute('aria-current',k===NONE?'true':'false');
+  $('#pt-hint').textContent=(!pt.started&&k===0)?'Meet the parts, one at a time.':k===NONE?'':pt.playing?'Tap \u201CThat\u2019s me!\u201D when you see yours.':'Swipe to see the others.';
+  $('#pt-main').textContent=(k===0)?'Show me the parts':k===NONE?'Make your own':'That\u2019s me!';
+  const pb=$('#pt-play');pb.hidden=!pt.started||RM();pb.innerHTML=I(pt.playing?'pause':'play');pb.setAttribute('aria-label',pt.playing?'Pause':'Play');
+  $('#pt-deck').setAttribute('aria-live',pt.playing?'off':'polite');
+}
+function ptGo(k,opts){opts=opts||{};const far=Math.abs(k-pt.idx)>1;pt.idx=k;pt.el=0;ptLayout(!far);
+  if(far&&!RM()){const tr=$('#pt-track');tr.classList.remove('jump');void tr.offsetWidth;tr.classList.add('jump')}
+  ptUpdate()}
+function ptPlay(){if(RM())return;pt.playing=true;pt.lt=performance.now();cancelAnimationFrame(pt.raf);pt.raf=requestAnimationFrame(ptFrame);ptUpdate()}
+function ptPause(){if(!pt.playing)return;pt.playing=false;cancelAnimationFrame(pt.raf);ptUpdate()}
+function ptFrame(t){if(!pt.playing)return;pt.el+=Math.min(100,Math.max(0,t-pt.lt));pt.lt=t;
+  if(pt.el>=3000){pt.prevIdx=pt.idx;pt.autoAt=Date.now();ptGo(pt.idx>=NONE?1:pt.idx+1)}
+  else{const s=$$('#pt-segs i')[pt.idx-1];if(s)s.style.setProperty('--f',Math.min(1,pt.el/3000))}
+  pt.raf=requestAnimationFrame(ptFrame)}
+function ptStep(d){pt.started=true;let k=pt.idx+d;if(k<1)k=NONE;if(k>NONE)k=1;ptGo(k)}
+function ptStart(){pt.started=true;$('#pt-intro').hidden=true;try{window.scrollTo(0,0)}catch(e){}ptGo(1);ptPlay()}
+function ptReset(){
+  ptPause();clearInterval(pt.ringIv);clearTimeout(pt.mkTo);
+  pt.mode='deck';pt.started=false;pt.idx=0;pt.el=0;pt.chosen=null;pt.own=null;
+  $('#pt-intro').hidden=false;$('#pt-deckview').hidden=false;$('#pt-result').hidden=true;$('#pt-make').hidden=true;
+  setDock('deck');ptLayout(false);ptUpdate();
+}
+/* The phone's Back from a result or from Make your own works like the Back button on screen */
+function ptLayer(){openLayer('parts',()=>{if(pt.mode==='make'&&pt.mk&&pt.mk.step>0){clearTimeout(pt.mkTo);pt.mk.step--;mkRender();ptLayer();return}if(pt.mode!=='deck'){$('#pt-make').hidden=true;ptToDeck()}},true)}
+function ptToDeck(){dropLayer('parts');clearInterval(pt.ringIv);pt.mode='deck';$('#pt-result').hidden=true;$('#pt-make').hidden=true;$('#pt-deckview').hidden=false;setDock('deck');ptLayout(false);ptUpdate();try{window.scrollTo(0,0)}catch(e){}}
+function ptBack(){if(pt.mode==='make'){mkBack();return true}if(pt.mode==='result'||pt.mode==='own'){ptToDeck();return true}return false}
+function ptMain(){
+  if(pt.idx===0){ptStart();return}
+  let k=pt.idx;if(pt.playing&&Date.now()-pt.autoAt<400&&pt.prevIdx>=1)k=pt.prevIdx;
+  if(k===NONE){mkOpen();return}
+  ptChoose(k-1);
+}
+function ptShuffle(){ptPause();pt.started=true;let k;do{k=1+Math.floor(Math.random()*PARTS.length)}while(k===pt.idx&&PARTS.length>1);
+  if(RM()){ptGo(k);return}
+  const tr=$('#pt-track');tr.classList.remove('riffle');void tr.offsetWidth;tr.classList.add('riffle');
+  setTimeout(()=>{tr.classList.remove('riffle');ptGo(k)},720)}
+/* any touch on the parts screen pauses the deck */
+$('#parts').addEventListener('pointerdown',e=>{if(pt.playing&&!e.target.closest('#pt-play,#pt-main'))ptPause()},true);
+$('#parts').addEventListener('keydown',e=>{if(pt.playing&&!e.target.closest('#pt-play,#pt-main')&&e.key!=='Tab'&&e.key!=='Shift')ptPause()},true);
+$('#pt-main').addEventListener('click',ptMain);
+$('#pt-play').addEventListener('click',()=>{if(pt.playing)ptPause();else ptPlay()});
+$('#pt-shuffle').addEventListener('click',ptShuffle);
+$('#pt-prev').addEventListener('click',()=>ptStep(-1));
+$('#pt-next').addEventListener('click',()=>ptStep(1));
+$('#pt-deck').addEventListener('keydown',e=>{if(e.target.closest('.parrow'))return;if(e.key==='ArrowLeft'){e.preventDefault();ptStep(-1)}else if(e.key==='ArrowRight'){e.preventDefault();ptStep(1)}});
+$$('#pt-faces .face').forEach(f=>f.addEventListener('click',()=>{pt.started=true;ptGo(+f.dataset.k)}));
+$('#pt-own').addEventListener('click',()=>mkOpen());
+window.addEventListener('resize',()=>{if(current==='parts'&&pt.mode==='deck')ptLayout(false)});
+(function swipe(){const dk=$('#pt-deck');let sx=0,sy=0,dx=0,on=false,moved=false,pid=null,t0=0;
+  dk.addEventListener('pointerdown',e=>{if(e.target.closest('.parrow'))return;on=true;moved=false;pid=e.pointerId;sx=e.clientX;sy=e.clientY;dx=0;t0=performance.now();$('#pt-track').classList.remove('anim')});
+  dk.addEventListener('pointermove',e=>{if(!on||e.pointerId!==pid)return;dx=e.clientX-sx;if(!moved&&Math.abs(dx)>8&&Math.abs(dx)>Math.abs(e.clientY-sy)){moved=true;try{dk.setPointerCapture(pid)}catch(_){}}if(moved)$('#pt-track').style.setProperty('--tx',(pt.tx+dx)+'px')});
+  dk.addEventListener('pointerup',e=>{if(!on)return;on=false;const v=Math.abs(dx)/Math.max(1,performance.now()-t0);
+    if(moved&&(Math.abs(dx)>50||(Math.abs(dx)>20&&v>.5))){ptStep(dx<0?1:-1);return}
+    ptLayout(true);
+    if(!moved){const c=e.target.closest('.pcard');if(c){const k=+c.dataset.k;if(k!==pt.idx&&!(pt.started&&k===0)){pt.started=true;ptGo(k)}}}});
+  dk.addEventListener('pointercancel',()=>{if(on){on=false;ptLayout(true)}});
+})();
+function resetHTML(text){return '<div class="reset"><div><p class="lab">Try a 30-second reset</p><p>'+esc(text)+'</p></div><button class="ring" type="button" aria-label="Start the 30-second reset"><span class="ring-n num">30</span></button></div>'}
+function coachHTML(){return '<p class="coach">Same part, every year? Anna works with this in IFS coaching. <a href="https://annamilaeva.com/coaching" target="_blank" rel="noopener" data-track="coaching_click">See how she works'+I('chev')+'</a></p>'}
+function unlockHTML(){return '<div class="unlock"><div class="ufan" aria-hidden="true"><span class="uc s-terra" style="--r:-8deg"><span>Charades</span></span><span class="uc s-sage"><span>Bingo</span></span><span class="uc s-night" style="--r:8deg"><span>Questions</span></span></div>'+
+  '<h2 class="h2">Liked it? Get the other three games, free.</h2>'+
+  '<label class="flabel" for="pt-email">Your email</label>'+
+  '<input class="field" id="pt-email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" aria-describedby="pt-err">'+
+  '<p class="err" id="pt-err" hidden>'+I('alert')+'Check your email address and try again.</p>'+
+  '<button class="btn" type="button" id="pt-go">Get all four games</button>'+
+  '<p class="fine">You\u2019ll also get Anna\u2019s letters. Unsubscribe any time.</p></div>'}
+function linksHTML(first){return '<div class="links">'+first+(unlocked?'<button class="tbtn" type="button" data-a="home">Back to all games'+I('chev')+'</button>':'')+'</div>'+(unlocked?coachHTML():unlockHTML())}
+function wireResult(r){
+  $$('[data-a="again"]',r).forEach(b=>b.addEventListener('click',ptToDeck));
+  $$('[data-a="another"]',r).forEach(b=>b.addEventListener('click',()=>mkOpen()));
+  $$('[data-a="home"]',r).forEach(b=>b.addEventListener('click',()=>go('home')));
+  const ring=$('.ring',r);if(ring)ring.addEventListener('click',()=>ringStart(ring));
+  const g=$('#pt-go',r);if(g){g.addEventListener('click',()=>tryEmail($('#pt-email'),$('#pt-err'),'home','parts-try'));$('#pt-email').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();g.click()}})}
+}
+function showResult(html,mode){
+  clearInterval(pt.ringIv);pt.mode=mode;
+  $('#pt-intro').hidden=true;$('#pt-deckview').hidden=true;$('#pt-make').hidden=true;
+  const r=$('#pt-result');r.innerHTML=html;r.hidden=false;wireResult(r);setDock('res');ptLayer();
+  try{window.scrollTo(0,0)}catch(e){}
+}
+function ptChoose(i){
+  ptPause();pt.chosen=i;const p=PARTS[i];
+  showResult('<div class="pres'+(RM()?'':' reveal')+'">'+
+    '<div class="chosen s-'+p.suit+'">'+pic(p.img,'arch a-sq'+(p.ring?' self-glow':''))+'<div><h2 class="pname">'+esc(p.n)+'</h2><p class="psays">\u201C'+esc(p.says)+'\u201D</p></div></div>'+
+    '<p class="hint center">This one came to dinner.</p>'+
+    '<div class="card"><div><p class="lab">What it often does</p><p>'+esc(p.does)+'</p></div><div><p class="lab">The gift it brings</p><p class="gift">'+esc(p.gift)+'</p>'+(p.note?'<p class="note">'+esc(p.note)+'</p>':'')+'</div></div>'+
+    resetHTML(p.prac)+
+    linksHTML('<button class="tbtn" type="button" data-a="again">'+I('back')+'Look again</button>')+
+  '</div>','result');
+  live(p.n+'. This one came to dinner.');
+}
+function ringStart(btn){
+  clearInterval(pt.ringIv);btn.classList.remove('done');btn.style.setProperty('--p',0);
+  const n=$('.ring-n',btn);n.textContent='30';btn.setAttribute('aria-label','30-second reset running');const t0=Date.now();
+  pt.ringIv=setInterval(()=>{const e=(Date.now()-t0)/1000;const p=Math.min(1,e/30);btn.style.setProperty('--p',p);n.textContent=Math.max(0,Math.ceil(30-e));
+    if(p>=1){clearInterval(pt.ringIv);btn.classList.add('done');n.innerHTML=I('check')+'<span>Done</span>';btn.setAttribute('aria-label','Done. Tap to start again');live('Done')}},100);
+}
+/* Make your own: three light taps, nothing about fears or history */
+function mkOpen(){ptPause();clearInterval(pt.ringIv);pt.mode='make';pt.mk={step:0,body:null,want:null,nameIdx:0,typed:''};
+  $('#pt-intro').hidden=true;$('#pt-deckview').hidden=true;$('#pt-result').hidden=true;$('#pt-make').hidden=false;mkRender();ptLayer();try{window.scrollTo(0,0)}catch(e){}}
+function chip(label,on,kind,val){return '<button class="chip" type="button" role="radio" aria-checked="'+(on?'true':'false')+'" data-kind="'+kind+'" data-v="'+val+'">'+I('check')+esc(label)+'</button>'}
+function mkRender(){
+  const m=pt.mk;const el=$('#pt-make');
+  let h='<div class="mk-top"><button class="tbtn" type="button" data-a="mkback">'+I('back')+'Back</button><span class="lab">Make your own part</span></div>'+
+    '<div class="mk-prog"><div class="mk-segs" aria-hidden="true">'+[0,1,2].map(i=>'<i'+(i<=m.step?' class="on"':'')+'></i>').join('')+'</div><span class="hint num">'+(m.step+1)+' of 3</span></div>'+
+    '<div class="mk-step'+(RM()?'':' in')+'">';
+  if(m.step===0)h+='<h2 class="h1" id="mk-q">Where do you feel it?</h2><p class="hint">Tap one. A guess is fine.</p><div class="chips" role="radiogroup" aria-labelledby="mk-q">'+BODY.map(b=>chip(b.label,m.body===b.k,'b',b.k)).join('')+'</div>';
+  else if(m.step===1)h+='<h2 class="h1" id="mk-q">What does it want to do right now?</h2><p class="hint">Pick the closest.</p><div class="chips" role="radiogroup" aria-labelledby="mk-q">'+WANTS.map(w=>chip(w.label,m.want===w.k,'w',w.k)).join('')+'</div>';
+  else{const w=WANTS.find(x=>x.k===m.want);h+='<h2 class="h1" id="mk-q">Give it a name</h2><p class="hint">Tap one, or type your own.</p><div class="chips" role="radiogroup" aria-labelledby="mk-q">'+w.names.map((n,i)=>chip(n,!m.typed.trim()&&m.nameIdx===i,'n',i)).join('')+'</div><input class="field" id="mk-name" type="text" maxlength="24" placeholder="Or type your own" aria-label="Or type your own" autocomplete="off" value="'+esc(m.typed)+'">'}
+  h+='</div>';el.innerHTML=h;
+  $('[data-a="mkback"]',el).addEventListener('click',mkBack);
+  $$('.chip',el).forEach(b=>b.addEventListener('click',()=>{
+    const kind=b.dataset.kind,v=b.dataset.v;
+    $$('.chip',el).forEach(x=>x.setAttribute('aria-checked',x===b?'true':'false'));
+    clearTimeout(pt.mkTo);
+    if(kind==='b'){m.body=v;pt.mkTo=setTimeout(()=>{m.step=1;mkRender()},300)}
+    else if(kind==='w'){if(m.want!==v){m.nameIdx=0;m.typed=''}m.want=v;pt.mkTo=setTimeout(()=>{m.step=2;mkRender()},300)}
+    else{m.nameIdx=+v;m.typed='';const inp=$('#mk-name');if(inp)inp.value=''}
+  }));
+  const inp=$('#mk-name');
+  if(inp){inp.addEventListener('input',()=>{m.typed=inp.value.slice(0,24);const has=!!m.typed.trim();$$('.chip',el).forEach((x,i)=>x.setAttribute('aria-checked',!has&&i===m.nameIdx?'true':'false'))});
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();mkFinish()}})}
+  setDock(m.step===2?'mk':'none');
+  const f=$('.chip[aria-checked="true"]',el)||$('.chip',el);
+  if(f&&document.activeElement&&document.activeElement.closest&&document.activeElement.closest('#pt-make'))try{f.focus({preventScroll:true})}catch(e){}
+}
+function mkBack(){clearTimeout(pt.mkTo);const m=pt.mk;if(m&&m.step>0){m.step--;mkRender();return}$('#pt-make').hidden=true;ptToDeck()}
+function mkFinish(){
+  const m=pt.mk;const w=WANTS.find(x=>x.k===m.want);const b=BODY.find(x=>x.k===m.body);if(!w||!b)return;
+  const name=(m.typed.trim().slice(0,24))||w.names[m.nameIdx];
+  pt.own={name,want:w};
+  showResult('<div class="pres'+(RM()?'':' reveal')+'">'+
+    '<div class="chosen s-gold">'+pic('s_llama','arch a-sq')+'<div><p class="lab">Your part</p><h2 class="pname">'+esc(name)+'</h2></div></div>'+
+    '<div class="card"><div><p class="lab">Right now it wants to</p><p>'+esc(cap(w.want))+'.</p></div><div><p class="lab">The gift it brings</p><p class="gift">'+esc(w.gift)+'</p></div></div>'+
+    resetHTML(b.where+' '+b.prac+' '+RESET_END)+
+    linksHTML('<button class="tbtn" type="button" data-a="another">'+I('plus')+'Make another</button>')+
+  '</div>','own');
+  live('Your part: '+name);
+}
+$('#pt-mkgo').addEventListener('click',mkFinish);
+$('#pt-share').addEventListener('click',()=>{
+  if(pt.mode==='own'&&pt.own){const o=pt.own;shareSheet({what:'own-part',suit:'gold',kicker:'A part of me came to dinner',big:o.name,small:'It wants to '+o.want.want+'.',img:'s_llama',
+    text:'A part of me came to dinner: '+o.name+'. It wants to '+o.want.want+'. Which part are you? '+SHARE_LINK});return}
+  if(pt.chosen===null)return;const p=PARTS[pt.chosen];
+  shareSheet({what:'part',suit:p.suit,kicker:'Which part of me came to dinner?',big:p.n,small:p.card,img:p.img,text:'Which part of me came to dinner? '+p.n+'. Which one are you? '+SHARE_LINK});
+});
+$('#pt-send').addEventListener('click',()=>{
+  sheet({label:'Who are you thanking?',html:'<h2 class="h2">Who are you thanking?</h2><p class="fine">Pick the part you see in them. You get a kind, funny note to send.</p><div class="typick">'+
+    PARTS.map((p,i)=>'<button class="tyc" type="button" data-i="'+i+'">'+pic(p.img,'arch a-sq')+'<span>'+esc(p.short)+'</span></button>').join('')+
+    '</div><button class="btn sec wide" type="button" data-a="close">Close</button>',
+    onReady:(o)=>{$$('.tyc',o).forEach(b=>b.addEventListener('click',()=>{const p=PARTS[+b.dataset.i];
+      shareSheet({what:'thanks',suit:p.suit,kicker:'For the '+p.short+' in my family',big:'Thank you',small:p.thanks,img:p.img,text:'For the '+p.short+' in my family: '+p.thanks+' Which part are you? '+SHARE_LINK})}))}});
+});
+
+/* ================= start ================= */
+updBack();updSound();
+let h0='';try{h0=location.hash.slice(1)}catch(e){}
+track('kit_open',{via:params.get('from')==='share'?'share':bingoInvite?'invite':'direct',unlocked:unlocked?'yes':'no'});
+show(h0);
+try{flushSignups()}catch(e){}
+/* Offline: after one visit the page and pictures come from the phone, so weak wifi at the table is fine */
+try{if('serviceWorker' in navigator&&(location.protocol==='https:'||/^(localhost|127\.0\.0\.1)$/.test(location.hostname)))window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}catch(e){}
+})();
+</script>
+</body>
+</html>
