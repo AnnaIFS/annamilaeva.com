@@ -1935,6 +1935,16 @@
         clearTimeout(toastTimer);
         toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3200);
       }
+      // Back from the Brevo confirm link: say so, then tidy the address bar
+      if (new URLSearchParams(window.location.search).get('confirmed') === '1') {
+        try { window.localStorage.setItem('aiamSignedUp', '1'); } catch (e) {}
+        setTimeout(function () {
+          showToast('You’re in. Your practice is on its way to your inbox.');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 9000);
+        }, 800);
+        if (window.history && history.replaceState) { history.replaceState(null, '', window.location.pathname + window.location.hash); }
+      }
       // Analytics events (Umami). Does nothing until the Umami script is live.
       function track(name, data) {
         if (window.umami && typeof window.umami.track === 'function') { window.umami.track(name, data); }
