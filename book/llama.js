@@ -49,7 +49,6 @@
   new MutationObserver(function () {
     if (document.querySelector('.bk-brevo.is-sent')) {
       set('aiamSignedUp', '1');
-      if (form.classList.contains('is-sent')) { setTimeout(close, 4500); }
     }
   }).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class'] });
 })();
