@@ -284,9 +284,10 @@ h1,h2,h3,p{margin:0}
 .dots i.on{background:#5F7A61;box-shadow:none}
 .bwrap{position:relative}
 .bgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.sq{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;margin:0 0 3px;padding:8px;border:0;border-radius:12px;background:#FFFFFF;color:#2B211C;box-shadow:0 3px 0 #D9CFC0;font:600 14px/17px var(--text);text-align:center;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:transform 80ms var(--ease-out),box-shadow 80ms var(--ease-out),background 200ms,color 200ms}
-.sq .t{position:relative;text-wrap:balance;overflow-wrap:anywhere}
-.sq .daub{position:absolute;left:11%;top:11%;width:78%;height:78%;border-radius:48% 52% 50% 50% / 52% 48% 52% 48%;background:#E8A020;opacity:0;transform:scale(.6);transition:opacity 160ms,transform 160ms}
+.sq{position:relative;aspect-ratio:1;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;margin:0 0 3px;padding:8px;border:0;border-radius:12px;background:#FFFFFF;color:#2B211C;box-shadow:0 3px 0 #D9CFC0;font:600 14px/17px var(--text);text-align:center;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:transform 80ms var(--ease-out),box-shadow 80ms var(--ease-out),background 200ms,color 200ms}
+.sq .t{position:relative;display:block;width:80%;text-wrap:balance;overflow-wrap:normal;-webkit-hyphens:auto;hyphens:auto}
+.sq .t.squeeze{overflow-wrap:anywhere}
+.sq .daub{position:absolute;left:5%;top:5%;width:90%;height:90%;border-radius:40% 46% 38% 44% / 44% 38% 46% 40%;background:#E8A020;opacity:0;transform:scale(.6);transition:opacity 160ms,transform 160ms}
 .sq > .i{position:absolute;top:6px;right:6px;width:16px;height:16px;color:#3F5A44;stroke-width:2.6;opacity:0}
 .sq.on{transform:translateY(2px);box-shadow:0 1px 0 #D9CFC0}
 .sq.on .daub{opacity:1;transform:none}
@@ -298,7 +299,7 @@ h1,h2,h3,p{margin:0}
 .sq.win > .i{color:#FFFFFF}
 .sq.free{padding:0;overflow:hidden;background:#EFE6D7;cursor:default}
 .sq.free img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 37%}
-.sq.free .fp{position:absolute;left:6px;right:6px;bottom:6px;display:flex;flex-direction:column;align-items:center;padding:4px 4px 5px;border-radius:10px;background:#5F7A61;color:#FFFFFF;font:700 12px/14px var(--text);letter-spacing:.06em;text-transform:uppercase}
+.sq.free .fp{position:absolute;left:6px;right:6px;bottom:6px;display:flex;flex-direction:column;align-items:center;padding:4px 4px 5px;border-radius:10px;background:#5F7A61;color:#FFFFFF;font:700 11px/13px var(--text);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
 .banner{position:absolute;left:50%;top:50%;z-index:5;padding:14px 30px;border-radius:999px;background:#E8A020;color:#2B211C;font:700 48px/1 var(--display);box-shadow:var(--shadow-lift);pointer-events:none;transform:translate(-50%,-50%);animation:bannerIn 420ms var(--ease-spring)}
 @keyframes bannerIn{from{opacity:0;transform:translate(-50%,-50%) scale(.6)}}
 
@@ -1312,7 +1313,21 @@ function bnDraw(){const g=$('#bn-grid');g.innerHTML='';const w=lineSet();
     b.addEventListener('click',()=>bnTap(i,b,txt));g.appendChild(b);
   }
   bnCount();
+  requestAnimationFrame(bnFit);
 }
+/* Every square's words fit inside the square and its painted daub, on any phone and any text-size setting */
+function bnFit(){
+  $$('#bn-grid .sq:not(.free) .t').forEach(t=>{
+    const sq=t.parentElement;const maxH=sq.clientWidth*0.76;if(!maxH)return;
+    t.classList.remove('squeeze');t.style.fontSize='';t.style.lineHeight='';
+    let s=parseFloat(getComputedStyle(t).fontSize)||14;
+    const fits=()=>t.scrollHeight<=maxH+1&&t.scrollWidth<=t.clientWidth+1;
+    while(!fits()&&s>10){s-=0.5;t.style.fontSize=s+'px';t.style.lineHeight=Math.round(s*1.2)+'px'}
+    if(!fits())t.classList.add('squeeze');
+  });
+}
+window.addEventListener('resize',()=>{if(current==='bingo')bnFit()});
+try{document.fonts&&document.fonts.ready.then(()=>{if(current==='bingo')bnFit()})}catch(e){}
 function bnWinMarks(){const w=lineSet();$$('#bn-grid .sq').forEach((s,i)=>{if(i!==4)s.classList.toggle('win',!!bn.won&&w.has(i))})}
 function bnCount(){const n=bn.marks.filter(Boolean).length-1;$('#bn-count').textContent=n+' of 8';$$('#bn-dots i').forEach((d,k)=>d.classList.toggle('on',k<n));
   $('#bn-goal').textContent=(bn.won>=3||n===8)?'Full card. Legend.':bn.won===2?'Next: full card':bn.won===1?'Next: Double Bingo':'Your card'}
