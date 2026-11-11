@@ -12,6 +12,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Already Home">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Anna Milaeva">
@@ -215,7 +219,8 @@ h1,h2,h3,p{margin:0}
 .hero-card{display:flex;flex-direction:column;gap:12px;margin-bottom:4px;padding:16px;border-radius:24px;box-shadow:0 4px 0 var(--e)}
 .hero-card .h2{font:700 22px/27px var(--display)}
 .hero-card .steps{--nb:#7A3418;--nf:#FFFFFF}
-.hero-card .tbtn{color:#FFFFFF;align-self:flex-start;margin:-8px 0 -8px -8px}
+.hero-card .tbtn{color:#FFFFFF;align-self:flex-start}
+.hero-card .tlinks{margin:-8px 0 -8px -8px}
 .opt{display:flex;flex-direction:column;gap:6px}
 .ovl{position:fixed;inset:0;z-index:65;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center}
 .count{background:#A94A22;color:#FFFFFF}
@@ -455,6 +460,40 @@ h1,h2,h3,p{margin:0}
 .alt{display:flex;flex-direction:column;gap:10px}
 .alt .row{display:flex;gap:10px}
 .alt .row .btn{flex:1 1 0;padding-inline:10px;font-size:16px}
+.hbtn{flex:none;display:inline-flex;align-items:center;gap:5px;min-height:40px;padding:0 12px 0 9px;border:0;border-radius:999px;background:#FFFFFF;color:#2B211C;box-shadow:var(--shadow-rest);font:600 13px/1 var(--text);white-space:nowrap}
+.hbtn .i{width:18px;height:18px}
+#talk .hbtn{background:#3D312A;color:#FAF7F2;box-shadow:none}
+@media (max-width:390px){.bar-title{font-size:14px;line-height:18px}.hbtn{padding:0 10px 0 7px;font-size:12px}}
+.tile .tl{font:500 13px/17px var(--text);opacity:.92}
+.hook{font:italic 600 18px/24px var(--display);color:#A94A22}
+.together{font:700 18px/24px var(--text);color:#7A3418}
+.fw-row{display:flex;gap:8px}
+.fw-row .field{flex:1 1 auto;min-width:0}
+.fw-row .btn{flex:none;min-height:52px;margin:0 0 4px}
+.fwchip{display:inline-flex;align-items:center;gap:6px;padding:6px 6px 6px 12px;border-radius:999px;background:#FFFFFF;font:500 14px/20px var(--text);color:#2B211C}
+.fwchip button{width:28px;height:28px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:#F6E1D3;color:#7A3418}
+.fwchip button .i{width:14px;height:14px}
+.fh.practice{background:#A94A22}
+.fh.practice .fh-zone.top{padding-top:calc(150px + env(safe-area-inset-top, 0px))}
+.point .n.land{animation:land 300ms var(--ease-spring)}
+.pr-head{position:absolute;left:0;right:0;top:calc(14px + env(safe-area-inset-top, 0px));z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;padding:0 20px;text-align:center;pointer-events:none}
+.pr-head b{font:700 13px/16px var(--text);letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:#7A3418}
+.pr-head span{font:500 15px/21px var(--text);max-width:30ch}
+.pr-done{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:#A94A22;text-align:center}
+.pr-done b{font:700 36px/1.1 var(--display)}
+.pr-done p{font:500 17px/24px var(--text);max-width:26ch}
+.pr-done .btn{min-width:220px}
+.tgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 10px}
+.tface{display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px;border:0;border-radius:16px;background:none;color:#2B211C;font:600 13px/16px var(--text);text-align:center}
+.tface .av{width:72px;height:72px}
+.tface[aria-pressed="true"] .av{box-shadow:0 0 0 3px #FBEACB,0 0 0 5px #2B211C}
+.tgift{padding:14px 16px;border-radius:16px;background:#FFFFFF;box-shadow:var(--shadow-rest);font:italic 500 18px/26px var(--display);color:#2B211C}
+.point{background:#E8A020;color:#2B211C}
+.point .n{font:700 140px/1 var(--display)}
+.point p{font:700 22px/30px var(--text);max-width:22ch}
+.keep ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.keep li{font:400 16px/24px var(--text)}
+.keep h4{margin:14px 0 6px;font:700 12px/16px var(--text);letter-spacing:.16em;text-transform:uppercase;color:#A94A22}
 .toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom, 0px));z-index:95;width:max-content;max-width:min(90vw,400px);padding:12px 18px;border-radius:999px;background:#2B211C;color:#FAF7F2;font:600 15px/20px var(--text);text-align:center;box-shadow:0 0 0 1px rgba(250,247,242,.22),var(--shadow-lift);transform:translateX(-50%);animation:toastIn 200ms var(--ease-out)}
 @keyframes toastIn{from{opacity:0;transform:translate(-50%,12px)}}
 #confetti{position:fixed;inset:0;z-index:90;width:100%;height:100%;pointer-events:none}
@@ -486,6 +525,7 @@ h1,h2,h3,p{margin:0}
       <h1 class="hero">Already <em>Home</em></h1>
       <p class="by">By <b>Anna Milaeva</b>, IFS Coach for People in Transition</p>
       <p class="sub" id="gate-sub">Four games for the holiday table, on your phone. Made to get the whole family laughing and talking.</p>
+      <p class="hook">Same questions every year? This year, they score points.</p>
     </div>
     <div class="signup">
       <h2 class="h2" id="gate-title">Get all four games, free</h2>
@@ -514,19 +554,20 @@ h1,h2,h3,p{margin:0}
   <div class="body">
     <h1 class="h1">Pick a game</h1>
     <div class="tiles" id="tiles">
-      <button class="tile s-terra" type="button" data-go="charades" style="--tr:-2deg"><span class="arch a-wide" style="--fx:49%;--fy:30%"><img src="img/s_daniel_phone.jpg" alt=""></span><span class="tn">Family Charades</span><span class="meta">3+ players &#xB7; 1-minute turns</span><span class="sr">Phone on your forehead. The others act. You guess.</span></button>
-      <button class="tile s-sage" type="button" data-go="bingo" style="--tr:2deg;animation-delay:50ms"><span class="arch a-wide" style="--fx:56%;--fy:37%"><img src="img/s_priya_bingo.jpg" alt=""></span><span class="tn">Family Dinner Bingo</span><span class="meta">Everyone &#xB7; during the meal</span><span class="sr">Tap what happens at the table. Three in a row wins.</span></button>
-      <button class="tile s-night" type="button" data-go="talk" style="--tr:-2deg;animation-delay:100ms"><span class="arch a-wide" style="--fx:48%;--fy:34%"><img src="img/s_tom_story.jpg" alt=""></span><span class="tn">Questions for the Table</span><span class="meta">2+ players &#xB7; after the meal</span><span class="sr">Questions that bring out the family stories. Anyone can pass.</span></button>
-      <button class="tile s-gold" type="button" data-go="parts" style="--tr:2deg;animation-delay:150ms"><span class="arch a-wide" style="--fx:50%;--fy:27%"><img src="img/s_kate.jpg" alt=""></span><span class="tn">Which Part of You Came to Dinner?</span><span class="meta">Just you &#xB7; 1 minute</span><span class="sr">Find the part of you that showed up. Then reset.</span></button>
+      <button class="tile s-terra" type="button" data-go="charades" style="--tr:-2deg"><span class="arch a-wide" style="--fx:49%;--fy:30%"><img src="img/s_daniel_phone.jpg" alt=""></span><span class="tn">Family Charades</span><span class="meta">3+ players &#xB7; 1-minute turns</span><span class="tl">Phone on your forehead. The others act.</span></button>
+      <button class="tile s-sage" type="button" data-go="bingo" style="--tr:2deg;animation-delay:50ms"><span class="arch a-wide" style="--fx:56%;--fy:37%"><img src="img/s_priya_bingo.jpg" alt=""></span><span class="tn">Family Dinner Bingo</span><span class="meta">Everyone &#xB7; during the meal</span><span class="tl">Tap what happens. Three in a row wins.</span></button>
+      <button class="tile s-night" type="button" data-go="talk" style="--tr:-2deg;animation-delay:100ms"><span class="arch a-wide" style="--fx:48%;--fy:34%"><img src="img/s_tom_story.jpg" alt=""></span><span class="tn">Questions for the Table</span><span class="meta">2+ players &#xB7; after the meal</span><span class="tl">Easy questions. Anyone can pass.</span></button>
+      <button class="tile s-gold" type="button" data-go="parts" style="--tr:2deg;animation-delay:150ms"><span class="arch a-wide" style="--fx:50%;--fy:27%"><img src="img/s_kate.jpg" alt=""></span><span class="tn">Which Part of You Came to Dinner?</span><span class="meta">Just you &#xB7; 1 minute</span><span class="tl">Find the part of you that showed up.</span></button>
     </div>
     <div class="invite">
-      <p>Playing bingo? Everyone needs a card.</p>
+      <p>Playing bingo? Send it before the first &#x201C;What do you do again?&#x201D;</p>
       <button class="btn sage" type="button" id="invite"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Send bingo to the family chat</button>
     </div>
     <div class="gifts">
       <h2 class="h2">Still need a gift?</h2>
       <a class="giftlink" href="https://annamilaeva.com/gifts" target="_blank" rel="noopener" data-track="gift_click"><span><b>Holiday gift ideas<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></b><span>Pair Anna&#x2019;s novel <i>Already in a Meeting</i> with the wine or a nice pen. Or give IFS coaching sessions to your significant other.</span></span></a>
     </div>
+    <button class="tbtn center" type="button" id="keep"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-download"></use></svg>Keep Already Home on your phone</button>
     <p class="foot">Already Home &#xB7; by Anna Milaeva &#xB7; annamilaeva.com</p>
   </div>
 </section>
@@ -537,7 +578,7 @@ h1,h2,h3,p{margin:0}
     <button class="ibtn" type="button" data-back aria-label="All games"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg></button>
     <h1 class="bar-title">Family Charades</h1>
     <button class="ibtn" type="button" id="ch-sound" aria-label="Sound" aria-pressed="true"></button>
-    <button class="ibtn" type="button" data-help="charades" aria-label="Full rules"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg></button>
+    <button class="hbtn" type="button" data-help="charades"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg><span>How to play</span></button>
   </header>
   <div class="body">
     <div id="ch-lobby" class="stack">
@@ -549,7 +590,7 @@ h1,h2,h3,p{margin:0}
           <li><span><b>Everyone else acts out the card.</b> Sounds, yes. Words, no.</span></li>
           <li><span><b>Got it?</b> Tap the bottom half. <b>Too hard?</b> Tap the top to pass.</span></li>
         </ol>
-        <button class="tbtn" type="button" data-help="charades">Full rules<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+        <div class="tlinks"><button class="tbtn" type="button" data-help="charades">How to play<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button><button class="tbtn" type="button" id="ch-practice">Try a practice card<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button></div>
       </div>
       <div class="opt">
         <label class="flabel" for="ch-name">Who&#x2019;s guessing? (optional)</label>
@@ -558,6 +599,15 @@ h1,h2,h3,p{margin:0}
       <div class="opt">
         <span class="flabel" id="ch-len-l">Round length</span>
         <div class="seg" id="ch-len" role="radiogroup" aria-labelledby="ch-len-l"><span class="thumb" aria-hidden="true"></span><button type="button" role="radio" aria-checked="true" data-v="60">60 sec</button><button type="button" role="radio" aria-checked="false" data-v="90">90 sec</button><button type="button" role="radio" aria-checked="false" data-v="0">No timer</button></div>
+      </div>
+      <div class="opt">
+        <button class="tbtn" type="button" id="fw-open" aria-expanded="false" aria-controls="fw-box"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg><span id="fw-open-t">Add our family&#x2019;s words</span></button>
+        <div id="fw-box" class="stack-s" hidden>
+          <label class="flabel" for="fw-in">Our family&#x2019;s words (optional)</label>
+          <p class="hint">The pet&#x2019;s name, the famous dish, a family saying. They mix in with the cards.</p>
+          <div class="fw-row"><input class="field" id="fw-in" type="text" maxlength="40" placeholder="e.g. The famous lasagna" autocomplete="off"><button class="btn sage" type="button" id="fw-add">Add</button></div>
+          <div class="chips-list" id="fw-list"></div>
+        </div>
       </div>
     </div>
     <div id="ch-end" class="stack" hidden>
@@ -574,6 +624,7 @@ h1,h2,h3,p{margin:0}
       <p class="lab">Family Charades</p>
       <h2 class="win-big" id="ch-win-big"></h2>
       <p class="quip" id="ch-win-line"></p>
+      <p class="together" id="ch-together"></p>
       <div class="board" id="ch-win-board"></div>
     </div>
   </div>
@@ -587,21 +638,31 @@ h1,h2,h3,p{margin:0}
   <header class="bar">
     <button class="ibtn" type="button" data-back aria-label="All games"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg></button>
     <h1 class="bar-title">Family Dinner Bingo</h1>
-    <button class="ibtn" type="button" data-help="bingo" aria-label="Full rules"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg></button>
+    <button class="hbtn" type="button" data-help="bingo"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg><span>How to play</span></button>
   </header>
   <div class="body">
     <div class="intro">
       <h2 class="h1">Watch the table. Tap what happens.</h2>
       <ol class="steps" style="--nb:#5F7A61;--nf:#FFFFFF">
         <li><span><b>Everyone opens their own card.</b> No two are the same.</span></li>
-        <li><span><b>When it happens,</b> tap the square.</span></li>
+        <li><span><b>When it happens,</b> tap the square and say it out loud.</span></li>
         <li><span><b>Three in a row?</b> Shout &#x201C;Bingo!&#x201D; and show your phone.</span></li>
       </ol>
-      <button class="tbtn" type="button" data-help="bingo">Full rules<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+      <p class="hint">Every square is a moment, never a person.</p>
+      <button class="tbtn" type="button" data-help="bingo">How to play<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
     </div>
     <div class="bprog"><span class="goal" id="bn-goal">Your card</span><span class="dots" id="bn-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="num" id="bn-count">0 of 8</span></div>
     <div class="bwrap" id="bn-wrap"><div class="bgrid" id="bn-grid" role="group" aria-label="Your bingo card"></div></div>
     <button class="tbtn center" type="button" id="bn-new"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-refresh"></use></svg><span id="bn-new-t">New card</span></button>
+    <div class="unlock" id="bn-unlock" hidden>
+      <div class="ufan" aria-hidden="true"><span class="uc s-terra" style="--r:-8deg"><span>Charades</span></span><span class="uc s-night"><span>Questions</span></span><span class="uc s-gold" style="--r:8deg"><span>Parts</span></span></div>
+      <h2 class="h2">Want Charades and Questions for the next family dinner?</h2>
+      <label class="flabel" for="bn-email">Your email</label>
+      <input class="field" id="bn-email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" aria-describedby="bn-err">
+      <p class="err" id="bn-err" hidden><svg class="i" aria-hidden="true" focusable="false"><use href="#i-alert"></use></svg>Check your email address and try again.</p>
+      <button class="btn" type="button" id="bn-go">Get all four games</button>
+      <p class="fine">You&#x2019;ll also get Anna&#x2019;s letters. Unsubscribe any time.</p>
+    </div>
   </div>
   <div class="dock"><button class="btn sec" type="button" id="bn-invite"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Send bingo to the family chat</button></div>
 </section>
@@ -611,22 +672,24 @@ h1,h2,h3,p{margin:0}
   <header class="bar">
     <button class="ibtn" type="button" data-back aria-label="All games"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg></button>
     <h1 class="bar-title">Questions for the Table</h1>
-    <button class="ibtn" type="button" data-help="talk" aria-label="Full rules"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg></button>
+    <button class="hbtn" type="button" data-help="talk"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg><span>How to play</span></button>
   </header>
   <div class="body">
     <div class="intro">
       <h2 class="h1">Easy questions. Real family stories.</h2>
       <ol class="steps" style="--nb:#E8A020;--nf:#2B211C">
-        <li><span><b>Pick a level:</b> Light, Stories or Deeper.</span></li>
+        <li><span><b>Pick a level:</b> Light, Stories, Deeper or New Year.</span></li>
         <li><span><b>Read it out and answer.</b> Then hand the phone on.</span></li>
         <li><span><b>Anyone can pass.</b> No reason needed.</span></li>
       </ol>
-      <button class="tbtn" type="button" data-help="talk">Full rules<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+      <button class="tbtn" type="button" data-help="talk">How to play<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
     </div>
-    <div class="seg" id="tt-lvl" role="radiogroup" aria-label="Question level"><span class="thumb" aria-hidden="true"></span><button type="button" role="radio" aria-checked="true" data-v="warm">Light</button><button type="button" role="radio" aria-checked="false" data-v="story">Stories</button><button type="button" role="radio" aria-checked="false" data-v="deep">Deeper</button></div>
+    <div class="seg" id="tt-lvl" role="radiogroup" aria-label="Question level"><span class="thumb" aria-hidden="true"></span><button type="button" role="radio" aria-checked="true" data-v="warm">Light</button><button type="button" role="radio" aria-checked="false" data-v="story">Stories</button><button type="button" role="radio" aria-checked="false" data-v="deep">Deeper</button><button type="button" role="radio" aria-checked="false" data-v="newyear">New Year</button></div>
+    <p class="hint">Deeper works best with teens and adults.</p>
     <div class="qdeck"><div class="qcard" id="tt-card"></div></div>
     <div class="tlinks">
       <button class="tbtn" type="button" id="tt-send"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Send this question to the family chat</button>
+      <button class="tbtn" type="button" id="tt-guess" aria-pressed="false">Make it a guessing game<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
       <button class="tbtn" type="button" id="tt-last">Last question<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
     </div>
   </div>
@@ -639,7 +702,7 @@ h1,h2,h3,p{margin:0}
   <header class="bar">
     <button class="ibtn" type="button" data-back aria-label="All games"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg></button>
     <h1 class="bar-title">Which Part of You Came to Dinner?</h1>
-    <button class="ibtn" type="button" data-help="parts" aria-label="Full rules"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg></button>
+    <button class="hbtn" type="button" data-help="parts"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg><span>How to play</span></button>
   </header>
   <div class="body">
     <div class="intro" id="pt-intro">
@@ -649,7 +712,7 @@ h1,h2,h3,p{margin:0}
         <li><span><b>Meet the parts one by one.</b> Tap &#x201C;That&#x2019;s me!&#x201D; on yours.</span></li>
         <li><span><b>Read the gift it brings.</b> Then try the 30-second reset.</span></li>
       </ol>
-      <button class="tbtn" type="button" data-help="parts">Full rules<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+      <button class="tbtn" type="button" data-help="parts">How to play<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
     </div>
     <div id="pt-deckview" class="stack">
       <div class="pprog"><div class="segs" id="pt-segs" aria-hidden="true"></div><button class="ibtn" type="button" id="pt-play" aria-label="Pause" hidden></button></div>
@@ -660,6 +723,19 @@ h1,h2,h3,p{margin:0}
       </div>
       <p class="hint center" id="pt-hint" aria-live="polite"></p>
       <div class="stack-s"><p class="hint" id="pt-faces-l">Or tap a face</p><div class="faces" id="pt-faces" role="group" aria-labelledby="pt-faces-l"></div></div>
+      <button class="tbtn center" type="button" id="pt-table-open">Play it together at the table<svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg></button>
+    </div>
+    <div id="pt-table" class="stack" hidden>
+      <div class="mk-top"><button class="tbtn" type="button" id="pt-table-back"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-back"></use></svg>Back</button><span class="lab">At the table</span></div>
+      <h2 class="h1">Which part came to dinner for you?</h2>
+      <ol class="steps" style="--nb:#E8A020;--nf:#2B211C">
+        <li><span><b>Phone in the middle.</b> Everyone looks at the faces.</span></li>
+        <li><span><b>Pick yours in secret.</b> Don&#x2019;t say it yet.</span></li>
+        <li><span><b>Count to three.</b> Everyone points at once.</span></li>
+      </ol>
+      <div class="tgrid" id="pt-tgrid" role="group" aria-label="The parts"></div>
+      <p class="hint center" id="pt-thint">After the reveal, tap a face to read the gift it brings.</p>
+      <div class="tgift" id="pt-tgift" hidden></div>
     </div>
     <div id="pt-result" hidden></div>
     <div id="pt-make" class="mk" hidden></div>
@@ -667,6 +743,7 @@ h1,h2,h3,p{margin:0}
   <div class="dock" id="pt-dock-deck"><button class="btn sec isq" type="button" id="pt-shuffle" aria-label="Shuffle"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-shuffle"></use></svg></button><button class="btn gold" type="button" id="pt-main">Show me the parts</button></div>
   <div class="dock" id="pt-dock-res" hidden><button class="btn sec" type="button" id="pt-share"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg>Share my part</button><button class="btn gold" type="button" id="pt-send">Send a thank-you</button></div>
   <div class="dock" id="pt-dock-mk" hidden><button class="btn gold" type="button" id="pt-mkgo">Show my part</button></div>
+  <div class="dock" id="pt-dock-table" hidden><button class="btn gold" type="button" id="pt-count">Count to three</button></div>
 </section>
 
 </div>
@@ -726,7 +803,8 @@ document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest
 const SITE='annamilaeva.com/family-games';
 const URL_BASE='https://annamilaeva.com/family-games/';
 const SHARE_LINK=URL_BASE+'?from=share';
-const BINGO_LINK=URL_BASE+'?play=bingo';
+const BINGO_LINK=URL_BASE+'bingo/';
+const PARTS_LINK=URL_BASE+'?play=parts';
 const NAMES={charades:'Family Charades',bingo:'Family Dinner Bingo',talk:'Questions for the Table',parts:'Which Part of You Came to Dinner?'};
 
 /* Portrait focus points (face centre x%, y%) */
@@ -737,7 +815,7 @@ function pic(name,cls,zoom){const f=FOCUS[name]||[50,30];return '<span class="'+
 /* Parts: change names here. short = face row and thank-you label. suit = card colour. */
 const PARTS=[
 {n:"The Fixer",short:"Fixer",img:"s_kate",suit:"sage",
- says:"I\u2019ll just get the plates.",
+ says:"Sit, sit. I\u2019ve got it.",
  does:"Jumps up to clear plates before anyone asks. Keeps everything running so nothing goes wrong.",
  gift:"Parts like this often bring an eye for what people need before they ask.",
  card:"Its gift: seeing what people need first.",
@@ -751,7 +829,7 @@ const PARTS=[
  prac:"Let one awkward silence happen. Count three slow breaths. Notice that nothing breaks.",
  thanks:"Thank you for keeping the peace. You don\u2019t have to hold this whole meal together."},
 {n:"The Critic",short:"Critic",img:"s_marta",suit:"night",
- says:"That\u2019s not how you do it.",
+ says:"It\u2019s good. But last year\u2019s was better.",
  does:"Spots everything that\u2019s off: the food, the clothes, the choices. Nobody escapes.",
  gift:"Parts like this often bring high standards and an eye for detail.",
  card:"Its gift: high standards.",
@@ -765,7 +843,7 @@ const PARTS=[
  prac:"Feet on the floor. Breathe out slowly. Say it now, say it tomorrow, or let it go. You choose, not the part.",
  thanks:"Thank you for standing up for what matters. We\u2019re listening. Maybe after dessert."},
 {n:"The 15-Year-Old",short:"15-Year-Old",img:"s_tom",suit:"terra",
- says:"Ugh. Seriously?",
+ says:"I\u2019ll be in my room.",
  does:"Shows up when someone treats you like a kid. Eyes roll. Arms cross.",
  gift:"Parts like this often bring a strong sense of what\u2019s fair, and no patience for pretending.",
  card:"Its gift: a strong sense of what\u2019s fair.",
@@ -779,14 +857,14 @@ const PARTS=[
  prac:"Next time it gets tense, wait one breath before the joke. Notice what\u2019s under it. Then decide.",
  thanks:"Thank you for the laughs. We\u2019d love to hear how you\u2019re really doing too."},
 {n:"The Worrier",short:"Worrier",img:"s_priya_worry",suit:"sage",
- says:"What if it all goes wrong?",
+ says:"Did anyone check the oven?",
  does:"Runs through everything that could go wrong. Checks the oven, the clock and everyone\u2019s mood.",
  gift:"Parts like this often bring good planning, and spot trouble early.",
  card:"Its gift: spotting trouble early.",
  prac:"Name three things that are fine right now. Then breathe out slowly, once.",
  thanks:"Thank you for thinking of everything. This time, we\u2019ve got it. Nothing is burning."},
 {n:"The Sleepyhead",short:"Sleepyhead",img:"s_donkey",suit:"gold",
- says:"Is it nap time yet?",
+ says:"I\u2019m not asleep. I\u2019m resting my eyes.",
  does:"Switches off after the third person asks the same question. Wants a quiet corner, now.",
  gift:"Parts like this often bring a sense of your limits, and protect your energy.",
  card:"Its gift: knowing when enough is enough.",
@@ -819,27 +897,28 @@ const WANTS=[
 {k:"peace",label:"Keep the peace",want:"keep the peace",names:["The Diplomat","The Referee"],gift:"Parts that keep the peace often help a whole room feel safer."},
 {k:"quiet",label:"Go quiet",want:"go quiet",names:["The Turtle","The Quiet One"],gift:"Parts that go quiet often save energy for what matters."},
 {k:"eyes",label:"Roll my eyes",want:"roll its eyes",names:["The Eye-Roller","The Unimpressed One"],gift:"Parts that roll their eyes often refuse to pretend. That honesty has value."},
-{k:"phone",label:"Hide in my phone",want:"disappear into the phone",names:["The Scroller","The Screen Break"],gift:"Parts that reach for the phone often know a short break is needed."}];
+{k:"phone",label:"Hide in my phone",want:"disappear into the phone",names:["The Scroller","The Screen Break"],gift:"Parts that reach for the phone often know a short break is needed."},
+{k:"kids",label:"Sit with the kids",want:"sit with the kids",names:["The Fun Cousin","The Kids\u2019 Table Regular"],gift:"Parts that head for the kids often know where the fun is."}];
 
 const CARDS=[
-"Carrying a pot that\u2019s too full","Blowing on soup that\u2019s too hot","Burning your tongue, acting fine","Grandpa\u2019s glasses are on his head",
-"Teaching Grandma to video call","Everyone talking at once","Squeezing in one more chair","Too full to move",
-"Hunting for the TV remote","Hunting for a phone charger","Loving a gift you secretly hate","The goodbye that takes an hour",
-"The kid who found the chocolate","Building a toy with no instructions","The dog steals food from the table","Arriving late with a bought dessert",
+"Carrying a pot that\u2019s too full","The oven was never on","Burning your tongue, acting fine","Grandpa\u2019s glasses are on his head",
+"Teaching Grandma to video call","Faking a phone call to escape","Squeezing in one more chair","Too full to move",
+"Hunting for the TV remote","Hugging a relative you don\u2019t recognise","Loving a gift you secretly hate","The goodbye that takes an hour",
+"The kid who found the chocolate","Playing an instrument for the relatives","The dog steals food from the table","Arriving late with a bought dessert",
 "Two hands reach for the last piece","Pretending you didn\u2019t hear the question","Doing the dishes to avoid talking","Asleep on the sofa by eight",
-"A selfie with the whole family","Still at the kids\u2019 table at 35","A hug that won\u2019t end","Carving at the table like a surgeon",
-"Saying \u201CI\u2019m fine\u201D when you\u2019re not","Dancing in the kitchen while cooking","A baby who won\u2019t stop crying","A sore loser at a board game",
-"Wrapping a gift at the last minute","Carrying a sleeping child to the car","Opening the oven: a wall of heat","Kids hiding under the table"];
+"A selfie with the whole family","A grown-up at the kids\u2019 table","A hug that won\u2019t end","Carving at the table like a surgeon",
+"Saying \u201CI\u2019m fine\u201D when you\u2019re not","Dancing in the kitchen while cooking","Being chased out of the kitchen","A sore loser at a board game",
+"A parent pockets your gift money","Carrying a sleeping child to the car","Opening the oven: a wall of heat","Kids hiding under the table"];
 
 const SQUARES=[
-"\u201CAre you seeing anyone?\u201D","Dinner is an hour late","Someone says \u201CPhones away!\u201D","Someone dozes off",
-"The same old family story","Politics. Briefly. Then not.","Happy tears","A kid melts down",
-"\u201CWhen I was your age\u2026\u201D","Something gets burned","You fix someone\u2019s phone","Someone sneaks a taste",
-"A speech that runs long","The pet gets fed under the table","Ten tries at the group photo","A baby story about you",
-"Leftovers get negotiated","\u201CSo what do you do again?\u201D","Someone photographs the food","You hide in the kitchen",
-"\u201CThis is my last year hosting\u201D","A game ends in an argument","\u201CWe should do this more often\u201D","Someone asks for the recipe",
-"Same story, two versions","Someone on a loud video call","Something gets spilled","Someone insists you eat more",
-"\u201CYou\u2019ve grown so much!\u201D","Someone checks the score","Someone arrives late","Phone photos get passed around"];
+"\u201CAre you seeing anyone?\u201D","\u201CWhat do you do again?\u201D","\u201CYou\u2019ve grown so much!\u201D","\u201CWhen I was your age\u2026\u201D",
+"\u201CI changed your diapers!\u201D","\u201CHow are we related?\u201D","A question you saw coming","Dinner is an hour late",
+"Something gets burned","Someone sneaks a taste","Leftovers get negotiated","\u201CHave some more!\u201D",
+"\u201COut of my kitchen!\u201D","Someone asks what\u2019s in it","Enough food for an army","A silly debate breaks out",
+"Someone bans politics","\u201CPhones away!\u201D","Someone dozes off","A speech that runs long",
+"The same old family story","Same story, two versions","Something gets spilled","You fix someone\u2019s phone",
+"A pet raids the table","A game gets too serious","Group photo, take ten","Someone vanishes for ages",
+"\u201CWe\u2019re leaving soon!\u201D","Someone arrives late","\u201CLet\u2019s do this more often\u201D","\u201CI\u2019m never hosting again\u201D"];
 
 const QS={
 warm:[
@@ -849,8 +928,10 @@ warm:[
 {q:"What food did you hate as a kid but love now?"},
 {q:"Which song should be banned from this house?"},
 {q:"If this family were a TV show, what would it be called?",more:"Who would play you?"},
-{q:"Who here would last longest on a desert island?",more:"What would they bring?"},
-{q:"Who at this table would make the best spy?",more:"What\u2019s their cover story?"},
+{q:"What\u2019s the weirdest gift you\u2019ve ever been given?",more:"Do you still have it?"},
+{q:"What\u2019s the silliest thing this family has argued about?",more:"Who was right?"},
+{q:"Which question does this family ask every single year?",more:"What\u2019s the best answer you\u2019ve heard?"},
+{q:"Who is the pet\u2019s favourite person here?",more:"How did they earn it?"},
 {q:"What\u2019s the strangest thing you believed as a kid?"},
 {q:"What one rule would you add to family meals?"},
 {q:"Which animal is most like this family?",more:"Which animal are you?"},
@@ -867,7 +948,11 @@ story:[
 {q:"Where does your name come from?",more:"Would you choose it again?"},
 {q:"What was your first job?",more:"What did you buy with your first pay?"},
 {q:"What\u2019s a gift that cost almost nothing and meant a lot?",more:"Who gave it to you?"},
-{q:"What did your home smell like when you were a kid?",more:"Which room do you remember best?"}],
+{q:"What did your home smell like when you were a kid?",more:"Which room do you remember best?"},
+{q:"Which family tradition started as a mistake or a joke?",more:"Who started it?"},
+{q:"What happened every single year when you were little?",more:"Does it still happen?"},
+{q:"How old were you when you left the kids\u2019 table?",more:"Did it feel like a promotion?"},
+{q:"What job did you always get at family meals as a kid?",more:"Do you still get it?"}],
 deep:[
 {q:"What did this family give you that you still use?"},
 {q:"What do you want to take into next year?",more:"What would you like to leave behind?"},
@@ -880,36 +965,51 @@ deep:[
 {q:"What\u2019s a hard thing you\u2019re proud you got through?"},
 {q:"When were you proud of someone at this table?",more:"Do they know?"},
 {q:"What small thing made your year better?"},
-{q:"Is there someone you miss today? Tell us one small thing about them."}]};
+{q:"Is there someone you miss today? Tell us one small thing about them."},
+{q:"What\u2019s a question you wish people asked you instead?",more:"Can we ask it now?"},
+{q:"How have you changed this year that we might not know?",more:"What helped?"}],
+newyear:[
+{q:"What was the best meal you had this year?",more:"Who made it?"},
+{q:"What\u2019s one small thing you want to do more of next year?"},
+{q:"Who made you laugh the most this year?",more:"What did they do?"},
+{q:"If this year were a movie, what would it be called?",more:"Who would play you?"},
+{q:"What\u2019s something you learned this year by accident?"},
+{q:"Which moment from this year would you replay?",more:"Who was there?"},
+{q:"What\u2019s a new thing you tried this year?",more:"Would you do it again?"},
+{q:"What\u2019s one thing this family should do together next year?"},
+{q:"What\u2019s one thing you\u2019re happy to leave in this year?"},
+{q:"What do you hope this table looks like next year?",more:"Who\u2019s sitting where?"}]};
 const LAST={q:"One word for today. Go round the table.",who:"Last question \u00B7 everyone answers"};
 
 const HELP={
-charades:`<h3>Full rules: Family Charades</h3>
+charades:`<h3>How to play: Family Charades</h3>
 <h4>Who plays</h4><p>Three or more. One person guesses. Everyone else acts.</p>
-<h4>Get ready</h4><ul><li>Pick a round: 60 seconds, 90 seconds, or no timer for small kids.</li><li>The guesser taps \u201CI\u2019m the guesser. Start\u201D. A 3-2-1 countdown begins.</li><li>Lift the phone to your forehead, screen facing the room. No peeking.</li></ul>
+<h4>Get ready</h4><ul><li>Pick a round: 60 seconds, 90 seconds, or no timer for small kids.</li><li>The guesser taps \u201CI\u2019m the guesser. Start\u201D. A 3-2-1 countdown begins.</li><li>The first time, a practice card shows how it works. No timer.</li><li>Lift the phone to your forehead, screen facing the room. No peeking.</li></ul>
 <h4>Acting</h4><ul><li>A family moment shows on the screen, like \u201CGrandpa\u2019s glasses are on his head\u201D.</li><li>Everyone else acts it out. Sounds are fine. Words are not.</li><li>No pointing at the screen.</li></ul>
 <h4>Scoring</h4><ul><li>Got it? Tap the bottom half of the screen. One point.</li><li>Too hard? Tap the top half to pass. No point lost.</li></ul>
 <h4>The timer</h4><p>A bar shrinks as time runs out. The screen pulses in the last 10 seconds.</p>
 <h4>Next turn</h4><p>Tap \u201CNext guesser\u201D and hand the phone on. The game keeps everyone\u2019s score. When you\u2019re done, tap \u201CEnd game\u201D to see the winner.</p>
 <h4>Big group?</h4><p>Play in two teams. Type the team name in \u201CWho\u2019s guessing?\u201D.</p>
-<h4>With small kids</h4><p>Choose \u201CNo timer\u201D. A grown-up can whisper the card to a child who can\u2019t read yet.</p>`,
-bingo:`<h3>Full rules: Family Dinner Bingo</h3>
+<h4>With small kids</h4><p>Choose \u201CNo timer\u201D. A grown-up can whisper the card to a child who can\u2019t read yet.</p>
+<h4>Your family\u2019s words</h4><p>Tap \u201CAdd our family\u2019s words\u201D to mix in the pet\u2019s name, the famous dish or a family saying.</p>`,
+bingo:`<h3>How to play: Family Dinner Bingo</h3>
 <h4>Before you eat</h4><ul><li>Send the link to the family chat. Everyone opens it on their own phone and gets their own card.</li><li>No phone? Share one. Kids can team up with a grown-up.</li></ul>
-<h4>During the meal</h4><ul><li>Keep your phone face up by your plate. Eat, talk, enjoy.</li><li>When something on your card happens, tap that square.</li><li>The middle square is free. You made it.</li><li>Tapped by mistake? Tap again to undo.</li></ul>
+<h4>During the meal</h4><ul><li>Keep your phone face up by your plate. Eat, talk, enjoy.</li><li>When something on your card happens, tap that square and say it out loud.</li><li>The middle square is free. You made it.</li><li>Tapped by mistake? Tap again to undo.</li></ul>
 <h4>Winning</h4><ul><li>Three in a line wins: across, down or corner to corner.</li><li>Shout \u201CBingo!\u201D, show your phone, and tell the table what happened.</li><li>Keep going. A second line is Double Bingo. A full card makes you a family legend.</li></ul>
-<h4>House rule</h4><p>No making squares happen on purpose. Fixing someone\u2019s phone is allowed. That\u2019s just kind.</p>`,
-talk:`<h3>Full rules: Questions for the Table</h3>
+<h4>House rules</h4><p>No making squares happen on purpose. Fixing someone\u2019s phone is allowed. That\u2019s just kind.</p><p>Asked a nosy question? You may answer \u201CTomorrow!\u201D and pass it back.</p><p>Every square is a moment, never a person.</p>`,
+talk:`<h3>How to play: Questions for the Table</h3>
 <h4>When</h4><p>After the main course, or with dessert, when people sit back. Two or more people.</p>
-<h4>Pick a level</h4><ul><li>Light: quick and funny. Start here.</li><li>Stories: memories and family moments.</li><li>Deeper: things that matter. Only if the table wants to.</li></ul>
-<h4>How a turn works</h4><ul><li>Whoever holds the phone reads the question out loud and answers.</li><li>Some cards have an \u201CAsk one more\u201D question. Anyone can ask it.</li><li>Then hand the phone to the next person. They tap \u201CNext question\u201D.</li><li>Want everyone to answer? Tap \u201CAsk everyone\u201D.</li></ul>
+<h4>Pick a level</h4><ul><li>Light: quick and funny. Start here.</li><li>Stories: memories and family moments.</li><li>Deeper: things that matter. Only if the table wants to. Works best with teens and adults.</li><li>New Year: the year behind and the year ahead.</li></ul>
+<h4>How a turn works</h4><ul><li>Whoever holds the phone reads the question out loud and answers.</li><li>Some cards have an \u201CAsk one more\u201D question. Anyone can ask it.</li><li>Then hand the phone to the next person. They tap \u201CNext question\u201D.</li><li>Want everyone to answer? Tap \u201CAsk everyone\u201D.</li><li>Want a game? Tap \u201CMake it a guessing game\u201D. The phone holder thinks of an answer, everyone else guesses, then the holder tells.</li></ul>
 <h4>Passing</h4><p>Anyone can say \u201CPass\u201D at any time. No reason needed.</p>
 <h4>Good to know</h4><p>Listen, don\u2019t fix. Don\u2019t argue with someone\u2019s memory. Laughing is allowed.</p>
 <h4>Someone missing?</h4><p>Send a question to the family chat, so they can answer too.</p>
 <h4>Ending</h4><p>Tap \u201CLast question\u201D for one closing question that everyone answers.</p>`,
-parts:`<h3>Full rules: Which Part of You Came to Dinner?</h3>
+parts:`<h3>How to play: Which Part of You Came to Dinner?</h3>
 <h4>What\u2019s a part?</h4><p>Everyone has different sides. Part of you loves this. Part of you wants a nap. Part of you wants to fix everything. Each part is trying to help, even when it gets loud.</p>
 <h4>When to play</h4><p>Something triggered you: a comment, a question, a look. Take your phone, at the table or for a minute outside.</p>
 <h4>How it works</h4><ul><li>Tap \u201CShow me the parts\u201D. They appear one at a time.</li><li>Swipe to go faster or back. Touch the screen to pause.</li><li>Tap \u201CThat\u2019s me!\u201D on the one that showed up. Or tap a face below to jump to it.</li><li>Read what it often does and the gift it brings. Then try the 30-second reset. Nobody will notice.</li></ul>
+<h4>At the table</h4><p>Tap \u201CPlay it together at the table\u201D. Everyone picks their part in secret, then points at once on three. Passing is fine.</p>
 <h4>None of them fit?</h4><p>Tap \u201CMake your own\u201D. Three taps: where you feel it, what it wants to do, and a name if you like.</p>
 <h4>Sharing</h4><p>Share your own part, or send a thank-you to someone. Pick the part you see in them, and they get a kind, funny note. It\u2019s for kindness, never for labels.</p>
 <h4>Good to know</h4><p>This is a light game, not therapy. It knows nothing about you, so it never guesses. It\u2019s inspired by IFS (Internal Family Systems), the approach Anna uses with clients.</p>`};
@@ -918,6 +1018,7 @@ parts:`<h3>Full rules: Which Part of You Came to Dinner?</h3>
 let unlocked=!!store.get('unlocked');
 let params;try{params=new URLSearchParams(location.search)}catch(e){params=new URLSearchParams()}
 const bingoInvite=params.get('play')==='bingo'||params.get('game')==='bingo';
+const partsInvite=params.get('play')==='parts';
 const SCREENS=['gate','home','charades','bingo','talk','parts'];
 const LOCKED=['home','charades','bingo','talk'];
 let current=null,firstShow=true,homeDealt=false;
@@ -925,9 +1026,9 @@ let current=null,firstShow=true,homeDealt=false;
 /* ================= sound, haptics, wake lock ================= */
 let soundOn=store.get('sound');if(soundOn===null)soundOn=true;
 let actx=null;
-function audio(){try{if(!actx){const A=window.AudioContext||window.webkitAudioContext;if(!A)return null;actx=new A()}if(actx.state==='suspended')actx.resume();return actx}catch(e){return null}}
+function audio(){try{if(navigator.audioSession&&navigator.audioSession.type!=='playback')navigator.audioSession.type='playback'}catch(e){}try{if(!actx){const A=window.AudioContext||window.webkitAudioContext;if(!A)return null;actx=new A()}if(actx.state==='suspended')actx.resume();return actx}catch(e){return null}}
 function tone(f,d,o){o=o||{};const a=audio();if(!a)return;try{const t=a.currentTime+(o.at||0);const os=a.createOscillator(),g=a.createGain();os.type=o.type||'sine';os.frequency.setValueAtTime(f,t);if(o.to)os.frequency.exponentialRampToValueAtTime(o.to,t+d);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(o.vol||0.12,t+0.012);g.gain.exponentialRampToValueAtTime(0.0001,t+d);os.connect(g);g.connect(a.destination);os.start(t);os.stop(t+d+0.03)}catch(e){}}
-const SFX={tick:()=>tone(880,.06,{vol:.06}),got:()=>{tone(1047,.11);tone(1319,.11,{at:.11})},pass:()=>tone(220,.14,{type:'triangle',to:160,vol:.14}),beep:()=>tone(1000,.03,{vol:.05}),up:()=>{tone(784,.14);tone(659,.14,{at:.14});tone(523,.22,{at:.28})}};
+const SFX={tick:()=>tone(880,.06,{vol:.06}),got:()=>{tone(1047,.11);tone(1319,.11,{at:.11})},pass:()=>tone(220,.14,{type:'triangle',to:160,vol:.14}),beep:()=>tone(1000,.03,{vol:.05}),soft:()=>tone(880,.04,{vol:.03}),up:()=>{tone(523,.14);tone(659,.14,{at:.14});tone(784,.3,{at:.28})}};
 function sfx(n){if(soundOn&&SFX[n])SFX[n]()}
 let wl=null,wantWake=false;
 async function wake(on){wantWake=on;try{if(on){if(!wl&&navigator.wakeLock&&navigator.wakeLock.request){wl=await navigator.wakeLock.request('screen');wl.addEventListener('release',()=>{wl=null})}}else if(wl){const w=wl;wl=null;await w.release()}}catch(e){wl=null}}
@@ -935,8 +1036,9 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
 
 /* ================= navigation (hash, so the phone's Back works) ================= */
 function resolve(id){
-  if(!SCREENS.includes(id))id=unlocked?(firstShow&&bingoInvite?'bingo':'home'):'gate';
-  if(!unlocked&&LOCKED.includes(id))id='gate';
+  if(!SCREENS.includes(id))id=firstShow&&bingoInvite?'bingo':firstShow&&partsInvite?'parts':(unlocked?'home':'gate');
+  /* Anna, 11 Nov 2026: relatives invited to bingo open their card without email; the ask comes at "Bingo!" */
+  if(!unlocked&&LOCKED.includes(id)&&!(id==='bingo'&&bingoInvite))id='gate';
   if(unlocked&&id==='gate')id='home';
   return id;
 }
@@ -973,7 +1075,7 @@ function enter(id){
   if(id==='gate')setupGate();
   if(id==='home')dealHome();
   if(id==='charades'){if(ch.state!=='end'&&ch.state!=='win')chShow('lobby');updSound();wake(true)}
-  if(id==='bingo'){if(!bn.card)bnLoad();else bnDraw();wake(true)}
+  if(id==='bingo'){if(!bn.card)bnLoad();else bnDraw();wake(true);$('#bn-unlock').hidden=unlocked}
   if(id==='talk'){if(!tt.opts.length)ttDeal(false)}
   if(id==='parts')ptReset();
   if(id!=='gate'&&id!=='home')track('game_start',{game:id,unlocked:unlocked?'yes':'no'});
@@ -981,7 +1083,7 @@ function enter(id){
 function leave(id){
   if(id==='charades'){chAbort();wake(false)}
   if(id==='bingo')wake(false);
-  if(id==='parts'){ptPause();clearInterval(pt.ringIv);clearTimeout(pt.mkTo)}
+  if(id==='parts'){ptPause();clearInterval(pt.ringIv);clearTimeout(pt.mkTo);clearInterval(pt.cdIv);if(pt.cd){pt.cd.remove();pt.cd=null}}
 }
 function updBack(){$$('[data-back]').forEach(b=>b.setAttribute('aria-label',unlocked?'All games':'Back'))}
 $$('[data-back]').forEach(b=>b.addEventListener('click',()=>{if(current==='parts'&&ptBack())return;go(unlocked?'home':'gate')}));
@@ -993,7 +1095,6 @@ window.addEventListener('scroll',onScroll,{passive:true});
 
 /* ================= sign-up ================= */
 function setupGate(){
-  if(bingoInvite){$('#gate-sub').textContent='Your family is playing Family Dinner Bingo. Get your own card.';$('#gate-title').textContent='Get your bingo card, free';$('#gate-go-t').textContent='Get my card'}
   const f=$('#fan');if(!RM()&&!f.dataset.done){f.dataset.done='1';f.classList.add('deal')}
 }
 /* Brevo: the sign-up goes out in the background. The games open at once and never wait on the network.
@@ -1026,9 +1127,28 @@ function tryEmail(input,err,dest,source){
   go(dest);
   setTimeout(()=>saveSignup(email,source),0);
 }
-$('#gate-go').addEventListener('click',()=>tryEmail($('#gate-email'),$('#gate-err'),bingoInvite?'bingo':'home',bingoInvite?'bingo-invite':'gate'));
+$('#gate-go').addEventListener('click',()=>tryEmail($('#gate-email'),$('#gate-err'),'home',bingoInvite?'bingo-invite':'gate'));
+$('#bn-go').addEventListener('click',()=>tryEmail($('#bn-email'),$('#bn-err'),'bingo','bingo-invite'));
+$('#bn-email').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#bn-go').click()}});
 $('#gate-email').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#gate-go').click()}});
 $('#try').addEventListener('click',()=>go('parts'));
+
+/* ================= keep it on your phone ================= */
+let installEvt=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installEvt=e});
+function keepSheet(){
+  let standalone=false;try{standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(e){}
+  const ios='<h4>iPhone or iPad</h4><ol><li>Open this page in Safari.</li><li>Tap the Share button, the square with an arrow.</li><li>Tap \u201CAdd to Home Screen\u201D, then \u201CAdd\u201D.</li></ol>';
+  const and='<h4>Android</h4><ol><li>Open this page in Chrome.</li><li>Tap the menu, the three dots at the top.</li><li>Tap \u201CAdd to Home screen\u201D or \u201CInstall app\u201D.</li></ol>';
+  sheet({label:'Keep it on your phone',cls:'keep',html:'<h2 class="h2">Keep Already Home on your phone</h2><p class="fine">It opens like an app, with the llama icon, and works on weak wifi after one visit.</p>'+
+    (standalone?'<p class="hint">You\u2019re already playing from your home screen.</p>':'')+
+    (installEvt?'<button class="btn wide" type="button" data-a="install">'+I('download')+'Add to home screen</button>':'')+
+    (IOS?ios+and:and+ios)+
+    (INAPP?'<p class="hint">Opened from Instagram or Facebook? Tap \u22EF first, then \u201COpen in browser\u201D.</p>':'')+
+    '<button class="btn sec wide" type="button" data-a="close">Close</button>',
+    onReady:o=>{const b=$('[data-a="install"]',o);if(b)b.addEventListener('click',async()=>{try{const ev=installEvt;installEvt=null;ev.prompt();const r=await ev.userChoice;track('install',{outcome:(r&&r.outcome)||''})}catch(e){}})}});
+}
+$('#keep').addEventListener('click',keepSheet);
 
 /* ================= home ================= */
 function dealHome(){const t=$('#tiles');if(homeDealt||RM())return;homeDealt=true;t.classList.add('deal');setTimeout(()=>t.classList.remove('deal'),800)}
@@ -1066,7 +1186,7 @@ function sheet(opts){
   return sheetCtl;
 }
 const SUIT_BTN={charades:'',bingo:'sage',talk:'gold',parts:'gold'};
-function rules(g){sheet({label:'Full rules: '+NAMES[g],cls:'rules r-'+g,html:'<div class="sheet-scroll help">'+HELP[g]+'</div><div class="sheet-foot"><button class="btn wide '+SUIT_BTN[g]+'" type="button" data-a="close">Got it. Let\u2019s play</button></div>'})}
+function rules(g){sheet({label:'How to play: '+NAMES[g],cls:'rules r-'+g,html:'<div class="sheet-scroll help">'+HELP[g]+'</div><div class="sheet-foot"><button class="btn wide '+SUIT_BTN[g]+'" type="button" data-a="close">Got it. Let\u2019s play</button></div>'})}
 
 /* ================= share: copy, web share, canvas card ================= */
 function canWebShare(){try{if(!navigator.share)return false;if(document.featurePolicy&&document.featurePolicy.allowsFeature&&!document.featurePolicy.allowsFeature('web-share'))return false;return true}catch(e){return false}}
@@ -1079,6 +1199,7 @@ function copyText(text,box){
     else sheet({label:'Copy the link',html:'<p class="copytext">'+esc(text)+'</p><button class="btn sec wide" type="button" data-a="close">Close</button>'});};
   try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fail)}else fail()}catch(e){fail()}
 }
+const INAPP=(()=>{try{return /Instagram|FBAN|FBAV|FB_IAB|FBIOS|Line\//i.test(navigator.userAgent)}catch(e){return false}})();
 const IOS=(()=>{try{return /iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)}catch(e){return false}})();
 const TOUCH=()=>{try{return window.matchMedia('(pointer: coarse)').matches}catch(e){return false}};
 function tShare(what,how){track(what==='invite'?'invite':'share',{what,how})}
@@ -1157,22 +1278,24 @@ function shareSheet(c){
     (c.lead?'<p class="slead">'+esc(c.lead)+'</p>':'')+
     '<div class="seg fmt" role="radiogroup" aria-label="Picture shape"><span class="thumb" aria-hidden="true"></span><button type="button" role="radio" aria-checked="true" data-v="post">Post 4:5</button><button type="button" role="radio" aria-checked="false" data-v="story">Story 9:16</button></div>'+
     '<div class="pvwrap"><div class="pv" role="img" aria-label="'+esc(alt)+'">'+cardHTML(c)+'</div></div>'+
-    '<p class="hint center" data-r="hint" hidden>Press and hold the picture to save it.</p>'+
+    '<p class="hint center" data-r="hint"'+(INAPP?'':' hidden')+'>Press and hold the picture to save it.</p>'+
+    (INAPP?'<p class="hint center">To share or save, open this page in your browser: tap \u22EF, then \u201COpen in browser\u201D.</p>':'')+
     '<button class="btn wide '+(SHARE_BTN[c.suit]||'')+'" type="button" data-a="send">'+I('share')+'Send to the family chat</button>'+
     '<button class="btn sec wide" type="button" data-a="save">'+I('download')+'Save picture</button>'+
     '<div data-r="althost"></div>'+
     '<button class="tbtn center" type="button" data-a="close">Close</button>',
-    onClose:()=>{Object.keys(made).forEach(k=>{if(made[k])try{URL.revokeObjectURL(made[k].url)}catch(e){}})},
+    onClose:()=>{Object.keys(made).forEach(k=>{if(made[k])try{URL.revokeObjectURL(made[k].url)}catch(e){}});if(c.after)setTimeout(()=>{try{c.after()}catch(e){}},60)},
     onReady:(o)=>{
       const pv=$('.pv',o);
       const render=async()=>{const f=fmt;pv.classList.toggle('story',f==='story');if(!(f in made)){pv.innerHTML=cardHTML(c);made[f]=await drawCard(c,f)}if(f!==fmt||!document.contains(pv))return;const r=made[f];pv.innerHTML=r?'<img class="shot" src="'+r.url+'" alt="">':cardHTML(c)};
-      seg($('.fmt',o),v=>{fmt=v;$('[data-r="hint"]',o).hidden=true;render()});
+      seg($('.fmt',o),v=>{fmt=v;$('[data-r="hint"]',o).hidden=!INAPP;render()});
       render();
       $('[data-a="send"]',o).addEventListener('click',()=>{const r=made[fmt];sendShare(c.text,r&&r.file,c.what,$('[data-r="althost"]',o))});
       $('[data-a="save"]',o).addEventListener('click',()=>{const r=made[fmt];
         if(!r){toast('Couldn\u2019t save. Take a screenshot instead.');return}
         const hint=()=>{$('[data-r="hint"]',o).hidden=false};
         tShare(c.what,'save');
+        if(INAPP){hint();return}
         /* iPhone and iPad: press and hold the picture, or "Save Image" in the share menu */
         if(IOS){hint();try{if(canWebShare()&&r.file&&navigator.canShare&&navigator.canShare({files:[r.file]}))navigator.share({files:[r.file]}).catch(()=>{})}catch(e){}return}
         /* Everyone else: a real download */
@@ -1210,7 +1333,7 @@ function chStart(){
   ch.name=$('#ch-name').value.trim().slice(0,24);ch.got=[];ch.passed=[];ch.last=false;ch.done=false;ch.roundLen=ch.len;
   if(soundOn)audio();
   wake(true);
-  openLayer('round',()=>{if(ch.cd){clearInterval(ch.cdIv);ch.cd.remove();ch.cd=null;document.documentElement.style.overflow='';ch.done=true;return}chEnd()});
+  openLayer('round',()=>{if(ch.cd){clearInterval(ch.cdIv);ch.cd.remove();ch.cd=null;document.documentElement.style.overflow='';ch.done=true;return}chEnd()},true);
   const o=document.createElement('div');o.className='ovl count';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.setAttribute('aria-label','Countdown');
   o.innerHTML='<div class="n land num" aria-live="assertive">3</div><p>Phone on your forehead. Screen out.</p>';
   document.body.appendChild(o);ch.cd=o;document.documentElement.style.overflow='hidden';let n=3;sfx('tick');
@@ -1229,20 +1352,20 @@ function chPlay(){
   $('.fh-zone.bot',fh).addEventListener('click',()=>chAnswer(true));
   $('.fh-stop',fh).addEventListener('click',e=>{e.stopPropagation();chEnd()});
   fh.addEventListener('keydown',e=>{if(e.key==='ArrowUp'){e.preventDefault();chAnswer(false)}else if(e.key==='ArrowDown'){e.preventDefault();chAnswer(true)}else if(e.key==='Escape'){e.preventDefault();chEnd()}});
-  ch.deck=shuffle(CARDS);chNext('down');
+  ch.deck=chDeck();chNext('down');
   fh.tabIndex=-1;try{fh.focus({preventScroll:true})}catch(e){}
   wake(true);
   if(ch.roundLen){ch.t=ch.roundLen;chTick();ch.iv=setInterval(()=>{ch.t--;chTick();if(ch.t<=0){clearInterval(ch.iv);chLast()}},1000)}
 }
 function chTick(){const fh=ch.fh;if(!fh)return;const tm=$('.fh-time',fh);tm.textContent=fmtT(Math.max(0,ch.t));$('.fh-bar i',fh).style.setProperty('--p',Math.max(0,ch.t)/ch.roundLen);
   if(ch.t<=10&&ch.t>0){fh.classList.add('hurry');if(!RM()){tm.classList.remove('tick');void tm.offsetWidth;tm.classList.add('tick')}}
-  if(ch.t<=5&&ch.t>0)sfx('beep');
+  if(ch.t<=10&&ch.t>0)sfx(ch.t<=5?'beep':'soft');
   if(ch.t===30||ch.t===10)live(ch.t+' seconds left');}
 function chLast(){const fh=ch.fh;if(!fh)return;ch.last=true;const tm=$('.fh-time',fh);tm.textContent='Last chance!';live('Last chance!');ch.lastTo=setTimeout(chTimesUp,3000)}
-function chNext(dir){if(!ch.deck.length)ch.deck=shuffle(CARDS);ch.cur=ch.deck.pop();const p=$('.fh-prompt p',ch.fh);p.textContent=ch.cur;p.classList.remove('in-down','in-up');void p.offsetWidth;p.classList.add(dir==='up'?'in-up':'in-down')}
+function chNext(dir){if(!ch.deck.length)ch.deck=chDeck();ch.cur=ch.deck.pop();ch.cardAt=Date.now();const p=$('.fh-prompt p',ch.fh);p.textContent=ch.cur;p.classList.remove('in-down','in-up');void p.offsetWidth;p.classList.add(dir==='up'?'in-up':'in-down')}
 function flash(got){const f=document.createElement('div');f.className='flash '+(got?'got':'pass');f.setAttribute('aria-hidden','true');f.innerHTML=I(got?'check':'up')+'<b>'+(got?'Got it':'Pass')+'</b>';document.body.appendChild(f);setTimeout(()=>f.remove(),420)}
 function chAnswer(got){
-  if(!ch.fh||!ch.cur)return;const now=Date.now();if(now-ch.lastTap<300)return;ch.lastTap=now;
+  if(!ch.fh||!ch.cur)return;const now=Date.now();if(now-ch.lastTap<300||now-(ch.cardAt||0)<450)return;ch.lastTap=now;
   (got?ch.got:ch.passed).push(ch.cur);
   flash(got);vib(got?[20,40,20]:30);sfx(got?'got':'pass');
   $('.fh-score .v',ch.fh).textContent=ch.got.length;
@@ -1276,19 +1399,67 @@ function chEnd(){
   countUp($('#ch-final'),n);live(label+': '+n+' guessed.');
   try{$('#ch-next').focus({preventScroll:true})}catch(e){}
 }
-function chAbort(){clearInterval(ch.cdIv);if(ch.cd){ch.cd.remove();ch.cd=null}if(ch.tup){chEnd();return}chClosePlay();ch.done=true}
+function chAbort(){if(ch.pr){ch.pr.remove();ch.pr=null;document.documentElement.style.overflow=''}clearInterval(ch.cdIv);if(ch.cd){ch.cd.remove();ch.cd=null}if(ch.tup){chEnd();return}chClosePlay();ch.done=true}
 function joinNames(a){return a.length<2?(a[0]||''):a.slice(0,-1).join(', ')+' and '+a[a.length-1]}
 function chWin(){const ts=totals();const top=ts.length?ts[0].n:0;const leaders=ts.filter(t=>t.n===top);
   ch.winner={names:joinNames(leaders.map(t=>t.name)),n:top,tie:leaders.length>1};
   $('#ch-win-big').textContent=ch.winner.tie?'It\u2019s a tie!':ch.winner.names+' wins!';
   $('#ch-win-line').textContent=ch.winner.tie?ch.winner.names+', '+top+' each. Rematch?':top+' guessed. Take a bow.';
+  const all=ch.rounds.reduce((a,r)=>a+r.n,0);$('#ch-together').textContent='Together: '+all+' family moment'+(all===1?'':'s');
   board($('#ch-win-board'));chShow('win');try{window.scrollTo(0,0)}catch(e){}confetti();live($('#ch-win-big').textContent)}
-$('#ch-start').addEventListener('click',chStart);
-$('#ch-name').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();chStart()}});
+/* First time on this phone: a practice card, no timer, before the real round */
+const PRACTICE=['Too full to move','A hug that won\u2019t end','Asleep on the sofa by eight'];
+function chGo(){if(!store.get('chPracticed'))chPractice();else chStart()}
+function chPracticeClose(keepLayer){if(ch.pr){ch.pr.remove();ch.pr=null}document.documentElement.style.overflow='';if(!keepLayer)dropLayer('round')}
+function chPractice(){
+  if(ch.cd||ch.fh||ch.pr)return;
+  if(soundOn)audio();wake(true);
+  openLayer('round',()=>chPracticeClose());
+  let pi=0;
+  const o=document.createElement('div');o.className='fh practice';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.setAttribute('aria-label','Practice card');
+  o.innerHTML='<div class="pr-head"><b>Practice card</b><span>Phone on your forehead, screen facing out. The others act. Tap the bottom half if you got it, the top half to pass.</span></div>'+
+    '<button class="fh-zone top" type="button" aria-label="Pass"><span class="zl">PASS'+I('up')+'</span></button>'+
+    '<button class="fh-zone bot" type="button" aria-label="Got it"><span class="zl">GOT IT'+I('down')+'</span></button>'+
+    '<div class="fh-prompt" aria-live="polite"><p class="in-down">'+esc(PRACTICE[0])+'</p></div>'+
+    '<button class="fh-stop" type="button">Skip practice</button>';
+  document.body.appendChild(o);ch.pr=o;document.documentElement.style.overflow='hidden';
+  let busy=false;
+  const done=got=>{if(!ch.pr)return;store.set('chPracticed',true);
+    const d=document.createElement('div');d.className='pr-done';
+    d.innerHTML='<b>'+(got?'Got it!':'Passed!')+'</b><p>'+(got?'That\u2019s a point.':'No point lost.')+' That\u2019s the whole game.</p><button class="btn ink" type="button" data-a="go">Start the round</button><button class="btn sec" type="button" data-a="again">Practice again</button>';
+    o.appendChild(d);
+    $('[data-a="go"]',d).addEventListener('click',()=>{chPracticeClose(true);chStart()});
+    $('[data-a="again"]',d).addEventListener('click',()=>{d.remove();busy=false;pi=(pi+1)%PRACTICE.length;const p=$('.fh-prompt p',o);p.textContent=PRACTICE[pi];p.classList.remove('in-down');void p.offsetWidth;p.classList.add('in-down')});
+    try{$('[data-a="go"]',d).focus({preventScroll:true})}catch(e){}};
+  const tap=got=>{if(busy)return;busy=true;flash(got);vib(got?[20,40,20]:30);sfx(got?'got':'pass');setTimeout(()=>done(got),420)};
+  $('.fh-zone.top',o).addEventListener('click',()=>tap(false));
+  $('.fh-zone.bot',o).addEventListener('click',()=>tap(true));
+  $('.fh-stop',o).addEventListener('click',e=>{e.stopPropagation();store.set('chPracticed',true);chPracticeClose(true);chStart()});
+  o.tabIndex=-1;try{o.focus({preventScroll:true})}catch(e){}
+}
+$('#ch-start').addEventListener('click',chGo);
+$('#ch-practice').addEventListener('click',chPractice);
+$('#ch-name').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();chGo()}});
+
+/* Our family's words: mixed in near the top of the deck so they come up in the round */
+const fw={list:(()=>{const v=store.get('fw');return Array.isArray(v)?v.filter(x=>typeof x==='string').slice(0,20):[]})()};
+function fwDraw(){const l=$('#fw-list');l.innerHTML=fw.list.map((w,i)=>'<span class="fwchip">'+esc(w)+'<button type="button" data-i="'+i+'" aria-label="Remove '+esc(w)+'">'+I('close')+'</button></span>').join('');
+  $$('button',l).forEach(b=>b.addEventListener('click',()=>{fw.list.splice(+b.dataset.i,1);store.set('fw',fw.list);fwDraw()}));
+  $('#fw-open-t').textContent=fw.list.length?'Our family\u2019s words ('+fw.list.length+')':'Add our family\u2019s words'}
+function fwAdd(){const inp=$('#fw-in');const v=inp.value.replace(/\s+/g,' ').trim().slice(0,40);if(!v){inp.focus();return}
+  if(fw.list.length>=20){toast('That\u2019s 20 already. Remove one to add another.');return}
+  if(!fw.list.some(x=>x.toLowerCase()===v.toLowerCase()))fw.list.push(v);store.set('fw',fw.list);inp.value='';fwDraw();try{inp.focus()}catch(e){}}
+$('#fw-open').addEventListener('click',()=>{const b=$('#fw-box');b.hidden=!b.hidden;$('#fw-open').setAttribute('aria-expanded',b.hidden?'false':'true');if(!b.hidden)try{$('#fw-in').focus()}catch(e){}});
+$('#fw-add').addEventListener('click',fwAdd);
+$('#fw-in').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();fwAdd()}});
+fwDraw();
+function chDeck(){const base=shuffle(CARDS);if(!fw.list.length)return base;const k=Math.min(base.length,Math.max(6,fw.list.length*2));const top=shuffle(fw.list.concat(base.slice(base.length-k)));return base.slice(0,base.length-k).concat(top)}
 $('#ch-next').addEventListener('click',()=>{$('#ch-name').value='';chShow('lobby');try{window.scrollTo(0,0)}catch(e){}});
 $('#ch-endgame').addEventListener('click',chWin);
 $('#ch-new').addEventListener('click',()=>{ch.rounds=[];$('#ch-name').value='';chShow('lobby');try{window.scrollTo(0,0)}catch(e){}});
 $('#ch-share').addEventListener('click',()=>{const r=ch.rounds[ch.rounds.length-1];const n=r?r.n:0;const L=ch.roundLen;
+  if(n<=3){shareSheet({what:'charades-score',suit:'terra',kicker:NAMES.charades,img:'s_daniel_phone',big:'We laughed more than we guessed.',small:'Your turn.',
+    text:'We laughed more than we guessed. Your turn: '+SHARE_LINK});return}
   shareSheet({what:'charades-score',suit:'terra',kicker:NAMES.charades,img:'s_daniel_phone',
     big:L?'I guessed '+n+' in '+L+' seconds':'I guessed '+n+' family moment'+(n===1?'':'s'),
     small:ch.passed.length?'The one that got away: \u201C'+stripQ(ch.passed[0])+'\u201D':'Not a single pass.',
@@ -1350,15 +1521,16 @@ function bnBingo(last){
   setTimeout(()=>{ban.remove();bnWinMarks();if(current==='bingo')bnShare(last)},1300);
 }
 function bnShare(last){const s=stripQ(last);shareSheet({what:'bingo',suit:'sage',lead:'Bingo! Tell the table what happened.',kicker:NAMES.bingo,big:'Bingo at our table!',small:'Winning square: \u201C'+s+'\u201D',img:'s_priya_bingo',
-  text:'Bingo at our family table! Winning square: \u201C'+s+'\u201D. Get your own card: '+BINGO_LINK})}
+  text:'Bingo at our family table! Winning square: \u201C'+s+'\u201D. It\u2019s not just your family. Get your own card: '+BINGO_LINK,
+  after:()=>{if(!unlocked&&current==='bingo'){const u=$('#bn-unlock');u.hidden=false;try{u.scrollIntoView({behavior:RM()?'auto':'smooth',block:'center'})}catch(e){}}}})}
 $('#bn-new').addEventListener('click',()=>{
   if(!bn.armed){bn.armed=true;$('#bn-new-t').textContent='Tap again to clear your card';clearTimeout(bn.armTo);bn.armTo=setTimeout(()=>{bn.armed=false;$('#bn-new-t').textContent='New card'},3000);return}
   bn.armed=false;clearTimeout(bn.armTo);$('#bn-new-t').textContent='New card';bnNew(true);
 });
 
 /* ================= QUESTIONS FOR THE TABLE ================= */
-const tt={lvl:'warm',pools:{},mode:'pick',opts:[],q:null,all:false};
-const LVL={warm:'Light',story:'Stories',deep:'Deeper'};
+const tt={lvl:'warm',pools:{},mode:'pick',opts:[],q:null,all:false,guess:false};
+const LVL={warm:'Light',story:'Stories',deep:'Deeper',newyear:'New Year'};
 function ttTake(){const l=tt.lvl;if(!tt.pools[l]||!tt.pools[l].length)tt.pools[l]=shuffle(QS[l]);return tt.pools[l].pop()}
 function ttDeal(anim){const a=ttTake();let b=ttTake();if(b===a)b=ttTake();tt.opts=[a,b];tt.mode='pick';tt.all=false;tt.q=null;ttRender(anim)}
 function ttRender(anim){
@@ -1366,19 +1538,21 @@ function ttRender(anim){
   let h='<p class="lab">'+(tt.mode==='last'?'Last question':LVL[tt.lvl])+'</p>';
   if(tt.mode==='pick')h+='<div class="qopts">'+tt.opts.map((o,i)=>'<button class="qopt" type="button" data-i="'+i+'">'+esc(o.q)+'</button>').join('')+'</div>';
   else{const q=tt.mode==='last'?LAST:tt.q;h+='<p class="qtext">'+esc(q.q)+'</p>'+(tt.mode==='q'&&q.more?'<p class="qmore">Ask one more: '+esc(q.more)+'</p>':'')}
-  const who=tt.mode==='pick'?'Pick one to answer.':tt.mode==='last'?LAST.who:tt.all?'Everyone answers this one. Go round the table.':'Whoever holds the phone answers';
-  h+='<div class="qwho'+((tt.all&&tt.mode==='q')||tt.mode==='last'?' all':'')+'">'+pic('s_tom_story','av',1.5)+'<span>'+esc(who)+'</span></div>';
+  const who=tt.mode==='pick'?'Pick one to answer.':tt.mode==='last'?LAST.who:tt.guess?'Guessing game: the phone holder thinks of an answer. Everyone else guesses first.':tt.all?'Everyone answers this one. Go round the table.':'Whoever holds the phone answers';
+  h+='<div class="qwho'+(((tt.all||tt.guess)&&tt.mode==='q')||tt.mode==='last'?' all':'')+'">'+pic('s_tom_story','av',1.5)+'<span>'+esc(who)+'</span></div>';
   c.innerHTML=h;
   $$('.qopt',c).forEach(b=>b.addEventListener('click',()=>{tt.q=tt.opts[+b.dataset.i];tt.mode='q';ttRender(true);live(tt.q.q)}));
   $('#tt-dock').hidden=tt.mode==='last';$('#tt-dock-last').hidden=tt.mode!=='last';
   const all=$('#tt-all');all.disabled=tt.mode!=='q';all.setAttribute('aria-pressed',tt.all?'true':'false');
   $('#tt-send').hidden=tt.mode!=='q';$('#tt-last').hidden=tt.mode==='last';
+  const gb=$('#tt-guess');gb.hidden=tt.mode!=='q';gb.setAttribute('aria-pressed',tt.guess?'true':'false');gb.firstChild.textContent=tt.guess?'Back to normal questions':'Make it a guessing game';
   if(anim&&!RM()){c.classList.remove('deal');void c.offsetWidth;c.classList.add('deal')}
 }
 function ttNext(){const c=$('#tt-card');if(RM()||tt.mode!=='q'){ttDeal(true);return}c.classList.add('out');setTimeout(()=>ttDeal(true),240)}
 seg($('#tt-lvl'),v=>{tt.lvl=v;ttDeal(true)});
 $('#tt-next').addEventListener('click',ttNext);
-$('#tt-all').addEventListener('click',()=>{if(tt.mode!=='q')return;tt.all=!tt.all;ttRender(false)});
+$('#tt-all').addEventListener('click',()=>{if(tt.mode!=='q')return;tt.all=!tt.all;if(tt.all)tt.guess=false;ttRender(false)});
+$('#tt-guess').addEventListener('click',()=>{if(tt.mode!=='q')return;tt.guess=!tt.guess;if(tt.guess)tt.all=false;ttRender(false);live(tt.guess?'Guessing game on':'Guessing game off')});
 $('#tt-last').addEventListener('click',()=>{tt.mode='last';tt.all=false;ttRender(true);live(LAST.q)});
 $('#tt-again').addEventListener('click',()=>ttDeal(true));
 $('#tt-home').addEventListener('click',()=>go('home'));
@@ -1393,7 +1567,7 @@ $('#tt-send').addEventListener('click',()=>{if(!tt.q)return;shareSheet({what:'qu
 
 /* ================= WHICH PART OF YOU CAME TO DINNER? ================= */
 const NONE=PARTS.length+1;
-const pt={mode:'deck',idx:0,started:false,playing:false,el:0,lt:0,raf:0,tx:0,autoAt:0,prevIdx:0,chosen:null,own:null,ringIv:null,mk:null,mkTo:null};
+const pt={mode:'deck',idx:0,started:false,playing:false,el:0,lt:0,raf:0,tx:0,autoAt:0,prevIdx:0,chosen:null,own:null,ringIv:null,mk:null,mkTo:null,cd:null,cdIv:null,revealed:false};
 (function buildDeck(){
   const cards=['<div class="pcard s-paper" data-k="0" role="group" aria-roledescription="slide" aria-label="Start">'+pic('s_llama','arch a-wide')+'<h3 class="pname">Who came to dinner?</h3></div>'];
   PARTS.forEach((p,i)=>cards.push('<div class="pcard s-'+p.suit+'" data-k="'+(i+1)+'" role="group" aria-roledescription="slide" aria-label="'+(i+1)+' of '+PARTS.length+': '+esc(p.n)+'">'+pic(p.img,'arch a-wide'+(p.ring?' self-glow':''))+'<h3 class="pname">'+esc(p.n)+'</h3><p class="psays">\u201C'+esc(p.says)+'\u201D</p></div>'));
@@ -1402,7 +1576,7 @@ const pt={mode:'deck',idx:0,started:false,playing:false,el:0,lt:0,raf:0,tx:0,aut
   $('#pt-segs').innerHTML=Array.from({length:NONE},()=>'<i><b></b></i>').join('');
   $('#pt-faces').innerHTML=PARTS.map((p,i)=>'<button class="face" type="button" data-k="'+(i+1)+'" aria-label="'+esc(p.n)+'">'+pic(p.img,'av',1.55)+'</button>').join('')+'<button class="ownpill" type="button" id="pt-own">'+I('plus')+'Your own</button>';
 })();
-function setDock(n){['deck','res','mk'].forEach(k=>{$('#pt-dock-'+k).hidden=k!==n})}
+function setDock(n){['deck','res','mk','table'].forEach(k=>{$('#pt-dock-'+k).hidden=k!==n})}
 function ptLayout(anim){
   const deck=$('#pt-deck');const vw=deck.clientWidth||343;const cw=Math.min(276,Math.round(vw*0.74));const gap=12;
   deck.style.setProperty('--cw',cw+'px');deck.style.setProperty('--at',Math.round(16+(cw-32)*0.4)+'px');
@@ -1434,13 +1608,30 @@ function ptStart(){pt.started=true;$('#pt-intro').hidden=true;try{window.scrollT
 function ptReset(){
   ptPause();clearInterval(pt.ringIv);clearTimeout(pt.mkTo);
   pt.mode='deck';pt.started=false;pt.idx=0;pt.el=0;pt.chosen=null;pt.own=null;
-  $('#pt-intro').hidden=false;$('#pt-deckview').hidden=false;$('#pt-result').hidden=true;$('#pt-make').hidden=true;
+  $('#pt-intro').hidden=false;$('#pt-deckview').hidden=false;$('#pt-result').hidden=true;$('#pt-make').hidden=true;$('#pt-table').hidden=true;
   setDock('deck');ptLayout(false);ptUpdate();
 }
 /* The phone's Back from a result or from Make your own works like the Back button on screen */
 function ptLayer(){openLayer('parts',()=>{if(pt.mode==='make'&&pt.mk&&pt.mk.step>0){clearTimeout(pt.mkTo);pt.mk.step--;mkRender();ptLayer();return}if(pt.mode!=='deck'){$('#pt-make').hidden=true;ptToDeck()}},true)}
-function ptToDeck(){dropLayer('parts');clearInterval(pt.ringIv);pt.mode='deck';$('#pt-result').hidden=true;$('#pt-make').hidden=true;$('#pt-deckview').hidden=false;setDock('deck');ptLayout(false);ptUpdate();try{window.scrollTo(0,0)}catch(e){}}
-function ptBack(){if(pt.mode==='make'){mkBack();return true}if(pt.mode==='result'||pt.mode==='own'){ptToDeck();return true}return false}
+function ptToDeck(){dropLayer('parts');clearInterval(pt.ringIv);clearInterval(pt.cdIv);if(pt.cd){pt.cd.remove();pt.cd=null}pt.mode='deck';$('#pt-result').hidden=true;$('#pt-make').hidden=true;$('#pt-table').hidden=true;$('#pt-deckview').hidden=false;setDock('deck');ptLayout(false);ptUpdate();try{window.scrollTo(0,0)}catch(e){}}
+function ptBack(){if(pt.mode==='make'){mkBack();return true}if(pt.mode==='result'||pt.mode==='own'||pt.mode==='table'){ptToDeck();return true}return false}
+/* At the table: everyone picks a part in secret, then points at once on three. Nothing is interpreted. */
+(function buildTable(){$('#pt-tgrid').innerHTML=PARTS.map((p,i)=>'<button class="tface" type="button" data-i="'+i+'" aria-pressed="false">'+pic(p.img,'av',1.55)+'<span>'+esc(p.short)+'</span></button>').join('');
+  $$('#pt-tgrid .tface').forEach(b=>b.addEventListener('click',()=>{if(!pt.revealed){toast('Count to three first.');return}const p=PARTS[+b.dataset.i];$$('#pt-tgrid .tface').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));const g=$('#pt-tgift');g.textContent=p.n+': '+p.gift;g.hidden=false}))})();
+function ptTable(){ptPause();clearInterval(pt.ringIv);pt.mode='table';pt.revealed=false;
+  $('#pt-intro').hidden=true;$('#pt-deckview').hidden=true;$('#pt-result').hidden=true;$('#pt-make').hidden=true;$('#pt-table').hidden=false;$('#pt-tgift').hidden=true;
+  $$('#pt-tgrid .tface').forEach(b=>b.setAttribute('aria-pressed','false'));$('#pt-thint').textContent='After the reveal, tap a face to read the gift it brings.';$('#pt-count').textContent='Count to three';
+  setDock('table');ptLayer();try{window.scrollTo(0,0)}catch(e){}}
+function ptCount(){if(pt.cd)return;pt.revealed=false;$('#pt-tgift').hidden=true;$$('#pt-tgrid .tface').forEach(b=>b.setAttribute('aria-pressed','false'));
+  const o=document.createElement('div');o.className='ovl point';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.setAttribute('aria-label','Count to three');
+  o.innerHTML='<div class="n land num" aria-live="assertive">3</div><p>Get ready to point.</p>';document.body.appendChild(o);pt.cd=o;let n=3;sfx('tick');
+  pt.cdIv=setInterval(()=>{n--;const d=$('.n',o);
+    if(n>0){d.textContent=n;d.classList.remove('land');void d.offsetWidth;d.classList.add('land');sfx('tick');return}
+    clearInterval(pt.cdIv);d.textContent='Point!';d.classList.remove('land');void d.offsetWidth;d.classList.add('land');$('p',o).textContent='Everyone point at your part. Laughing is allowed. Passing is fine.';sfx('got');vib([30,40,30]);
+    setTimeout(()=>{if(pt.cd===o){o.remove();pt.cd=null}pt.revealed=true;$('#pt-thint').textContent='Tap a face to read the gift it brings.';$('#pt-count').textContent='Play again'},2600)},900)}
+$('#pt-table-open').addEventListener('click',ptTable);
+$('#pt-table-back').addEventListener('click',ptToDeck);
+$('#pt-count').addEventListener('click',()=>{if(soundOn)audio();ptCount()});
 function ptMain(){
   if(pt.idx===0){ptStart();return}
   let k=pt.idx;if(pt.playing&&Date.now()-pt.autoAt<400&&pt.prevIdx>=1)k=pt.prevIdx;
@@ -1566,13 +1757,13 @@ $('#pt-send').addEventListener('click',()=>{
     PARTS.map((p,i)=>'<button class="tyc" type="button" data-i="'+i+'">'+pic(p.img,'arch a-sq')+'<span>'+esc(p.short)+'</span></button>').join('')+
     '</div><button class="btn sec wide" type="button" data-a="close">Close</button>',
     onReady:(o)=>{$$('.tyc',o).forEach(b=>b.addEventListener('click',()=>{const p=PARTS[+b.dataset.i];
-      shareSheet({what:'thanks',suit:p.suit,kicker:'For the '+p.short+' in my family',big:'Thank you',small:p.thanks,img:p.img,text:'For the '+p.short+' in my family: '+p.thanks+' Which part are you? '+SHARE_LINK})}))}});
+      shareSheet({what:'thanks',suit:p.suit,kicker:'For the '+p.short+' in my family',big:'Thank you',small:p.thanks,img:p.img,text:'For the '+p.short+' in my family: '+p.thanks+' Send one back: '+PARTS_LINK})}))}});
 });
 
 /* ================= start ================= */
 updBack();updSound();
 let h0='';try{h0=location.hash.slice(1)}catch(e){}
-track('kit_open',{via:params.get('from')==='share'?'share':bingoInvite?'invite':'direct',unlocked:unlocked?'yes':'no'});
+track('kit_open',{via:params.get('from')==='share'?'share':params.get('from')==='homescreen'?'homescreen':bingoInvite?'invite':partsInvite?'thanks':'direct',unlocked:unlocked?'yes':'no'});
 show(h0);
 try{flushSignups()}catch(e){}
 /* Offline: after one visit the page and pictures come from the phone, so weak wifi at the table is fine */
