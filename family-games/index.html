@@ -810,7 +810,7 @@ const PARTS_LINK=URL_BASE+'?play=parts';
 const NAMES={charades:'Family Charades',bingo:'Family Dinner Bingo',talk:'Questions for the Table',parts:'Which Part of You Came to Dinner?'};
 
 /* Portrait focus points (face centre x%, y%) */
-const FOCUS={s_daniel_phone:[49,30],s_priya_bingo:[56,37],s_tom_story:[48,34],s_kate:[50,27],s_tom:[47,30],s_priya:[49,27],s_marta:[52,31],s_marta_say:[47,30],s_daniel:[65,37],s_donkey:[57,43],s_llama:[52,37],s_llama_calm:[52,45],s_priya_worry:[54,30]};
+const FOCUS={s_daniel_phone:[49,30],s_priya_bingo:[56,37],s_tom_story:[48,34],s_kate:[50,27],s_tom:[47,30],s_priya:[49,27],s_marta:[52,31],s_marta_say:[47,30],s_daniel:[65,37],s_donkey:[57,43],s_llama:[52,37],s_llama_calm:[52,45],s_priya_worry:[54,30],s_daniel_plate:[66,33],s_tom_actually:[50,27],s_kate_recipe:[50,25],s_donkey_snacks:[45,30]};
 function pic(name,cls,zoom){const f=FOCUS[name]||[50,30];return '<span class="'+cls+'" style="--fx:'+f[0]+'%;--fy:'+f[1]+'%'+(zoom?';--z:'+zoom:'')+'"><img src="img/'+name+'.jpg" alt="" decoding="async"></span>'}
 
 /* ================= DATA: everything Anna may want to edit ================= */
@@ -872,6 +872,34 @@ const PARTS=[
  card:"Its gift: knowing when enough is enough.",
  prac:"Step into another room or outside for 30 seconds. Look at something far away. Come back when you\u2019re ready.",
  thanks:"Thank you for knowing your limits. The sofa is yours. We\u2019ll cover for you."},
+{n:"The People-Pleaser",short:"People-Pleaser",img:"s_daniel_plate",suit:"terra",
+ says:"Of course I\u2019ll have seconds!",
+ does:"Says yes to everything: more food, more chores, one more hour. Wants everyone to be happy.",
+ gift:"Parts like this often bring warmth, and make everyone feel welcome.",
+ card:"Its gift: making people feel welcome.",
+ prac:"Before the next yes, take one breath. Notice what you want. A small no is allowed.",
+ thanks:"Thank you for making everyone feel welcome. You can say no to the third plate. We\u2019ll still love you."},
+{n:"The Know-It-All",short:"Know-It-All",img:"s_tom_actually",suit:"night",
+ says:"Well, actually\u2026",
+ does:"Corrects the date, the recipe and the rules of the game. Has a fact for everything.",
+ gift:"Parts like this often bring curiosity and a love of getting things right.",
+ card:"Its gift: curiosity.",
+ prac:"Next time a correction is ready, let it wait one breath. Ask a question instead.",
+ thanks:"Thank you for knowing so much. Tonight we\u2019re happy to be a little wrong together."},
+{n:"The Tradition Keeper",short:"Tradition Keeper",img:"s_kate_recipe",suit:"sage",
+ says:"We always do it this way.",
+ does:"Guards the family recipes, the seating plan and the order of everything. Notices when something changes.",
+ gift:"Parts like this often bring belonging, and keep the family story alive.",
+ card:"Its gift: keeping the family story alive.",
+ prac:"Name one tradition you love. Then let one small thing be new this year. Notice what happens.",
+ thanks:"Thank you for keeping our traditions alive. There\u2019s room for one new one too."},
+{n:"The Outsider",short:"Outsider",img:"s_donkey_snacks",suit:"gold",
+ says:"Who are all these people?",
+ does:"Shows up when everyone has an inside joke but you. Stands near the snacks and watches.",
+ gift:"Parts like this often bring a fresh eye, and notice who else feels left out.",
+ card:"Its gift: a fresh eye.",
+ prac:"Find one person standing alone. Ask them one easy question. Notice your feet on the floor.",
+ thanks:"Thank you for noticing who\u2019s on the edge. Come sit with us. There\u2019s a chair for you."},
 {n:"The Calm One",short:"Calm One",img:"s_llama_calm",suit:"night",ring:true,
  says:"I\u2019m good right here.",
  does:"Sometimes no part takes over. There\u2019s just you: calm, curious, a little amused.",

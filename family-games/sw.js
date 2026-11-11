@@ -1,9 +1,9 @@
 /* Already Home: keeps the kit working on weak wifi after one visit.
    Page: network first (3.5 s), then the saved copy. Pictures and fonts: the saved copy first.
    Analytics (Umami) and sign-ups (Brevo) are never touched. Change V to refresh every phone's saved copy. */
-const V = 'ah-v9';
+const V = 'ah-v10';
 const FONTS_CSS = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,700&family=Inter:wght@400;500;600;700&display=swap';
-const IMGS = ['s_daniel', 's_daniel_phone', 's_donkey', 's_kate', 's_llama', 's_llama_calm', 's_marta', 's_marta_say', 's_priya', 's_priya_bingo', 's_priya_worry', 's_tom', 's_tom_story'];
+const IMGS = ['s_daniel', 's_daniel_phone', 's_donkey', 's_kate', 's_llama', 's_llama_calm', 's_marta', 's_marta_say', 's_priya', 's_priya_bingo', 's_priya_worry', 's_tom', 's_tom_story', 's_daniel_plate', 's_tom_actually', 's_kate_recipe', 's_donkey_snacks'];
 const CORE = ['./', 'manifest.webmanifest', 'icon-32.png', 'icon-192.png', 'icon-180.png'].concat(IMGS.map(n => 'img/' + n + '.jpg'));
 const PAGE = new URL('./', self.location).href;
 
