@@ -554,7 +554,7 @@ h1,h2,h3,p{margin:0}
   <div class="body">
     <h1 class="h1">Pick a game</h1>
     <div class="tiles" id="tiles">
-      <button class="tile s-terra" type="button" data-go="charades" style="--tr:-2deg"><span class="arch a-wide" style="--fx:49%;--fy:30%"><img src="img/s_daniel_phone.jpg" alt=""></span><span class="tn">Family Charades</span><span class="meta">3+ players &#xB7; 1-minute turns</span><span class="tl">Phone on your forehead. The others act.</span></button>
+      <button class="tile s-terra" type="button" data-go="charades" style="--tr:-2deg"><span class="arch a-wide" style="--fx:49%;--fy:30%"><img src="img/s_daniel_phone.jpg" alt=""></span><span class="tn">Family Charades</span><span class="meta">3+ players &#xB7; 90-second turns</span><span class="tl">Phone on your forehead. The others act.</span></button>
       <button class="tile s-sage" type="button" data-go="bingo" style="--tr:2deg;animation-delay:50ms"><span class="arch a-wide" style="--fx:56%;--fy:37%"><img src="img/s_priya_bingo.jpg" alt=""></span><span class="tn">Family Dinner Bingo</span><span class="meta">Everyone &#xB7; during the meal</span><span class="tl">Tap what happens. Three in a row wins.</span></button>
       <button class="tile s-night" type="button" data-go="talk" style="--tr:-2deg;animation-delay:100ms"><span class="arch a-wide" style="--fx:48%;--fy:34%"><img src="img/s_tom_story.jpg" alt=""></span><span class="tn">Questions for the Table</span><span class="meta">2+ players &#xB7; after the meal</span><span class="tl">Easy questions. Anyone can pass.</span></button>
       <button class="tile s-gold" type="button" data-go="parts" style="--tr:2deg;animation-delay:150ms"><span class="arch a-wide" style="--fx:50%;--fy:27%"><img src="img/s_kate.jpg" alt=""></span><span class="tn">Which Part of You Came to Dinner?</span><span class="meta">Just you &#xB7; 1 minute</span><span class="tl">Find the part of you that showed up.</span></button>
@@ -598,7 +598,7 @@ h1,h2,h3,p{margin:0}
       </div>
       <div class="opt">
         <span class="flabel" id="ch-len-l">Round length</span>
-        <div class="seg" id="ch-len" role="radiogroup" aria-labelledby="ch-len-l"><span class="thumb" aria-hidden="true"></span><button type="button" role="radio" aria-checked="true" data-v="60">60 sec</button><button type="button" role="radio" aria-checked="false" data-v="90">90 sec</button><button type="button" role="radio" aria-checked="false" data-v="0">No timer</button></div>
+        <div class="seg" id="ch-len" role="radiogroup" aria-labelledby="ch-len-l"><span class="thumb" aria-hidden="true"></span><button type="button" role="radio" aria-checked="true" data-v="90">90 sec</button><button type="button" role="radio" aria-checked="false" data-v="120">2 min</button><button type="button" role="radio" aria-checked="false" data-v="0">No timer</button></div>
       </div>
       <div class="opt">
         <button class="tbtn" type="button" id="fw-open" aria-expanded="false" aria-controls="fw-box"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg><span id="fw-open-t">Add our family&#x2019;s words</span></button>
@@ -984,7 +984,7 @@ const LAST={q:"One word for today. Go round the table.",who:"Last question \u00B
 const HELP={
 charades:`<h3>How to play: Family Charades</h3>
 <h4>Who plays</h4><p>Three or more. One person guesses. Everyone else acts.</p>
-<h4>Get ready</h4><ul><li>Pick a round: 60 seconds, 90 seconds, or no timer for small kids.</li><li>The guesser taps \u201CI\u2019m the guesser. Start\u201D. A 3-2-1 countdown begins.</li><li>The first time, a practice card shows how it works. No timer.</li><li>Lift the phone to your forehead, screen facing the room. No peeking.</li></ul>
+<h4>Get ready</h4><ul><li>Pick a round: 90 seconds, 2 minutes, or no timer for small kids.</li><li>The guesser taps \u201CI\u2019m the guesser. Start\u201D. A 3-2-1 countdown begins.</li><li>The first time, a practice card shows how it works. No timer.</li><li>Lift the phone to your forehead, screen facing the room. No peeking.</li></ul>
 <h4>Acting</h4><ul><li>A family moment shows on the screen, like \u201CGrandpa\u2019s glasses are on his head\u201D.</li><li>Everyone else acts it out. Sounds are fine. Words are not.</li><li>No pointing at the screen.</li></ul>
 <h4>Scoring</h4><ul><li>Got it? Tap the bottom half of the screen. One point.</li><li>Too hard? Tap the top half to pass. No point lost.</li></ul>
 <h4>The timer</h4><p>A bar shrinks as time runs out. The screen pulses in the last 10 seconds.</p>
@@ -1321,12 +1321,13 @@ function confetti(){if(RM())return;const c=$('#confetti'),x=c.getContext('2d');i
 function countUp(el,n){if(RM()||n===0){el.textContent=n;return}const t0=performance.now();const step=t=>{const k=Math.min(1,(t-t0)/600);el.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};el.textContent=0;requestAnimationFrame(step)}
 
 /* ================= FAMILY CHARADES ================= */
-const ch={state:'lobby',len:60,roundLen:60,deck:[],got:[],passed:[],t:0,iv:null,lastTo:null,cdIv:null,tupTo:null,rounds:[],name:'',last:false,cur:'',fh:null,cd:null,tup:null,done:true,lastTap:0,winner:null};
+const ch={state:'lobby',len:90,roundLen:90,deck:[],got:[],passed:[],t:0,iv:null,lastTo:null,cdIv:null,tupTo:null,rounds:[],name:'',last:false,cur:'',fh:null,cd:null,tup:null,done:true,lastTap:0,winner:null};
 function chShow(s){ch.state=s;['lobby','end','win'].forEach(k=>{$('#ch-'+k).hidden=k!==s;$('#ch-dock-'+k).hidden=k!==s})}
 seg($('#ch-len'),v=>{ch.len=+v});
 function updSound(){const b=$('#ch-sound');b.setAttribute('aria-pressed',soundOn?'true':'false');b.innerHTML=I(soundOn?'sound':'mute')}
 $('#ch-sound').addEventListener('click',()=>{soundOn=!soundOn;store.set('sound',soundOn);updSound();if(soundOn){audio();sfx('tick')}});
 const fmtT=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+const fmtLen=L=>L%60===0&&L>=120?(L/60)+' minutes':L+' seconds';
 function scoreLine(n){return n===0?'Zero. Clearly the actors\u2019 fault.':n<=3?'A warm-up. The actors are just getting started.':n<=7?'Solid. The actors can take a bow.':n<=11?'Impressive. Are you reading minds?':'Family legend. Nobody wants to go after you.'}
 function chStart(){
   if(ch.cd||ch.fh)return;
@@ -1461,9 +1462,9 @@ $('#ch-share').addEventListener('click',()=>{const r=ch.rounds[ch.rounds.length-
   if(n<=3){shareSheet({what:'charades-score',suit:'terra',kicker:NAMES.charades,img:'s_daniel_phone',big:'We laughed more than we guessed.',small:'Your turn.',
     text:'We laughed more than we guessed. Your turn: '+SHARE_LINK});return}
   shareSheet({what:'charades-score',suit:'terra',kicker:NAMES.charades,img:'s_daniel_phone',
-    big:L?'I guessed '+n+' in '+L+' seconds':'I guessed '+n+' family moment'+(n===1?'':'s'),
+    big:L?'I guessed '+n+' in '+fmtLen(L):'I guessed '+n+' family moment'+(n===1?'':'s'),
     small:ch.passed.length?'The one that got away: \u201C'+stripQ(ch.passed[0])+'\u201D':'Not a single pass.',
-    text:L?'I guessed '+n+' family moment'+(n===1?'':'s')+' in '+L+' seconds. Your turn: '+SHARE_LINK:'I guessed '+n+' family moment'+(n===1?'':'s')+' in Family Charades. Your turn: '+SHARE_LINK})});
+    text:L?'I guessed '+n+' family moment'+(n===1?'':'s')+' in '+fmtLen(L)+'. Your turn: '+SHARE_LINK:'I guessed '+n+' family moment'+(n===1?'':'s')+' in Family Charades. Your turn: '+SHARE_LINK})});
 $('#ch-wshare').addEventListener('click',()=>{const w=ch.winner;if(!w)return;
   shareSheet({what:'charades-winner',suit:'terra',kicker:NAMES.charades,img:'s_daniel_phone',big:w.names+' won our family charades',small:w.n+' guessed. Can your family beat it?',
     text:w.names+' won our family charades with '+w.n+'. Can your family beat it? '+SHARE_LINK})});
