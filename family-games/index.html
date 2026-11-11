@@ -1535,7 +1535,8 @@ $('#bn-new').addEventListener('click',()=>{
 const tt={lvl:'warm',pools:{},mode:'pick',opts:[],q:null,all:false,guess:false};
 const LVL={warm:'Light',story:'Stories',deep:'Deeper',newyear:'New Year'};
 function ttTake(){const l=tt.lvl;if(!tt.pools[l]||!tt.pools[l].length)tt.pools[l]=shuffle(QS[l]);return tt.pools[l].pop()}
-function ttDeal(anim){const a=ttTake();let b=ttTake();if(b===a)b=ttTake();tt.opts=[a,b];tt.mode='pick';tt.all=false;tt.q=null;ttRender(anim)}
+function ttReturn(list,lvl){const p=tt.pools[lvl];if(!p)return;list.forEach(q=>{if(q&&!p.includes(q))p.unshift(q)})}
+function ttDeal(anim){if(tt.mode==='pick'&&tt.opts.length)ttReturn(tt.opts,tt.optsLvl);const a=ttTake();let b=ttTake();if(b===a)b=ttTake();tt.opts=[a,b];tt.optsLvl=tt.lvl;tt.mode='pick';tt.all=false;tt.q=null;ttRender(anim)}
 function ttRender(anim){
   const c=$('#tt-card');c.classList.remove('out');c.style.transform='';c.style.transition='';
   let h='<p class="lab">'+(tt.mode==='last'?'Last question':LVL[tt.lvl])+'</p>';
@@ -1544,7 +1545,7 @@ function ttRender(anim){
   const who=tt.mode==='pick'?'Pick one to answer.':tt.mode==='last'?LAST.who:tt.guess?'Guessing game: the phone holder thinks of an answer. Everyone else guesses first.':tt.all?'Everyone answers this one. Go round the table.':'Whoever holds the phone answers';
   h+='<div class="qwho'+(((tt.all||tt.guess)&&tt.mode==='q')||tt.mode==='last'?' all':'')+'">'+pic('s_tom_story','av',1.5)+'<span>'+esc(who)+'</span></div>';
   c.innerHTML=h;
-  $$('.qopt',c).forEach(b=>b.addEventListener('click',()=>{tt.q=tt.opts[+b.dataset.i];tt.mode='q';ttRender(true);live(tt.q.q)}));
+  $$('.qopt',c).forEach(b=>b.addEventListener('click',()=>{tt.q=tt.opts[+b.dataset.i];ttReturn([tt.opts[1-(+b.dataset.i)]],tt.optsLvl);tt.mode='q';ttRender(true);live(tt.q.q)}));
   $('#tt-dock').hidden=tt.mode==='last';$('#tt-dock-last').hidden=tt.mode!=='last';
   const all=$('#tt-all');all.disabled=tt.mode!=='q';all.setAttribute('aria-pressed',tt.all?'true':'false');
   $('#tt-send').hidden=tt.mode!=='q';$('#tt-last').hidden=tt.mode==='last';
