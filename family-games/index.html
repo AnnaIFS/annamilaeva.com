@@ -1355,7 +1355,7 @@ function chPlay(){
   $('.fh-zone.bot',fh).addEventListener('click',()=>chAnswer(true));
   $('.fh-stop',fh).addEventListener('click',e=>{e.stopPropagation();chEnd()});
   fh.addEventListener('keydown',e=>{if(e.key==='ArrowUp'){e.preventDefault();chAnswer(false)}else if(e.key==='ArrowDown'){e.preventDefault();chAnswer(true)}else if(e.key==='Escape'){e.preventDefault();chEnd()}});
-  ch.deck=chDeck();chNext('down');
+  if(!ch.deck||!ch.deck.length)ch.deck=chDeck();chNext('down');
   fh.tabIndex=-1;try{fh.focus({preventScroll:true})}catch(e){}
   wake(true);
   if(ch.roundLen){ch.t=ch.roundLen;chTick();ch.iv=setInterval(()=>{ch.t--;chTick();if(ch.t<=0){clearInterval(ch.iv);chLast()}},1000)}
@@ -1447,11 +1447,11 @@ $('#ch-name').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefaul
 /* Our family's words: mixed in near the top of the deck so they come up in the round */
 const fw={list:(()=>{const v=store.get('fw');return Array.isArray(v)?v.filter(x=>typeof x==='string').slice(0,20):[]})()};
 function fwDraw(){const l=$('#fw-list');l.innerHTML=fw.list.map((w,i)=>'<span class="fwchip">'+esc(w)+'<button type="button" data-i="'+i+'" aria-label="Remove '+esc(w)+'">'+I('close')+'</button></span>').join('');
-  $$('button',l).forEach(b=>b.addEventListener('click',()=>{fw.list.splice(+b.dataset.i,1);store.set('fw',fw.list);fwDraw()}));
+  $$('button',l).forEach(b=>b.addEventListener('click',()=>{const gone=fw.list.splice(+b.dataset.i,1)[0];if(ch.deck)ch.deck=ch.deck.filter(x=>x!==gone);store.set('fw',fw.list);fwDraw()}));
   $('#fw-open-t').textContent=fw.list.length?'Our family\u2019s words ('+fw.list.length+')':'Add our family\u2019s words'}
 function fwAdd(){const inp=$('#fw-in');const v=inp.value.replace(/\s+/g,' ').trim().slice(0,40);if(!v){inp.focus();return}
   if(fw.list.length>=20){toast('That\u2019s 20 already. Remove one to add another.');return}
-  if(!fw.list.some(x=>x.toLowerCase()===v.toLowerCase()))fw.list.push(v);store.set('fw',fw.list);inp.value='';fwDraw();try{inp.focus()}catch(e){}}
+  if(!fw.list.some(x=>x.toLowerCase()===v.toLowerCase())){fw.list.push(v);if(ch.deck&&ch.deck.length){const pos=Math.max(0,ch.deck.length-1-Math.floor(Math.random()*Math.min(6,ch.deck.length)));ch.deck.splice(pos,0,v)}}store.set('fw',fw.list);inp.value='';fwDraw();try{inp.focus()}catch(e){}}
 $('#fw-open').addEventListener('click',()=>{const b=$('#fw-box');b.hidden=!b.hidden;$('#fw-open').setAttribute('aria-expanded',b.hidden?'false':'true');if(!b.hidden)try{$('#fw-in').focus()}catch(e){}});
 $('#fw-add').addEventListener('click',fwAdd);
 $('#fw-in').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();fwAdd()}});
@@ -1459,7 +1459,7 @@ fwDraw();
 function chDeck(){const base=shuffle(CARDS);if(!fw.list.length)return base;const k=Math.min(base.length,Math.max(6,fw.list.length*2));const top=shuffle(fw.list.concat(base.slice(base.length-k)));return base.slice(0,base.length-k).concat(top)}
 $('#ch-next').addEventListener('click',()=>{$('#ch-name').value='';chShow('lobby');try{window.scrollTo(0,0)}catch(e){}});
 $('#ch-endgame').addEventListener('click',chWin);
-$('#ch-new').addEventListener('click',()=>{ch.rounds=[];$('#ch-name').value='';chShow('lobby');try{window.scrollTo(0,0)}catch(e){}});
+$('#ch-new').addEventListener('click',()=>{ch.rounds=[];ch.deck=[];$('#ch-name').value='';chShow('lobby');try{window.scrollTo(0,0)}catch(e){}});
 $('#ch-share').addEventListener('click',()=>{const r=ch.rounds[ch.rounds.length-1];const n=r?r.n:0;const L=ch.roundLen;
   if(n<=3){shareSheet({what:'charades-score',suit:'terra',kicker:NAMES.charades,img:'s_daniel_phone',big:'We laughed more than we guessed.',small:'Your turn.',
     text:'We laughed more than we guessed. Your turn: '+SHARE_LINK});return}
