@@ -2260,6 +2260,13 @@ p {
 
   .nav__logo {
     order: 1;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .nav__hamburger {
+    flex: none;
+    margin-left: 12px;
   }
 
   /* Hide the drawer's lang toggle since we now show it always */

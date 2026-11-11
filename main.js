@@ -219,7 +219,8 @@ document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
 })();
 
 // ---- Holiday gifts bar (Nov 2026 to Jan 2027) ----
-// A slim line above the menu that points to /gifts. Everything for it lives in
+// A slim line above the menu that points to /gifts (English pages) or /es/regalos
+// (Spanish pages). Everything for it lives in
 // this block: the style, the markup and the switch-off date. From HOLIDAY_BAR_END
 // on (the visitor's own clock) it never appears, so it removes itself. To take
 // it out early, delete this block and gifts-llama.jpg.
@@ -231,8 +232,15 @@ document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
   var path = window.location.pathname;
 
   if (new Date() >= HOLIDAY_BAR_END) return;
-  if (/^\/es(\/|$)/.test(path)) return;                // Spanish pages: no bar
-  if (/^\/gifts(\.html)?\/?$/.test(path)) return;      // already on the gifts page
+  if (/^\/(gifts|es\/regalos)(\.html)?\/?$/.test(path)) return; // already on a gifts page
+  var es = /^\/es(\/|$)/.test(path);
+  var t = es ? {
+    region: 'Regalos para estas fiestas', href: '/es/regalos', title: 'Regalos para estas fiestas',
+    more: 'Menos cosas, m\u00e1s cuidado.', cta: 'Ver los regalos', close: 'Cerrar la barra de regalos'
+  } : {
+    region: 'Holiday gifts', href: '/gifts', title: 'Holiday gifts that help',
+    more: 'Less stuff, more care.', cta: 'See the gifts', close: 'Close the holiday gifts bar'
+  };
   try { if (localStorage.getItem('hgbar-closed') === '1') return; } catch (e) {}
 
   var css =
@@ -250,6 +258,8 @@ document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
     '@media (prefers-reduced-motion:no-preference){.hgbar__img{animation:hgbarNod 0.9s ease-in-out 0.8s 1 both;transform-origin:50% 85%;}}' +
     '@keyframes hgbarNod{0%{transform:rotate(0)}30%{transform:rotate(-9deg)}65%{transform:rotate(6deg)}100%{transform:rotate(0)}}' +
     '@media (max-width:768px){.hgbar__more,.hgbar__dot,.hgbar__words{display:none;}.hgbar__inner{justify-content:flex-start;}.hgbar__link{gap:10px;}.hgbar__img{width:32px;height:32px;}.hgbar__title{font-size:1.02rem;border-bottom:1.5px solid #E8A020;}.hgbar__cta{border-bottom:0;font-size:1.05rem;}}' +
+    '@media (max-width:399px){.hgbar__inner{padding-right:48px;}.hgbar__link{gap:8px;}.hgbar__img{width:28px;height:28px;}.hgbar__title{font-size:0.92rem;}}' +
+    '@media (max-width:339px){.hgbar__inner{padding-left:12px;}.hgbar__title{font-size:0.84rem;}}' +
     '@media print{.hgbar{display:none;}}';
 
   var style = document.createElement('style');
@@ -259,16 +269,16 @@ document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
   var bar = document.createElement('div');
   bar.className = 'hgbar';
   bar.setAttribute('role', 'region');
-  bar.setAttribute('aria-label', 'Holiday gifts');
+  bar.setAttribute('aria-label', t.region);
   bar.innerHTML =
     '<div class="hgbar__inner">' +
-      '<a class="hgbar__link" href="/gifts" data-umami-event="holiday-bar-click">' +
+      '<a class="hgbar__link" href="' + t.href + '" data-umami-event="holiday-bar-click" data-umami-event-lang="' + (es ? 'es' : 'en') + '">' +
         '<img class="hgbar__img" src="/gifts-llama.jpg" alt="" width="36" height="36">' +
-        '<span><span class="hgbar__title">Holiday gifts that help<span class="hgbar__dot">.</span></span> ' +
-        '<span class="hgbar__more">Less stuff, more care.</span></span> ' +
-        '<span class="hgbar__cta"><span class="hgbar__words">See the gifts&nbsp;</span><span aria-hidden="true">&rarr;</span></span>' +
+        '<span><span class="hgbar__title">' + t.title + '<span class="hgbar__dot">.</span></span> ' +
+        '<span class="hgbar__more">' + t.more + '</span></span> ' +
+        '<span class="hgbar__cta"><span class="hgbar__words">' + t.cta + '&nbsp;</span><span aria-hidden="true">&rarr;</span></span>' +
       '</a>' +
-      '<button type="button" class="hgbar__close" aria-label="Close the holiday gifts bar">&times;</button>' +
+      '<button type="button" class="hgbar__close" aria-label="' + t.close + '">&times;</button>' +
     '</div>';
 
   // After the skip link, so keyboard users still meet "Skip to content" first.
