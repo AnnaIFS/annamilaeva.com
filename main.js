@@ -223,10 +223,10 @@ document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
 // (Spanish pages). Everything for it lives in
 // this block: the style, the markup and the switch-off date. From HOLIDAY_BAR_END
 // on (the visitor's own clock) it never appears, so it removes itself. To take
-// it out early, delete this block and gifts-llama.jpg.
+// it out early, delete this block, gifts-book.jpg and gifts-book-es.jpg.
 // The bar sits in the page flow and scrolls away; the fixed menu rides down with
 // it at the top and settles at 0 once the bar is gone.
-// The bar cannot be closed (Anna, 16 Nov 2026). The llama nods once (under a second), never with reduced motion.
+// The bar cannot be closed (Anna, 16 Nov 2026). The book picture nods once (under a second), never with reduced motion.
 (function () {
   var HOLIDAY_BAR_END = new Date(2027, 0, 7); // 7 January 2027, 00:00 local time
   var path = window.location.pathname;
@@ -235,10 +235,10 @@ document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
   if (/^\/(gifts|es\/regalos)(\.html)?\/?$/.test(path)) return; // already on a gifts page
   var es = /^\/es(\/|$)/.test(path);
   var t = es ? {
-    region: 'Regalos para estas fiestas', href: '/es/regalos', title: 'Regalos para estas fiestas',
+    region: 'Regalos para estas fiestas', href: '/es/regalos', img: '/gifts-book-es.jpg', title: 'Regalos para estas fiestas',
     more: 'Menos cosas, m\u00e1s cuidado.', cta: 'Ver los regalos'
   } : {
-    region: 'Holiday gifts', href: '/gifts', title: 'Holiday gifts that help',
+    region: 'Holiday gifts', href: '/gifts', img: '/gifts-book.jpg', title: 'Holiday gifts that help',
     more: 'Less stuff, more care.', cta: 'See the gifts'
   };
 
@@ -246,7 +246,7 @@ document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
     '.hgbar{position:relative;z-index:1001;background:#A94A22;color:#fff;font-family:var(--font-body);}' +
     '.hgbar__inner{display:flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:6px 16px;max-width:1200px;margin:0 auto;}' +
     '.hgbar__link{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-size:0.95rem;line-height:1.35;}' +
-    '.hgbar__img{flex:none;width:36px;height:36px;border-radius:50%;border:2px solid #FAF7F2;background:#FAF7F2;object-fit:cover;}' +
+    '.hgbar__img{flex:none;width:36px;height:36px;border-radius:7px;border:2px solid #FAF7F2;background:#FAF7F2;object-fit:cover;}' +
     '.hgbar__title{font-family:var(--font-heading);font-size:1.08rem;font-weight:500;}' +
     '.hgbar__more{opacity:0.92;}' +
     '.hgbar__cta{font-weight:600;color:#fff;border-bottom:1.5px solid #E8A020;padding-bottom:1px;white-space:nowrap;}' +
@@ -270,7 +270,7 @@ document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(link => {
   bar.innerHTML =
     '<div class="hgbar__inner">' +
       '<a class="hgbar__link" href="' + t.href + '" data-umami-event="holiday-bar-click" data-umami-event-lang="' + (es ? 'es' : 'en') + '">' +
-        '<img class="hgbar__img" src="/gifts-llama.jpg" alt="" width="36" height="36">' +
+        '<img class="hgbar__img" src="' + t.img + '" alt="" width="36" height="36">' +
         '<span><span class="hgbar__title">' + t.title + '<span class="hgbar__dot">.</span></span> ' +
         '<span class="hgbar__more">' + t.more + '</span></span> ' +
         '<span class="hgbar__cta"><span class="hgbar__words">' + t.cta + '&nbsp;</span><span aria-hidden="true">&rarr;</span></span>' +
